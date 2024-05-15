@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    internal class Cliente : Usuario
+    public class Cliente : Usuario
     {
         int idCliente = 0;
         string direccion = string.Empty;

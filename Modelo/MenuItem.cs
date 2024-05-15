@@ -8,11 +8,11 @@ namespace Modelo
 {
     public class MenuItem
     {
-        private int idMenu;
-        private string nombre;
-        private string descripcion;
-        private double precio;
-        private bool estado;
+        private int idMenu = 0;
+        private string nombre = string.Empty;
+        private string descripcion = string.Empty;
+        private double precio = 0;
+        private bool estado = true;
 
         public MenuItem(int idMenu, string nombre, string descripcion, double precio, bool estado)
         {

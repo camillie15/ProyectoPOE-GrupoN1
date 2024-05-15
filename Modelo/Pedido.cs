@@ -10,7 +10,7 @@ namespace Modelo
     public class Pedido
     {
         public int codPedido = 0;
-        List<MenuItem> menuSeleccionado = new List<MenuItem>();
+        List<MenuItem> menuSeleccionado = null;
         public int cantidadProductos = 0;
         public double totalPedido = 0;
 

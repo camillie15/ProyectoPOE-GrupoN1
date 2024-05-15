@@ -9,7 +9,7 @@ namespace Modelo
     // By: Mateo Aguilar Villafuerte
     internal class Menu
     {
-        private List<MenuItem> menuItem;
+        private List<MenuItem> menuItem = null;
 
         public Menu()
         {

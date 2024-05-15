@@ -9,11 +9,11 @@ namespace Modelo
     //By: Juliet Ortuño Sanchez
     public class Factura
     {
-        private Usuario usuario;
-        private Pedido pedido;
-        private double iva;
-        private string nombre;
-        private double total;
+        private Usuario usuario = null;
+        private Pedido pedido = null;
+        private double iva = 0;
+        private string nombre = string.Empty;
+        private double total = 0;
 
         public Factura(Usuario usuario, Pedido pedido, double iva, string nombre, double total)
         {
