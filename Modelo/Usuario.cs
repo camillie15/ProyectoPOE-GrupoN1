@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controlador
+namespace Modelo
 {
-    public class Class1
+    //By: Erick Cordova Viteri
+    internal class Usuario
     {
     }
 }
