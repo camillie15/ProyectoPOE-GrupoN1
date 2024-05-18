@@ -9,26 +9,23 @@ namespace Modelo
     //By: Juliet Ortuño Sanchez
     public class Factura
     {
-        private Usuario usuario = null;
         private Pedido pedido = null;
         private double iva = 0;
-        private string nombre = string.Empty;
         private double total = 0;
+        private int idFactura = 0;
 
-        public Factura(Usuario usuario, Pedido pedido, double iva, string nombre, double total)
+        public Factura(Pedido pedido, double iva, double total, int idFactura)
         {
-            this.usuario = usuario;
             this.pedido = pedido;
             this.iva = iva;
-            this.nombre = nombre;
             this.total = total;
+            this.idFactura = idFactura;
         }
 
         public double Iva { get => iva; set => iva = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
         public double Total { get => total; set => total = value; }
-        internal Usuario Usuario { get => usuario; set => usuario = value; }
-        internal Pedido Pedido { get => pedido; set => pedido = value; }
+        public Pedido Pedido { get => pedido; set => pedido = value; }
+        public int IdFactura { get => idFactura; set => idFactura = value; }
 
         public override string ToString()
         {
