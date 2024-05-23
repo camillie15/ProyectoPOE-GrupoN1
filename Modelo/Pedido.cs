@@ -10,7 +10,7 @@ namespace Modelo
     public class Pedido
     {
         public int codPedido = 0;
-        List<MenuItem> menuSeleccionado = null;
+        List<Plato> menuSeleccionado = null;
         public int cantidadProductos = 0;
         public double totalPedido = 0;
 
@@ -20,9 +20,9 @@ namespace Modelo
 
         public double TotalPedido { get => totalPedido; set => totalPedido = value; }
 
-        public List<MenuItem> MenuSeleccionado { get => menuSeleccionado; set => menuSeleccionado = value; }
+        public List<Plato> MenuSeleccionado { get => menuSeleccionado; set => menuSeleccionado = value; }
 
-        public Pedido(int codPedido, int cantididadProductos, double totalPedido, List<MenuItem> menuSeleccionado)
+        public Pedido(int codPedido, int cantididadProductos, double totalPedido, List<Plato> menuSeleccionado)
         {
             CodPedido = codPedido;
             CantidadProductos = cantididadProductos;
@@ -30,7 +30,7 @@ namespace Modelo
             MenuSeleccionado = menuSeleccionado;
         }
 
-        public double calcularPedido(List<MenuItem> menuSeleccionado)
+        public double calcularPedido(List<Plato> menuSeleccionado)
         {
             double totalP = 0;
             foreach (var combo in menuSeleccionado)
