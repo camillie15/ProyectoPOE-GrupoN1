@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Modelo
 {
     //By: Erick Cordova Viteri
-    public class Usuario
+    public class Persona
     {
         public string nombre = string.Empty;
         public string apellido = string.Empty;
@@ -26,7 +26,7 @@ namespace Modelo
         public string Password { get => password; set => password = value; }
         public bool Estado { get => estado; set => estado = value; }
 
-        public Usuario(string nombre, string apellido, string cedula, int edad, string email, string userName, string password, bool estado)
+        public Persona(string nombre, string apellido, string cedula, int edad, string email, string userName, string password, bool estado)
         {
             this.nombre = nombre;
             this.apellido = apellido;

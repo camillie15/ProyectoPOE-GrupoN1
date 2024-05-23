@@ -10,6 +10,7 @@ namespace Modelo
     public class Pedido
     {
         public int codPedido = 0;
+        private Cliente cliente = null;
         List<Plato> menuSeleccionado = null;
         public int cantidadProductos = 0;
         public double totalPedido = 0;
@@ -21,13 +22,15 @@ namespace Modelo
         public double TotalPedido { get => totalPedido; set => totalPedido = value; }
 
         public List<Plato> MenuSeleccionado { get => menuSeleccionado; set => menuSeleccionado = value; }
+        public Cliente Cliente { get => cliente; set => cliente = value; }
 
-        public Pedido(int codPedido, int cantididadProductos, double totalPedido, List<Plato> menuSeleccionado)
+        public Pedido(int codPedido, int cantidadProductos, double totalPedido, List<Plato> menuSeleccionado, Cliente cliente)
         {
             CodPedido = codPedido;
-            CantidadProductos = cantididadProductos;
+            CantidadProductos = cantidadProductos;
             TotalPedido = totalPedido;
             MenuSeleccionado = menuSeleccionado;
+            Cliente = cliente;
         }
 
         public double calcularPedido(List<Plato> menuSeleccionado)
