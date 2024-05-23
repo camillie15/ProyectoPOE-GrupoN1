@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A74FB6D-6EC8-4DF3-96A5-70DBF2F2C13E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Vista</RootNamespace>
-    <AssemblyName>Vista</AssemblyName>
+    <ProjectGuid>{5520D3B0-B44C-4750-812D-75A924CC03EE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Forms</RootNamespace>
+    <AssemblyName>Forms</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,56 +35,46 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IngresarFactura.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IngresarFactura.Designer.cs">
-      <DependentUpon>IngresarFactura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IngresarPedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IngresarPedido.Designer.cs">
-      <DependentUpon>IngresarPedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IngresarPlato.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IngresarPlato.Designer.cs">
-      <DependentUpon>IngresarPlato.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IngresarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IngresarCliente.Designer.cs">
-      <DependentUpon>IngresarCliente.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Controlador\Controlador.csproj">
-      <Project>{1395b7dd-9ee3-4651-b87d-ebe9d65d42bb}</Project>
-      <Name>Controlador</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="IngresarPedido.resx">
-      <DependentUpon>IngresarPedido.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
