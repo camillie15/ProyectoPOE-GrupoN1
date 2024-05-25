@@ -153,6 +153,7 @@
             this.btnContinuarCliente.TabIndex = 10;
             this.btnContinuarCliente.Text = "Continuar";
             this.btnContinuarCliente.UseVisualStyleBackColor = true;
+            this.btnContinuarCliente.Click += new System.EventHandler(this.btnContinuarCliente_Click);
             // 
             // label1
             // 

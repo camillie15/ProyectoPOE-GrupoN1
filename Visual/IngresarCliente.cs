@@ -17,5 +17,10 @@ namespace Visual
             InitializeComponent();
         }
 
+        private void btnContinuarCliente_Click(object sender, EventArgs e)
+        {
+            IngresarPedido ingresarPedido = new IngresarPedido();
+            ingresarPedido.Show();
+        }
     }
 }
