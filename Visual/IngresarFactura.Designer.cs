@@ -1,4 +1,4 @@
-﻿namespace Vista
+﻿namespace Visual
 {
     partial class IngresarFactura
     {
