@@ -10,6 +10,9 @@ namespace Vista
     {
         static void Main(string[] args)
         {
+            IngresarPedido ingresarPedido = new IngresarPedido();
+            ingresarPedido.Show();
+            Console.ReadKey();
         }
     }
 }
