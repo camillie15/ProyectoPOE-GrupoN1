@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Vista
 {
     internal class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            IngresarPedido ingresarPedido = new IngresarPedido();
-            ingresarPedido.Show();
-            Console.ReadKey();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new IngresarCliente());
         }
     }
 }
