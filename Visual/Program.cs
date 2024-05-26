@@ -17,7 +17,7 @@ namespace Visual
             //archivo correcto
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IngresarCliente());
+            Application.Run(new MenuPrincipal());
         }
     }
 }

@@ -10,18 +10,17 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class IngresarCliente : Form
+    public partial class MenuPrincipal : Form
     {
-        public IngresarCliente()
+        public MenuPrincipal()
         {
             InitializeComponent();
         }
 
-        private void btnContinuarCliente_Click(object sender, EventArgs e)
+        private void btnMenuPedido_Click(object sender, EventArgs e)
         {
-            IngresarPedido ingresarPedido = new IngresarPedido();
-            ingresarPedido.Show();
-            this.Close();
+            IngresarCliente ingresarCliente = new IngresarCliente();
+            ingresarCliente.Show();
         }
     }
 }

@@ -42,26 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblCedulaCliente
-            // 
-            this.lblCedulaCliente.AutoSize = true;
-            this.lblCedulaCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedulaCliente.Location = new System.Drawing.Point(328, 67);
-            this.lblCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblCedulaCliente.Name = "lblCedulaCliente";
-            this.lblCedulaCliente.Size = new System.Drawing.Size(76, 20);
-            this.lblCedulaCliente.TabIndex = 6;
-            this.lblCedulaCliente.Text = "Cedula:";
-            // 
-            // txtCedulaCliente
-            // 
-            this.txtCedulaCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaCliente.Location = new System.Drawing.Point(405, 64);
-            this.txtCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtCedulaCliente.Name = "txtCedulaCliente";
-            this.txtCedulaCliente.Size = new System.Drawing.Size(131, 28);
-            this.txtCedulaCliente.TabIndex = 7;
-            // 
             // lblIdCliente
             // 
             this.lblIdCliente.AutoSize = true;
@@ -121,7 +101,26 @@
             this.txtApellidoCliente.Name = "txtApellidoCliente";
             this.txtApellidoCliente.Size = new System.Drawing.Size(406, 28);
             this.txtApellidoCliente.TabIndex = 5;
-            
+            // 
+            // lblCedulaCliente
+            // 
+            this.lblCedulaCliente.AutoSize = true;
+            this.lblCedulaCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedulaCliente.Location = new System.Drawing.Point(328, 67);
+            this.lblCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblCedulaCliente.Name = "lblCedulaCliente";
+            this.lblCedulaCliente.Size = new System.Drawing.Size(76, 20);
+            this.lblCedulaCliente.TabIndex = 6;
+            this.lblCedulaCliente.Text = "Cedula:";
+            // 
+            // txtCedulaCliente
+            // 
+            this.txtCedulaCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaCliente.Location = new System.Drawing.Point(405, 64);
+            this.txtCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCedulaCliente.Name = "txtCedulaCliente";
+            this.txtCedulaCliente.Size = new System.Drawing.Size(131, 28);
+            this.txtCedulaCliente.TabIndex = 7;
             // 
             // lblEmailCliente
             // 
@@ -183,7 +182,9 @@
             this.Controls.Add(this.lblNombreCliente);
             this.Controls.Add(this.lblIdCliente);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.MaximizeBox = false;
             this.Name = "IngresarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Cliente";
