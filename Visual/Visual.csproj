@@ -111,6 +111,12 @@
     <EmbeddedResource Include="IngresarPedido.resx">
       <DependentUpon>IngresarPedido.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpcionesAdministracion.resx">
+      <DependentUpon>OpcionesAdministracion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
