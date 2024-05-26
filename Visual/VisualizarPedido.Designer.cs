@@ -33,9 +33,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnBuscarPedido = new System.Windows.Forms.Button();
             this.txtVisualizarPedidos = new System.Windows.Forms.TextBox();
             this.btnVolverPedido = new System.Windows.Forms.Button();
+            this.btnBuscarPedido = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -89,16 +89,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "->";
             // 
-            // btnBuscarPedido
-            // 
-            this.btnBuscarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarPedido.Location = new System.Drawing.Point(79, 112);
-            this.btnBuscarPedido.Name = "btnBuscarPedido";
-            this.btnBuscarPedido.Size = new System.Drawing.Size(105, 44);
-            this.btnBuscarPedido.TabIndex = 5;
-            this.btnBuscarPedido.Text = "Buscar";
-            this.btnBuscarPedido.UseVisualStyleBackColor = true;
-            // 
             // txtVisualizarPedidos
             // 
             this.txtVisualizarPedidos.Enabled = false;
@@ -112,13 +102,31 @@
             // btnVolverPedido
             // 
             this.btnVolverPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolverPedido.Location = new System.Drawing.Point(358, 440);
+            this.btnVolverPedido.Image = global::Visual.Properties.Resources.imgVolver;
+            this.btnVolverPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolverPedido.Location = new System.Drawing.Point(354, 432);
             this.btnVolverPedido.Name = "btnVolverPedido";
-            this.btnVolverPedido.Size = new System.Drawing.Size(105, 44);
+            this.btnVolverPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnVolverPedido.Size = new System.Drawing.Size(145, 50);
             this.btnVolverPedido.TabIndex = 7;
             this.btnVolverPedido.Text = "Volver";
+            this.btnVolverPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVolverPedido.UseVisualStyleBackColor = true;
             this.btnVolverPedido.Click += new System.EventHandler(this.btnVolverPedido_Click);
+            // 
+            // btnBuscarPedido
+            // 
+            this.btnBuscarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarPedido.Image = global::Visual.Properties.Resources.imgBuscar;
+            this.btnBuscarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarPedido.Location = new System.Drawing.Point(79, 112);
+            this.btnBuscarPedido.Name = "btnBuscarPedido";
+            this.btnBuscarPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBuscarPedido.Size = new System.Drawing.Size(145, 50);
+            this.btnBuscarPedido.TabIndex = 5;
+            this.btnBuscarPedido.Text = "Buscar ";
+            this.btnBuscarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarPedido.UseVisualStyleBackColor = true;
             // 
             // VisualizarPedido
             // 

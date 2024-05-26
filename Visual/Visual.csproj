@@ -125,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="VisualizarPedido.resx">
       <DependentUpon>VisualizarPedido.cs</DependentUpon>
@@ -159,6 +160,33 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgVolver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgBuscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgConfig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgPedido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgPlato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgCliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgFactura.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgPedidoOA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgPedidoOAA.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
