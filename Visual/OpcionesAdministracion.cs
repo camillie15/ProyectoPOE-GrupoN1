@@ -16,5 +16,16 @@ namespace Visual
         {
             InitializeComponent();
         }
+
+        private void btnVisualizarPedido_Click(object sender, EventArgs e)
+        {
+            VisualizarPedido visualizarPedido = new VisualizarPedido(); 
+            visualizarPedido.Show();
+        }
+
+        private void btnVolverOA_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

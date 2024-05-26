@@ -43,7 +43,7 @@
             this.txtCantPedido = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtTotPedido = new System.Windows.Forms.TextBox();
-            this.btnContPedido = new System.Windows.Forms.Button();
+            this.btnContinuarPedido = new System.Windows.Forms.Button();
             this.btnAggPedido = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -194,15 +194,15 @@
             this.txtTotPedido.Size = new System.Drawing.Size(84, 28);
             this.txtTotPedido.TabIndex = 14;
             // 
-            // btnContPedido
+            // btnContinuarPedido
             // 
-            this.btnContPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContPedido.Location = new System.Drawing.Point(311, 430);
-            this.btnContPedido.Name = "btnContPedido";
-            this.btnContPedido.Size = new System.Drawing.Size(156, 44);
-            this.btnContPedido.TabIndex = 15;
-            this.btnContPedido.Text = "Continuar";
-            this.btnContPedido.UseVisualStyleBackColor = true;
+            this.btnContinuarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinuarPedido.Location = new System.Drawing.Point(311, 430);
+            this.btnContinuarPedido.Name = "btnContinuarPedido";
+            this.btnContinuarPedido.Size = new System.Drawing.Size(156, 44);
+            this.btnContinuarPedido.TabIndex = 15;
+            this.btnContinuarPedido.Text = "Continuar";
+            this.btnContinuarPedido.UseVisualStyleBackColor = true;
             // 
             // btnAggPedido
             // 
@@ -232,7 +232,7 @@
             this.ClientSize = new System.Drawing.Size(787, 487);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnAggPedido);
-            this.Controls.Add(this.btnContPedido);
+            this.Controls.Add(this.btnContinuarPedido);
             this.Controls.Add(this.txtTotPedido);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtCantPedido);
@@ -249,6 +249,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "IngresarPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresar Pedido";
@@ -274,7 +275,7 @@
         private System.Windows.Forms.TextBox txtCantPedido;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTotPedido;
-        private System.Windows.Forms.Button btnContPedido;
+        private System.Windows.Forms.Button btnContinuarPedido;
         private System.Windows.Forms.Button btnAggPedido;
         private System.Windows.Forms.Label label9;
     }

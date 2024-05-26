@@ -22,5 +22,11 @@ namespace Visual
             IngresarCliente ingresarCliente = new IngresarCliente();
             ingresarCliente.Show();
         }
+
+        private void btnOpcionesUsuario_Click(object sender, EventArgs e)
+        {
+            OpcionesAdministracion opcionesAdministraciones = new OpcionesAdministracion();
+            opcionesAdministraciones.Show();
+        }
     }
 }

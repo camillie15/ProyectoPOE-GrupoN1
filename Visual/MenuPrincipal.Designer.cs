@@ -63,6 +63,7 @@
             this.btnOpcionesUsuario.TabIndex = 2;
             this.btnOpcionesUsuario.Text = "Opciones de Usuario";
             this.btnOpcionesUsuario.UseVisualStyleBackColor = true;
+            this.btnOpcionesUsuario.Click += new System.EventHandler(this.btnOpcionesUsuario_Click);
             // 
             // MenuPrincipal
             // 

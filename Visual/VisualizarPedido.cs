@@ -17,5 +17,9 @@ namespace Visual
             InitializeComponent();
         }
 
+        private void btnVolverPedido_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -118,6 +118,7 @@
             this.btnVolverPedido.TabIndex = 7;
             this.btnVolverPedido.Text = "Volver";
             this.btnVolverPedido.UseVisualStyleBackColor = true;
+            this.btnVolverPedido.Click += new System.EventHandler(this.btnVolverPedido_Click);
             // 
             // VisualizarPedido
             // 
@@ -132,7 +133,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "VisualizarPedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visualizar Pedido";
             this.ResumeLayout(false);
             this.PerformLayout();
