@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class IngresarFactura : Form
+    public partial class VisualizarFactura : Form
     {
-        public IngresarFactura()
+        public VisualizarFactura()
         {
             InitializeComponent();
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
