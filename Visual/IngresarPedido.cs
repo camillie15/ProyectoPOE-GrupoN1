@@ -15,7 +15,6 @@ namespace Visual
         public IngresarPedido()
         {
             InitializeComponent();
-            cmbPedido.Items.Add("");
         }
 
         private void txtCantItem_KeyPress(object sender, KeyPressEventArgs e)
