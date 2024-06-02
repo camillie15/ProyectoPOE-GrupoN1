@@ -61,6 +61,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditarPlato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarPlato.Designer.cs">
+      <DependentUpon>EditarPlato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngresarPlato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngresarPlato.Designer.cs">
+      <DependentUpon>IngresarPlato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizarPlato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizarPlato.Designer.cs">
+      <DependentUpon>VisualizarPlato.cs</DependentUpon>
+    </Compile>
     <Compile Include="IngresarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,12 +96,6 @@
     </Compile>
     <Compile Include="IngresarPedido.Designer.cs">
       <DependentUpon>IngresarPedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IngresarPlato.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IngresarPlato.Designer.cs">
-      <DependentUpon>IngresarPlato.cs</DependentUpon>
     </Compile>
     <Compile Include="OpcionesAdministracion.cs">
       <SubType>Form</SubType>
@@ -111,6 +123,9 @@
     <Compile Include="VisualizarPedido.Designer.cs">
       <DependentUpon>VisualizarPedido.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditarPlato.resx">
+      <DependentUpon>EditarPlato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IngresarCliente.resx">
       <DependentUpon>IngresarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IngresarPedido.resx">
       <DependentUpon>IngresarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresarPlato.resx">
+      <DependentUpon>IngresarPlato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
@@ -141,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VisualizarPedido.resx">
       <DependentUpon>VisualizarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizarPlato.resx">
+      <DependentUpon>VisualizarPlato.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

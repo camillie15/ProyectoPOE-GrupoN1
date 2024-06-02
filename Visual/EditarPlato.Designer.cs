@@ -1,6 +1,6 @@
 ﻿namespace Visual
 {
-    partial class IngresarPlato
+    partial class EditarPlato
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.btnRegistrarPlato = new System.Windows.Forms.Button();
+            this.btnEditarPlato = new System.Windows.Forms.Button();
             this.cmbEstadoPlato = new System.Windows.Forms.ComboBox();
             this.txtPrecioPlato = new System.Windows.Forms.TextBox();
             this.txtDescripcionPlato = new System.Windows.Forms.TextBox();
@@ -46,21 +46,21 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(214, 16);
+            this.label3.Location = new System.Drawing.Point(216, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 18);
-            this.label3.TabIndex = 46;
+            this.label3.TabIndex = 34;
             this.label3.Text = "EDITAR PLATO";
             // 
-            // btnRegistrarPlato
+            // btnEditarPlato
             // 
-            this.btnRegistrarPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarPlato.Location = new System.Drawing.Point(251, 261);
-            this.btnRegistrarPlato.Name = "btnRegistrarPlato";
-            this.btnRegistrarPlato.Size = new System.Drawing.Size(73, 30);
-            this.btnRegistrarPlato.TabIndex = 45;
-            this.btnRegistrarPlato.Text = "Registrar";
-            this.btnRegistrarPlato.UseVisualStyleBackColor = true;
+            this.btnEditarPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPlato.Location = new System.Drawing.Point(253, 256);
+            this.btnEditarPlato.Name = "btnEditarPlato";
+            this.btnEditarPlato.Size = new System.Drawing.Size(73, 30);
+            this.btnEditarPlato.TabIndex = 33;
+            this.btnEditarPlato.Text = "Editar";
+            this.btnEditarPlato.UseVisualStyleBackColor = true;
             // 
             // cmbEstadoPlato
             // 
@@ -69,97 +69,97 @@
             "Disponible",
             "Agotado",
             "Todos"});
-            this.cmbEstadoPlato.Location = new System.Drawing.Point(367, 196);
+            this.cmbEstadoPlato.Location = new System.Drawing.Point(369, 191);
             this.cmbEstadoPlato.Name = "cmbEstadoPlato";
             this.cmbEstadoPlato.Size = new System.Drawing.Size(121, 21);
-            this.cmbEstadoPlato.TabIndex = 44;
+            this.cmbEstadoPlato.TabIndex = 32;
             // 
             // txtPrecioPlato
             // 
-            this.txtPrecioPlato.Location = new System.Drawing.Point(143, 196);
+            this.txtPrecioPlato.Location = new System.Drawing.Point(145, 191);
             this.txtPrecioPlato.Name = "txtPrecioPlato";
             this.txtPrecioPlato.Size = new System.Drawing.Size(105, 20);
-            this.txtPrecioPlato.TabIndex = 43;
+            this.txtPrecioPlato.TabIndex = 31;
             // 
             // txtDescripcionPlato
             // 
-            this.txtDescripcionPlato.Location = new System.Drawing.Point(169, 151);
+            this.txtDescripcionPlato.Location = new System.Drawing.Point(171, 146);
             this.txtDescripcionPlato.Name = "txtDescripcionPlato";
             this.txtDescripcionPlato.Size = new System.Drawing.Size(349, 20);
-            this.txtDescripcionPlato.TabIndex = 42;
+            this.txtDescripcionPlato.TabIndex = 30;
             // 
             // txtNombrePlato
             // 
-            this.txtNombrePlato.Location = new System.Drawing.Point(150, 106);
+            this.txtNombrePlato.Location = new System.Drawing.Point(152, 101);
             this.txtNombrePlato.Name = "txtNombrePlato";
             this.txtNombrePlato.Size = new System.Drawing.Size(368, 20);
-            this.txtNombrePlato.TabIndex = 41;
+            this.txtNombrePlato.TabIndex = 29;
             // 
             // txtIdPlato
             // 
-            this.txtIdPlato.Location = new System.Drawing.Point(148, 61);
+            this.txtIdPlato.Location = new System.Drawing.Point(150, 56);
             this.txtIdPlato.Name = "txtIdPlato";
             this.txtIdPlato.ReadOnly = true;
             this.txtIdPlato.Size = new System.Drawing.Size(100, 20);
-            this.txtIdPlato.TabIndex = 40;
+            this.txtIdPlato.TabIndex = 28;
             // 
             // lblDescripcionPlato
             // 
             this.lblDescripcionPlato.AutoSize = true;
             this.lblDescripcionPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcionPlato.Location = new System.Drawing.Point(75, 155);
+            this.lblDescripcionPlato.Location = new System.Drawing.Point(77, 150);
             this.lblDescripcionPlato.Name = "lblDescripcionPlato";
             this.lblDescripcionPlato.Size = new System.Drawing.Size(88, 16);
-            this.lblDescripcionPlato.TabIndex = 39;
+            this.lblDescripcionPlato.TabIndex = 27;
             this.lblDescripcionPlato.Text = "Descripcion:";
             // 
             // lblPrecioPlato
             // 
             this.lblPrecioPlato.AutoSize = true;
             this.lblPrecioPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioPlato.Location = new System.Drawing.Point(84, 200);
+            this.lblPrecioPlato.Location = new System.Drawing.Point(86, 195);
             this.lblPrecioPlato.Name = "lblPrecioPlato";
             this.lblPrecioPlato.Size = new System.Drawing.Size(53, 16);
-            this.lblPrecioPlato.TabIndex = 38;
+            this.lblPrecioPlato.TabIndex = 26;
             this.lblPrecioPlato.Text = "Precio:";
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(303, 201);
+            this.lblEstado.Location = new System.Drawing.Point(305, 196);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(58, 16);
-            this.lblEstado.TabIndex = 37;
+            this.lblEstado.TabIndex = 25;
             this.lblEstado.Text = "Estado:";
             // 
             // lblNombrePlato
             // 
             this.lblNombrePlato.AutoSize = true;
             this.lblNombrePlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombrePlato.Location = new System.Drawing.Point(82, 110);
+            this.lblNombrePlato.Location = new System.Drawing.Point(84, 105);
             this.lblNombrePlato.Name = "lblNombrePlato";
             this.lblNombrePlato.Size = new System.Drawing.Size(62, 16);
-            this.lblNombrePlato.TabIndex = 36;
+            this.lblNombrePlato.TabIndex = 24;
             this.lblNombrePlato.Text = "Nombre:";
             // 
             // lblIdPlato
             // 
             this.lblIdPlato.AutoSize = true;
             this.lblIdPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdPlato.Location = new System.Drawing.Point(83, 65);
+            this.lblIdPlato.Location = new System.Drawing.Point(85, 60);
             this.lblIdPlato.Name = "lblIdPlato";
             this.lblIdPlato.Size = new System.Drawing.Size(59, 16);
-            this.lblIdPlato.TabIndex = 35;
+            this.lblIdPlato.TabIndex = 23;
             this.lblIdPlato.Text = "ID Plato";
             // 
-            // IngresarPlato
+            // EditarPlato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 307);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnRegistrarPlato);
+            this.Controls.Add(this.btnEditarPlato);
             this.Controls.Add(this.cmbEstadoPlato);
             this.Controls.Add(this.txtPrecioPlato);
             this.Controls.Add(this.txtDescripcionPlato);
@@ -170,8 +170,8 @@
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.lblNombrePlato);
             this.Controls.Add(this.lblIdPlato);
-            this.Name = "IngresarPlato";
-            this.Text = "IngresarPlato";
+            this.Name = "EditarPlato";
+            this.Text = "EditarPlato";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,7 +180,7 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnRegistrarPlato;
+        private System.Windows.Forms.Button btnEditarPlato;
         private System.Windows.Forms.ComboBox cmbEstadoPlato;
         private System.Windows.Forms.TextBox txtPrecioPlato;
         private System.Windows.Forms.TextBox txtDescripcionPlato;
