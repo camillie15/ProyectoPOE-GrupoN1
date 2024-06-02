@@ -73,6 +73,12 @@
     <Compile Include="IngresarPlato.Designer.cs">
       <DependentUpon>IngresarPlato.cs</DependentUpon>
     </Compile>
+    <Compile Include="VisualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizarCliente.Designer.cs">
+      <DependentUpon>VisualizarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="VisualizarPlato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VisualizarCliente.resx">
+      <DependentUpon>VisualizarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VisualizarFactura.resx">
       <DependentUpon>VisualizarFactura.cs</DependentUpon>
     </EmbeddedResource>

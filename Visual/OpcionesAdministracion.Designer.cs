@@ -118,6 +118,7 @@
             this.btnVisualizarCliente.Text = "Visualizar\nCliente";
             this.btnVisualizarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVisualizarCliente.UseVisualStyleBackColor = true;
+            this.btnVisualizarCliente.Click += new System.EventHandler(this.btnVisualizarCliente_Click);
             // 
             // OpcionesAdministracion
             // 

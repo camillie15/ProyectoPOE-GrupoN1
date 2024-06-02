@@ -116,6 +116,7 @@
             // 
             // btnBuscarPedido
             // 
+            this.btnBuscarPedido.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnBuscarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarPedido.Image = global::Visual.Properties.Resources.imgBuscar;
             this.btnBuscarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,12 +127,13 @@
             this.btnBuscarPedido.TabIndex = 5;
             this.btnBuscarPedido.Text = "Buscar ";
             this.btnBuscarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarPedido.UseVisualStyleBackColor = true;
+            this.btnBuscarPedido.UseVisualStyleBackColor = false;
             // 
             // VisualizarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(800, 504);
             this.Controls.Add(this.btnVolverPedido);
             this.Controls.Add(this.txtVisualizarPedidos);

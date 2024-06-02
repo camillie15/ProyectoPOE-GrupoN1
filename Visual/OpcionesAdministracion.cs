@@ -27,5 +27,11 @@ namespace Visual
         {
             this.Close();
         }
+
+        private void btnVisualizarCliente_Click(object sender, EventArgs e)
+        {
+            VisualizarCliente visualizarCliente = new VisualizarCliente();
+            visualizarCliente.ShowDialog();
+        }
     }
 }
