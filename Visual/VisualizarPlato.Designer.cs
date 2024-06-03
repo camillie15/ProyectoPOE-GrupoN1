@@ -159,6 +159,7 @@
             this.btnVolverPlato.TabIndex = 33;
             this.btnVolverPlato.Text = "Volver";
             this.btnVolverPlato.UseVisualStyleBackColor = true;
+            this.btnVolverPlato.Click += new System.EventHandler(this.btnVolverPlato_Click);
             // 
             // VisualizarPlato
             // 

@@ -46,6 +46,7 @@
             this.btnContinuarPedido = new System.Windows.Forms.Button();
             this.btnAggPedido = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -197,7 +198,7 @@
             // btnContinuarPedido
             // 
             this.btnContinuarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinuarPedido.Location = new System.Drawing.Point(311, 430);
+            this.btnContinuarPedido.Location = new System.Drawing.Point(205, 431);
             this.btnContinuarPedido.Name = "btnContinuarPedido";
             this.btnContinuarPedido.Size = new System.Drawing.Size(156, 44);
             this.btnContinuarPedido.TabIndex = 15;
@@ -225,12 +226,24 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "REGISTRO PEDIDO";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(395, 431);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(156, 44);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // IngresarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(787, 487);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnAggPedido);
             this.Controls.Add(this.btnContinuarPedido);
@@ -279,5 +292,6 @@
         private System.Windows.Forms.Button btnContinuarPedido;
         private System.Windows.Forms.Button btnAggPedido;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
