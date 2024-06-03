@@ -16,5 +16,11 @@ namespace Visual
         {
             InitializeComponent();
         }
+
+        private void btnRegistrarPlato_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
     }
 }

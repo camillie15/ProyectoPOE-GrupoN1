@@ -20,7 +20,7 @@ namespace Visual
         private void btnVisualizarPedido_Click(object sender, EventArgs e)
         {
             VisualizarPedido visualizarPedido = new VisualizarPedido(); 
-            visualizarPedido.Show();
+            visualizarPedido.ShowDialog();
         }
 
         private void btnVolverOA_Click(object sender, EventArgs e)
@@ -32,6 +32,18 @@ namespace Visual
         {
             VisualizarCliente visualizarCliente = new VisualizarCliente();
             visualizarCliente.ShowDialog();
+        }
+
+        private void btnVisualizarFactura_Click(object sender, EventArgs e)
+        {
+            VisualizarFactura visualizarFactura = new VisualizarFactura();
+            visualizarFactura.ShowDialog();
+        }
+
+        private void btnPlatoOA_Click(object sender, EventArgs e)
+        {
+            VisualizarPlato visualizarPlato = new VisualizarPlato();
+            visualizarPlato.ShowDialog();
         }
     }
 }

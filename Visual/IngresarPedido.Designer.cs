@@ -130,7 +130,7 @@
             // 
             this.txtCantItem.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantItem.Location = new System.Drawing.Point(528, 147);
-            this.txtCantItem.MaxLength = 2;
+            this.txtCantItem.MaxLength = 1;
             this.txtCantItem.Name = "txtCantItem";
             this.txtCantItem.Size = new System.Drawing.Size(70, 28);
             this.txtCantItem.TabIndex = 8;
@@ -203,6 +203,7 @@
             this.btnContinuarPedido.TabIndex = 15;
             this.btnContinuarPedido.Text = "Continuar";
             this.btnContinuarPedido.UseVisualStyleBackColor = true;
+            this.btnContinuarPedido.Click += new System.EventHandler(this.btnContinuarPedido_Click);
             // 
             // btnAggPedido
             // 

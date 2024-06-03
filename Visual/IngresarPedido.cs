@@ -27,5 +27,10 @@ namespace Visual
             }
         }
 
+        private void btnContinuarPedido_Click(object sender, EventArgs e)
+        {
+            IngresarFactura ingresarFactura = new IngresarFactura();
+            ingresarFactura.Show();
+        }
     }
 }

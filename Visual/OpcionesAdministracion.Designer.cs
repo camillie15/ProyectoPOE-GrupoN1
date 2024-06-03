@@ -75,6 +75,7 @@
             this.btnPlatoOA.Text = "Plato";
             this.btnPlatoOA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPlatoOA.UseVisualStyleBackColor = true;
+            this.btnPlatoOA.Click += new System.EventHandler(this.btnPlatoOA_Click);
             // 
             // btnVisualizarFactura
             // 
@@ -89,6 +90,7 @@
             this.btnVisualizarFactura.Text = "Visualizar\nFactura";
             this.btnVisualizarFactura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVisualizarFactura.UseVisualStyleBackColor = true;
+            this.btnVisualizarFactura.Click += new System.EventHandler(this.btnVisualizarFactura_Click);
             // 
             // btnVisualizarPedido
             // 

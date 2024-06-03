@@ -16,5 +16,11 @@ namespace Visual
         {
             InitializeComponent();
         }
+
+        private void btnEditarPlato_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
     }
 }

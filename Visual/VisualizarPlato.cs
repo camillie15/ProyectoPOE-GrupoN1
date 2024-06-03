@@ -16,5 +16,17 @@ namespace Visual
         {
             InitializeComponent();
         }
+
+        private void btnAgregarPlato_Click(object sender, EventArgs e)
+        {
+            IngresarPlato ingresarPlato = new IngresarPlato();
+            ingresarPlato.ShowDialog();
+        }
+
+        private void btnEditarPlato_Click(object sender, EventArgs e)
+        {
+            EditarPlato editarPlato = new EditarPlato();
+            editarPlato.ShowDialog();
+        }
     }
 }
