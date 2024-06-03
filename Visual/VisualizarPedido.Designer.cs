@@ -49,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(350, 19);
+            this.label1.Location = new System.Drawing.Point(434, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 20);
             this.label1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(112, 74);
+            this.label2.Location = new System.Drawing.Point(196, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 20);
             this.label2.TabIndex = 1;
@@ -68,7 +68,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(471, 71);
+            this.textBox1.Location = new System.Drawing.Point(555, 71);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(170, 28);
             this.textBox1.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "ID",
             "CLIENTE"});
-            this.comboBox1.Location = new System.Drawing.Point(283, 71);
+            this.comboBox1.Location = new System.Drawing.Point(367, 71);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 3;
@@ -90,7 +90,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(422, 74);
+            this.label3.Location = new System.Drawing.Point(506, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 20);
             this.label3.TabIndex = 4;
@@ -101,7 +101,7 @@
             this.btnVolverPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverPedido.Image = global::Visual.Properties.Resources.imgVolver;
             this.btnVolverPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolverPedido.Location = new System.Drawing.Point(391, 483);
+            this.btnVolverPedido.Location = new System.Drawing.Point(475, 492);
             this.btnVolverPedido.Name = "btnVolverPedido";
             this.btnVolverPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnVolverPedido.Size = new System.Drawing.Size(145, 50);
@@ -117,7 +117,7 @@
             this.btnBuscarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarPedido.Image = global::Visual.Properties.Resources.imgBuscar;
             this.btnBuscarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarPedido.Location = new System.Drawing.Point(665, 59);
+            this.btnBuscarPedido.Location = new System.Drawing.Point(749, 59);
             this.btnBuscarPedido.Name = "btnBuscarPedido";
             this.btnBuscarPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnBuscarPedido.Size = new System.Drawing.Size(145, 50);
@@ -146,11 +146,11 @@
             this.menuPedido,
             this.cantPedido,
             this.valorPedido});
-            this.dgvPedidos.Location = new System.Drawing.Point(32, 126);
+            this.dgvPedidos.Location = new System.Drawing.Point(88, 128);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.RowHeadersWidth = 51;
             this.dgvPedidos.RowTemplate.Height = 24;
-            this.dgvPedidos.Size = new System.Drawing.Size(876, 332);
+            this.dgvPedidos.Size = new System.Drawing.Size(997, 332);
             this.dgvPedidos.TabIndex = 8;
             // 
             // idPedido
@@ -158,7 +158,7 @@
             this.idPedido.HeaderText = "Id Pedido";
             this.idPedido.MinimumWidth = 6;
             this.idPedido.Name = "idPedido";
-            this.idPedido.Width = 140;
+            this.idPedido.Width = 110;
             // 
             // clientePedido
             // 
@@ -172,28 +172,28 @@
             this.menuPedido.HeaderText = "Menu Seleccionado";
             this.menuPedido.MinimumWidth = 6;
             this.menuPedido.Name = "menuPedido";
-            this.menuPedido.Width = 220;
+            this.menuPedido.Width = 180;
             // 
             // cantPedido
             // 
             this.cantPedido.HeaderText = "Cantidad Total";
             this.cantPedido.MinimumWidth = 6;
             this.cantPedido.Name = "cantPedido";
-            this.cantPedido.Width = 185;
+            this.cantPedido.Width = 155;
             // 
             // valorPedido
             // 
             this.valorPedido.HeaderText = "Valor Total";
             this.valorPedido.MinimumWidth = 6;
             this.valorPedido.Name = "valorPedido";
-            this.valorPedido.Width = 150;
+            this.valorPedido.Width = 125;
             // 
             // VisualizarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(948, 545);
+            this.ClientSize = new System.Drawing.Size(1178, 574);
             this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.btnVolverPedido);
             this.Controls.Add(this.btnBuscarPedido);
