@@ -16,5 +16,10 @@ namespace Visual
         {
             InitializeComponent();
         }
+
+        private void txtVolverCliente_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

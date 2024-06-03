@@ -28,5 +28,10 @@ namespace Visual
             EditarPlato editarPlato = new EditarPlato();
             editarPlato.ShowDialog();
         }
+
+        private void btnVolverPlato_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

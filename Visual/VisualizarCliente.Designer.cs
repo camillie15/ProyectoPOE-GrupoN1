@@ -162,6 +162,7 @@
             this.txtVolverCliente.Text = "Volver";
             this.txtVolverCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtVolverCliente.UseVisualStyleBackColor = true;
+            this.txtVolverCliente.Click += new System.EventHandler(this.txtVolverCliente_Click);
             // 
             // VisualizarCliente
             // 
