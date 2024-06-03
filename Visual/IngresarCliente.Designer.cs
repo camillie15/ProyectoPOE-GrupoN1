@@ -70,6 +70,7 @@
             this.txtIdCliente.Location = new System.Drawing.Point(144, 64);
             this.txtIdCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.ReadOnly = true;
             this.txtIdCliente.Size = new System.Drawing.Size(174, 28);
             this.txtIdCliente.TabIndex = 2;
             // 
@@ -81,6 +82,7 @@
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(407, 28);
             this.txtNombreCliente.TabIndex = 3;
+            this.txtNombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCliente_KeyPress);
             // 
             // lblApellidoCliente
             // 
@@ -101,6 +103,7 @@
             this.txtApellidoCliente.Name = "txtApellidoCliente";
             this.txtApellidoCliente.Size = new System.Drawing.Size(406, 28);
             this.txtApellidoCliente.TabIndex = 5;
+            this.txtApellidoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoCliente_KeyPress);
             // 
             // lblCedulaCliente
             // 
@@ -121,6 +124,8 @@
             this.txtCedulaCliente.Name = "txtCedulaCliente";
             this.txtCedulaCliente.Size = new System.Drawing.Size(131, 28);
             this.txtCedulaCliente.TabIndex = 7;
+            this.txtCedulaCliente.TextChanged += new System.EventHandler(this.txtCedulaCliente_TextChanged);
+            this.txtCedulaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaCliente_KeyPress);
             // 
             // lblEmailCliente
             // 

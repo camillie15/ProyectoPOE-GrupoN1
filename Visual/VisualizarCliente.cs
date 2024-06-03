@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,25 @@ namespace Visual
 {
     public partial class VisualizarCliente : Form
     {
+        ControlEntradaTxt ctrllEntradaTxt = new ControlEntradaTxt();
         public VisualizarCliente()
         {
             InitializeComponent();
+        }
+
+        private void txtBuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ctrllEntradaTxt.ingresoSoloNumeros(sender, e);
+        }
+
+        private void txtBuscarCliente_TextChanged(object sender, EventArgs e)
+        {
+            ctrllEntradaTxt.maximoDigitosNumericos(sender, e,10,txtBuscarCliente);
+        }
+
+        private void txtVolverCliente_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

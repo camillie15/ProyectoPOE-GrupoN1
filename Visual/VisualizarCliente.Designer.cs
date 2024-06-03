@@ -59,6 +59,8 @@
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(276, 28);
             this.txtBuscarCliente.TabIndex = 1;
+            this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
+            this.txtBuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCliente_KeyPress);
             // 
             // button1
             // 
@@ -162,6 +164,7 @@
             this.txtVolverCliente.Text = "Volver";
             this.txtVolverCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtVolverCliente.UseVisualStyleBackColor = true;
+            this.txtVolverCliente.Click += new System.EventHandler(this.txtVolverCliente_Click);
             // 
             // VisualizarCliente
             // 
