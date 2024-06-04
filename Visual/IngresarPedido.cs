@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace Visual
 {
     public partial class IngresarPedido : Form
     {
+        CtrlPedido ctrlPedido = new CtrlPedido();
+        CtrlCliente ctrlCliente = new CtrlCliente();
+        static int i = 1;
         public IngresarPedido()
         {
             InitializeComponent();
+            ctrlPedido.LlenarCmbPedido(cmbPedido);
+            //txtClientePed.Text = ctrlCliente.RetornarCICliente();
+            txtIdPedido.Text = i.ToString();
         }
 
         private void txtCantItem_KeyPress(object sender, KeyPressEventArgs e)
@@ -29,6 +36,15 @@ namespace Visual
 
         private void btnContinuarPedido_Click(object sender, EventArgs e)
         {
+            string sId = txtIdPedido.Text;
+            string cliente = txtClientePed.Text;
+            string menu = CtrlPedido.PedidoR;
+            string sCantItems = txtCantPedido.Text;
+            string sTotalPed = txtTotPedido.Text;
+
+            ctrlPedido.IngresarPedido(sId, cliente, menu, sCantItems, sTotalPed);
+            i++;
+
             IngresarFactura ingresarFactura = new IngresarFactura();
             ingresarFactura.Show();
 
