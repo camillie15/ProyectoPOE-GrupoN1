@@ -37,13 +37,15 @@
             this.ColIdfactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(919, 119);
+            this.button1.Location = new System.Drawing.Point(70, 192);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 58);
             this.button1.TabIndex = 0;
@@ -53,7 +55,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(500, 695);
+            this.button2.Location = new System.Drawing.Point(500, 700);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(160, 58);
             this.button2.TabIndex = 1;
@@ -87,9 +89,9 @@
             this.cbFiltro.Items.AddRange(new object[] {
             "Id de facturas",
             "Cedula"});
-            this.cbFiltro.Location = new System.Drawing.Point(388, 131);
+            this.cbFiltro.Location = new System.Drawing.Point(345, 131);
             this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(470, 33);
+            this.cbFiltro.Size = new System.Drawing.Size(315, 33);
             this.cbFiltro.TabIndex = 4;
             // 
             // dataGridView1
@@ -99,7 +101,7 @@
             this.ColIdfactura,
             this.ColCliente,
             this.ColCedula});
-            this.dataGridView1.Location = new System.Drawing.Point(70, 261);
+            this.dataGridView1.Location = new System.Drawing.Point(70, 278);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
@@ -127,11 +129,29 @@
             this.ColCedula.Name = "ColCedula";
             this.ColCedula.Width = 200;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(718, 134);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(361, 31);
+            this.textBox1.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(674, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 25);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "->";
+            // 
             // VisualizarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 788);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cbFiltro);
             this.Controls.Add(this.label2);
@@ -158,5 +178,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdfactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
