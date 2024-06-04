@@ -19,7 +19,7 @@ namespace Visual
         public IngresarPedido()
         {
             InitializeComponent();
-            ctrlPedido.LlenarCmbPedido(cmbPedido);
+            //ctrlPedido.LlenarCmbPedido(cmbPedido);
             //txtClientePed.Text = ctrlCliente.RetornarCICliente();
             txtIdPedido.Text = i.ToString();
         }
