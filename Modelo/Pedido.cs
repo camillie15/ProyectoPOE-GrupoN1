@@ -9,38 +9,25 @@ namespace Modelo
     //By: Camillie Ayovi Villafuerte
     public class Pedido
     {
-        public int codPedido = 0;
-        private Cliente cliente = null;
-        List<Plato> menuSeleccionado = null;
-        public int cantidadProductos = 0;
-        public double totalPedido = 0;
+        int codPedido = 0;
+        string cliente = string.Empty;
+        string menuSeleccionado = string.Empty;
+        int cantidadProductos = 0;
+        double totalPedido = 0;
 
         public int CodPedido { get => codPedido; set => codPedido = value; }
-
+        public string Cliente { get => cliente; set => cliente = value; }
+        public string MenuSeleccionado { get => menuSeleccionado; set => menuSeleccionado = value; }
         public int CantidadProductos { get => cantidadProductos; set => cantidadProductos = value; }
-
         public double TotalPedido { get => totalPedido; set => totalPedido = value; }
 
-        public List<Plato> MenuSeleccionado { get => menuSeleccionado; set => menuSeleccionado = value; }
-        public Cliente Cliente { get => cliente; set => cliente = value; }
-
-        public Pedido(int codPedido, int cantidadProductos, double totalPedido, List<Plato> menuSeleccionado, Cliente cliente)
+        public Pedido(int codPedido, string cliente, string menuSeleccionado, int cantidadProductos, double totalPedido)
         {
             CodPedido = codPedido;
+            Cliente = cliente;
+            MenuSeleccionado = menuSeleccionado;
             CantidadProductos = cantidadProductos;
             TotalPedido = totalPedido;
-            MenuSeleccionado = menuSeleccionado;
-            Cliente = cliente;
-        }
-
-        public double calcularPedido(List<Plato> menuSeleccionado)
-        {
-            double totalP = 0;
-            foreach (var combo in menuSeleccionado)
-            {
-                totalP += combo.Precio;
-            }
-            return totalP;
         }
     }
 }

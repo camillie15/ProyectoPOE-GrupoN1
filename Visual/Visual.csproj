@@ -186,12 +186,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controlador\Controlador.csproj">
-      <Project>{1395b7dd-9ee3-4651-b87d-ebe9d65d42bb}</Project>
-      <Name>Controlador</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
@@ -229,6 +223,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgPedidoOAA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controlador\Controlador.csproj">
+      <Project>{1395b7dd-9ee3-4651-b87d-ebe9d65d42bb}</Project>
+      <Name>Controlador</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

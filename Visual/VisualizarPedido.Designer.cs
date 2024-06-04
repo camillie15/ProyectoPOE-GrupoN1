@@ -146,6 +146,7 @@
             this.menuPedido,
             this.cantPedido,
             this.valorPedido});
+            this.dgvPedidos.Enabled = false;
             this.dgvPedidos.Location = new System.Drawing.Point(88, 128);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.RowHeadersWidth = 51;

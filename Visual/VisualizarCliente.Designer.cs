@@ -32,15 +32,15 @@
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCliente = new System.Windows.Forms.DataGridView();
+            this.txtVolverCliente = new System.Windows.Forms.Button();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedulaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtVolverCliente = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -85,32 +85,46 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "VISUALIZAR CLIENTES";
             // 
-            // dataGridView1
+            // dgvCliente
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
+            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
+            this.dgvCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idColumn,
             this.nombreColumn,
             this.apellidoColumn,
             this.cedulaColumn,
             this.emailColumn,
             this.direccionColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(64, 132);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(804, 291);
-            this.dataGridView1.TabIndex = 4;
+            this.dgvCliente.Location = new System.Drawing.Point(64, 132);
+            this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.RowHeadersWidth = 51;
+            this.dgvCliente.RowTemplate.Height = 24;
+            this.dgvCliente.Size = new System.Drawing.Size(804, 291);
+            this.dgvCliente.TabIndex = 4;
             // 
-            // ID
+            // txtVolverCliente
             // 
-            this.ID.HeaderText = "idColumn";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 125;
+            this.txtVolverCliente.Image = global::Visual.Properties.Resources.imgVolver;
+            this.txtVolverCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtVolverCliente.Location = new System.Drawing.Point(419, 450);
+            this.txtVolverCliente.Name = "txtVolverCliente";
+            this.txtVolverCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.txtVolverCliente.Size = new System.Drawing.Size(113, 50);
+            this.txtVolverCliente.TabIndex = 5;
+            this.txtVolverCliente.Text = "Volver";
+            this.txtVolverCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtVolverCliente.UseVisualStyleBackColor = true;
+            this.txtVolverCliente.Click += new System.EventHandler(this.txtVolverCliente_Click);
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "ID";
+            this.idColumn.MinimumWidth = 6;
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Width = 125;
             // 
             // nombreColumn
             // 
@@ -152,20 +166,6 @@
             this.direccionColumn.ReadOnly = true;
             this.direccionColumn.Width = 125;
             // 
-            // txtVolverCliente
-            // 
-            this.txtVolverCliente.Image = global::Visual.Properties.Resources.imgVolver;
-            this.txtVolverCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtVolverCliente.Location = new System.Drawing.Point(419, 450);
-            this.txtVolverCliente.Name = "txtVolverCliente";
-            this.txtVolverCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.txtVolverCliente.Size = new System.Drawing.Size(113, 50);
-            this.txtVolverCliente.TabIndex = 5;
-            this.txtVolverCliente.Text = "Volver";
-            this.txtVolverCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtVolverCliente.UseVisualStyleBackColor = true;
-            this.txtVolverCliente.Click += new System.EventHandler(this.txtVolverCliente_Click);
-            // 
             // VisualizarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
@@ -173,7 +173,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(914, 545);
             this.Controls.Add(this.txtVolverCliente);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBuscarCliente);
@@ -185,7 +185,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisualizarCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,9 +197,9 @@
         private System.Windows.Forms.TextBox txtBuscarCliente;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.Button txtVolverCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedulaColumn;
