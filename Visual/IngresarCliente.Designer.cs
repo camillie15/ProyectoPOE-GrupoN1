@@ -40,6 +40,7 @@
             this.txtEmailCliente = new System.Windows.Forms.TextBox();
             this.btnContinuarCliente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancelarCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblIdCliente
@@ -66,6 +67,7 @@
             // 
             // txtIdCliente
             // 
+            this.txtIdCliente.BackColor = System.Drawing.SystemColors.Window;
             this.txtIdCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdCliente.Location = new System.Drawing.Point(144, 64);
             this.txtIdCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -150,7 +152,7 @@
             // btnContinuarCliente
             // 
             this.btnContinuarCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinuarCliente.Location = new System.Drawing.Point(194, 237);
+            this.btnContinuarCliente.Location = new System.Drawing.Point(128, 254);
             this.btnContinuarCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnContinuarCliente.Name = "btnContinuarCliente";
             this.btnContinuarCliente.Size = new System.Drawing.Size(156, 44);
@@ -169,11 +171,22 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "REGISTRO CLIENTES";
             // 
+            // btnCancelarCliente
+            // 
+            this.btnCancelarCliente.Location = new System.Drawing.Point(314, 254);
+            this.btnCancelarCliente.Name = "btnCancelarCliente";
+            this.btnCancelarCliente.Size = new System.Drawing.Size(156, 44);
+            this.btnCancelarCliente.TabIndex = 12;
+            this.btnCancelarCliente.Text = "Cancelar";
+            this.btnCancelarCliente.UseVisualStyleBackColor = true;
+            this.btnCancelarCliente.Click += new System.EventHandler(this.btnCancelarCliente_Click);
+            // 
             // IngresarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 307);
+            this.ClientSize = new System.Drawing.Size(593, 322);
+            this.Controls.Add(this.btnCancelarCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnContinuarCliente);
             this.Controls.Add(this.txtEmailCliente);
@@ -212,5 +225,6 @@
         private System.Windows.Forms.TextBox txtEmailCliente;
         private System.Windows.Forms.Button btnContinuarCliente;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCancelarCliente;
     }
 }

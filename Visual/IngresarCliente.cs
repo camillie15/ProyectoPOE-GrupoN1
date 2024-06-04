@@ -51,5 +51,11 @@ namespace Visual
         {
             ctrllEntradaTxt.ingresoSoloLetras(sender, e);
         }
+
+        private void btnCancelarCliente_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

@@ -14,7 +14,7 @@ namespace Modelo
         public int IdCliente { get => idCliente; set => idCliente = value; }
         public string Direccion { get => direccion; set => direccion = value; }
 
-        public Cliente(string nombre, string apellido, string cedula, int edad, string email, string userName, string password, bool estado, int idCliente, string direccion) : base(nombre, apellido, cedula, edad, email, userName, password, estado)
+        public Cliente(string nombre, string apellido, string cedula, int edad, string email, bool estado, int idCliente, string direccion) : base(nombre, apellido, cedula, edad, email, estado)
         {
             this.idCliente = idCliente;
             this.direccion = direccion;
