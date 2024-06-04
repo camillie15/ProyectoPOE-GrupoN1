@@ -40,5 +40,20 @@ namespace Controlador
         {
             return Convert.ToString(clientes.Count + 1);
         }
+
+        public void PresentarClientes(DataGridView dvg)
+        {
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                dvg.Rows.Add();
+                dvg.Rows[i].Cells[0].Value = clientes[i].IdCliente;
+                dvg.Rows[i].Cells[1].Value = clientes[i].Nombre;
+                dvg.Rows[i].Cells[2].Value = clientes[i].Apellido;
+                dvg.Rows[i].Cells[3].Value = clientes[i].Cedula;
+                dvg.Rows[i].Cells[4].Value = clientes[i].Email;
+                dvg.Rows[i].Cells[5].Value = clientes[i].Direccion;
+            }
+        }
+
     }
 }

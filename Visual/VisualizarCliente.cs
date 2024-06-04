@@ -13,10 +13,13 @@ namespace Visual
 {
     public partial class VisualizarCliente : Form
     {
+        CtrlCliente ctrCliente = new CtrlCliente();
         ControlEntradaTxt ctrllEntradaTxt = new ControlEntradaTxt();
+
         public VisualizarCliente()
         {
             InitializeComponent();
+            ctrCliente.PresentarClientes(dgvCliente);
         }
 
         private void txtBuscarCliente_KeyPress(object sender, KeyPressEventArgs e)

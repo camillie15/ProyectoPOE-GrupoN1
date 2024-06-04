@@ -11,7 +11,7 @@ namespace Modelo
     {
         public string nombre = string.Empty;
         public string apellido = string.Empty;
-        public string cedula = string.Empty;
+        private string cedula = string.Empty;
         public int edad = 0;
         public string email = string.Empty;
         bool estado = true;
@@ -21,6 +21,7 @@ namespace Modelo
         public int Edad { get => edad; set => edad = value; }
         public string Email { get => email; set => email = value; }
         public bool Estado { get => estado; set => estado = value; }
+        public string Cedula { get => cedula; set => cedula = value; }
 
         public Persona(string nombre, string apellido, string cedula, int edad, string email, bool estado)
         {
