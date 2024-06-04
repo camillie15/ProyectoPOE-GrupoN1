@@ -14,6 +14,7 @@ namespace Controlador
         static double totalPed = 0;
         //List<Plato> listaPlatos = CtrlPlato.Platos;
         static List<Pedido> listaPedidos = new List<Pedido>();
+        List<Cliente> listaClientes = CtrlCliente.Clientes;
         static string pedidoR = string.Empty;
 
         public List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
@@ -49,10 +50,13 @@ namespace Controlador
 
         /*public void LlenarCmbPedido(ComboBox cmbPedido)
         {
-            foreach (var item in listaPlatos)
+            foreach (var item in platos)
             {
+                if (item.Estado == true)
+                {
+                    cmbPedido.Items.Add(item.Descripcion + " - $" + item.Precio);
+                }
 
-                cmbPedido.Items.Add(item.Descripcion + " - $" + item.Precio);
             }
         }*/
 
@@ -87,6 +91,12 @@ namespace Controlador
                 dgvPedidos.Rows[i].Cells["valorPedido"].Value = pedido.TotalPedido;
 
             }
+        }
+
+        public string RetornarCICliente()
+        {
+            return listaClientes[listaClientes.Count - 1].Cedula;
+
         }
 
     }

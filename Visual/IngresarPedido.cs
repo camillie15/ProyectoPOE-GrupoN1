@@ -20,7 +20,7 @@ namespace Visual
         {
             InitializeComponent();
             //ctrlPedido.LlenarCmbPedido(cmbPedido);
-            //txtClientePed.Text = ctrlCliente.RetornarCICliente();
+            //txtClientePed.Text = ctrlPedido.RetornarCICliente();
             txtIdPedido.Text = i.ToString();
         }
 
