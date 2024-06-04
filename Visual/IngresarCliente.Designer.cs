@@ -1,4 +1,7 @@
-﻿namespace Visual
+﻿using Controlador;
+using System.Drawing;
+
+namespace Visual
 {
     partial class IngresarCliente
     {
@@ -41,13 +44,17 @@
             this.btnContinuarCliente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelarCliente = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtEdadCliente = new System.Windows.Forms.TextBox();
+            this.txtDireccionCliente = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblIdCliente
             // 
             this.lblIdCliente.AutoSize = true;
             this.lblIdCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdCliente.Location = new System.Drawing.Point(45, 67);
+            this.lblIdCliente.Location = new System.Drawing.Point(45, 75);
             this.lblIdCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblIdCliente.Name = "lblIdCliente";
             this.lblIdCliente.Size = new System.Drawing.Size(96, 20);
@@ -58,7 +65,7 @@
             // 
             this.lblNombreCliente.AutoSize = true;
             this.lblNombreCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(45, 112);
+            this.lblNombreCliente.Location = new System.Drawing.Point(45, 174);
             this.lblNombreCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNombreCliente.Name = "lblNombreCliente";
             this.lblNombreCliente.Size = new System.Drawing.Size(85, 20);
@@ -69,7 +76,7 @@
             // 
             this.txtIdCliente.BackColor = System.Drawing.SystemColors.Window;
             this.txtIdCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente.Location = new System.Drawing.Point(144, 64);
+            this.txtIdCliente.Location = new System.Drawing.Point(144, 72);
             this.txtIdCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.ReadOnly = true;
@@ -79,7 +86,7 @@
             // txtNombreCliente
             // 
             this.txtNombreCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCliente.Location = new System.Drawing.Point(129, 109);
+            this.txtNombreCliente.Location = new System.Drawing.Point(49, 199);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(407, 28);
@@ -90,7 +97,7 @@
             // 
             this.lblApellidoCliente.AutoSize = true;
             this.lblApellidoCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellidoCliente.Location = new System.Drawing.Point(45, 157);
+            this.lblApellidoCliente.Location = new System.Drawing.Point(489, 174);
             this.lblApellidoCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblApellidoCliente.Name = "lblApellidoCliente";
             this.lblApellidoCliente.Size = new System.Drawing.Size(86, 20);
@@ -100,7 +107,7 @@
             // txtApellidoCliente
             // 
             this.txtApellidoCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoCliente.Location = new System.Drawing.Point(130, 154);
+            this.txtApellidoCliente.Location = new System.Drawing.Point(493, 199);
             this.txtApellidoCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
             this.txtApellidoCliente.Size = new System.Drawing.Size(406, 28);
@@ -111,7 +118,7 @@
             // 
             this.lblCedulaCliente.AutoSize = true;
             this.lblCedulaCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedulaCliente.Location = new System.Drawing.Point(328, 67);
+            this.lblCedulaCliente.Location = new System.Drawing.Point(45, 131);
             this.lblCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCedulaCliente.Name = "lblCedulaCliente";
             this.lblCedulaCliente.Size = new System.Drawing.Size(76, 20);
@@ -121,7 +128,7 @@
             // txtCedulaCliente
             // 
             this.txtCedulaCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaCliente.Location = new System.Drawing.Point(405, 64);
+            this.txtCedulaCliente.Location = new System.Drawing.Point(132, 128);
             this.txtCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCedulaCliente.Name = "txtCedulaCliente";
             this.txtCedulaCliente.Size = new System.Drawing.Size(131, 28);
@@ -133,7 +140,7 @@
             // 
             this.lblEmailCliente.AutoSize = true;
             this.lblEmailCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailCliente.Location = new System.Drawing.Point(45, 202);
+            this.lblEmailCliente.Location = new System.Drawing.Point(45, 246);
             this.lblEmailCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblEmailCliente.Name = "lblEmailCliente";
             this.lblEmailCliente.Size = new System.Drawing.Size(65, 20);
@@ -143,7 +150,7 @@
             // txtEmailCliente
             // 
             this.txtEmailCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailCliente.Location = new System.Drawing.Point(122, 199);
+            this.txtEmailCliente.Location = new System.Drawing.Point(49, 271);
             this.txtEmailCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtEmailCliente.Name = "txtEmailCliente";
             this.txtEmailCliente.Size = new System.Drawing.Size(414, 28);
@@ -152,7 +159,7 @@
             // btnContinuarCliente
             // 
             this.btnContinuarCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinuarCliente.Location = new System.Drawing.Point(128, 254);
+            this.btnContinuarCliente.Location = new System.Drawing.Point(307, 333);
             this.btnContinuarCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnContinuarCliente.Name = "btnContinuarCliente";
             this.btnContinuarCliente.Size = new System.Drawing.Size(156, 44);
@@ -173,7 +180,7 @@
             // 
             // btnCancelarCliente
             // 
-            this.btnCancelarCliente.Location = new System.Drawing.Point(314, 254);
+            this.btnCancelarCliente.Location = new System.Drawing.Point(493, 333);
             this.btnCancelarCliente.Name = "btnCancelarCliente";
             this.btnCancelarCliente.Size = new System.Drawing.Size(156, 44);
             this.btnCancelarCliente.TabIndex = 12;
@@ -181,11 +188,48 @@
             this.btnCancelarCliente.UseVisualStyleBackColor = true;
             this.btnCancelarCliente.Click += new System.EventHandler(this.btnCancelarCliente_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(489, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 20);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Edad: ";
+            // 
+            // txtEdadCliente
+            // 
+            this.txtEdadCliente.Location = new System.Drawing.Point(561, 128);
+            this.txtEdadCliente.Name = "txtEdadCliente";
+            this.txtEdadCliente.Size = new System.Drawing.Size(131, 28);
+            this.txtEdadCliente.TabIndex = 14;
+            this.txtEdadCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdadCliente_KeyPress);
+            // 
+            // txtDireccionCliente
+            // 
+            this.txtDireccionCliente.Location = new System.Drawing.Point(493, 271);
+            this.txtDireccionCliente.Name = "txtDireccionCliente";
+            this.txtDireccionCliente.Size = new System.Drawing.Size(406, 28);
+            this.txtDireccionCliente.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(489, 246);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Direccion:";
+            // 
             // IngresarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 322);
+            this.ClientSize = new System.Drawing.Size(952, 413);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtDireccionCliente);
+            this.Controls.Add(this.txtEdadCliente);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelarCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnContinuarCliente);
@@ -226,5 +270,9 @@
         private System.Windows.Forms.Button btnContinuarCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelarCliente;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtEdadCliente;
+        private System.Windows.Forms.TextBox txtDireccionCliente;
+        private System.Windows.Forms.Label label3;
     }
 }

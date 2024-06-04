@@ -15,17 +15,29 @@ namespace Visual
     public partial class IngresarCliente : Form
     {
         ControlEntradaTxt ctrllEntradaTxt = new ControlEntradaTxt();
+        CtrlCliente ctrlCliente = new CtrlCliente();    
 
         public IngresarCliente()
         {
             InitializeComponent();
+            this.txtIdCliente.Text = ctrlCliente.idContador();
         }
 
         private void btnContinuarCliente_Click(object sender, EventArgs e)
         {
+            string nombre = txtNombreCliente.Text;
+            string apellido = txtApellidoCliente.Text;
+            string cedula = txtCedulaCliente.Text;
+            string edad = txtEdadCliente.Text;
+            string email = txtEmailCliente.Text;
+            string direccion = txtDireccionCliente.Text;
+            bool flag = ctrlCliente.registrarCliente(nombre, apellido, cedula, edad, email, direccion);
             IngresarPedido ingresarPedido = new IngresarPedido();
-            ingresarPedido.Show();
-            this.Close();
+            if (flag)
+            {
+                ingresarPedido.Show();
+                this.Close();
+            }
         }
 
         //Control de tipo de caracteres aceptados, funcion ubicada en clase ControlEntradaTexto
@@ -57,5 +69,9 @@ namespace Visual
             this.Close();
         }
 
+        private void txtEdadCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ctrllEntradaTxt.ingresoSoloNumeros(sender, e);
+        }
     }
 }
