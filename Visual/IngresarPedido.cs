@@ -19,9 +19,11 @@ namespace Visual
         public IngresarPedido()
         {
             InitializeComponent();
-            //ctrlPedido.LlenarCmbPedido(cmbPedido);
+            ctrlPedido.crearPlato();
+            ctrlPedido.LlenarCmbPedido(cmbPedido);
             txtClientePed.Text = ctrlPedido.RetornarCICliente();
             txtIdPedido.Text = i.ToString();
+            
         }
 
         private void txtCantItem_KeyPress(object sender, KeyPressEventArgs e)

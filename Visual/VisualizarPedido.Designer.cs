@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -49,9 +50,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(434, 19);
+            this.label1.Location = new System.Drawing.Point(326, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 20);
+            this.label1.Size = new System.Drawing.Size(185, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "VISUALIZAR PEDIDOS";
             // 
@@ -59,18 +61,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(196, 74);
+            this.label2.Location = new System.Drawing.Point(147, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 20);
+            this.label2.Size = new System.Drawing.Size(128, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Campo a buscar:";
             // 
             // txtBusqueda
             // 
             this.txtBusqueda.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(555, 71);
+            this.txtBusqueda.Location = new System.Drawing.Point(416, 58);
+            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(170, 28);
+            this.txtBusqueda.Size = new System.Drawing.Size(128, 24);
             this.txtBusqueda.TabIndex = 2;
             // 
             // cmbCampoBusqueda
@@ -82,18 +86,20 @@
             "ID",
             "CLIENTE",
             "TODOS"});
-            this.cmbCampoBusqueda.Location = new System.Drawing.Point(367, 71);
+            this.cmbCampoBusqueda.Location = new System.Drawing.Point(275, 58);
+            this.cmbCampoBusqueda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCampoBusqueda.Name = "cmbCampoBusqueda";
-            this.cmbCampoBusqueda.Size = new System.Drawing.Size(121, 28);
+            this.cmbCampoBusqueda.Size = new System.Drawing.Size(92, 25);
             this.cmbCampoBusqueda.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(506, 74);
+            this.label3.Location = new System.Drawing.Point(380, 60);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 20);
+            this.label3.Size = new System.Drawing.Size(26, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "->";
             // 
@@ -102,10 +108,11 @@
             this.btnVolverPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverPedido.Image = global::Visual.Properties.Resources.imgVolver;
             this.btnVolverPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolverPedido.Location = new System.Drawing.Point(475, 492);
+            this.btnVolverPedido.Location = new System.Drawing.Point(356, 400);
+            this.btnVolverPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnVolverPedido.Name = "btnVolverPedido";
-            this.btnVolverPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnVolverPedido.Size = new System.Drawing.Size(145, 50);
+            this.btnVolverPedido.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnVolverPedido.Size = new System.Drawing.Size(109, 41);
             this.btnVolverPedido.TabIndex = 7;
             this.btnVolverPedido.Text = "Volver";
             this.btnVolverPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -118,10 +125,11 @@
             this.btnBuscarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarPedido.Image = global::Visual.Properties.Resources.imgBuscar;
             this.btnBuscarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarPedido.Location = new System.Drawing.Point(749, 59);
+            this.btnBuscarPedido.Location = new System.Drawing.Point(562, 48);
+            this.btnBuscarPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBuscarPedido.Name = "btnBuscarPedido";
-            this.btnBuscarPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnBuscarPedido.Size = new System.Drawing.Size(145, 50);
+            this.btnBuscarPedido.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.btnBuscarPedido.Size = new System.Drawing.Size(109, 41);
             this.btnBuscarPedido.TabIndex = 5;
             this.btnBuscarPedido.Text = "Buscar ";
             this.btnBuscarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -130,6 +138,7 @@
             // 
             // dgvPedidos
             // 
+            this.dgvPedidos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
             this.dgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -148,11 +157,22 @@
             this.menuPedido,
             this.cantPedido,
             this.valorPedido});
-            this.dgvPedidos.Location = new System.Drawing.Point(88, 128);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPedidos.Location = new System.Drawing.Point(66, 104);
+            this.dgvPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvPedidos.Name = "dgvPedidos";
+            this.dgvPedidos.ReadOnly = true;
             this.dgvPedidos.RowHeadersWidth = 51;
             this.dgvPedidos.RowTemplate.Height = 24;
-            this.dgvPedidos.Size = new System.Drawing.Size(997, 332);
+            this.dgvPedidos.Size = new System.Drawing.Size(748, 270);
             this.dgvPedidos.TabIndex = 8;
             // 
             // idPedido
@@ -160,6 +180,7 @@
             this.idPedido.HeaderText = "Id Pedido";
             this.idPedido.MinimumWidth = 6;
             this.idPedido.Name = "idPedido";
+            this.idPedido.ReadOnly = true;
             this.idPedido.Width = 110;
             // 
             // clientePedido
@@ -167,6 +188,7 @@
             this.clientePedido.HeaderText = "Cliente";
             this.clientePedido.MinimumWidth = 6;
             this.clientePedido.Name = "clientePedido";
+            this.clientePedido.ReadOnly = true;
             this.clientePedido.Width = 125;
             // 
             // menuPedido
@@ -174,6 +196,7 @@
             this.menuPedido.HeaderText = "Menu Seleccionado";
             this.menuPedido.MinimumWidth = 6;
             this.menuPedido.Name = "menuPedido";
+            this.menuPedido.ReadOnly = true;
             this.menuPedido.Width = 180;
             // 
             // cantPedido
@@ -181,6 +204,7 @@
             this.cantPedido.HeaderText = "Cantidad Total";
             this.cantPedido.MinimumWidth = 6;
             this.cantPedido.Name = "cantPedido";
+            this.cantPedido.ReadOnly = true;
             this.cantPedido.Width = 155;
             // 
             // valorPedido
@@ -188,14 +212,15 @@
             this.valorPedido.HeaderText = "Valor Total";
             this.valorPedido.MinimumWidth = 6;
             this.valorPedido.Name = "valorPedido";
+            this.valorPedido.ReadOnly = true;
             this.valorPedido.Width = 125;
             // 
             // VisualizarPedido
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1178, 574);
+            this.ClientSize = new System.Drawing.Size(884, 466);
             this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.btnVolverPedido);
             this.Controls.Add(this.btnBuscarPedido);
@@ -204,6 +229,7 @@
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "VisualizarPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

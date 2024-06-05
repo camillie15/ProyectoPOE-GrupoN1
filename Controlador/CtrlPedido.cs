@@ -13,6 +13,7 @@ namespace Controlador
         static int cantidades = 0;
         static double totalPed = 0;
         //List<Plato> listaPlatos = CtrlPlato.Platos;
+        List<Plato> listaPlatos = new List<Plato>();
         static List<Pedido> listaPedidos = new List<Pedido>();
         List<Cliente> listaClientes = CtrlCliente.Clientes;
         static string pedidoR = string.Empty;
@@ -23,38 +24,55 @@ namespace Controlador
         public static string PedidoR { get => pedidoR; set => pedidoR = value; }
         public static int Cantidades { get => cantidades; set => cantidades = value; }
         public static double TotalPed { get => totalPed; set => totalPed = value; }
+        public List<Plato> ListaPlatos { get => listaPlatos; set => listaPlatos = value; }
 
         public void AgregarAlPedido(string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
         {
+            int cantItemAgregado = ctrlConversiones.toInt(cantidadItem);
 
-            string[] pedidoAgg = pedidoSleccionado.Split('-');
+            if(pedidoSleccionado != null && cantItemAgregado > 0)
+            {
+                string[] pedidoAgg = pedidoSleccionado.Split('-');
 
-            string descripcionPed = pedidoAgg[0];
-            string precio = pedidoAgg[1].Substring(2);
-            double precioItem = ctrlConversiones.toDouble(precio);
-            int cantidadItemPed = ctrlConversiones.toInt(cantidadItem);
+                string descripcionPed = pedidoAgg[0];
+                string precio = pedidoAgg[1].Substring(2);
+                double precioItem = ctrlConversiones.toDouble(precio);
+                int cantidadItemPed = ctrlConversiones.toInt(cantidadItem);
 
-            double totalPedidoItem = precioItem * cantidadItemPed;
+                double totalPedidoItem = precioItem * cantidadItemPed;
 
-            int i = dgvIngresoPedido.Rows.Add();
+                int i = dgvIngresoPedido.Rows.Add();
 
-            dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = descripcionPed;
-            dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {precioItem}";
-            dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = cantidadItemPed;
-            dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {totalPedidoItem}";
+                dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = descripcionPed;
+                dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {precioItem}";
+                dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = cantidadItemPed;
+                dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {totalPedidoItem}";
 
-            Cantidades += cantidadItemPed;
-            TotalPed += (precioItem * cantidadItemPed);
-            txtCantPedido.Text = Cantidades.ToString();
-            txtTotPedido.Text = $"$ {TotalPed.ToString()}";
+                Cantidades += cantidadItemPed;
+                TotalPed += (precioItem * cantidadItemPed);
+                txtCantPedido.Text = Cantidades.ToString();
+                txtTotPedido.Text = $"$ {TotalPed.ToString()}";
 
-            PedidoR += pedidoSleccionado + "\n";
-
+                PedidoR += pedidoSleccionado + "\n";
+            }
+            else
+            {
+                MessageBox.Show("Error: Datos sin ingresar");
+            }
         }
 
-        /*public void LlenarCmbPedido(ComboBox cmbPedido)
+        public void crearPlato()
         {
-            foreach (var item in listaPlatos)
+            for(int i = 0; i < 10; i++)
+            {
+                ListaPlatos.Add(new Plato(1, "hola", "huiajd", 8, true));
+            }
+        }
+
+
+        public void LlenarCmbPedido(ComboBox cmbPedido)
+        {
+            foreach (var item in ListaPlatos)
             {
                 if (item.Estado == true)
                 {
@@ -62,7 +80,7 @@ namespace Controlador
                 }
 
             }
-        }*/
+        }
 
         public bool IngresarPedido(string sId, string cliente, string menu, string sCantItems, string sTotalPed)
         {
@@ -91,16 +109,15 @@ namespace Controlador
         }
 
         public void AutocompletarGrid(DataGridView dgvPedidos)
-        {
-            int i = 0;
-            foreach (Pedido pedido in ListaPedidos)
+        {         
+            for (int i = 0; i < listaPedidos.Count; i++)
             {
-                i = dgvPedidos.Rows.Add();
-                dgvPedidos.Rows[i].Cells["idPedido"].Value = pedido.CodPedido;
-                dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedido.Cliente;
-                dgvPedidos.Rows[i].Cells["menuPedido"].Value = pedido.MenuSeleccionado;
-                dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedido.CantidadProductos;
-                dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedido.TotalPedido}";
+                dgvPedidos.Rows.Add();
+                dgvPedidos.Rows[i].Cells["idPedido"].Value = listaPedidos[i].CodPedido;
+                dgvPedidos.Rows[i].Cells["clientePedido"].Value = listaPedidos[i].Cliente;
+                dgvPedidos.Rows[i].Cells["menuPedido"].Value = listaPedidos[i].MenuSeleccionado;
+                dgvPedidos.Rows[i].Cells["cantPedido"].Value = listaPedidos[i].CantidadProductos;
+                dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {listaPedidos[i].TotalPedido}";
 
             }
         }
@@ -157,7 +174,7 @@ namespace Controlador
             }
             else
             {
-                MessageBox.Show("No se encontraron pedidos que coincidan con los criterios de búsqueda.");
+                MessageBox.Show("No se encontraron pedidos que coincidan con el dato ingresado.");
             }
         }
 

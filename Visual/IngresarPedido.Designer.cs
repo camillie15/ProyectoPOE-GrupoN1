@@ -58,9 +58,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(146, 86);
+            this.label2.Location = new System.Drawing.Point(110, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 20);
+            this.label2.Size = new System.Drawing.Size(114, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Codigo Pedido:";
             // 
@@ -68,9 +69,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(482, 86);
+            this.label1.Location = new System.Drawing.Point(362, 70);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 20);
+            this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Cliente:";
             // 
@@ -78,27 +80,30 @@
             // 
             this.txtIdPedido.Enabled = false;
             this.txtIdPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdPedido.Location = new System.Drawing.Point(296, 83);
+            this.txtIdPedido.Location = new System.Drawing.Point(222, 67);
+            this.txtIdPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtIdPedido.Name = "txtIdPedido";
-            this.txtIdPedido.Size = new System.Drawing.Size(122, 28);
+            this.txtIdPedido.Size = new System.Drawing.Size(92, 24);
             this.txtIdPedido.TabIndex = 2;
             // 
             // txtClientePed
             // 
             this.txtClientePed.Enabled = false;
             this.txtClientePed.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClientePed.Location = new System.Drawing.Point(566, 83);
+            this.txtClientePed.Location = new System.Drawing.Point(424, 67);
+            this.txtClientePed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtClientePed.Name = "txtClientePed";
-            this.txtClientePed.Size = new System.Drawing.Size(282, 28);
+            this.txtClientePed.Size = new System.Drawing.Size(212, 24);
             this.txtClientePed.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(146, 131);
+            this.label3.Location = new System.Drawing.Point(110, 106);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 20);
+            this.label3.Size = new System.Drawing.Size(45, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Menu";
             // 
@@ -108,18 +113,20 @@
             this.cmbPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPedido.FormattingEnabled = true;
             this.cmbPedido.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.cmbPedido.Location = new System.Drawing.Point(224, 173);
+            this.cmbPedido.Location = new System.Drawing.Point(168, 141);
+            this.cmbPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbPedido.Name = "cmbPedido";
-            this.cmbPedido.Size = new System.Drawing.Size(297, 28);
+            this.cmbPedido.Size = new System.Drawing.Size(224, 25);
             this.cmbPedido.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(146, 176);
+            this.label4.Location = new System.Drawing.Point(110, 143);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.Size = new System.Drawing.Size(54, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Items:";
             // 
@@ -127,19 +134,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(541, 176);
+            this.label5.Location = new System.Drawing.Point(406, 143);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 20);
+            this.label5.Size = new System.Drawing.Size(76, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Cantidad:";
             // 
             // txtCantItem
             // 
             this.txtCantItem.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantItem.Location = new System.Drawing.Point(644, 173);
+            this.txtCantItem.Location = new System.Drawing.Point(483, 141);
+            this.txtCantItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCantItem.MaxLength = 1;
             this.txtCantItem.Name = "txtCantItem";
-            this.txtCantItem.Size = new System.Drawing.Size(70, 28);
+            this.txtCantItem.Size = new System.Drawing.Size(54, 24);
             this.txtCantItem.TabIndex = 8;
             this.txtCantItem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantItem_KeyPress);
             // 
@@ -147,9 +156,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(244, 394);
+            this.label7.Location = new System.Drawing.Point(183, 351);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 20);
+            this.label7.Size = new System.Drawing.Size(127, 17);
             this.label7.TabIndex = 11;
             this.label7.Text = "Cantidad Pedido:";
             // 
@@ -157,18 +167,20 @@
             // 
             this.txtCantPedido.Enabled = false;
             this.txtCantPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantPedido.Location = new System.Drawing.Point(411, 391);
+            this.txtCantPedido.Location = new System.Drawing.Point(308, 349);
+            this.txtCantPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCantPedido.Name = "txtCantPedido";
-            this.txtCantPedido.Size = new System.Drawing.Size(56, 28);
+            this.txtCantPedido.Size = new System.Drawing.Size(43, 24);
             this.txtCantPedido.TabIndex = 12;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(535, 394);
+            this.label8.Location = new System.Drawing.Point(401, 351);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 20);
+            this.label8.Size = new System.Drawing.Size(138, 17);
             this.label8.TabIndex = 13;
             this.label8.Text = "Valor Total Pedido:";
             // 
@@ -176,17 +188,19 @@
             // 
             this.txtTotPedido.Enabled = false;
             this.txtTotPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotPedido.Location = new System.Drawing.Point(719, 391);
+            this.txtTotPedido.Location = new System.Drawing.Point(539, 349);
+            this.txtTotPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotPedido.Name = "txtTotPedido";
-            this.txtTotPedido.Size = new System.Drawing.Size(73, 28);
+            this.txtTotPedido.Size = new System.Drawing.Size(56, 24);
             this.txtTotPedido.TabIndex = 14;
             // 
             // btnContinuarPedido
             // 
             this.btnContinuarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinuarPedido.Location = new System.Drawing.Point(343, 440);
+            this.btnContinuarPedido.Location = new System.Drawing.Point(257, 388);
+            this.btnContinuarPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnContinuarPedido.Name = "btnContinuarPedido";
-            this.btnContinuarPedido.Size = new System.Drawing.Size(156, 44);
+            this.btnContinuarPedido.Size = new System.Drawing.Size(117, 36);
             this.btnContinuarPedido.TabIndex = 15;
             this.btnContinuarPedido.Text = "Continuar";
             this.btnContinuarPedido.UseVisualStyleBackColor = true;
@@ -195,9 +209,10 @@
             // btnAggPedido
             // 
             this.btnAggPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggPedido.Location = new System.Drawing.Point(728, 164);
+            this.btnAggPedido.Location = new System.Drawing.Point(546, 133);
+            this.btnAggPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAggPedido.Name = "btnAggPedido";
-            this.btnAggPedido.Size = new System.Drawing.Size(105, 44);
+            this.btnAggPedido.Size = new System.Drawing.Size(79, 36);
             this.btnAggPedido.TabIndex = 16;
             this.btnAggPedido.Text = "Agregar";
             this.btnAggPedido.UseVisualStyleBackColor = true;
@@ -207,18 +222,20 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(78, 28);
+            this.label9.Location = new System.Drawing.Point(58, 23);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(189, 20);
+            this.label9.Size = new System.Drawing.Size(158, 17);
             this.label9.TabIndex = 17;
             this.label9.Text = "REGISTRO PEDIDO";
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(533, 440);
+            this.btnCancelar.Location = new System.Drawing.Point(400, 388);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(156, 44);
+            this.btnCancelar.Size = new System.Drawing.Size(117, 36);
             this.btnCancelar.TabIndex = 18;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -242,13 +259,13 @@
             this.valorUnitarioItem,
             this.cantidadItem,
             this.valorTotalPedido});
-            this.dgvIngresoPedido.Enabled = false;
             this.dgvIngresoPedido.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dgvIngresoPedido.Location = new System.Drawing.Point(92, 226);
+            this.dgvIngresoPedido.Location = new System.Drawing.Point(52, 184);
+            this.dgvIngresoPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvIngresoPedido.Name = "dgvIngresoPedido";
             this.dgvIngresoPedido.RowHeadersWidth = 51;
             this.dgvIngresoPedido.RowTemplate.Height = 24;
-            this.dgvIngresoPedido.Size = new System.Drawing.Size(844, 139);
+            this.dgvIngresoPedido.Size = new System.Drawing.Size(647, 150);
             this.dgvIngresoPedido.TabIndex = 19;
             // 
             // descripcionPedido
@@ -281,10 +298,10 @@
             // 
             // IngresarPedido
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1021, 550);
+            this.ClientSize = new System.Drawing.Size(766, 447);
             this.Controls.Add(this.dgvIngresoPedido);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.label9);
@@ -304,6 +321,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "IngresarPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
