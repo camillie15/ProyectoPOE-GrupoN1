@@ -43,6 +43,7 @@ namespace Controlador
 
         public void PresentarClientes(DataGridView dvg)
         {
+
             for (int i = 0; i < clientes.Count; i++)
             {
                 dvg.Rows.Add();

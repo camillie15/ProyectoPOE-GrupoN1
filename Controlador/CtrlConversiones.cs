@@ -42,7 +42,7 @@ namespace Controlador
                     Console.WriteLine("ERROR: DATO DEBE SER MAYOR A CERO.\n");
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
                

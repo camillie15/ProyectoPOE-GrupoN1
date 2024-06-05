@@ -75,6 +75,8 @@ namespace Visual
             // txtIdCliente
             // 
             this.txtIdCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.txtIdCliente.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtIdCliente.Enabled = false;
             this.txtIdCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdCliente.Location = new System.Drawing.Point(144, 72);
             this.txtIdCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -130,6 +132,7 @@ namespace Visual
             this.txtCedulaCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedulaCliente.Location = new System.Drawing.Point(132, 128);
             this.txtCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCedulaCliente.MaxLength = 10;
             this.txtCedulaCliente.Name = "txtCedulaCliente";
             this.txtCedulaCliente.Size = new System.Drawing.Size(131, 28);
             this.txtCedulaCliente.TabIndex = 7;
@@ -200,6 +203,7 @@ namespace Visual
             // txtEdadCliente
             // 
             this.txtEdadCliente.Location = new System.Drawing.Point(561, 128);
+            this.txtEdadCliente.MaxLength = 2;
             this.txtEdadCliente.Name = "txtEdadCliente";
             this.txtEdadCliente.Size = new System.Drawing.Size(131, 28);
             this.txtEdadCliente.TabIndex = 14;
@@ -225,6 +229,7 @@ namespace Visual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(952, 413);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDireccionCliente);

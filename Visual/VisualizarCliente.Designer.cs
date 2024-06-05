@@ -185,7 +185,7 @@
             this.Name = "VisualizarCliente";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VisualizarCliente";
+            this.Text = "Visualizar Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -226,7 +226,7 @@
             // 
             // dgvIngresoPedido
             // 
-            this.dgvIngresoPedido.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvIngresoPedido.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.dgvIngresoPedido.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -243,11 +243,12 @@
             this.cantidadItem,
             this.valorTotalPedido});
             this.dgvIngresoPedido.Enabled = false;
-            this.dgvIngresoPedido.Location = new System.Drawing.Point(77, 201);
+            this.dgvIngresoPedido.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvIngresoPedido.Location = new System.Drawing.Point(12, 201);
             this.dgvIngresoPedido.Name = "dgvIngresoPedido";
             this.dgvIngresoPedido.RowHeadersWidth = 51;
             this.dgvIngresoPedido.RowTemplate.Height = 24;
-            this.dgvIngresoPedido.Size = new System.Drawing.Size(737, 139);
+            this.dgvIngresoPedido.Size = new System.Drawing.Size(844, 139);
             this.dgvIngresoPedido.TabIndex = 19;
             // 
             // descripcionPedido
@@ -255,14 +256,14 @@
             this.descripcionPedido.HeaderText = "Descripcion";
             this.descripcionPedido.MinimumWidth = 6;
             this.descripcionPedido.Name = "descripcionPedido";
-            this.descripcionPedido.Width = 125;
+            this.descripcionPedido.Width = 237;
             // 
             // valorUnitarioItem
             // 
             this.valorUnitarioItem.HeaderText = "Valor Unitario";
             this.valorUnitarioItem.MinimumWidth = 6;
             this.valorUnitarioItem.Name = "valorUnitarioItem";
-            this.valorUnitarioItem.Width = 125;
+            this.valorUnitarioItem.Width = 110;
             // 
             // cantidadItem
             // 
@@ -276,13 +277,13 @@
             this.valorTotalPedido.HeaderText = "Valor Total";
             this.valorTotalPedido.MinimumWidth = 6;
             this.valorTotalPedido.Name = "valorTotalPedido";
-            this.valorTotalPedido.Width = 125;
+            this.valorTotalPedido.Width = 110;
             // 
             // IngresarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(879, 487);
             this.Controls.Add(this.dgvIngresoPedido);
             this.Controls.Add(this.btnCancelar);
