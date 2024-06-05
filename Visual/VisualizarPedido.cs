@@ -17,6 +17,7 @@ namespace Visual
         public VisualizarPedido()
         {
             InitializeComponent();
+            ctrlPedido.AutocompletarGrid(dgvPedidos);
         }
 
         private void btnVolverPedido_Click(object sender, EventArgs e)
@@ -29,6 +30,8 @@ namespace Visual
             string campo = (string)cmbCampoBusqueda.SelectedItem;
             string datoBuscar = txtBusqueda.Text;
 
+            ctrlPedido.BuscarPedido(campo, datoBuscar, dgvPedidos);
+            txtBusqueda.Clear();
         }
     }
 }

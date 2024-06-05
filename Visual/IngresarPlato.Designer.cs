@@ -57,7 +57,7 @@
             // 
             this.btnRegistrarPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarPlato.Location = new System.Drawing.Point(327, 316);
-            this.btnRegistrarPlato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegistrarPlato.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrarPlato.Name = "btnRegistrarPlato";
             this.btnRegistrarPlato.Size = new System.Drawing.Size(113, 37);
             this.btnRegistrarPlato.TabIndex = 45;
@@ -74,7 +74,7 @@
             "Agotado",
             "Todos"});
             this.cmbEstadoPlato.Location = new System.Drawing.Point(489, 241);
-            this.cmbEstadoPlato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEstadoPlato.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEstadoPlato.Name = "cmbEstadoPlato";
             this.cmbEstadoPlato.Size = new System.Drawing.Size(160, 24);
             this.cmbEstadoPlato.TabIndex = 44;
@@ -82,7 +82,7 @@
             // txtPrecioPlato
             // 
             this.txtPrecioPlato.Location = new System.Drawing.Point(191, 241);
-            this.txtPrecioPlato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrecioPlato.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioPlato.Name = "txtPrecioPlato";
             this.txtPrecioPlato.Size = new System.Drawing.Size(139, 22);
             this.txtPrecioPlato.TabIndex = 43;
@@ -90,7 +90,7 @@
             // txtDescripcionPlato
             // 
             this.txtDescripcionPlato.Location = new System.Drawing.Point(225, 186);
-            this.txtDescripcionPlato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcionPlato.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcionPlato.Name = "txtDescripcionPlato";
             this.txtDescripcionPlato.Size = new System.Drawing.Size(464, 22);
             this.txtDescripcionPlato.TabIndex = 42;
@@ -98,7 +98,7 @@
             // txtNombrePlato
             // 
             this.txtNombrePlato.Location = new System.Drawing.Point(200, 130);
-            this.txtNombrePlato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombrePlato.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombrePlato.Name = "txtNombrePlato";
             this.txtNombrePlato.Size = new System.Drawing.Size(489, 22);
             this.txtNombrePlato.TabIndex = 41;
@@ -106,7 +106,7 @@
             // txtIdPlato
             // 
             this.txtIdPlato.Location = new System.Drawing.Point(197, 75);
-            this.txtIdPlato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdPlato.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdPlato.Name = "txtIdPlato";
             this.txtIdPlato.ReadOnly = true;
             this.txtIdPlato.Size = new System.Drawing.Size(132, 22);
@@ -184,7 +184,7 @@
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.lblNombrePlato);
             this.Controls.Add(this.lblIdPlato);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "IngresarPlato";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IngresarPlato";

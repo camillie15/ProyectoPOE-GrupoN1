@@ -73,5 +73,19 @@ namespace Controlador
             }
             return flag;
         }
+
+        public string stringWithoutDolar(string str)
+        {
+            string flag = string.Empty;
+            try
+            {
+                flag = str.Substring(2);
+            }
+            catch (Exception)
+            {
+                flag = string.Empty;
+            }
+            return flag;
+        }
     }
 }

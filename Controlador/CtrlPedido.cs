@@ -19,7 +19,7 @@ namespace Controlador
 
         CtrlConversiones ctrlConversiones = new CtrlConversiones();
 
-        public List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
+        public static List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
         public static string PedidoR { get => pedidoR; set => pedidoR = value; }
 
         public void AgregarAlPedido(string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
@@ -29,22 +29,22 @@ namespace Controlador
 
             string descripcionPed = pedidoAgg[0];
             string precio = pedidoAgg[1].Substring(2);
-            double precioItem = Convert.ToDouble(precio);
-            int cantidadItemPed = Convert.ToInt32(cantidadItem);
+            double precioItem = ctrlConversiones.toDouble(precio);
+            int cantidadItemPed = ctrlConversiones.toInt(cantidadItem);
 
             double totalPedidoItem = precioItem * cantidadItemPed;
 
             int i = dgvIngresoPedido.Rows.Add();
 
             dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = descripcionPed;
-            dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = precioItem;
+            dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {precioItem}";
             dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = cantidadItemPed;
-            dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = totalPedidoItem;
+            dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {totalPedidoItem}";
 
             cantidades += cantidadItemPed;
             totalPed += (precioItem * cantidadItemPed);
             txtCantPedido.Text = cantidades.ToString();
-            txtTotPedido.Text = totalPed.ToString();
+            txtTotPedido.Text = $"$ {totalPed.ToString()}";
 
             PedidoR += pedidoSleccionado + "\n";
 
@@ -52,7 +52,7 @@ namespace Controlador
 
         /*public void LlenarCmbPedido(ComboBox cmbPedido)
         {
-            foreach (var item in platos)
+            foreach (var item in listaPlatos)
             {
                 if (item.Estado == true)
                 {
@@ -68,7 +68,8 @@ namespace Controlador
 
             int id = ctrlConversiones.toInt(sId);
             int cantItem = ctrlConversiones.toInt(sCantItems);
-            double totalPed = ctrlConversiones.toDouble(sTotalPed);
+            string totP = ctrlConversiones.stringWithoutDolar(sTotalPed);
+            double totalPed = ctrlConversiones.toDouble(totP);
 
             Pedido pedidoN = null;
 
@@ -97,7 +98,7 @@ namespace Controlador
                 dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedido.Cliente;
                 dgvPedidos.Rows[i].Cells["menuPedido"].Value = pedido.MenuSeleccionado;
                 dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedido.CantidadProductos;
-                dgvPedidos.Rows[i].Cells["valorPedido"].Value = pedido.TotalPedido;
+                dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedido.TotalPedido}";
 
             }
         }
@@ -108,6 +109,53 @@ namespace Controlador
 
         }
 
-        
+        public void BuscarPedido(string campo, string datoBuscar, DataGridView dgvPedidos)
+        {
+            List<Pedido> pedidosBuscar = new List<Pedido>();
+
+            if (campo.ToLower().Equals("id"))
+            {
+                int idBuscar = Convert.ToInt32(datoBuscar);
+                Pedido pedidoBuscar = ListaPedidos.Find(delBuscar => delBuscar.CodPedido == idBuscar);
+                if (pedidoBuscar != null)
+                {
+                    pedidosBuscar.Add(pedidoBuscar);
+                }
+            }
+            else if (campo.ToLower().Equals("cliente"))
+            {
+                pedidosBuscar = ListaPedidos.FindAll(delBuscar => delBuscar.Cliente.Contains(datoBuscar));
+            }
+            else if (campo.ToLower().Equals("todos"))
+            {
+                pedidosBuscar = ListaPedidos;
+                ;
+            }
+
+            if (pedidosBuscar.Count > 0)
+            {
+                dgvPedidos.Rows.Clear();
+                foreach (Pedido pedidoB in pedidosBuscar)
+                {
+                    int i = dgvPedidos.Rows.Add();
+                    dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidoB.CodPedido;
+                    dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidoB.Cliente;
+                    dgvPedidos.Rows[i].Cells["menuPedido"].Value = pedidoB.MenuSeleccionado;
+                    dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedidoB.CantidadProductos;
+                    dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedidoB.TotalPedido}";
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron pedidos que coincidan con los criterios de búsqueda.");
+            }
+        }
+
+        public void RestartPedido()
+        {
+            cantidades = 0;
+            totalPed = 0;
+            pedidoR = string.Empty;
+        }
     }
 }

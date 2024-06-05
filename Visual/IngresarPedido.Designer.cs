@@ -104,6 +104,7 @@
             // 
             // cmbPedido
             // 
+            this.cmbPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPedido.FormattingEnabled = true;
             this.cmbPedido.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -200,6 +201,7 @@
             this.btnAggPedido.TabIndex = 16;
             this.btnAggPedido.Text = "Agregar";
             this.btnAggPedido.UseVisualStyleBackColor = true;
+            this.btnAggPedido.Click += new System.EventHandler(this.btnAggPedido_Click);
             // 
             // label9
             // 

@@ -42,19 +42,34 @@ namespace Visual
             string sCantItems = txtCantPedido.Text;
             string sTotalPed = txtTotPedido.Text;
 
-            ctrlPedido.IngresarPedido(sId, cliente, menu, sCantItems, sTotalPed);
-            i++;
-
-
+            bool flag = ctrlPedido.IngresarPedido(sId, cliente, menu, sCantItems, sTotalPed);
             IngresarFactura ingresarFactura = new IngresarFactura();
-            ingresarFactura.Show();
 
-            this.Close();
+            if (flag)
+            {
+                i++;
+                ingresarFactura.Show();
+
+                txtCantPedido.Clear();
+                txtTotPedido.Clear();
+                dgvIngresoPedido.Rows.Clear();
+                ctrlPedido.RestartPedido();
+                this.Close();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAggPedido_Click(object sender, EventArgs e)
+        {
+            string pedidoSleccionado = (string)cmbPedido.SelectedItem;
+            string cantidadItem = txtCantItem.Text;
+
+            ctrlPedido.AgregarAlPedido(pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido);
+
         }
     }
 }

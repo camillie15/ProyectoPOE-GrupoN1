@@ -80,7 +80,8 @@
             this.cmbCampoBusqueda.FormattingEnabled = true;
             this.cmbCampoBusqueda.Items.AddRange(new object[] {
             "ID",
-            "CLIENTE"});
+            "CLIENTE",
+            "TODOS"});
             this.cmbCampoBusqueda.Location = new System.Drawing.Point(367, 71);
             this.cmbCampoBusqueda.Name = "cmbCampoBusqueda";
             this.cmbCampoBusqueda.Size = new System.Drawing.Size(121, 28);
