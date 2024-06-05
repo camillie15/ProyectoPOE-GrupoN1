@@ -21,6 +21,8 @@ namespace Controlador
 
         public static List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
         public static string PedidoR { get => pedidoR; set => pedidoR = value; }
+        public static int Cantidades { get => cantidades; set => cantidades = value; }
+        public static double TotalPed { get => totalPed; set => totalPed = value; }
 
         public void AgregarAlPedido(string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
         {
@@ -41,10 +43,10 @@ namespace Controlador
             dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = cantidadItemPed;
             dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {totalPedidoItem}";
 
-            cantidades += cantidadItemPed;
-            totalPed += (precioItem * cantidadItemPed);
-            txtCantPedido.Text = cantidades.ToString();
-            txtTotPedido.Text = $"$ {totalPed.ToString()}";
+            Cantidades += cantidadItemPed;
+            TotalPed += (precioItem * cantidadItemPed);
+            txtCantPedido.Text = Cantidades.ToString();
+            txtTotPedido.Text = $"$ {TotalPed.ToString()}";
 
             PedidoR += pedidoSleccionado + "\n";
 
@@ -161,8 +163,8 @@ namespace Controlador
 
         public void RestartPedido()
         {
-            cantidades = 0;
-            totalPed = 0;
+            Cantidades = 0;
+            TotalPed = 0;
             pedidoR = string.Empty;
         }
 

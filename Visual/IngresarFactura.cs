@@ -14,7 +14,7 @@ namespace Visual
     public partial class IngresarFactura : Form
     {
         CtrlFactura ctrlFactura = new CtrlFactura();
-
+        
 
         
         public IngresarFactura()
@@ -22,7 +22,7 @@ namespace Visual
             InitializeComponent();
             this.txtCodfactura.Text = ctrlFactura.CrearId();
             this.txtCliente.Text = ctrlFactura.obternercliente();
-            
+            txtSubtotal.Text = CtrlPedido.TotalPed.ToString();
         }
 
         private void label12_Click(object sender, EventArgs e)
