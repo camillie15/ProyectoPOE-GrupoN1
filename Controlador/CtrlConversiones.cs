@@ -20,5 +20,19 @@ namespace Controlador
             }
             return flag;
         }
+
+        public double toDouble(string str)
+        {
+            double flag = 0;
+            try
+            {
+                flag = Convert.ToDouble(str);
+            }
+            catch (Exception)
+            {
+                flag = -1;
+            }
+            return flag;
+        }
     }
 }

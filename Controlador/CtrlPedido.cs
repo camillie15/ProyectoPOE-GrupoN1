@@ -17,6 +17,8 @@ namespace Controlador
         List<Cliente> listaClientes = CtrlCliente.Clientes;
         static string pedidoR = string.Empty;
 
+        CtrlConversiones ctrlConversiones = new CtrlConversiones();
+
         public List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
         public static string PedidoR { get => pedidoR; set => pedidoR = value; }
 
@@ -60,21 +62,28 @@ namespace Controlador
             }
         }*/
 
-        public void IngresarPedido(string sId, string cliente, string menu, string sCantItems, string sTotalPed)
+        public bool IngresarPedido(string sId, string cliente, string menu, string sCantItems, string sTotalPed)
         {
-            int id = Convert.ToInt32(sId);
-            int cantItem = Convert.ToInt32(sCantItems);
-            double totalPed = Convert.ToDouble(sTotalPed);
+            bool flag = false;
+
+            int id = ctrlConversiones.toInt(sId);
+            int cantItem = ctrlConversiones.toInt(sCantItems);
+            double totalPed = ctrlConversiones.toDouble(sTotalPed);
 
             Pedido pedidoN = null;
 
-            if (menu != null && totalPed > 0)
+            if (menu != null && totalPed > 0 && cantItem > 0)
             {
                 pedidoN = new Pedido(id, cliente, menu, cantItem, totalPed);
                 ListaPedidos.Add(pedidoN);
+                flag = true;
             }
-
-            MessageBox.Show($"{id} \n{cliente} \n{menu} \n{cantItem} \n{totalPed}");
+            else
+            {
+                MessageBox.Show("Error: Datos sin ingresar");
+                flag = false;
+            }
+            return flag;
 
         }
 
@@ -99,5 +108,6 @@ namespace Controlador
 
         }
 
+        
     }
 }

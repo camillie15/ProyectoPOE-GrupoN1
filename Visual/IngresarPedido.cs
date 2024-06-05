@@ -20,7 +20,7 @@ namespace Visual
         {
             InitializeComponent();
             //ctrlPedido.LlenarCmbPedido(cmbPedido);
-            //txtClientePed.Text = ctrlPedido.RetornarCICliente();
+            txtClientePed.Text = ctrlPedido.RetornarCICliente();
             txtIdPedido.Text = i.ToString();
         }
 
@@ -44,6 +44,7 @@ namespace Visual
 
             ctrlPedido.IngresarPedido(sId, cliente, menu, sCantItems, sTotalPed);
             i++;
+
 
             IngresarFactura ingresarFactura = new IngresarFactura();
             ingresarFactura.Show();
