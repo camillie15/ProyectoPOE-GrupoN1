@@ -55,6 +55,7 @@
             // 
             // txtBuscarCliente
             // 
+            this.txtBuscarCliente.BackColor = System.Drawing.Color.White;
             this.txtBuscarCliente.Location = new System.Drawing.Point(307, 69);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(276, 28);
@@ -64,6 +65,7 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Image = global::Visual.Properties.Resources.imgBuscar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(631, 58);
@@ -73,7 +75,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Buscar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
@@ -155,6 +157,7 @@
             // 
             // txtVolverCliente
             // 
+            this.txtVolverCliente.BackColor = System.Drawing.Color.White;
             this.txtVolverCliente.Image = global::Visual.Properties.Resources.imgVolver;
             this.txtVolverCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtVolverCliente.Location = new System.Drawing.Point(419, 450);
@@ -164,7 +167,7 @@
             this.txtVolverCliente.TabIndex = 5;
             this.txtVolverCliente.Text = "Volver";
             this.txtVolverCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtVolverCliente.UseVisualStyleBackColor = true;
+            this.txtVolverCliente.UseVisualStyleBackColor = false;
             this.txtVolverCliente.Click += new System.EventHandler(this.txtVolverCliente_Click);
             // 
             // VisualizarCliente
