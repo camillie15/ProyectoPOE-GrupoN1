@@ -53,6 +53,18 @@ namespace Controlador
                 dvg.Rows[i].Cells[4].Value = clientes[i].Email;
                 dvg.Rows[i].Cells[5].Value = clientes[i].Direccion;
             }
+
+        }
+
+        public void buscarCliente (DataGridView dvg, string flag)
+        {
+            var clt = clientes.Find(x => x.Cedula.Contains(flag));
+            dvg.Rows[0].Cells[0].Value = clt.IdCliente;
+            dvg.Rows[0].Cells[1].Value = clt.Nombre;
+            dvg.Rows[0].Cells[2].Value = clt.Apellido;
+            dvg.Rows[0].Cells[3].Value = clt.Cedula;
+            dvg.Rows[0].Cells[4].Value = clt.Email;
+            dvg.Rows[0].Cells[5].Value = clt.Direccion;
         }
 
     }

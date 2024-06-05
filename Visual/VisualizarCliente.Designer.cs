@@ -33,13 +33,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
-            this.txtVolverCliente = new System.Windows.Forms.Button();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedulaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtVolverCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +74,7 @@
             this.button1.Text = "Buscar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -103,20 +104,6 @@
             this.dgvCliente.RowTemplate.Height = 24;
             this.dgvCliente.Size = new System.Drawing.Size(804, 291);
             this.dgvCliente.TabIndex = 4;
-            // 
-            // txtVolverCliente
-            // 
-            this.txtVolverCliente.Image = global::Visual.Properties.Resources.imgVolver;
-            this.txtVolverCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtVolverCliente.Location = new System.Drawing.Point(419, 450);
-            this.txtVolverCliente.Name = "txtVolverCliente";
-            this.txtVolverCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.txtVolverCliente.Size = new System.Drawing.Size(113, 50);
-            this.txtVolverCliente.TabIndex = 5;
-            this.txtVolverCliente.Text = "Volver";
-            this.txtVolverCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.txtVolverCliente.UseVisualStyleBackColor = true;
-            this.txtVolverCliente.Click += new System.EventHandler(this.txtVolverCliente_Click);
             // 
             // idColumn
             // 
@@ -165,6 +152,20 @@
             this.direccionColumn.Name = "direccionColumn";
             this.direccionColumn.ReadOnly = true;
             this.direccionColumn.Width = 125;
+            // 
+            // txtVolverCliente
+            // 
+            this.txtVolverCliente.Image = global::Visual.Properties.Resources.imgVolver;
+            this.txtVolverCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtVolverCliente.Location = new System.Drawing.Point(419, 450);
+            this.txtVolverCliente.Name = "txtVolverCliente";
+            this.txtVolverCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.txtVolverCliente.Size = new System.Drawing.Size(113, 50);
+            this.txtVolverCliente.TabIndex = 5;
+            this.txtVolverCliente.Text = "Volver";
+            this.txtVolverCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtVolverCliente.UseVisualStyleBackColor = true;
+            this.txtVolverCliente.Click += new System.EventHandler(this.txtVolverCliente_Click);
             // 
             // VisualizarCliente
             // 
