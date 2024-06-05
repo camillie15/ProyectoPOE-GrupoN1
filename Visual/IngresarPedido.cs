@@ -60,6 +60,8 @@ namespace Visual
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            string cedula = txtClientePed.Text;
+            ctrlPedido.EliminarRegistroCliente(cedula);
             this.Close();
         }
 

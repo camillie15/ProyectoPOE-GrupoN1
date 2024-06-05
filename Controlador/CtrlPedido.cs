@@ -105,8 +105,16 @@ namespace Controlador
 
         public string RetornarCICliente()
         {
-            return listaClientes[listaClientes.Count - 1].Cedula;
-
+            string cedula = string.Empty;
+            if(listaClientes.Count > 0)
+            {
+                cedula = listaClientes[listaClientes.Count - 1].Cedula;
+            }
+            else
+            {
+                cedula = string.Empty;
+            }
+            return cedula;
         }
 
         public void BuscarPedido(string campo, string datoBuscar, DataGridView dgvPedidos)
@@ -156,6 +164,16 @@ namespace Controlador
             cantidades = 0;
             totalPed = 0;
             pedidoR = string.Empty;
+        }
+
+        public void EliminarRegistroCliente(string cedula)
+        {
+            Cliente clienteEliminar = listaClientes.Find(cliente => cliente.Cedula.Equals(cedula));
+            if(clienteEliminar != null )
+            {
+                listaClientes.Remove(clienteEliminar);
+                CtrlCliente.Clientes = listaClientes;
+            }
         }
     }
 }
