@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class VisualizarFactura : Form
+    public partial class FrmVisualizarFactura : Form
     {
         CtrlFactura ctrlFactura = new CtrlFactura();
-        public VisualizarFactura()
+        public FrmVisualizarFactura()
         {
             InitializeComponent();
             ctrlFactura.LlenaGrid(dgvFactura);

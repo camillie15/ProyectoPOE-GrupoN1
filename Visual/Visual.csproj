@@ -61,94 +61,94 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditarPlato.cs">
+    <Compile Include="FrmEditarPlato.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditarPlato.Designer.cs">
-      <DependentUpon>EditarPlato.cs</DependentUpon>
+    <Compile Include="FrmEditarPlato.Designer.cs">
+      <DependentUpon>FrmEditarPlato.cs</DependentUpon>
     </Compile>
-    <Compile Include="IngresarPlato.cs">
+    <Compile Include="FrmIngresarPlato.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IngresarPlato.Designer.cs">
-      <DependentUpon>IngresarPlato.cs</DependentUpon>
+    <Compile Include="FrmIngresarPlato.Designer.cs">
+      <DependentUpon>FrmIngresarPlato.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisualizarCliente.cs">
+    <Compile Include="FrmVisualizarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualizarCliente.Designer.cs">
-      <DependentUpon>VisualizarCliente.cs</DependentUpon>
+    <Compile Include="FrmVisualizarCliente.Designer.cs">
+      <DependentUpon>FrmVisualizarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisualizarPlato.cs">
+    <Compile Include="FrmVisualizarPlato.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualizarPlato.Designer.cs">
-      <DependentUpon>VisualizarPlato.cs</DependentUpon>
+    <Compile Include="FrmVisualizarPlato.Designer.cs">
+      <DependentUpon>FrmVisualizarPlato.cs</DependentUpon>
     </Compile>
-    <Compile Include="IngresarCliente.cs">
+    <Compile Include="FrmIngresarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IngresarCliente.Designer.cs">
-      <DependentUpon>IngresarCliente.cs</DependentUpon>
+      <DependentUpon>FrmIngresarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="IngresarFactura.cs">
+    <Compile Include="FrmIngresarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IngresarFactura.Designer.cs">
-      <DependentUpon>IngresarFactura.cs</DependentUpon>
+      <DependentUpon>FrmIngresarFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="IngresarPedido.cs">
+    <Compile Include="FrmIngresarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IngresarPedido.Designer.cs">
-      <DependentUpon>IngresarPedido.cs</DependentUpon>
+      <DependentUpon>FrmIngresarPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="OpcionesAdministracion.cs">
+    <Compile Include="FrmOpcionesAdministracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OpcionesAdministracion.Designer.cs">
-      <DependentUpon>OpcionesAdministracion.cs</DependentUpon>
+    <Compile Include="FrmOpcionesAdministracion.Designer.cs">
+      <DependentUpon>FrmOpcionesAdministracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrincipal.cs">
+    <Compile Include="FrmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <Compile Include="FrmMenuPrincipal.Designer.cs">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VisualizarFactura.cs">
+    <Compile Include="FrmVisualizarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualizarFactura.Designer.cs">
-      <DependentUpon>VisualizarFactura.cs</DependentUpon>
+    <Compile Include="FrmVisualizarFactura.Designer.cs">
+      <DependentUpon>FrmVisualizarFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisualizarPedido.cs">
+    <Compile Include="FrmVisualizarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualizarPedido.Designer.cs">
-      <DependentUpon>VisualizarPedido.cs</DependentUpon>
+    <Compile Include="FrmVisualizarPedido.Designer.cs">
+      <DependentUpon>FrmVisualizarPedido.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EditarPlato.resx">
-      <DependentUpon>EditarPlato.cs</DependentUpon>
+    <EmbeddedResource Include="FrmEditarPlato.resx">
+      <DependentUpon>FrmEditarPlato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IngresarCliente.resx">
-      <DependentUpon>IngresarCliente.cs</DependentUpon>
+      <DependentUpon>FrmIngresarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IngresarFactura.resx">
-      <DependentUpon>IngresarFactura.cs</DependentUpon>
+      <DependentUpon>FrmIngresarFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IngresarPedido.resx">
-      <DependentUpon>IngresarPedido.cs</DependentUpon>
+      <DependentUpon>FrmIngresarPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IngresarPlato.resx">
-      <DependentUpon>IngresarPlato.cs</DependentUpon>
+    <EmbeddedResource Include="FrmIngresarPlato.resx">
+      <DependentUpon>FrmIngresarPlato.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMenuPrincipal.resx">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OpcionesAdministracion.resx">
-      <DependentUpon>OpcionesAdministracion.cs</DependentUpon>
+    <EmbeddedResource Include="FrmOpcionesAdministracion.resx">
+      <DependentUpon>FrmOpcionesAdministracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -160,17 +160,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="VisualizarCliente.resx">
-      <DependentUpon>VisualizarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVisualizarCliente.resx">
+      <DependentUpon>FrmVisualizarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisualizarFactura.resx">
-      <DependentUpon>VisualizarFactura.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVisualizarFactura.resx">
+      <DependentUpon>FrmVisualizarFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisualizarPedido.resx">
-      <DependentUpon>VisualizarPedido.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVisualizarPedido.resx">
+      <DependentUpon>FrmVisualizarPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisualizarPlato.resx">
-      <DependentUpon>VisualizarPlato.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVisualizarPlato.resx">
+      <DependentUpon>FrmVisualizarPlato.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

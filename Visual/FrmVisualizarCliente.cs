@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class VisualizarCliente : Form
+    public partial class FrmVisualizarCliente : Form
     {
         CtrlCliente ctrCliente = new CtrlCliente();
         ControlEntradaTxt ctrllEntradaTxt = new ControlEntradaTxt();
 
-        public VisualizarCliente()
+        public FrmVisualizarCliente()
         {
             InitializeComponent();
             ctrCliente.PresentarClientes(dgvCliente);

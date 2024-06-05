@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class MenuPrincipal : Form
+    public partial class FrmMenuPrincipal : Form
     {
-        public MenuPrincipal()
+        public FrmMenuPrincipal()
         {
             InitializeComponent();
         }
 
         private void btnMenuPedido_Click(object sender, EventArgs e)
         {
-            IngresarCliente ingresarCliente = new IngresarCliente();
+            FrmIngresarCliente ingresarCliente = new FrmIngresarCliente();
             ingresarCliente.Show();
         }
 
         private void btnOpcionesUsuario_Click(object sender, EventArgs e)
         {
-            OpcionesAdministracion opcionesAdministraciones = new OpcionesAdministracion();
+            FrmOpcionesAdministracion opcionesAdministraciones = new FrmOpcionesAdministracion();
             opcionesAdministraciones.Show();
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Visual
 {
-    partial class OpcionesAdministracion
+    partial class FrmOpcionesAdministracion
     {
         /// <summary>
         /// Required designer variable.

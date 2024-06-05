@@ -1,6 +1,6 @@
 ﻿namespace Visual
 {
-    partial class VisualizarPlato
+    partial class FrmVisualizarPlato
     {
         /// <summary>
         /// Required designer variable.

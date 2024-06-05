@@ -1,6 +1,6 @@
 ﻿namespace Visual
 {
-    partial class VisualizarFactura
+    partial class FrmVisualizarFactura
     {
         /// <summary>
         /// Required designer variable.

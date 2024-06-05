@@ -12,12 +12,12 @@ using Controlador;
 
 namespace Visual
 {
-    public partial class IngresarCliente : Form
+    public partial class FrmIngresarCliente : Form
     {
         ControlEntradaTxt ctrllEntradaTxt = new ControlEntradaTxt();
         CtrlCliente ctrlCliente = new CtrlCliente();    
 
-        public IngresarCliente()
+        public FrmIngresarCliente()
         {
             InitializeComponent();
             this.txtIdCliente.Text = ctrlCliente.idContador();
@@ -32,7 +32,7 @@ namespace Visual
             string email = txtEmailCliente.Text;
             string direccion = txtDireccionCliente.Text;
             bool flag = ctrlCliente.registrarCliente(nombre, apellido, cedula, edad, email, direccion);
-            IngresarPedido ingresarPedido = new IngresarPedido();
+            FrmIngresarPedido ingresarPedido = new FrmIngresarPedido();
             if (flag)
             {
                 ingresarPedido.Show();

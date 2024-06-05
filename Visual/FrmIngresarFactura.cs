@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class IngresarFactura : Form
+    public partial class FrmIngresarFactura : Form
     {
         CtrlFactura ctrlFactura = new CtrlFactura();
         
 
         
-        public IngresarFactura()
+        public FrmIngresarFactura()
         {
             InitializeComponent();
             this.txtCodfactura.Text = ctrlFactura.CrearId();

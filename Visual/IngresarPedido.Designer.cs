@@ -1,6 +1,6 @@
 ﻿namespace Visual
 {
-    partial class IngresarPedido
+    partial class FrmIngresarPedido
     {
         /// <summary>
         /// Required designer variable.

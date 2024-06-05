@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class VisualizarPedido : Form
+    public partial class FrmVisualizarPedido : Form
     {
         CtrlPedido ctrlPedido = new CtrlPedido();
-        public VisualizarPedido()
+        public FrmVisualizarPedido()
         {
             InitializeComponent();
             ctrlPedido.AutocompletarGrid(dgvPedidos);

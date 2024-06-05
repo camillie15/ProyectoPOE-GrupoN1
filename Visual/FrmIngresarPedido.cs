@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class IngresarPedido : Form
+    public partial class FrmIngresarPedido : Form
     {
         CtrlPedido ctrlPedido = new CtrlPedido();
         CtrlCliente ctrlCliente = new CtrlCliente();
         static int i = 1;
-        public IngresarPedido()
+        public FrmIngresarPedido()
         {
             InitializeComponent();
             ctrlPedido.crearPlato();
@@ -45,12 +45,12 @@ namespace Visual
             string sTotalPed = txtTotPedido.Text;
 
             bool flag = ctrlPedido.IngresarPedido(sId, cliente, menu, sCantItems, sTotalPed);
-            IngresarFactura ingresarFactura = new IngresarFactura();
+            FrmIngresarFactura frmIngresarFactura = new FrmIngresarFactura();
 
             if (flag)
             {
                 i++;
-                ingresarFactura.Show();
+                frmIngresarFactura.Show();
 
                 txtCantPedido.Clear();
                 txtTotPedido.Clear();

@@ -11,9 +11,9 @@ using Controlador;
 
 namespace Visual
 {
-    public partial class IngresarPlato : Form
+    public partial class FrmIngresarPlato : Form
     {
-        public IngresarPlato()
+        public FrmIngresarPlato()
         {
             InitializeComponent();
         }

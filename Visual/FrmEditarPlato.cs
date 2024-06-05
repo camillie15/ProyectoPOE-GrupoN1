@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class EditarPlato : Form
+    public partial class FrmEditarPlato : Form
     {
-        public EditarPlato()
+        public FrmEditarPlato()
         {
             InitializeComponent();
         }

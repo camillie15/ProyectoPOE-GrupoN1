@@ -1,6 +1,6 @@
 ﻿namespace Visual
 {
-    partial class MenuPrincipal
+    partial class FrmMenuPrincipal
     {
         /// <summary>
         /// Required designer variable.

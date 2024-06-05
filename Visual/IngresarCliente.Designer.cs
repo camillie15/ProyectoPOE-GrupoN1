@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace Visual
 {
-    partial class IngresarCliente
+    partial class FrmIngresarCliente
     {
         /// <summary>
         /// Required designer variable.

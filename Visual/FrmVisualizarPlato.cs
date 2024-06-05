@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class VisualizarPlato : Form
+    public partial class FrmVisualizarPlato : Form
     {
-        public VisualizarPlato()
+        public FrmVisualizarPlato()
         {
             InitializeComponent();
         }
 
         private void btnAgregarPlato_Click(object sender, EventArgs e)
         {
-            IngresarPlato ingresarPlato = new IngresarPlato();
+            FrmIngresarPlato ingresarPlato = new FrmIngresarPlato();
             ingresarPlato.ShowDialog();
         }
 
         private void btnEditarPlato_Click(object sender, EventArgs e)
         {
-            EditarPlato editarPlato = new EditarPlato();
+            FrmEditarPlato editarPlato = new FrmEditarPlato();
             editarPlato.ShowDialog();
         }
 

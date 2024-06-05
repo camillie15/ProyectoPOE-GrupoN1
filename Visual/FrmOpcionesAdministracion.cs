@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Visual
 {
-    public partial class OpcionesAdministracion : Form
+    public partial class FrmOpcionesAdministracion : Form
     {
-        public OpcionesAdministracion()
+        public FrmOpcionesAdministracion()
         {
             InitializeComponent();
         }
 
         private void btnVisualizarPedido_Click(object sender, EventArgs e)
         {
-            VisualizarPedido visualizarPedido = new VisualizarPedido(); 
+            FrmVisualizarPedido visualizarPedido = new FrmVisualizarPedido(); 
             visualizarPedido.ShowDialog();
         }
 
@@ -30,19 +30,19 @@ namespace Visual
 
         private void btnVisualizarCliente_Click(object sender, EventArgs e)
         {
-            VisualizarCliente visualizarCliente = new VisualizarCliente();
+            FrmVisualizarCliente visualizarCliente = new FrmVisualizarCliente();
             visualizarCliente.ShowDialog();
         }
 
         private void btnVisualizarFactura_Click(object sender, EventArgs e)
         {
-            VisualizarFactura visualizarFactura = new VisualizarFactura();
+            FrmVisualizarFactura visualizarFactura = new FrmVisualizarFactura();
             visualizarFactura.ShowDialog();
         }
 
         private void btnPlatoOA_Click(object sender, EventArgs e)
         {
-            VisualizarPlato visualizarPlato = new VisualizarPlato();
+            FrmVisualizarPlato visualizarPlato = new FrmVisualizarPlato();
             visualizarPlato.ShowDialog();
         }
     }

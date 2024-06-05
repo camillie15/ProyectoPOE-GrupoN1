@@ -1,6 +1,6 @@
 ﻿namespace Visual
 {
-    partial class VisualizarCliente
+    partial class FrmVisualizarCliente
     {
         /// <summary>
         /// Required designer variable.
