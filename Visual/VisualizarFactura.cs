@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,21 @@ namespace Visual
 {
     public partial class VisualizarFactura : Form
     {
+        CtrlFactura ctrlFactura = new CtrlFactura();
         public VisualizarFactura()
         {
             InitializeComponent();
+            ctrlFactura.LlenaGrid(dgvFactura);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

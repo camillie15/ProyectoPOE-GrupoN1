@@ -28,46 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btBuscar = new System.Windows.Forms.Button();
+            this.btVolver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFactura = new System.Windows.Forms.DataGridView();
             this.ColIdfactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btBuscar
             // 
-            this.button1.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(70, 192);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 58);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btBuscar.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBuscar.Location = new System.Drawing.Point(70, 192);
+            this.btBuscar.Name = "btBuscar";
+            this.btBuscar.Size = new System.Drawing.Size(160, 58);
+            this.btBuscar.TabIndex = 0;
+            this.btBuscar.Text = "Buscar";
+            this.btBuscar.UseVisualStyleBackColor = true;
+            this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
             // 
-            // button2
+            // btVolver
             // 
-            this.button2.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(500, 700);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 58);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Volver";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btVolver.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btVolver.Location = new System.Drawing.Point(573, 701);
+            this.btVolver.Name = "btVolver";
+            this.btVolver.Size = new System.Drawing.Size(160, 58);
+            this.btVolver.TabIndex = 1;
+            this.btVolver.Text = "Volver";
+            this.btVolver.UseVisualStyleBackColor = true;
+            this.btVolver.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(456, 50);
+            this.label1.Location = new System.Drawing.Point(509, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(285, 32);
             this.label1.TabIndex = 2;
@@ -94,40 +96,48 @@
             this.cbFiltro.Size = new System.Drawing.Size(315, 33);
             this.cbFiltro.TabIndex = 4;
             // 
-            // dataGridView1
+            // dgvFactura
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColIdfactura,
             this.ColCliente,
-            this.ColCedula});
-            this.dataGridView1.Location = new System.Drawing.Point(70, 278);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1009, 393);
-            this.dataGridView1.TabIndex = 5;
+            this.ColCedula,
+            this.ColTotal});
+            this.dgvFactura.Location = new System.Drawing.Point(70, 278);
+            this.dgvFactura.Name = "dgvFactura";
+            this.dgvFactura.RowHeadersWidth = 82;
+            this.dgvFactura.RowTemplate.Height = 33;
+            this.dgvFactura.Size = new System.Drawing.Size(1115, 393);
+            this.dgvFactura.TabIndex = 5;
             // 
             // ColIdfactura
             // 
             this.ColIdfactura.HeaderText = "Id Factura";
             this.ColIdfactura.MinimumWidth = 10;
             this.ColIdfactura.Name = "ColIdfactura";
-            this.ColIdfactura.Width = 200;
+            this.ColIdfactura.Width = 130;
             // 
             // ColCliente
             // 
             this.ColCliente.HeaderText = "Cliente";
             this.ColCliente.MinimumWidth = 10;
             this.ColCliente.Name = "ColCliente";
-            this.ColCliente.Width = 200;
+            this.ColCliente.Width = 130;
             // 
             // ColCedula
             // 
             this.ColCedula.HeaderText = "Cedula";
             this.ColCedula.MinimumWidth = 10;
             this.ColCedula.Name = "ColCedula";
-            this.ColCedula.Width = 200;
+            this.ColCedula.Width = 130;
+            // 
+            // ColTotal
+            // 
+            this.ColTotal.HeaderText = "Total a pagar";
+            this.ColTotal.MinimumWidth = 10;
+            this.ColTotal.Name = "ColTotal";
+            this.ColTotal.Width = 200;
             // 
             // textBox1
             // 
@@ -149,19 +159,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 788);
+            this.ClientSize = new System.Drawing.Size(1269, 788);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFactura);
             this.Controls.Add(this.cbFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btVolver);
+            this.Controls.Add(this.btBuscar);
             this.Name = "VisualizarFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisualizarFactura";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,16 +179,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btBuscar;
+        private System.Windows.Forms.Button btVolver;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbFiltro;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFactura;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdfactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTotal;
     }
 }
