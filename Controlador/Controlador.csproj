@@ -45,6 +45,7 @@
     <Compile Include="ControlEntradaTxt.cs" />
     <Compile Include="CtrlCliente.cs" />
     <Compile Include="CtrlConversiones.cs" />
+    <Compile Include="CtrlFactura.cs" />
     <Compile Include="CtrlPedido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

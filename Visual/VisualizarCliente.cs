@@ -36,5 +36,11 @@ namespace Visual
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgvCliente.Rows.Clear();
+            ctrCliente.buscarCliente(dgvCliente, txtBuscarCliente.Text);
+        }
     }
 }
