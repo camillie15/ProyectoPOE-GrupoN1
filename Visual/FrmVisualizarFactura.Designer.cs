@@ -34,12 +34,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.dgvFactura = new System.Windows.Forms.DataGridView();
-            this.ColIdfactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ColIdfactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIva = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +91,8 @@
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
             "Id de facturas",
-            "Cedula"});
+            "Cedula",
+            "Todos"});
             this.cbFiltro.Location = new System.Drawing.Point(345, 131);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(315, 33);
@@ -98,46 +100,21 @@
             // 
             // dgvFactura
             // 
+            this.dgvFactura.AllowUserToDeleteRows = false;
             this.dgvFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColIdfactura,
-            this.ColCliente,
             this.ColCedula,
+            this.ColSubtotal,
+            this.ColIva,
             this.ColTotal});
             this.dgvFactura.Location = new System.Drawing.Point(70, 278);
             this.dgvFactura.Name = "dgvFactura";
+            this.dgvFactura.ReadOnly = true;
             this.dgvFactura.RowHeadersWidth = 82;
             this.dgvFactura.RowTemplate.Height = 33;
             this.dgvFactura.Size = new System.Drawing.Size(1115, 393);
             this.dgvFactura.TabIndex = 5;
-            // 
-            // ColIdfactura
-            // 
-            this.ColIdfactura.HeaderText = "Id Factura";
-            this.ColIdfactura.MinimumWidth = 10;
-            this.ColIdfactura.Name = "ColIdfactura";
-            this.ColIdfactura.Width = 130;
-            // 
-            // ColCliente
-            // 
-            this.ColCliente.HeaderText = "Cliente";
-            this.ColCliente.MinimumWidth = 10;
-            this.ColCliente.Name = "ColCliente";
-            this.ColCliente.Width = 130;
-            // 
-            // ColCedula
-            // 
-            this.ColCedula.HeaderText = "Cedula";
-            this.ColCedula.MinimumWidth = 10;
-            this.ColCedula.Name = "ColCedula";
-            this.ColCedula.Width = 130;
-            // 
-            // ColTotal
-            // 
-            this.ColTotal.HeaderText = "Total a pagar";
-            this.ColTotal.MinimumWidth = 10;
-            this.ColTotal.Name = "ColTotal";
-            this.ColTotal.Width = 200;
             // 
             // textBox1
             // 
@@ -155,10 +132,51 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "->";
             // 
-            // VisualizarFactura
+            // ColIdfactura
+            // 
+            this.ColIdfactura.HeaderText = "Id Factura";
+            this.ColIdfactura.MinimumWidth = 10;
+            this.ColIdfactura.Name = "ColIdfactura";
+            this.ColIdfactura.ReadOnly = true;
+            this.ColIdfactura.Width = 130;
+            // 
+            // ColCedula
+            // 
+            this.ColCedula.HeaderText = "Cedula";
+            this.ColCedula.MinimumWidth = 10;
+            this.ColCedula.Name = "ColCedula";
+            this.ColCedula.ReadOnly = true;
+            this.ColCedula.Width = 130;
+            // 
+            // ColSubtotal
+            // 
+            this.ColSubtotal.HeaderText = "Subtotal";
+            this.ColSubtotal.MinimumWidth = 10;
+            this.ColSubtotal.Name = "ColSubtotal";
+            this.ColSubtotal.ReadOnly = true;
+            this.ColSubtotal.Width = 130;
+            // 
+            // ColIva
+            // 
+            this.ColIva.HeaderText = "Iva";
+            this.ColIva.MinimumWidth = 10;
+            this.ColIva.Name = "ColIva";
+            this.ColIva.ReadOnly = true;
+            this.ColIva.Width = 130;
+            // 
+            // ColTotal
+            // 
+            this.ColTotal.HeaderText = "Total a pagar";
+            this.ColTotal.MinimumWidth = 10;
+            this.ColTotal.Name = "ColTotal";
+            this.ColTotal.ReadOnly = true;
+            this.ColTotal.Width = 130;
+            // 
+            // FrmVisualizarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(1269, 788);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
@@ -168,7 +186,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btVolver);
             this.Controls.Add(this.btBuscar);
-            this.Name = "VisualizarFactura";
+            this.Name = "FrmVisualizarFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisualizarFactura";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).EndInit();
@@ -188,8 +206,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdfactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColSubtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColIva;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTotal;
     }
 }

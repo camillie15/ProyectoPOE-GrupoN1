@@ -15,41 +15,22 @@ namespace Visual
     {
         CtrlFactura ctrlFactura = new CtrlFactura();
         
+        
 
         
         public FrmIngresarFactura()
         {
             InitializeComponent();
             this.txtCodfactura.Text = ctrlFactura.CrearId();
-            this.txtCliente.Text = ctrlFactura.obternercliente();
-            txtSubtotal.Text = CtrlPedido.TotalPed.ToString();
+            this.txtCliente.Text =ctrlFactura.RetornarClientePedido();
+            this.txtSubtotal.Text = CtrlPedido.TotalPed.ToString();
+            this.txtContenido.Text = CtrlPedido.PedidoR;
         }
 
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCodfactura_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btFinalizar_Click(object sender, EventArgs e)
         {
-           string cliente = txtCliente.Text;
-           string subtotal = txtSubtotal.Text;
-           string iva = txtIva.Text;
-           string total= txtTotal.Text;
-           string idfactura = txtCodfactura.Text;
-
-            ctrlFactura.IngresarFactura(cliente,subtotal,iva,total,idfactura);
-            MessageBox.Show(" Factura Generada ");
+            MessageBox.Show("Factura Generada");
             this.Close();
         }
 
@@ -57,19 +38,25 @@ namespace Visual
         {
             try
             {
-                lblDevolucion.Text = (float.Parse(txtEfectivo.Text) - float.Parse(txtTotal.Text)).ToString();
+                txtDevolucion.Text = (decimal.Parse(txtEfectivo.Text) - decimal.Parse(txtTotal.Text)).ToString();
             }
             catch { }
 
             if (txtEfectivo.Text == "")
             {
-                lblDevolucion.Text = "";
+                txtDevolucion.Text = "";
             }
         }
 
         private void btImprimir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(" En Mantemiento ");
+            string cliente = txtCliente.Text;
+            string subtotal = txtSubtotal.Text;
+            string iva = txtIva.Text;
+            string total = txtTotal.Text;
+            string idfactura = txtCodfactura.Text;
+
+            ctrlFactura.IngresarFactura(cliente, subtotal, iva, total, idfactura, txtTotal, txtIva, txtSubtotal);
         }
     }
 }
