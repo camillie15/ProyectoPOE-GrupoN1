@@ -57,7 +57,7 @@ namespace Visual
             this.lblIdCliente.Location = new System.Drawing.Point(45, 75);
             this.lblIdCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblIdCliente.Name = "lblIdCliente";
-            this.lblIdCliente.Size = new System.Drawing.Size(96, 20);
+            this.lblIdCliente.Size = new System.Drawing.Size(76, 17);
             this.lblIdCliente.TabIndex = 0;
             this.lblIdCliente.Text = "ID Cliente";
             // 
@@ -68,7 +68,7 @@ namespace Visual
             this.lblNombreCliente.Location = new System.Drawing.Point(45, 174);
             this.lblNombreCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNombreCliente.Name = "lblNombreCliente";
-            this.lblNombreCliente.Size = new System.Drawing.Size(85, 20);
+            this.lblNombreCliente.Size = new System.Drawing.Size(69, 17);
             this.lblNombreCliente.TabIndex = 1;
             this.lblNombreCliente.Text = "Nombre:";
             // 
@@ -82,7 +82,7 @@ namespace Visual
             this.txtIdCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.ReadOnly = true;
-            this.txtIdCliente.Size = new System.Drawing.Size(174, 28);
+            this.txtIdCliente.Size = new System.Drawing.Size(174, 24);
             this.txtIdCliente.TabIndex = 2;
             // 
             // txtNombreCliente
@@ -91,7 +91,7 @@ namespace Visual
             this.txtNombreCliente.Location = new System.Drawing.Point(49, 199);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(407, 28);
+            this.txtNombreCliente.Size = new System.Drawing.Size(407, 24);
             this.txtNombreCliente.TabIndex = 3;
             this.txtNombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCliente_KeyPress);
             // 
@@ -102,7 +102,7 @@ namespace Visual
             this.lblApellidoCliente.Location = new System.Drawing.Point(489, 174);
             this.lblApellidoCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblApellidoCliente.Name = "lblApellidoCliente";
-            this.lblApellidoCliente.Size = new System.Drawing.Size(86, 20);
+            this.lblApellidoCliente.Size = new System.Drawing.Size(68, 17);
             this.lblApellidoCliente.TabIndex = 4;
             this.lblApellidoCliente.Text = "Apellido:";
             // 
@@ -112,7 +112,7 @@ namespace Visual
             this.txtApellidoCliente.Location = new System.Drawing.Point(493, 199);
             this.txtApellidoCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
-            this.txtApellidoCliente.Size = new System.Drawing.Size(406, 28);
+            this.txtApellidoCliente.Size = new System.Drawing.Size(406, 24);
             this.txtApellidoCliente.TabIndex = 5;
             this.txtApellidoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoCliente_KeyPress);
             // 
@@ -123,7 +123,7 @@ namespace Visual
             this.lblCedulaCliente.Location = new System.Drawing.Point(45, 131);
             this.lblCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCedulaCliente.Name = "lblCedulaCliente";
-            this.lblCedulaCliente.Size = new System.Drawing.Size(76, 20);
+            this.lblCedulaCliente.Size = new System.Drawing.Size(61, 17);
             this.lblCedulaCliente.TabIndex = 6;
             this.lblCedulaCliente.Text = "Cedula:";
             // 
@@ -134,7 +134,7 @@ namespace Visual
             this.txtCedulaCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCedulaCliente.MaxLength = 10;
             this.txtCedulaCliente.Name = "txtCedulaCliente";
-            this.txtCedulaCliente.Size = new System.Drawing.Size(131, 28);
+            this.txtCedulaCliente.Size = new System.Drawing.Size(131, 24);
             this.txtCedulaCliente.TabIndex = 7;
             this.txtCedulaCliente.TextChanged += new System.EventHandler(this.txtCedulaCliente_TextChanged);
             this.txtCedulaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaCliente_KeyPress);
@@ -146,7 +146,7 @@ namespace Visual
             this.lblEmailCliente.Location = new System.Drawing.Point(45, 246);
             this.lblEmailCliente.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblEmailCliente.Name = "lblEmailCliente";
-            this.lblEmailCliente.Size = new System.Drawing.Size(65, 20);
+            this.lblEmailCliente.Size = new System.Drawing.Size(50, 17);
             this.lblEmailCliente.TabIndex = 8;
             this.lblEmailCliente.Text = "Email:";
             // 
@@ -156,7 +156,7 @@ namespace Visual
             this.txtEmailCliente.Location = new System.Drawing.Point(49, 271);
             this.txtEmailCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtEmailCliente.Name = "txtEmailCliente";
-            this.txtEmailCliente.Size = new System.Drawing.Size(414, 28);
+            this.txtEmailCliente.Size = new System.Drawing.Size(414, 24);
             this.txtEmailCliente.TabIndex = 9;
             // 
             // btnContinuarCliente
@@ -167,7 +167,7 @@ namespace Visual
             this.btnContinuarCliente.Name = "btnContinuarCliente";
             this.btnContinuarCliente.Size = new System.Drawing.Size(156, 44);
             this.btnContinuarCliente.TabIndex = 10;
-            this.btnContinuarCliente.Text = "Continuar";
+            this.btnContinuarCliente.Text = "Registrar";
             this.btnContinuarCliente.UseVisualStyleBackColor = true;
             this.btnContinuarCliente.Click += new System.EventHandler(this.btnContinuarCliente_Click);
             // 
@@ -177,7 +177,7 @@ namespace Visual
             this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(45, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 20);
+            this.label1.Size = new System.Drawing.Size(175, 17);
             this.label1.TabIndex = 11;
             this.label1.Text = "REGISTRO CLIENTES";
             // 
@@ -196,7 +196,7 @@ namespace Visual
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(489, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 20);
+            this.label2.Size = new System.Drawing.Size(54, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "Edad: ";
             // 
@@ -205,7 +205,7 @@ namespace Visual
             this.txtEdadCliente.Location = new System.Drawing.Point(561, 128);
             this.txtEdadCliente.MaxLength = 2;
             this.txtEdadCliente.Name = "txtEdadCliente";
-            this.txtEdadCliente.Size = new System.Drawing.Size(131, 28);
+            this.txtEdadCliente.Size = new System.Drawing.Size(131, 24);
             this.txtEdadCliente.TabIndex = 14;
             this.txtEdadCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdadCliente_KeyPress);
             // 
@@ -213,7 +213,7 @@ namespace Visual
             // 
             this.txtDireccionCliente.Location = new System.Drawing.Point(493, 271);
             this.txtDireccionCliente.Name = "txtDireccionCliente";
-            this.txtDireccionCliente.Size = new System.Drawing.Size(406, 28);
+            this.txtDireccionCliente.Size = new System.Drawing.Size(406, 24);
             this.txtDireccionCliente.TabIndex = 15;
             // 
             // label3
@@ -221,13 +221,13 @@ namespace Visual
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(489, 246);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 20);
+            this.label3.Size = new System.Drawing.Size(77, 17);
             this.label3.TabIndex = 16;
             this.label3.Text = "Direccion:";
             // 
-            // IngresarCliente
+            // FrmIngresarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(952, 413);
@@ -252,7 +252,7 @@ namespace Visual
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.MaximizeBox = false;
-            this.Name = "IngresarCliente";
+            this.Name = "FrmIngresarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro Cliente";
             this.ResumeLayout(false);

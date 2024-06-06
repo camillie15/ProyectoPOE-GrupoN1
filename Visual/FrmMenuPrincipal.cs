@@ -19,14 +19,20 @@ namespace Visual
 
         private void btnMenuPedido_Click(object sender, EventArgs e)
         {
-            FrmIngresarCliente ingresarCliente = new FrmIngresarCliente();
-            ingresarCliente.Show();
+            FrmIngresarPedido ingresarPedido = new FrmIngresarPedido();
+            ingresarPedido.Show();
         }
 
         private void btnOpcionesUsuario_Click(object sender, EventArgs e)
         {
             FrmOpcionesAdministracion opcionesAdministraciones = new FrmOpcionesAdministracion();
             opcionesAdministraciones.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmIngresarCliente ingresarCliente = new FrmIngresarCliente();
+            ingresarCliente.ShowDialog();
         }
     }
 }

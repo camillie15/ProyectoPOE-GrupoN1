@@ -39,7 +39,6 @@ namespace Visual
                     FrmIngresarPedido ingresarPedido = new FrmIngresarPedido();
                     if (flag)
                     {
-                        ingresarPedido.Show();
                         this.Close();
                     }
                 }
