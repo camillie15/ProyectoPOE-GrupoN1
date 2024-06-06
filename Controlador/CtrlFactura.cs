@@ -47,7 +47,7 @@ namespace Controlador
             string cedula = string.Empty;
             if (listp.Count > 0)
             {
-                cedula = listp[listp.Count - 1].Cliente;
+                cedula = listp[listp.Count - 1].Cliente.Cedula;
             }
             else
             {

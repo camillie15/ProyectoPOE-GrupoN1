@@ -74,6 +74,27 @@ namespace Controlador
             return flag;
         }
 
+        public bool toBool(string str)
+        {
+            bool flag;
+            try
+            {
+                if (str.ToLower().Trim().Equals("true"))
+                {
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }
+            catch (Exception)
+            {
+                flag = false;
+            }
+            return flag;
+        }
+
         public string stringWithoutDolar(string str)
         {
             string flag = string.Empty;
@@ -87,5 +108,7 @@ namespace Controlador
             }
             return flag;
         }
+
+
     }
 }
