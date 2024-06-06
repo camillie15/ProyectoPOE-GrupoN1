@@ -140,42 +140,47 @@ namespace Controlador
         {
             List<Pedido> pedidosBuscar = new List<Pedido>();
 
-            if (campo.ToLower().Equals("id"))
+            if(campo != null && datoBuscar != null)
             {
-                int idBuscar = Convert.ToInt32(datoBuscar);
-                Pedido pedidoBuscar = ListaPedidos.Find(delBuscar => delBuscar.CodPedido == idBuscar);
-                if (pedidoBuscar != null)
+                if (campo.ToLower().Equals("id"))
                 {
-                    pedidosBuscar.Add(pedidoBuscar);
+                    int idBuscar = ctrlConversiones.toInt(datoBuscar);
+                    Pedido pedidoBuscar = ListaPedidos.Find(delBuscar => delBuscar.CodPedido == idBuscar);
+                    if (pedidoBuscar != null)
+                    {
+                        pedidosBuscar.Add(pedidoBuscar);
+                    }
                 }
-            }
-            else if (campo.ToLower().Equals("cliente"))
-            {
-                pedidosBuscar = ListaPedidos.FindAll(delBuscar => delBuscar.Cliente.Contains(datoBuscar));
-            }
-            else if (campo.ToLower().Equals("todos"))
-            {
-                pedidosBuscar = ListaPedidos;
-                ;
-            }
-
-            if (pedidosBuscar.Count > 0)
-            {
-                dgvPedidos.Rows.Clear();
-                foreach (Pedido pedidoB in pedidosBuscar)
+                else if (campo.ToLower().Equals("cliente"))
                 {
-                    int i = dgvPedidos.Rows.Add();
-                    dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidoB.CodPedido;
-                    dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidoB.Cliente;
-                    dgvPedidos.Rows[i].Cells["menuPedido"].Value = pedidoB.MenuSeleccionado;
-                    dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedidoB.CantidadProductos;
-                    dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedidoB.TotalPedido}";
+                    pedidosBuscar = ListaPedidos.FindAll(delBuscar => delBuscar.Cliente.Contains(datoBuscar));
+                }
+                else if (campo.ToLower().Equals("todos"))
+                {
+                    pedidosBuscar = ListaPedidos;
+                }
+
+                if (pedidosBuscar.Count > 0)
+                {
+                    dgvPedidos.Rows.Clear();
+                    foreach (Pedido pedidoB in pedidosBuscar)
+                    {
+                        int i = dgvPedidos.Rows.Add();
+                        dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidoB.CodPedido;
+                        dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidoB.Cliente;
+                        dgvPedidos.Rows[i].Cells["menuPedido"].Value = pedidoB.MenuSeleccionado;
+                        dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedidoB.CantidadProductos;
+                        dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedidoB.TotalPedido}";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron pedidos que coincidan con el dato");
                 }
             }
             else
             {
-                MessageBox.Show("No se encontraron pedidos que coincidan con el dato ingresado.");
-            }
+                MessageBox.Show("Datos no validos para realizar la busqueda");            }
         }
 
         public void RestartPedido()
