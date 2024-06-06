@@ -163,14 +163,14 @@ namespace Controlador
                 if (pedidosBuscar.Count > 0)
                 {
                     dgvPedidos.Rows.Clear();
-                    foreach (Pedido pedidoB in pedidosBuscar)
+                    for (int i = 0; i < pedidosBuscar.Count; i++)
                     {
-                        int i = dgvPedidos.Rows.Add();
-                        dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidoB.CodPedido;
-                        dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidoB.Cliente;
-                        dgvPedidos.Rows[i].Cells["menuPedido"].Value = pedidoB.MenuSeleccionado;
-                        dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedidoB.CantidadProductos;
-                        dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedidoB.TotalPedido}";
+                        dgvPedidos.Rows.Add();
+                        dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidosBuscar[i].CodPedido;
+                        dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidosBuscar[i].Cliente;
+                        dgvPedidos.Rows[i].Cells["menuPedido"].Value = pedidosBuscar[i].MenuSeleccionado;
+                        dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedidosBuscar[i].CantidadProductos;
+                        dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedidosBuscar[i].TotalPedido}";
                     }
                 }
                 else

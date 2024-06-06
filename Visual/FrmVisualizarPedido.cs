@@ -30,6 +30,7 @@ namespace Visual
             string campo = (string)cmbCampoBusqueda.SelectedItem;
             string datoBuscar = txtBusqueda.Text;
 
+            dgvPedidos.Rows.Clear();
             ctrlPedido.BuscarPedido(campo, datoBuscar, dgvPedidos);
             txtBusqueda.Clear();
         }
