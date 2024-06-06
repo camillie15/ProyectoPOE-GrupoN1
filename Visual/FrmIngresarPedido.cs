@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Visual
 {
@@ -19,9 +20,9 @@ namespace Visual
         public FrmIngresarPedido()
         {
             InitializeComponent();
-            ctrlPedido.CrearPlato();
+            //ctrlPedido.CrearPlato();
             ctrlPedido.LlenarCmbPedido(cmbPedido);
-            txtClientePed.Text = ctrlPedido.RetornarCICliente();
+            ctrlPedido.LlenarCmbCliente(cmbCliente);
             txtIdPedido.Text = i.ToString();
             
         }
@@ -39,12 +40,16 @@ namespace Visual
         private void btnContinuarPedido_Click(object sender, EventArgs e)
         {
             string sId = txtIdPedido.Text;
-            string cliente = txtClientePed.Text;
-            string menu = CtrlPedido.PedidoR;
+            string cliente = (string)cmbCliente.SelectedItem;
+
             string sCantItems = txtCantPedido.Text;
             string sTotalPed = txtTotPedido.Text;
 
-            bool flag = ctrlPedido.IngresarPedido(sId, cliente, menu, sCantItems, sTotalPed);
+            bool flag = ctrlPedido.IngresarPedido(sId, cliente, sCantItems, sTotalPed);
+            
+            
+            
+            
             FrmIngresarFactura frmIngresarFactura = new FrmIngresarFactura();
 
             if (flag)
@@ -62,8 +67,10 @@ namespace Visual
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            string cedula = txtClientePed.Text;
-            ctrlPedido.EliminarRegistroCliente(cedula);
+            //string dataCliente = (string)cmbCliente.SelectedItem;
+            //string []cliente = dataCliente.Split(',');
+            //string cedula = cliente[1];
+            //ctrlPedido.EliminarRegistroCliente(cedula);
             this.Close();
         }
 
@@ -71,9 +78,9 @@ namespace Visual
         {
             string pedidoSleccionado = (string)cmbPedido.SelectedItem;
             string cantidadItem = txtCantItem.Text;
+            Console.WriteLine(pedidoSleccionado);
 
             ctrlPedido.AgregarAlPedido(pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido);
-
         }
     }
 }

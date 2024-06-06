@@ -164,13 +164,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPedidos.Location = new System.Drawing.Point(88, 128);
+            this.dgvPedidos.Location = new System.Drawing.Point(62, 128);
             this.dgvPedidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
             this.dgvPedidos.RowHeadersWidth = 51;
             this.dgvPedidos.RowTemplate.Height = 24;
-            this.dgvPedidos.Size = new System.Drawing.Size(997, 332);
+            this.dgvPedidos.Size = new System.Drawing.Size(1038, 332);
             this.dgvPedidos.TabIndex = 8;
             // 
             // idPedido
@@ -179,7 +179,7 @@
             this.idPedido.MinimumWidth = 6;
             this.idPedido.Name = "idPedido";
             this.idPedido.ReadOnly = true;
-            this.idPedido.Width = 110;
+            this.idPedido.Width = 115;
             // 
             // clientePedido
             // 
@@ -187,7 +187,7 @@
             this.clientePedido.MinimumWidth = 6;
             this.clientePedido.Name = "clientePedido";
             this.clientePedido.ReadOnly = true;
-            this.clientePedido.Width = 125;
+            this.clientePedido.Width = 110;
             // 
             // menuPedido
             // 
@@ -195,7 +195,7 @@
             this.menuPedido.MinimumWidth = 6;
             this.menuPedido.Name = "menuPedido";
             this.menuPedido.ReadOnly = true;
-            this.menuPedido.Width = 180;
+            this.menuPedido.Width = 230;
             // 
             // cantPedido
             // 
@@ -203,7 +203,7 @@
             this.cantPedido.MinimumWidth = 6;
             this.cantPedido.Name = "cantPedido";
             this.cantPedido.ReadOnly = true;
-            this.cantPedido.Width = 155;
+            this.cantPedido.Width = 145;
             // 
             // valorPedido
             // 

@@ -10,21 +10,28 @@ namespace Controlador
 {
     public class CtrlPedido
     {
+
         static int cantidades = 0;
         static double totalPed = 0;
-        List<Plato> listaPlatos = CtrlPlato.ListaPlatos;
-        //List<Plato> listaPlatos = new List<Plato>();
         static List<Pedido> listaPedidos = new List<Pedido>();
-        List<Cliente> listaClientes = CtrlCliente.Clientes;
         static string pedidoR = string.Empty;
 
+        List<Plato> listaPlatos = new List<Plato>();
+        static List<Plato> menuPedido = new List<Plato>();
+        List<Cliente> listaClientes = new List<Cliente>();
+
+
         CtrlConversiones ctrlConversiones = new CtrlConversiones();
+        public CtrlPedido()
+        {
+            CrearClientes();
+            CrearPlato();
+        }
 
         public static List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
         public static string PedidoR { get => pedidoR; set => pedidoR = value; }
         public static int Cantidades { get => cantidades; set => cantidades = value; }
         public static double TotalPed { get => totalPed; set => totalPed = value; }
-        public List<Plato> ListaPlatos { get => listaPlatos; set => listaPlatos = value; }
 
         public void AgregarAlPedido(string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
         {
@@ -32,11 +39,12 @@ namespace Controlador
 
             if(pedidoSleccionado != null && cantItemAgregado > 0)
             {
-                string[] pedidoAgg = pedidoSleccionado.Split('-');
-
-                string descripcionPed = pedidoAgg[0];
-                string precio = pedidoAgg[1].Substring(2);
-                double precioItem = ctrlConversiones.toDouble(precio);
+                Plato platoAgg = TratarPlato(pedidoSleccionado);
+                menuPedido.Add(platoAgg);
+ 
+                string descripcionPed = platoAgg.Descripcion;
+                Console.WriteLine(descripcionPed);
+                double precioItem = platoAgg.Precio;
                 int cantidadItemPed = ctrlConversiones.toInt(cantidadItem);
 
                 double totalPedidoItem = precioItem * cantidadItemPed;
@@ -63,26 +71,43 @@ namespace Controlador
 
         public void CrearPlato()
         {
-            ListaPlatos.Add(new Plato(1, "Combo1", "Hamburguesa + papas", 3.5, true));
-            ListaPlatos.Add(new Plato(1, "Combo2", "Nuggets + papas", 2, true));
-            ListaPlatos.Add(new Plato(1, "Combo3", "Hamburguesa + bebida", 4, true));
-            ListaPlatos.Add(new Plato(1, "Combo4", "Papas Bacon", 2.5, true));
-            ListaPlatos.Add(new Plato(1, "Combo5", "Pack 2 Hamburguesas", 5.5, true));
+            listaPlatos.Add(new Plato(1, "Combo1", "Hamburguesa + papas", 3.5, true));
+            listaPlatos.Add(new Plato(2, "Combo2", "Nuggets + papas", 2.7, true));
+            listaPlatos.Add(new Plato(3, "Combo3", "Hamburguesa + bebida", 4.8, true));
+            listaPlatos.Add(new Plato(4, "Combo4", "Papas Bacon", 2.5, true));
+            listaPlatos.Add(new Plato(5, "Combo5", "Pack 2 Hamburguesas", 5.5, true));
+        }
+
+        public void CrearClientes()
+        {
+            listaClientes.Add(new Cliente("Cami", "Ayovi", "0987656789", 21, "camillie.com", true, 1, "Norte"));
+            listaClientes.Add(new Cliente("Erick", "Cordova", "0987656789", 22, "erick.com", true, 2, "Norte"));
+            listaClientes.Add(new Cliente("Juliet", "Ortuno", "0987656789", 23, "juliet.com", true, 3, "Norte"));
+            listaClientes.Add(new Cliente("Daniel", "Aguilar", "0987656789", 24, "daniel.com", true, 4, "Norte"));
+
         }
 
         public void LlenarCmbPedido(ComboBox cmbPedido)
         {
-            foreach (var item in ListaPlatos)
+            foreach (Plato plato in listaPlatos)
             {
-                if (item.Estado == true)
+                if (plato.Estado == true)
                 {
-                    cmbPedido.Items.Add(item.Descripcion + " - $" + item.Precio);
+                    Console.WriteLine(plato.Precio);
+                    cmbPedido.Items.Add($"{plato.IdPlato}, {plato.Nombre}, {plato.Descripcion}, - ${plato.Precio}, {plato.Estado}");
                 }
-
             }
         }
 
-        public bool IngresarPedido(string sId, string cliente, string menu, string sCantItems, string sTotalPed)
+        public void LlenarCmbCliente(ComboBox cmbCliente)
+        {
+            foreach (Cliente cliente in listaClientes)
+            {
+                cmbCliente.Items.Add($"{cliente.Nombre}, {cliente.Apellido}, {cliente.Cedula}, {cliente.Edad}, {cliente.Email}, {cliente.Estado}, {cliente.IdCliente}, {cliente.Direccion}");
+            }
+        }
+
+        public bool IngresarPedido(string sId, string cliente, string sCantItems, string sTotalPed)
         {
             bool flag = false;
 
@@ -93,9 +118,11 @@ namespace Controlador
 
             Pedido pedidoN = null;
 
-            if (menu != null && totalPed > 0 && cantItem > 0)
+            Cliente clienteObj = TratarCliente(cliente);
+
+            if (menuPedido.Count> 0  && totalPed > 0 && cantItem > 0)
             {
-                pedidoN = new Pedido(id, cliente, menu, cantItem, totalPed);
+                pedidoN = new Pedido(id, clienteObj, menuPedido, cantItem, totalPed);
                 ListaPedidos.Add(pedidoN);
                 flag = true;
             }
@@ -109,13 +136,19 @@ namespace Controlador
         }
 
         public void AutocompletarGrid(DataGridView dgvPedidos)
-        {         
+        {   
+            
             for (int i = 0; i < listaPedidos.Count; i++)
             {
                 dgvPedidos.Rows.Add();
                 dgvPedidos.Rows[i].Cells["idPedido"].Value = listaPedidos[i].CodPedido;
-                dgvPedidos.Rows[i].Cells["clientePedido"].Value = listaPedidos[i].Cliente;
-                dgvPedidos.Rows[i].Cells["menuPedido"].Value = listaPedidos[i].MenuSeleccionado;
+                dgvPedidos.Rows[i].Cells["clientePedido"].Value = listaPedidos[i].Cliente.Cedula;
+                string menuPedidoS = string.Empty;
+                foreach(Plato plato in menuPedido)
+                {
+                    menuPedidoS += $"{plato.Descripcion}, ${plato.Precio}\n";
+                }
+                dgvPedidos.Rows[i].Cells["menuPedido"].Value = menuPedidoS;
                 dgvPedidos.Rows[i].Cells["cantPedido"].Value = listaPedidos[i].CantidadProductos;
                 dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {listaPedidos[i].TotalPedido}";
 
@@ -153,7 +186,8 @@ namespace Controlador
                 }
                 else if (campo.ToLower().Equals("cliente"))
                 {
-                    pedidosBuscar = ListaPedidos.FindAll(delBuscar => delBuscar.Cliente.Contains(datoBuscar));
+
+                    pedidosBuscar = ListaPedidos.FindAll(delBuscar => delBuscar.Cliente.Cedula.Contains(datoBuscar));
                 }
                 else if (campo.ToLower().Equals("todos"))
                 {
@@ -167,8 +201,13 @@ namespace Controlador
                     {
                         dgvPedidos.Rows.Add();
                         dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidosBuscar[i].CodPedido;
-                        dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidosBuscar[i].Cliente;
-                        dgvPedidos.Rows[i].Cells["menuPedido"].Value = pedidosBuscar[i].MenuSeleccionado;
+                        dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidosBuscar[i].Cliente.Cedula;
+                        string menuPedidoS = string.Empty;
+                        foreach (Plato plato in menuPedido)
+                        {
+                            menuPedidoS += $"{plato.Descripcion}, ${plato.Precio}\n";
+                        }
+                        dgvPedidos.Rows[i].Cells["menuPedido"].Value = menuPedidoS;
                         dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedidosBuscar[i].CantidadProductos;
                         dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedidosBuscar[i].TotalPedido}";
                     }
@@ -198,6 +237,38 @@ namespace Controlador
                 listaClientes.Remove(clienteEliminar);
                 CtrlCliente.Clientes = listaClientes;
             }
+        }
+
+        public Cliente TratarCliente(string cliente)
+        {
+            string []dataCliente = cliente.Trim().Split(',');
+
+            string nombre = dataCliente[0];
+            string apellido = dataCliente[1];
+            string cedula = dataCliente[2];
+            int edad = ctrlConversiones.toInt(dataCliente[3]);
+            string email = dataCliente[4];
+            bool estado = ctrlConversiones.toBool(dataCliente[5]);
+            int id = ctrlConversiones.toInt(dataCliente[6]);
+            string direccion = dataCliente[7];
+            Cliente clientoObj = new Cliente(nombre, apellido, cedula, edad, email, estado, id, direccion);
+
+            return clientoObj;
+        }
+
+        public Plato TratarPlato(string menu)
+        {
+            string[] dataPlato = menu.Trim().Split(',');
+
+            int id = ctrlConversiones.toInt(dataPlato[0]);
+            string nombre = dataPlato[1];
+            string descripcion = dataPlato[2];
+            string precioP = $"{dataPlato[3]},{dataPlato[4]}";
+            double precio = ctrlConversiones.toDouble(precioP.Substring(4));
+            bool estado = ctrlConversiones.toBool(dataPlato[5]);
+            Plato platoObj = new Plato(id, nombre, descripcion, precio, estado);
+
+            return platoObj;
         }
     }
 }
