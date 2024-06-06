@@ -30,7 +30,6 @@ namespace Controlador
             }
             else
             {
-                MessageBox.Show($"Ingrese una edad Valida");
                 flag = false;
             }
             return flag;
@@ -51,21 +50,38 @@ namespace Controlador
                 dvg.Rows[i].Cells[1].Value = clientes[i].Nombre;
                 dvg.Rows[i].Cells[2].Value = clientes[i].Apellido;
                 dvg.Rows[i].Cells[3].Value = clientes[i].Cedula;
-                dvg.Rows[i].Cells[4].Value = clientes[i].Email;
-                dvg.Rows[i].Cells[5].Value = clientes[i].Direccion;
+                dvg.Rows[i].Cells[4].Value = clientes[i].Edad;
+                dvg.Rows[i].Cells[5].Value = clientes[i].Email;
+                dvg.Rows[i].Cells[6].Value = clientes[i].Direccion;
             }
 
         }
 
-        public void buscarCliente (DataGridView dvg, string flag)
+        public void buscarCliente (DataGridView dvg, string flag, Button btn)
         {
-            var clt = clientes.Find(x => x.Cedula.Contains(flag));
-            dvg.Rows[0].Cells[0].Value = clt.IdCliente;
-            dvg.Rows[0].Cells[1].Value = clt.Nombre;
-            dvg.Rows[0].Cells[2].Value = clt.Apellido;
-            dvg.Rows[0].Cells[3].Value = clt.Cedula;
-            dvg.Rows[0].Cells[4].Value = clt.Email;
-            dvg.Rows[0].Cells[5].Value = clt.Direccion;
+            if (!(flag.Trim() == string.Empty))
+            {
+                var clt = clientes.Find(x => x.Cedula.Contains(flag));
+                if (clt != null && clt.Cedula == flag.Trim())
+                {
+                    dvg.Rows[0].Cells[0].Value = clt.IdCliente;
+                    dvg.Rows[0].Cells[1].Value = clt.Nombre;
+                    dvg.Rows[0].Cells[2].Value = clt.Apellido;
+                    dvg.Rows[0].Cells[3].Value = clt.Cedula;
+                    dvg.Rows[0].Cells[4].Value = clt.Edad;
+                    dvg.Rows[0].Cells[5].Value = clt.Email;
+                    dvg.Rows[0].Cells[6].Value = clt.Direccion;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro el cliente");
+                }
+                btn.Enabled = true;
+            } else
+            {
+                MessageBox.Show("Ingrese CI del cliente buscar");
+            }
+
         }
 
     }

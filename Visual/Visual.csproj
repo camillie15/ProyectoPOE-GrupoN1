@@ -230,5 +230,11 @@
       <Name>Controlador</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgUsuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgUsuarios2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

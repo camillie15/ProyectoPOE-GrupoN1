@@ -40,7 +40,14 @@ namespace Visual
         private void button1_Click(object sender, EventArgs e)
         {
             dgvCliente.Rows.Clear();
-            ctrCliente.buscarCliente(dgvCliente, txtBuscarCliente.Text);
+            ctrCliente.buscarCliente(dgvCliente, txtBuscarCliente.Text, btnMostrarTodosClientes);
+        }
+
+        private void btnMostrarTodosClientes_Click(object sender, EventArgs e)
+        {
+            dgvCliente.Rows.Clear();
+            ctrCliente.PresentarClientes(dgvCliente);
+            btnMostrarTodosClientes.Enabled = false;
         }
     }
 }
