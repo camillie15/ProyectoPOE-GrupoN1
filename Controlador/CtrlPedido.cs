@@ -61,14 +61,14 @@ namespace Controlador
             }
         }
 
-        public void crearPlato()
+        public void CrearPlato()
         {
-            for(int i = 0; i < 10; i++)
-            {
-                ListaPlatos.Add(new Plato(1, "hola", "huiajd", 8, true));
-            }
+            ListaPlatos.Add(new Plato(1, "Combo1", "Hamburguesa + papas", 3.5, true));
+            ListaPlatos.Add(new Plato(1, "Combo2", "Nuggets + papas", 2, true));
+            ListaPlatos.Add(new Plato(1, "Combo3", "Hamburguesa + bebida", 4, true));
+            ListaPlatos.Add(new Plato(1, "Combo4", "Papas Bacon", 2.5, true));
+            ListaPlatos.Add(new Plato(1, "Combo5", "Pack 2 Hamburguesas", 5.5, true));
         }
-
 
         public void LlenarCmbPedido(ComboBox cmbPedido)
         {
