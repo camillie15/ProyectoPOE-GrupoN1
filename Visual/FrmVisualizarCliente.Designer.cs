@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedulaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edadColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnMostrarTodosClientes = new System.Windows.Forms.Button();
             this.txtVolverCliente = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,34 +52,20 @@
             this.label1.Location = new System.Drawing.Point(156, 73);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 20);
+            this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "CI Cliente:";
             // 
             // txtBuscarCliente
             // 
             this.txtBuscarCliente.BackColor = System.Drawing.Color.White;
-            this.txtBuscarCliente.Location = new System.Drawing.Point(307, 69);
+            this.txtBuscarCliente.Location = new System.Drawing.Point(266, 70);
+            this.txtBuscarCliente.MaxLength = 10;
             this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.Size = new System.Drawing.Size(276, 28);
+            this.txtBuscarCliente.Size = new System.Drawing.Size(276, 24);
             this.txtBuscarCliente.TabIndex = 1;
             this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
             this.txtBuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCliente_KeyPress);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Image = global::Visual.Properties.Resources.imgBuscar;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(631, 58);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button1.Size = new System.Drawing.Size(113, 50);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Buscar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -84,7 +73,7 @@
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(352, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 20);
+            this.label2.Size = new System.Drawing.Size(192, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "VISUALIZAR CLIENTES";
             // 
@@ -92,19 +81,28 @@
             // 
             this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
             this.dgvCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10.2F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
             this.nombreColumn,
             this.apellidoColumn,
             this.cedulaColumn,
+            this.edadColumn,
             this.emailColumn,
             this.direccionColumn});
-            this.dgvCliente.Location = new System.Drawing.Point(64, 132);
+            this.dgvCliente.Location = new System.Drawing.Point(36, 127);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.RowHeadersWidth = 51;
             this.dgvCliente.RowTemplate.Height = 24;
-            this.dgvCliente.Size = new System.Drawing.Size(804, 291);
+            this.dgvCliente.Size = new System.Drawing.Size(838, 291);
             this.dgvCliente.TabIndex = 4;
             // 
             // idColumn
@@ -113,7 +111,7 @@
             this.idColumn.MinimumWidth = 6;
             this.idColumn.Name = "idColumn";
             this.idColumn.ReadOnly = true;
-            this.idColumn.Width = 125;
+            this.idColumn.Width = 50;
             // 
             // nombreColumn
             // 
@@ -121,7 +119,7 @@
             this.nombreColumn.MinimumWidth = 6;
             this.nombreColumn.Name = "nombreColumn";
             this.nombreColumn.ReadOnly = true;
-            this.nombreColumn.Width = 125;
+            this.nombreColumn.Width = 130;
             // 
             // apellidoColumn
             // 
@@ -129,7 +127,7 @@
             this.apellidoColumn.MinimumWidth = 6;
             this.apellidoColumn.Name = "apellidoColumn";
             this.apellidoColumn.ReadOnly = true;
-            this.apellidoColumn.Width = 125;
+            this.apellidoColumn.Width = 130;
             // 
             // cedulaColumn
             // 
@@ -139,13 +137,21 @@
             this.cedulaColumn.ReadOnly = true;
             this.cedulaColumn.Width = 125;
             // 
+            // edadColumn
+            // 
+            this.edadColumn.HeaderText = "Edad";
+            this.edadColumn.MinimumWidth = 6;
+            this.edadColumn.Name = "edadColumn";
+            this.edadColumn.ReadOnly = true;
+            this.edadColumn.Width = 50;
+            // 
             // emailColumn
             // 
             this.emailColumn.HeaderText = "E-mail";
             this.emailColumn.MinimumWidth = 6;
             this.emailColumn.Name = "emailColumn";
             this.emailColumn.ReadOnly = true;
-            this.emailColumn.Width = 125;
+            this.emailColumn.Width = 150;
             // 
             // direccionColumn
             // 
@@ -153,14 +159,29 @@
             this.direccionColumn.MinimumWidth = 6;
             this.direccionColumn.Name = "direccionColumn";
             this.direccionColumn.ReadOnly = true;
-            this.direccionColumn.Width = 125;
+            this.direccionColumn.Width = 150;
+            // 
+            // btnMostrarTodosClientes
+            // 
+            this.btnMostrarTodosClientes.Enabled = false;
+            this.btnMostrarTodosClientes.Image = global::Visual.Properties.Resources.imgUsuarios2;
+            this.btnMostrarTodosClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMostrarTodosClientes.Location = new System.Drawing.Point(682, 58);
+            this.btnMostrarTodosClientes.Name = "btnMostrarTodosClientes";
+            this.btnMostrarTodosClientes.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnMostrarTodosClientes.Size = new System.Drawing.Size(113, 50);
+            this.btnMostrarTodosClientes.TabIndex = 6;
+            this.btnMostrarTodosClientes.Text = "Todos";
+            this.btnMostrarTodosClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMostrarTodosClientes.UseVisualStyleBackColor = true;
+            this.btnMostrarTodosClientes.Click += new System.EventHandler(this.btnMostrarTodosClientes_Click);
             // 
             // txtVolverCliente
             // 
             this.txtVolverCliente.BackColor = System.Drawing.Color.White;
             this.txtVolverCliente.Image = global::Visual.Properties.Resources.imgVolver;
             this.txtVolverCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtVolverCliente.Location = new System.Drawing.Point(419, 450);
+            this.txtVolverCliente.Location = new System.Drawing.Point(416, 440);
             this.txtVolverCliente.Name = "txtVolverCliente";
             this.txtVolverCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.txtVolverCliente.Size = new System.Drawing.Size(113, 50);
@@ -170,12 +191,28 @@
             this.txtVolverCliente.UseVisualStyleBackColor = false;
             this.txtVolverCliente.Click += new System.EventHandler(this.txtVolverCliente_Click);
             // 
-            // VisualizarCliente
+            // button1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Image = global::Visual.Properties.Resources.imgBuscar;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(563, 58);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button1.Size = new System.Drawing.Size(113, 50);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Buscar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // FrmVisualizarCliente
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(914, 545);
+            this.ClientSize = new System.Drawing.Size(914, 517);
+            this.Controls.Add(this.btnMostrarTodosClientes);
             this.Controls.Add(this.txtVolverCliente);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.label2);
@@ -185,7 +222,7 @@
             this.Font = new System.Drawing.Font("Verdana", 10.2F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "VisualizarCliente";
+            this.Name = "FrmVisualizarCliente";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visualizar Cliente";
@@ -207,7 +244,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedulaColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn edadColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionColumn;
+        private System.Windows.Forms.Button btnMostrarTodosClientes;
     }
 }

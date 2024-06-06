@@ -10,22 +10,20 @@ namespace Modelo
     public class Factura
     {
        // private Pedido pedido = null;
-        private string cliente = string.Empty;
-        private double subtotal = 0;
-        private double iva = 0;
-        private double total = 0;
-        private int idFactura = 0;
+        string cliente = string.Empty;
+        double subtotal = 0;
+        double iva = 0;
+        double total = 0;
+        int idFactura = 0;
 
-        public Factura(string cliente, double subtotal, double iva, double total, int idFactura)
+        public Factura(double iva, string cliente, double total, int idFactura, double subtotal)
         {
-            //this.pedido = pedido;
-            this.cliente = cliente;
-            this.subtotal = subtotal;
-            this.iva = iva;
-            this.total = total;
-            this.idFactura = idFactura;
+            Iva = iva;
+            Cliente = cliente;
+            Total = total;
+            IdFactura = idFactura;
+            Subtotal = subtotal;
         }
-
 
         public double Iva { get => iva; set => iva = value; }
         public string Cliente { get => cliente; set => cliente= value; }

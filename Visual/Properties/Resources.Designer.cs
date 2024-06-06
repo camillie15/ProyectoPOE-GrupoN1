@@ -153,6 +153,26 @@ namespace Visual.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imgUsuarios {
+            get {
+                object obj = ResourceManager.GetObject("imgUsuarios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgUsuarios2 {
+            get {
+                object obj = ResourceManager.GetObject("imgUsuarios2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgVolver {
             get {
                 object obj = ResourceManager.GetObject("imgVolver", resourceCulture);

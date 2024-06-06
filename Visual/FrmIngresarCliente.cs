@@ -25,18 +25,32 @@ namespace Visual
 
         private void btnContinuarCliente_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombreCliente.Text;
-            string apellido = txtApellidoCliente.Text;
-            string cedula = txtCedulaCliente.Text;
-            string edad = txtEdadCliente.Text;
-            string email = txtEmailCliente.Text;
-            string direccion = txtDireccionCliente.Text;
-            bool flag = ctrlCliente.registrarCliente(nombre, apellido, cedula, edad, email, direccion);
-            FrmIngresarPedido ingresarPedido = new FrmIngresarPedido();
-            if (flag)
+            string nombre = txtNombreCliente.Text.Trim();
+            string apellido = txtApellidoCliente.Text.Trim();
+            string cedula = txtCedulaCliente.Text.Trim();
+            string edad = txtEdadCliente.Text.Trim();
+            string email = txtEmailCliente.Text.Trim();
+            string direccion = txtDireccionCliente.Text.Trim();
+            if(nombre != "" && apellido != "" && cedula !="" && edad != "" && email != "" && direccion != "")
             {
-                ingresarPedido.Show();
-                this.Close();
+                if(cedula.Length == 10)
+                {
+                    bool flag = ctrlCliente.registrarCliente(nombre, apellido, cedula, edad, email, direccion);
+                    FrmIngresarPedido ingresarPedido = new FrmIngresarPedido();
+                    if (flag)
+                    {
+                        ingresarPedido.Show();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar 10 digitos en CI!!!");
+                }
+
+            } else
+            {
+                MessageBox.Show("No puede dejar campos * vacios!!!");
             }
         }
 
