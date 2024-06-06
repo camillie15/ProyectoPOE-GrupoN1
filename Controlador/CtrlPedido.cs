@@ -12,8 +12,8 @@ namespace Controlador
     {
         static int cantidades = 0;
         static double totalPed = 0;
-        //List<Plato> listaPlatos = CtrlPlato.Platos;
-        List<Plato> listaPlatos = new List<Plato>();
+        List<Plato> listaPlatos = CtrlPlato.ListaPlatos;
+        //List<Plato> listaPlatos = new List<Plato>();
         static List<Pedido> listaPedidos = new List<Pedido>();
         List<Cliente> listaClientes = CtrlCliente.Clientes;
         static string pedidoR = string.Empty;
