@@ -1,6 +1,7 @@
 ﻿using Modelo;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,6 @@ namespace Controlador
                 menuPedido.Add(platoAgg);
  
                 string descripcionPed = platoAgg.Descripcion;
-                Console.WriteLine(descripcionPed);
                 double precioItem = platoAgg.Precio;
                 int cantidadItemPed = ctrlConversiones.toInt(cantidadItem);
 
@@ -87,35 +87,39 @@ namespace Controlador
 
         }
 
-        public void LlenarCmbPedido(ComboBox cmbPedido)
+        public void LlenarCmb(ComboBox cmbData, string tipo)
         {
-            foreach (Plato plato in listaPlatos)
+            if (tipo.ToLower().Equals("cliente"))
             {
-                if (plato.Estado == true)
+                foreach (Cliente cliente in listaClientes)
                 {
-                    Console.WriteLine(plato.Precio);
-                    cmbPedido.Items.Add($"{plato.IdPlato}, {plato.Nombre}, {plato.Descripcion}, - ${plato.Precio}, {plato.Estado}");
+                    cmbData.Items.Add($"{cliente.Nombre}, {cliente.Apellido}, {cliente.Cedula}, {cliente.Edad}, {cliente.Email}, {cliente.Estado}, {cliente.IdCliente}, {cliente.Direccion}");
                 }
             }
-        }
-
-        public void LlenarCmbCliente(ComboBox cmbCliente)
-        {
-            foreach (Cliente cliente in listaClientes)
+            else if (tipo.ToLower().Equals("plato"))
             {
-                cmbCliente.Items.Add($"{cliente.Nombre}, {cliente.Apellido}, {cliente.Cedula}, {cliente.Edad}, {cliente.Email}, {cliente.Estado}, {cliente.IdCliente}, {cliente.Direccion}");
+
+                foreach(Plato plato in listaPlatos)
+                {
+                    if (plato.Estado == true)
+                    {
+                        cmbData.Items.Add($"{plato.IdPlato}, {plato.Nombre}, {plato.Descripcion}, - ${plato.Precio}, {plato.Estado}");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Data en ComboBox no inicializada");
             }
         }
-
+        
         public bool IngresarPedido(string sId, string cliente, string sCantItems, string sTotalPed)
         {
             bool flag = false;
-
             int id = ctrlConversiones.toInt(sId);
             int cantItem = ctrlConversiones.toInt(sCantItems);
             string totP = ctrlConversiones.stringWithoutDolar(sTotalPed);
             double totalPed = ctrlConversiones.toDouble(totP);
-
             Pedido pedidoN = null;
 
             Cliente clienteObj = TratarCliente(cliente);

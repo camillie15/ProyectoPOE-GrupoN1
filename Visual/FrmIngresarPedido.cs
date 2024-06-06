@@ -20,11 +20,9 @@ namespace Visual
         public FrmIngresarPedido()
         {
             InitializeComponent();
-            //ctrlPedido.CrearPlato();
-            ctrlPedido.LlenarCmbPedido(cmbPedido);
-            ctrlPedido.LlenarCmbCliente(cmbCliente);
-            txtIdPedido.Text = i.ToString();
-            
+            ctrlPedido.LlenarCmb(cmbPedido, "plato");
+            ctrlPedido.LlenarCmb(cmbCliente, "cliente");
+            txtIdPedido.Text = i.ToString();    
         }
 
         private void txtCantItem_KeyPress(object sender, KeyPressEventArgs e)
@@ -41,14 +39,10 @@ namespace Visual
         {
             string sId = txtIdPedido.Text;
             string cliente = (string)cmbCliente.SelectedItem;
-
             string sCantItems = txtCantPedido.Text;
             string sTotalPed = txtTotPedido.Text;
 
             bool flag = ctrlPedido.IngresarPedido(sId, cliente, sCantItems, sTotalPed);
-            
-            
-            
             
             FrmIngresarFactura frmIngresarFactura = new FrmIngresarFactura();
 
@@ -67,10 +61,6 @@ namespace Visual
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //string dataCliente = (string)cmbCliente.SelectedItem;
-            //string []cliente = dataCliente.Split(',');
-            //string cedula = cliente[1];
-            //ctrlPedido.EliminarRegistroCliente(cedula);
             this.Close();
         }
 
@@ -78,9 +68,9 @@ namespace Visual
         {
             string pedidoSleccionado = (string)cmbPedido.SelectedItem;
             string cantidadItem = txtCantItem.Text;
-            Console.WriteLine(pedidoSleccionado);
 
             ctrlPedido.AgregarAlPedido(pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido);
+            txtCantItem.Clear();
         }
     }
 }
