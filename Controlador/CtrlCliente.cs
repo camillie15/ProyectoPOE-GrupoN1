@@ -45,7 +45,10 @@ namespace Controlador
 
             for (int i = 0; i < clientes.Count; i++)
             {
-                dvg.Rows.Add();
+                if(i < clientes.Count - 1)
+                {
+                    dvg.Rows.Add();
+                }
                 dvg.Rows[i].Cells[0].Value = clientes[i].IdCliente;
                 dvg.Rows[i].Cells[1].Value = clientes[i].Nombre;
                 dvg.Rows[i].Cells[2].Value = clientes[i].Apellido;
