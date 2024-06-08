@@ -22,7 +22,7 @@ namespace Visual
             InitializeComponent();
             ctrlPedido.LlenarCmb(cmbPedido, "plato");
             ctrlPedido.LlenarCmb(cmbCliente, "cliente");
-            txtIdPedido.Text = i.ToString();    
+            txtIdPedido.Text = i.ToString();
         }
 
         private void txtCantItem_KeyPress(object sender, KeyPressEventArgs e)
@@ -43,7 +43,7 @@ namespace Visual
             string sTotalPed = txtTotPedido.Text;
 
             bool flag = ctrlPedido.IngresarPedido(sId, cliente, sCantItems, sTotalPed);
-            
+
             FrmIngresarFactura frmIngresarFactura = new FrmIngresarFactura();
 
             if (flag)
@@ -54,7 +54,6 @@ namespace Visual
                 txtCantPedido.Clear();
                 txtTotPedido.Clear();
                 dgvIngresoPedido.Rows.Clear();
-                ctrlPedido.RestartPedido();
                 this.Close();
             }
         }

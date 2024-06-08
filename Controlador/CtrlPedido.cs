@@ -11,9 +11,8 @@ namespace Controlador
 {
     public class CtrlPedido
     {
-
-        static int cantidades = 0;
-        static double totalPed = 0;
+        private int cantidades = 0;
+        private double totalPed = 0;
         static List<Pedido> listaPedidos = new List<Pedido>();
 
         List<Plato> listaPlatos = new List<Plato>();
@@ -26,11 +25,12 @@ namespace Controlador
         {
             CrearClientes();
             CrearPlato();
+            RestartPedido();
         }
 
         public static List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
-        public static int Cantidades { get => cantidades; set => cantidades = value; }
-        public static double TotalPed { get => totalPed; set => totalPed = value; }
+        public int Cantidades { get => cantidades; set => cantidades = value; }
+        public double TotalPed { get => totalPed; set => totalPed = value; }
 
         public void AgregarAlPedido(string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
         {
@@ -157,20 +157,6 @@ namespace Controlador
                 dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {listaPedidos[i].TotalPedido}";
 
             }
-        }
-
-        public string RetornarCICliente()
-        {
-            string cedula = string.Empty;
-            if (listaClientes.Count > 0)
-            {
-                cedula = listaClientes[listaClientes.Count - 1].Cedula;
-            }
-            else
-            {
-                cedula = string.Empty;
-            }
-            return cedula;
         }
 
         public void BuscarPedido(string campo, string datoBuscar, DataGridView dgvPedidos)
