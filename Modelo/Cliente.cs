@@ -22,7 +22,7 @@ namespace Modelo
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{Nombre} {Apellido}, {Cedula}, {Edad}, {Email}, {Direccion}";
         }
     }
 }

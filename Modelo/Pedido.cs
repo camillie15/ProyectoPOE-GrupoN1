@@ -11,23 +11,29 @@ namespace Modelo
     {
         int codPedido = 0;
         Cliente cliente = null;
-        List <Plato> menuSeleccionado = null;
+        List<Plato> menuSeleccionado = null;
         int cantidadProductos = 0;
         double totalPedido = 0;
 
         public int CodPedido { get => codPedido; set => codPedido = value; }
         public Cliente Cliente { get => cliente; set => cliente = value; }
-        public List<Plato> MenuSeleccionado1 { get => menuSeleccionado; set => menuSeleccionado = value; }
+        public List<Plato> MenuSeleccionado { get => menuSeleccionado; set => menuSeleccionado = value; }
         public int CantidadProductos { get => cantidadProductos; set => cantidadProductos = value; }
         public double TotalPedido { get => totalPedido; set => totalPedido = value; }
 
-        public Pedido(int codPedido, Cliente cliente, List<Plato> menuSeleccionado1, int cantidadProductos, double totalPedido)
+        public Pedido(int codPedido, Cliente cliente, List<Plato> menuSeleccionado, int cantidadProductos, double totalPedido)
         {
             CodPedido = codPedido;
             Cliente = cliente;
-            MenuSeleccionado1 = menuSeleccionado1;
+            MenuSeleccionado = menuSeleccionado;
             CantidadProductos = cantidadProductos;
             TotalPedido = totalPedido;
+        }
+
+        public override string ToString()
+        {
+            var platosString = string.Join(", ", MenuSeleccionado.Select(p => p.ToString()));
+            return $"{CodPedido}\n{Cliente}\n{platosString}\n{CantidadProductos}\n{TotalPedido}\n";
         }
     }
 }

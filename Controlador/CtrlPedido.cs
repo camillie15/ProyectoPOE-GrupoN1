@@ -15,7 +15,6 @@ namespace Controlador
         static int cantidades = 0;
         static double totalPed = 0;
         static List<Pedido> listaPedidos = new List<Pedido>();
-        static string pedidoR = string.Empty;
 
         List<Plato> listaPlatos = new List<Plato>();
         static List<Plato> menuPedido = new List<Plato>();
@@ -30,7 +29,6 @@ namespace Controlador
         }
 
         public static List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
-        public static string PedidoR { get => pedidoR; set => pedidoR = value; }
         public static int Cantidades { get => cantidades; set => cantidades = value; }
         public static double TotalPed { get => totalPed; set => totalPed = value; }
 
@@ -38,11 +36,11 @@ namespace Controlador
         {
             int cantItemAgregado = ctrlConversiones.toInt(cantidadItem);
 
-            if(pedidoSleccionado != null && cantItemAgregado > 0)
+            if (pedidoSleccionado != null && cantItemAgregado > 0)
             {
-                Plato platoAgg = TratarPlato(pedidoSleccionado);
+                Plato platoAgg = listaPlatos.Find(delBuscar => delBuscar.IdPlato == TratarPlato(pedidoSleccionado).IdPlato);
                 menuPedido.Add(platoAgg);
- 
+
                 string descripcionPed = platoAgg.Descripcion;
                 double precioItem = platoAgg.Precio;
                 int cantidadItemPed = ctrlConversiones.toInt(cantidadItem);
@@ -61,7 +59,6 @@ namespace Controlador
                 txtCantPedido.Text = Cantidades.ToString();
                 txtTotPedido.Text = $"$ {TotalPed.ToString()}";
 
-                PedidoR += pedidoSleccionado + "\n";
             }
             else
             {
@@ -81,9 +78,9 @@ namespace Controlador
         public void CrearClientes()
         {
             listaClientes.Add(new Cliente("Cami", "Ayovi", "0987656789", 21, "camillie.com", true, 1, "Norte"));
-            listaClientes.Add(new Cliente("Erick", "Cordova", "0987656789", 22, "erick.com", true, 2, "Norte"));
-            listaClientes.Add(new Cliente("Juliet", "Ortuno", "0987656789", 23, "juliet.com", true, 3, "Norte"));
-            listaClientes.Add(new Cliente("Daniel", "Aguilar", "0987656789", 24, "daniel.com", true, 4, "Norte"));
+            listaClientes.Add(new Cliente("Erick", "Cordova", "0986756789", 22, "erick.com", true, 2, "Norte"));
+            listaClientes.Add(new Cliente("Juliet", "Ortuno", "0984444789", 23, "juliet.com", true, 3, "Norte"));
+            listaClientes.Add(new Cliente("Daniel", "Aguilar", "0934566789", 24, "daniel.com", true, 4, "Norte"));
 
         }
 
@@ -93,17 +90,17 @@ namespace Controlador
             {
                 foreach (Cliente cliente in listaClientes)
                 {
-                    cmbData.Items.Add($"{cliente.Nombre}, {cliente.Apellido}, {cliente.Cedula}, {cliente.Edad}, {cliente.Email}, {cliente.Estado}, {cliente.IdCliente}, {cliente.Direccion}");
+                    cmbData.Items.Add($"{cliente.Nombre}, {cliente.Apellido}, {cliente.Cedula}");
                 }
             }
             else if (tipo.ToLower().Equals("plato"))
             {
 
-                foreach(Plato plato in listaPlatos)
+                foreach (Plato plato in listaPlatos)
                 {
                     if (plato.Estado == true)
                     {
-                        cmbData.Items.Add($"{plato.IdPlato}, {plato.Nombre}, {plato.Descripcion}, - ${plato.Precio}, {plato.Estado}");
+                        cmbData.Items.Add($"{plato.IdPlato}, {plato.Descripcion}, - ${plato.Precio}");
                     }
                 }
             }
@@ -112,7 +109,7 @@ namespace Controlador
                 MessageBox.Show("Data en ComboBox no inicializada");
             }
         }
-        
+
         public bool IngresarPedido(string sId, string cliente, string sCantItems, string sTotalPed)
         {
             bool flag = false;
@@ -123,10 +120,13 @@ namespace Controlador
             Pedido pedidoN = null;
 
             Cliente clienteObj = TratarCliente(cliente);
+            ;
 
-            if (menuPedido.Count> 0  && totalPed > 0 && cantItem > 0)
+            if (menuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
             {
-                pedidoN = new Pedido(id, clienteObj, menuPedido, cantItem, totalPed);
+                List<Plato> platosDelPedido = new List<Plato>(menuPedido);
+
+                pedidoN = new Pedido(id, clienteObj, platosDelPedido, cantItem, totalPed);
                 ListaPedidos.Add(pedidoN);
                 flag = true;
             }
@@ -140,16 +140,16 @@ namespace Controlador
         }
 
         public void AutocompletarGrid(DataGridView dgvPedidos)
-        {   
-            
+        {
             for (int i = 0; i < listaPedidos.Count; i++)
             {
                 dgvPedidos.Rows.Add();
                 dgvPedidos.Rows[i].Cells["idPedido"].Value = listaPedidos[i].CodPedido;
                 dgvPedidos.Rows[i].Cells["clientePedido"].Value = listaPedidos[i].Cliente.Cedula;
                 string menuPedidoS = string.Empty;
-                foreach(Plato plato in menuPedido)
+                foreach (Plato plato in listaPedidos[i].MenuSeleccionado)
                 {
+                    //Console.WriteLine(plato.ToString());
                     menuPedidoS += $"{plato.Descripcion}, ${plato.Precio}\n";
                 }
                 dgvPedidos.Rows[i].Cells["menuPedido"].Value = menuPedidoS;
@@ -162,7 +162,7 @@ namespace Controlador
         public string RetornarCICliente()
         {
             string cedula = string.Empty;
-            if(listaClientes.Count > 0)
+            if (listaClientes.Count > 0)
             {
                 cedula = listaClientes[listaClientes.Count - 1].Cedula;
             }
@@ -177,7 +177,7 @@ namespace Controlador
         {
             List<Pedido> pedidosBuscar = new List<Pedido>();
 
-            if(campo != null && datoBuscar != null)
+            if (campo != null && datoBuscar != null)
             {
                 if (campo.ToLower().Equals("id"))
                 {
@@ -218,25 +218,26 @@ namespace Controlador
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron pedidos que coincidan con el dato");
+                    MessageBox.Show("No se encontraron pedidos que coincidan");
                 }
             }
             else
             {
-                MessageBox.Show("Datos no validos para realizar la busqueda");            }
+                MessageBox.Show("Datos no validos para realizar la busqueda");
+            }
         }
 
         public void RestartPedido()
         {
             Cantidades = 0;
             TotalPed = 0;
-            pedidoR = string.Empty;
+            menuPedido.Clear();
         }
 
         public void EliminarRegistroCliente(string cedula)
         {
             Cliente clienteEliminar = listaClientes.Find(cliente => cliente.Cedula.Equals(cedula));
-            if(clienteEliminar != null )
+            if (clienteEliminar != null)
             {
                 listaClientes.Remove(clienteEliminar);
                 CtrlCliente.Clientes = listaClientes;
@@ -245,32 +246,20 @@ namespace Controlador
 
         public Cliente TratarCliente(string cliente)
         {
-            string []dataCliente = cliente.Trim().Split(',');
+            string[] dataCliente = cliente.Trim().Split(',');
+            string cedula = dataCliente[2].Trim();
 
-            string nombre = dataCliente[0];
-            string apellido = dataCliente[1];
-            string cedula = dataCliente[2];
-            int edad = ctrlConversiones.toInt(dataCliente[3]);
-            string email = dataCliente[4];
-            bool estado = ctrlConversiones.toBool(dataCliente[5]);
-            int id = ctrlConversiones.toInt(dataCliente[6]);
-            string direccion = dataCliente[7];
-            Cliente clientoObj = new Cliente(nombre, apellido, cedula, edad, email, estado, id, direccion);
+            Cliente clientoObj = listaClientes.Find(delBuscar => delBuscar.Cedula.Equals(cedula));
 
             return clientoObj;
         }
 
         public Plato TratarPlato(string menu)
         {
-            string[] dataPlato = menu.Trim().Split(',');
+            string[] data = menu.Trim().Split(',');
+            int idP = ctrlConversiones.toInt(data[0]);
 
-            int id = ctrlConversiones.toInt(dataPlato[0]);
-            string nombre = dataPlato[1];
-            string descripcion = dataPlato[2];
-            string precioP = $"{dataPlato[3]},{dataPlato[4]}";
-            double precio = ctrlConversiones.toDouble(precioP.Substring(4));
-            bool estado = ctrlConversiones.toBool(dataPlato[5]);
-            Plato platoObj = new Plato(id, nombre, descripcion, precio, estado);
+            Plato platoObj = listaPlatos.Find(delBuscar => delBuscar.IdPlato == idP);
 
             return platoObj;
         }
