@@ -27,7 +27,16 @@ namespace Visual
 
         private void btBuscar_Click(object sender, EventArgs e)
         {
+            string filtro = textBuscar.Text.Trim();
+            ctrlFactura.BuscarFactura(dgvFactura, filtro);
+            
 
+        }
+
+        private void btBuscarTodos_Click(object sender, EventArgs e)
+        {
+            dgvFactura.Rows.Clear();
+            ctrlFactura.LlenaGrid(dgvFactura);
         }
     }
 }

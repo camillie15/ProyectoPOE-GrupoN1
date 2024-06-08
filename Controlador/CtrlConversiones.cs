@@ -23,32 +23,6 @@ namespace Controlador
             return flag;
         }
 
-        public double ConvertirDouble(string dato) 
-        {
-            double valor = -1;
-            try
-            {
-                if (dato.Equals("") && string.IsNullOrEmpty(dato))
-                {
-                    Console.WriteLine("ERROR: DATO VACIO.\n");
-                }
-                else
-                {
-                    valor = Convert.ToDouble(dato, CultureInfo.InvariantCulture);
-                }
-
-                if (valor <= 0)
-                {
-                    Console.WriteLine("ERROR: DATO DEBE SER MAYOR A CERO.\n");
-                }
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("ERROR: DATO INVALIDO.\n");
-               
-            }
-            return valor;
-        }
 
         public void ValidarCaracterEspecial(object sender, KeyPressEventArgs e) // ENTRADA DE CARACTERES DEFINIDOS
         {
@@ -108,6 +82,8 @@ namespace Controlador
             }
             return flag;
         }
+
+
 
 
     }

@@ -32,10 +32,9 @@
             this.btVolver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.dgvFactura = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btBuscarTodos = new System.Windows.Forms.Button();
+            this.textBuscar = new System.Windows.Forms.TextBox();
             this.ColIdfactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +46,7 @@
             // btBuscar
             // 
             this.btBuscar.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBuscar.Location = new System.Drawing.Point(70, 192);
+            this.btBuscar.Location = new System.Drawing.Point(194, 198);
             this.btBuscar.Name = "btBuscar";
             this.btBuscar.Size = new System.Drawing.Size(160, 58);
             this.btBuscar.TabIndex = 0;
@@ -70,7 +69,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(509, 41);
+            this.label1.Location = new System.Drawing.Point(501, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(285, 32);
             this.label1.TabIndex = 2;
@@ -80,23 +79,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(64, 132);
+            this.label2.Location = new System.Drawing.Point(279, 119);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(291, 32);
+            this.label2.Size = new System.Drawing.Size(138, 32);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Filtro de Busqueda: ";
-            // 
-            // cbFiltro
-            // 
-            this.cbFiltro.FormattingEnabled = true;
-            this.cbFiltro.Items.AddRange(new object[] {
-            "Id de facturas",
-            "Cedula",
-            "Todos"});
-            this.cbFiltro.Location = new System.Drawing.Point(345, 131);
-            this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(315, 33);
-            this.cbFiltro.TabIndex = 4;
+            this.label2.Text = "Cedula : ";
             // 
             // dgvFactura
             // 
@@ -116,21 +103,23 @@
             this.dgvFactura.Size = new System.Drawing.Size(1115, 393);
             this.dgvFactura.TabIndex = 5;
             // 
-            // textBox1
+            // btBuscarTodos
             // 
-            this.textBox1.Location = new System.Drawing.Point(718, 134);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(361, 31);
-            this.textBox1.TabIndex = 6;
+            this.btBuscarTodos.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btBuscarTodos.Location = new System.Drawing.Point(847, 198);
+            this.btBuscarTodos.Name = "btBuscarTodos";
+            this.btBuscarTodos.Size = new System.Drawing.Size(160, 58);
+            this.btBuscarTodos.TabIndex = 6;
+            this.btBuscarTodos.Text = "Todos";
+            this.btBuscarTodos.UseVisualStyleBackColor = true;
+            this.btBuscarTodos.Click += new System.EventHandler(this.btBuscarTodos_Click);
             // 
-            // label3
+            // textBuscar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(674, 135);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 25);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "->";
+            this.textBuscar.Location = new System.Drawing.Point(437, 119);
+            this.textBuscar.Name = "textBuscar";
+            this.textBuscar.Size = new System.Drawing.Size(556, 31);
+            this.textBuscar.TabIndex = 7;
             // 
             // ColIdfactura
             // 
@@ -138,7 +127,6 @@
             this.ColIdfactura.MinimumWidth = 10;
             this.ColIdfactura.Name = "ColIdfactura";
             this.ColIdfactura.ReadOnly = true;
-            this.ColIdfactura.Width = 130;
             // 
             // ColCedula
             // 
@@ -146,7 +134,6 @@
             this.ColCedula.MinimumWidth = 10;
             this.ColCedula.Name = "ColCedula";
             this.ColCedula.ReadOnly = true;
-            this.ColCedula.Width = 130;
             // 
             // ColSubtotal
             // 
@@ -154,7 +141,6 @@
             this.ColSubtotal.MinimumWidth = 10;
             this.ColSubtotal.Name = "ColSubtotal";
             this.ColSubtotal.ReadOnly = true;
-            this.ColSubtotal.Width = 130;
             // 
             // ColIva
             // 
@@ -162,7 +148,6 @@
             this.ColIva.MinimumWidth = 10;
             this.ColIva.Name = "ColIva";
             this.ColIva.ReadOnly = true;
-            this.ColIva.Width = 130;
             // 
             // ColTotal
             // 
@@ -170,7 +155,6 @@
             this.ColTotal.MinimumWidth = 10;
             this.ColTotal.Name = "ColTotal";
             this.ColTotal.ReadOnly = true;
-            this.ColTotal.Width = 130;
             // 
             // FrmVisualizarFactura
             // 
@@ -178,10 +162,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(1269, 788);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBuscar);
+            this.Controls.Add(this.btBuscarTodos);
             this.Controls.Add(this.dgvFactura);
-            this.Controls.Add(this.cbFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btVolver);
@@ -201,10 +184,9 @@
         private System.Windows.Forms.Button btVolver;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.DataGridView dgvFactura;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btBuscarTodos;
+        private System.Windows.Forms.TextBox textBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdfactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSubtotal;
