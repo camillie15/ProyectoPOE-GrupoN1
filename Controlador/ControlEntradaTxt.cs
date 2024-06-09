@@ -36,7 +36,7 @@ namespace Controlador
             if (txt.Text.Length > maxLength)
             {
                 txt.Text = txt.Text.Remove(txt.Text.Length - 1);
-                MessageBox.Show( $"Solo se permiten {maxLength} digitos");
+                MessageBox.Show($"Solo se permiten {maxLength} digitos");
             }
         }
     }
