@@ -187,7 +187,7 @@ namespace Controlador
 
         public void llenarTxt(TextBox txtContenido, TextBox txtSubtotal, TextBox txtCliente)
         {
-            Pedido ped = RetornarPedido(); 
+            Pedido ped = RetornarPedido();
             string contenido = string.Empty;
             for (int i = 0; i < ped.MenuSeleccionado.Count; i++)
             {

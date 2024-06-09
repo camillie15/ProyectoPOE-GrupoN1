@@ -19,7 +19,7 @@ namespace Visual
 
         private void btnVisualizarPedido_Click(object sender, EventArgs e)
         {
-            FrmVisualizarPedido visualizarPedido = new FrmVisualizarPedido(); 
+            FrmVisualizarPedido visualizarPedido = new FrmVisualizarPedido();
             visualizarPedido.ShowDialog();
         }
 

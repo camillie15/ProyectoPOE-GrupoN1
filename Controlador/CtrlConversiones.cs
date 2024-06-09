@@ -10,13 +10,14 @@ namespace Controlador
 {
     public class CtrlConversiones
     {
-        public int toInt (string str)
+        public int toInt(string str)
         {
             int flag = 0;
             try
             {
                 flag = Convert.ToInt32(str);
-            }catch (Exception)
+            }
+            catch (Exception)
             {
                 flag = -1;
             }

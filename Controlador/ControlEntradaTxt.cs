@@ -13,7 +13,7 @@ namespace Controlador
         //Control de tipo de caracteres aceptados = Solo letras
         public void ingresoSoloLetras(object sender, KeyPressEventArgs e)
         {
-            if((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
             {
                 e.Handled = true;
             }
@@ -31,7 +31,7 @@ namespace Controlador
 
 
         //Control de tipo de caracteres aceptados
-        public void maximoDigitosNumericos(object sender, EventArgs e, int maxLength, TextBox txt) 
+        public void maximoDigitosNumericos(object sender, EventArgs e, int maxLength, TextBox txt)
         {
             if (txt.Text.Length > maxLength)
             {

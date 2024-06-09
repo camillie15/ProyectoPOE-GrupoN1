@@ -120,7 +120,6 @@ namespace Controlador
             Pedido pedidoN = null;
 
             Cliente clienteObj = TratarCliente(cliente);
-            ;
 
             if (menuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
             {

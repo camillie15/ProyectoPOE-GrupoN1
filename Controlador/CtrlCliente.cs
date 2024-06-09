@@ -17,12 +17,13 @@ namespace Controlador
 
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
 
-        public bool registrarCliente (string sNombre, string sApellido, string sCedula, string sEdad, string sEmail, string sDireccion)
+        public bool registrarCliente(string sNombre, string sApellido, string sCedula, string sEdad, string sEmail, string sDireccion)
         {
             bool flag = false;
-            int edad = conv.toInt (sEdad);
-            int idCliente = clientes.Count +1;
-            if (edad >= 0 ) {
+            int edad = conv.toInt(sEdad);
+            int idCliente = clientes.Count + 1;
+            if (edad >= 0)
+            {
                 Cliente cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, idCliente, sDireccion);
                 //MessageBox.Show($"Registrado con exito");
                 clientes.Add(cliente);
@@ -45,7 +46,7 @@ namespace Controlador
 
             for (int i = 0; i < clientes.Count; i++)
             {
-                if(i < clientes.Count - 1)
+                if (i < clientes.Count - 1)
                 {
                     dvg.Rows.Add();
                 }
@@ -60,7 +61,7 @@ namespace Controlador
 
         }
 
-        public void buscarCliente (DataGridView dvg, string flag, Button btn)
+        public void buscarCliente(DataGridView dvg, string flag, Button btn)
         {
             if (!(flag.Trim() == string.Empty))
             {
@@ -80,7 +81,8 @@ namespace Controlador
                     MessageBox.Show("No se encontro el cliente");
                 }
                 btn.Enabled = true;
-            } else
+            }
+            else
             {
                 MessageBox.Show("Ingrese CI del cliente buscar");
             }
