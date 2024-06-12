@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Controlador;
 
 namespace Visual
 {
@@ -30,7 +30,7 @@ namespace Visual
                 string nombre = txtNombrePlato.Text;
                 string descripcion = txtDescripcionPlato.Text;
                 string precioStr = txtPrecioPlato.Text;
-                string estadoStr = cmbEstadoPlato.SelectedItem.ToString();
+                string estadoStr = cmbEstadoPlato.SelectedItem?.ToString();
                 if (ctrlPlato != null)
                 {
                     ctrlPlato.IngresarPlato(nombre, descripcion, precioStr, estadoStr);
@@ -43,10 +43,15 @@ namespace Visual
                     MessageBox.Show("Error: ctrlPlato no está inicializado.");
                 }
             }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
         }
 
         private void txtNombrePlato_KeyPress(object sender, KeyPressEventArgs e)

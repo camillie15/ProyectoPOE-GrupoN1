@@ -67,6 +67,12 @@
     <Compile Include="FrmEditarPlato.Designer.cs">
       <DependentUpon>FrmEditarPlato.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVisualizarPlato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVisualizarPlato.Designer.cs">
+      <DependentUpon>FrmVisualizarPlato.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIngresarPlato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,12 +84,6 @@
     </Compile>
     <Compile Include="FrmVisualizarCliente.Designer.cs">
       <DependentUpon>FrmVisualizarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmVisualizarPlato.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmVisualizarPlato.Designer.cs">
-      <DependentUpon>FrmVisualizarPlato.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmIngresarCliente.cs">
       <SubType>Form</SubType>
@@ -132,6 +132,12 @@
     <EmbeddedResource Include="FrmEditarPlato.resx">
       <DependentUpon>FrmEditarPlato.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresarPlato.resx">
+      <DependentUpon>FrmIngresarPlato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVisualizarPlato.resx">
+      <DependentUpon>FrmVisualizarPlato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IngresarCliente.resx">
       <DependentUpon>FrmIngresarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,9 +146,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IngresarPedido.resx">
       <DependentUpon>FrmIngresarPedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmIngresarPlato.resx">
-      <DependentUpon>FrmIngresarPlato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
@@ -168,9 +171,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisualizarPedido.resx">
       <DependentUpon>FrmVisualizarPedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmVisualizarPlato.resx">
-      <DependentUpon>FrmVisualizarPlato.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -235,6 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgUsuarios2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

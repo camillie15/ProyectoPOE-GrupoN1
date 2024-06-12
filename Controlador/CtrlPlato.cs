@@ -13,10 +13,15 @@ namespace Controlador
         static List<Plato> listaPlatos = new List<Plato>();
         CtrlConversiones validacion = new CtrlConversiones();
 
-        public static List<Plato> ListaPlatos { get => listaPlatos; set => listaPlatos = value; }
-
         public void IngresarPlato(string nombre, string descripcion, string precioStr, string estadoStr)
         {
+            if (string.IsNullOrWhiteSpace(nombre) ||
+            string.IsNullOrWhiteSpace(descripcion) ||
+            string.IsNullOrWhiteSpace(precioStr) ||
+            string.IsNullOrWhiteSpace(estadoStr))
+            {
+                throw new ArgumentException("Error: Ingrese todos los Campos");
+            }
             int idPlato = GenerarIdPlato();
             double precio;
 
@@ -33,12 +38,12 @@ namespace Controlador
                 estado = false;
             }
             Plato nuevoPlato = new Plato(idPlato, nombre, descripcion, precio, estado);
-            ListaPlatos.Add(nuevoPlato);
+            listaPlatos.Add(nuevoPlato);
         }
 
         public void EditarPlato(int idPlato, string nombre, string descripcion, double precio, bool estado)
         {
-            Plato plato = ListaPlatos.FirstOrDefault(p => p.IdPlato == idPlato);
+            Plato plato = listaPlatos.FirstOrDefault(p => p.IdPlato == idPlato);
             if (plato != null)
             {
                 plato.Nombre = nombre;
@@ -60,15 +65,15 @@ namespace Controlador
             IEnumerable<Plato> platosFiltrados;
             if (mostrarTodos)
             {
-                platosFiltrados = ListaPlatos;
+                platosFiltrados = listaPlatos;
             }
             else if (estadoFiltrar.Equals("Disponibles", StringComparison.OrdinalIgnoreCase))
             {
-                platosFiltrados = ListaPlatos.Where(p => p.Estado);
+                platosFiltrados = listaPlatos.Where(p => p.Estado);
             }
             else if (estadoFiltrar.Equals("Agotados", StringComparison.OrdinalIgnoreCase))
             {
-                platosFiltrados = ListaPlatos.Where(p => !p.Estado);
+                platosFiltrados = listaPlatos.Where(p => !p.Estado);
             }
             else
             {
@@ -88,13 +93,13 @@ namespace Controlador
 
         private int GenerarIdPlato()
         {
-            if (ListaPlatos.Count == 0)
+            if (listaPlatos.Count == 0)
             {
                 return 1;
             }
             else
             {
-                int ultimoId = ListaPlatos.Max(p => p.IdPlato);
+                int ultimoId = listaPlatos.Max(p => p.IdPlato);
                 if (ultimoId >= 999)
                 {
                     throw new InvalidOperationException("El ID del plato ha alcanzado el límite máximo.");
@@ -106,7 +111,7 @@ namespace Controlador
         public void EliminarPlato(int rowIndex)
         {
 
-            ListaPlatos.Remove(ListaPlatos[rowIndex]);
+            listaPlatos.Remove(listaPlatos[rowIndex]);
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Controlador;
 
 namespace Visual
 {
@@ -16,7 +16,6 @@ namespace Visual
         private CtrlPlato ctrlPlato;
         private int idPlato;
         private FrmVisualizarPlato visualizarPlato;
-
         public FrmEditarPlato(CtrlPlato ctrlPlato, int idPlato, string nombre, string descripcion, double precio, bool estado, FrmVisualizarPlato visualizarPlato)
         {
             InitializeComponent();

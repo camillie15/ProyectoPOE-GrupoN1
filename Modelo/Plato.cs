@@ -22,6 +22,7 @@ namespace Modelo
             this.precio = precio;
             this.estado = estado;
         }
+
         public int IdPlato { get => idPlato; set => idPlato = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
