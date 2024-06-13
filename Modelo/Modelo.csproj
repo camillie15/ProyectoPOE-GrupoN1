@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrador.cs" />
+    <Compile Include="Usuario.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="Plato.cs" />
