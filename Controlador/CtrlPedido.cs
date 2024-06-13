@@ -19,7 +19,6 @@ namespace Controlador
         static List<Plato> menuPedido = new List<Plato>();
         List<Cliente> listaClientes = new List<Cliente>();
 
-
         CtrlConversiones ctrlConversiones = new CtrlConversiones();
         public CtrlPedido()
         {
@@ -77,8 +76,8 @@ namespace Controlador
 
         public void CrearClientes()
         {
-            listaClientes.Add(new Cliente("Cami", "Ayovi", "0987656789", 21, "camillie.com", true, 1, "Norte"));
-            listaClientes.Add(new Cliente("Erick", "Cordova", "0986756789", 22, "erick.com", true, 2, "Norte"));
+            listaClientes.Add(new Cliente("Cami", "Ayovi", "0983346789", 21, "camillie.com", true, 1, "Norte"));
+            listaClientes.Add(new Cliente("Erick", "Cordova", "0955456789", 22, "erick.com", true, 2, "Norte"));
             listaClientes.Add(new Cliente("Juliet", "Ortuno", "0984444789", 23, "juliet.com", true, 3, "Norte"));
             listaClientes.Add(new Cliente("Daniel", "Aguilar", "0934566789", 24, "daniel.com", true, 4, "Norte"));
 
@@ -148,7 +147,6 @@ namespace Controlador
                 string menuPedidoS = string.Empty;
                 foreach (Plato plato in listaPedidos[i].MenuSeleccionado)
                 {
-                    //Console.WriteLine(plato.ToString());
                     menuPedidoS += $"{plato.Descripcion}, ${plato.Precio}\n";
                 }
                 dgvPedidos.Rows[i].Cells["menuPedido"].Value = menuPedidoS;
@@ -192,7 +190,7 @@ namespace Controlador
                         dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidosBuscar[i].CodPedido;
                         dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidosBuscar[i].Cliente.Cedula;
                         string menuPedidoS = string.Empty;
-                        foreach (Plato plato in menuPedido)
+                        foreach (Plato plato in pedidosBuscar[i].MenuSeleccionado)
                         {
                             menuPedidoS += $"{plato.Descripcion}, ${plato.Precio}\n";
                         }
