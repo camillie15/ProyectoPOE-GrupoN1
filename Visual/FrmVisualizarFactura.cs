@@ -29,7 +29,6 @@ namespace Visual
         {
             string filtro = textBuscar.Text.Trim();
             ctrlFactura.BuscarFactura(dgvFactura, filtro);
-            
 
         }
 

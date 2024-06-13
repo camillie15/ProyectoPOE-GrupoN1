@@ -87,6 +87,7 @@
             // 
             // dgvFactura
             // 
+            this.dgvFactura.AllowUserToAddRows = false;
             this.dgvFactura.AllowUserToDeleteRows = false;
             this.dgvFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -127,6 +128,7 @@
             this.ColIdfactura.MinimumWidth = 10;
             this.ColIdfactura.Name = "ColIdfactura";
             this.ColIdfactura.ReadOnly = true;
+            this.ColIdfactura.Width = 50;
             // 
             // ColCedula
             // 
@@ -155,6 +157,7 @@
             this.ColTotal.MinimumWidth = 10;
             this.ColTotal.Name = "ColTotal";
             this.ColTotal.ReadOnly = true;
+            this.ColTotal.Width = 150;
             // 
             // FrmVisualizarFactura
             // 

@@ -22,7 +22,6 @@ namespace Controlador
 
         public static List<Factura> Listafact { get => listafact; set => listafact = value; }
 
-
         public void LlenaGrid(DataGridView dgvFactura)
         {
             int i = 0;
@@ -103,6 +102,7 @@ namespace Controlador
             dgvFactura.Rows.Clear();
             int i = 0;
             bool tf = false;
+
             foreach (Factura f in Listafact)
             {
                 if (string.IsNullOrEmpty(columna) || f.Pedido.Cliente.Cedula.Contains(columna))
@@ -115,10 +115,10 @@ namespace Controlador
                     dgvFactura.Rows[i].Cells["ColTotal"].Value = f.Total;
                     tf = true;
                 }
-                if (!tf)
-                {
-                    MessageBox.Show("No se encontraron resultados con los filtros proporcionados.");
-                }
+            }
+            if (!tf)
+            {
+                MessageBox.Show("ERROR: NO SE ENCONTRARON RESULTADOS CON LOS FILTROS PROPORCIONADOS.", "SIN RESULTADOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

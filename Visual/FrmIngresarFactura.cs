@@ -14,7 +14,6 @@ namespace Visual
     public partial class FrmIngresarFactura : Form
     {
         CtrlFactura ctrlFactura = new CtrlFactura();
-        
         public FrmIngresarFactura()
         {
             InitializeComponent();
@@ -31,15 +30,27 @@ namespace Visual
 
         private void btFinalizar_Click(object sender, EventArgs e)
         {
-            
+
             string subtotal = txtSubtotal.Text;
             string iva = txtIva.Text;
             string total = txtTotal.Text;
             string idfactura = txtCodfactura.Text;
+            string efectivo = txtEfectivo.Text;
 
-            ctrlFactura.IngresarFactura(iva, total, idfactura, subtotal);
-            MessageBox.Show("Factura Generada");
-            this.Close();
+            if (string.IsNullOrWhiteSpace(subtotal) ||
+                string.IsNullOrWhiteSpace(iva) ||
+                string.IsNullOrWhiteSpace(total) ||
+                string.IsNullOrWhiteSpace(idfactura) ||
+                string.IsNullOrWhiteSpace(efectivo))
+            {
+                MessageBox.Show("Todos los campos deben estar llenos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                ctrlFactura.IngresarFactura(iva, total, idfactura, subtotal);
+                MessageBox.Show("Factura Generada");
+                this.Close();
+            }
         }
 
         private void txtEfectivo_TextChanged(object sender, EventArgs e)
