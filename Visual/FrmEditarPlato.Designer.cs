@@ -45,107 +45,112 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(281, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 18);
+            this.label3.Size = new System.Drawing.Size(126, 17);
             this.label3.TabIndex = 34;
             this.label3.Text = "EDITAR PLATO";
             // 
             // cmbEditarEstadoPlato
             // 
             this.cmbEditarEstadoPlato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEditarEstadoPlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.cmbEditarEstadoPlato.FormattingEnabled = true;
             this.cmbEditarEstadoPlato.Items.AddRange(new object[] {
             "Disponible",
             "Agotado"});
             this.cmbEditarEstadoPlato.Location = new System.Drawing.Point(420, 245);
             this.cmbEditarEstadoPlato.Name = "cmbEditarEstadoPlato";
-            this.cmbEditarEstadoPlato.Size = new System.Drawing.Size(121, 21);
+            this.cmbEditarEstadoPlato.Size = new System.Drawing.Size(121, 24);
             this.cmbEditarEstadoPlato.TabIndex = 33;
             // 
             // txtEditarPrecioPlato
             // 
+            this.txtEditarPrecioPlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.txtEditarPrecioPlato.Location = new System.Drawing.Point(196, 245);
             this.txtEditarPrecioPlato.Name = "txtEditarPrecioPlato";
-            this.txtEditarPrecioPlato.Size = new System.Drawing.Size(105, 20);
+            this.txtEditarPrecioPlato.Size = new System.Drawing.Size(105, 24);
             this.txtEditarPrecioPlato.TabIndex = 32;
             // 
             // txtEditarDescripcionPlato
             // 
+            this.txtEditarDescripcionPlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.txtEditarDescripcionPlato.Location = new System.Drawing.Point(222, 200);
             this.txtEditarDescripcionPlato.Name = "txtEditarDescripcionPlato";
-            this.txtEditarDescripcionPlato.Size = new System.Drawing.Size(349, 20);
+            this.txtEditarDescripcionPlato.Size = new System.Drawing.Size(349, 24);
             this.txtEditarDescripcionPlato.TabIndex = 31;
             // 
             // txtEditarNombrePlato
             // 
+            this.txtEditarNombrePlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.txtEditarNombrePlato.Location = new System.Drawing.Point(203, 155);
             this.txtEditarNombrePlato.Name = "txtEditarNombrePlato";
-            this.txtEditarNombrePlato.Size = new System.Drawing.Size(368, 20);
+            this.txtEditarNombrePlato.Size = new System.Drawing.Size(368, 24);
             this.txtEditarNombrePlato.TabIndex = 30;
             // 
             // txtEditarIdPlato
             // 
+            this.txtEditarIdPlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.txtEditarIdPlato.Location = new System.Drawing.Point(201, 110);
             this.txtEditarIdPlato.Name = "txtEditarIdPlato";
             this.txtEditarIdPlato.ReadOnly = true;
-            this.txtEditarIdPlato.Size = new System.Drawing.Size(100, 20);
+            this.txtEditarIdPlato.Size = new System.Drawing.Size(100, 24);
             this.txtEditarIdPlato.TabIndex = 29;
             // 
             // lblDescripcionPlato
             // 
             this.lblDescripcionPlato.AutoSize = true;
-            this.lblDescripcionPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcionPlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.lblDescripcionPlato.Location = new System.Drawing.Point(128, 204);
             this.lblDescripcionPlato.Name = "lblDescripcionPlato";
-            this.lblDescripcionPlato.Size = new System.Drawing.Size(88, 16);
+            this.lblDescripcionPlato.Size = new System.Drawing.Size(94, 17);
             this.lblDescripcionPlato.TabIndex = 28;
             this.lblDescripcionPlato.Text = "Descripcion:";
             // 
             // lblPrecioPlato
             // 
             this.lblPrecioPlato.AutoSize = true;
-            this.lblPrecioPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioPlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.lblPrecioPlato.Location = new System.Drawing.Point(137, 249);
             this.lblPrecioPlato.Name = "lblPrecioPlato";
-            this.lblPrecioPlato.Size = new System.Drawing.Size(53, 16);
+            this.lblPrecioPlato.Size = new System.Drawing.Size(55, 17);
             this.lblPrecioPlato.TabIndex = 27;
             this.lblPrecioPlato.Text = "Precio:";
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Font = new System.Drawing.Font("Verdana", 10F);
             this.lblEstado.Location = new System.Drawing.Point(356, 250);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(58, 16);
+            this.lblEstado.Size = new System.Drawing.Size(63, 17);
             this.lblEstado.TabIndex = 26;
             this.lblEstado.Text = "Estado:";
             // 
             // lblNombrePlato
             // 
             this.lblNombrePlato.AutoSize = true;
-            this.lblNombrePlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombrePlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.lblNombrePlato.Location = new System.Drawing.Point(135, 159);
             this.lblNombrePlato.Name = "lblNombrePlato";
-            this.lblNombrePlato.Size = new System.Drawing.Size(62, 16);
+            this.lblNombrePlato.Size = new System.Drawing.Size(69, 17);
             this.lblNombrePlato.TabIndex = 25;
             this.lblNombrePlato.Text = "Nombre:";
             // 
             // lblIdPlato
             // 
             this.lblIdPlato.AutoSize = true;
-            this.lblIdPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdPlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.lblIdPlato.Location = new System.Drawing.Point(136, 114);
             this.lblIdPlato.Name = "lblIdPlato";
-            this.lblIdPlato.Size = new System.Drawing.Size(59, 16);
+            this.lblIdPlato.Size = new System.Drawing.Size(63, 17);
             this.lblIdPlato.TabIndex = 24;
             this.lblIdPlato.Text = "ID Plato";
             // 
             // btnEditarPlato
             // 
-            this.btnEditarPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPlato.Font = new System.Drawing.Font("Verdana", 10F);
             this.btnEditarPlato.Image = global::Visual.Properties.Resources.guardar;
             this.btnEditarPlato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarPlato.Location = new System.Drawing.Point(286, 327);

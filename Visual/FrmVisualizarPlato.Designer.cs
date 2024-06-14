@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBuscarCampo = new System.Windows.Forms.Button();
             this.dgvVisualizarPlato = new System.Windows.Forms.DataGridView();
             this.clmIdPlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,26 +52,31 @@
             // 
             // btnBuscarCampo
             // 
-            this.btnBuscarCampo.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCampo.Location = new System.Drawing.Point(532, 61);
+            this.btnBuscarCampo.Font = new System.Drawing.Font("Verdana", 10F);
+            this.btnBuscarCampo.Image = global::Visual.Properties.Resources.imgBuscar;
+            this.btnBuscarCampo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCampo.Location = new System.Drawing.Point(293, 52);
             this.btnBuscarCampo.Name = "btnBuscarCampo";
-            this.btnBuscarCampo.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarCampo.Size = new System.Drawing.Size(109, 41);
             this.btnBuscarCampo.TabIndex = 23;
             this.btnBuscarCampo.Text = "Buscar";
+            this.btnBuscarCampo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarCampo.UseVisualStyleBackColor = true;
             this.btnBuscarCampo.Click += new System.EventHandler(this.btnBuscarCampo_Click);
             // 
             // dgvVisualizarPlato
             // 
-            this.dgvVisualizarPlato.BackgroundColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVisualizarPlato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10F);
+            this.dgvVisualizarPlato.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVisualizarPlato.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVisualizarPlato.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvVisualizarPlato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVisualizarPlato.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmIdPlato,
@@ -76,16 +84,31 @@
             this.clmDescripcion,
             this.clmPrecio,
             this.clmEstado});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVisualizarPlato.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvVisualizarPlato.EnableHeadersVisualStyles = false;
-            this.dgvVisualizarPlato.GridColor = System.Drawing.SystemColors.InfoText;
-            this.dgvVisualizarPlato.Location = new System.Drawing.Point(14, 108);
+            this.dgvVisualizarPlato.Location = new System.Drawing.Point(34, 121);
             this.dgvVisualizarPlato.Name = "dgvVisualizarPlato";
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvVisualizarPlato.RowsDefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvVisualizarPlato.Size = new System.Drawing.Size(777, 150);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVisualizarPlato.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 10F);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Thistle;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvVisualizarPlato.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvVisualizarPlato.Size = new System.Drawing.Size(838, 291);
             this.dgvVisualizarPlato.TabIndex = 22;
             // 
             // clmIdPlato
@@ -122,10 +145,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(351, 16);
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(392, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 18);
+            this.label3.Size = new System.Drawing.Size(165, 17);
             this.label3.TabIndex = 21;
             this.label3.Text = "VISUALIZAR PLATO";
             // 
@@ -134,7 +157,7 @@
             this.btnVolverPlato.Font = new System.Drawing.Font("Verdana", 10.2F);
             this.btnVolverPlato.Image = global::Visual.Properties.Resources.imgVolver;
             this.btnVolverPlato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolverPlato.Location = new System.Drawing.Point(354, 342);
+            this.btnVolverPlato.Location = new System.Drawing.Point(424, 445);
             this.btnVolverPlato.Name = "btnVolverPlato";
             this.btnVolverPlato.Size = new System.Drawing.Size(113, 50);
             this.btnVolverPlato.TabIndex = 20;
@@ -145,10 +168,10 @@
             // 
             // btnEliminarPlato
             // 
-            this.btnEliminarPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarPlato.Location = new System.Drawing.Point(797, 180);
+            this.btnEliminarPlato.Font = new System.Drawing.Font("Verdana", 10F);
+            this.btnEliminarPlato.Location = new System.Drawing.Point(790, 63);
             this.btnEliminarPlato.Name = "btnEliminarPlato";
-            this.btnEliminarPlato.Size = new System.Drawing.Size(68, 30);
+            this.btnEliminarPlato.Size = new System.Drawing.Size(78, 30);
             this.btnEliminarPlato.TabIndex = 19;
             this.btnEliminarPlato.Text = "Eliminar";
             this.btnEliminarPlato.UseVisualStyleBackColor = true;
@@ -156,10 +179,10 @@
             // 
             // btnEditarPlato
             // 
-            this.btnEditarPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarPlato.Location = new System.Drawing.Point(797, 144);
+            this.btnEditarPlato.Font = new System.Drawing.Font("Verdana", 10F);
+            this.btnEditarPlato.Location = new System.Drawing.Point(706, 63);
             this.btnEditarPlato.Name = "btnEditarPlato";
-            this.btnEditarPlato.Size = new System.Drawing.Size(68, 30);
+            this.btnEditarPlato.Size = new System.Drawing.Size(78, 30);
             this.btnEditarPlato.TabIndex = 18;
             this.btnEditarPlato.Text = "Editar";
             this.btnEditarPlato.UseVisualStyleBackColor = true;
@@ -167,10 +190,10 @@
             // 
             // btnAgregarPlato
             // 
-            this.btnAgregarPlato.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarPlato.Location = new System.Drawing.Point(797, 108);
+            this.btnAgregarPlato.Font = new System.Drawing.Font("Verdana", 10F);
+            this.btnAgregarPlato.Location = new System.Drawing.Point(622, 63);
             this.btnAgregarPlato.Name = "btnAgregarPlato";
-            this.btnAgregarPlato.Size = new System.Drawing.Size(68, 30);
+            this.btnAgregarPlato.Size = new System.Drawing.Size(78, 30);
             this.btnAgregarPlato.TabIndex = 17;
             this.btnAgregarPlato.Text = "Agregar";
             this.btnAgregarPlato.UseVisualStyleBackColor = true;
@@ -179,32 +202,33 @@
             // cmbCampoBuscar
             // 
             this.cmbCampoBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCampoBuscar.Font = new System.Drawing.Font("Verdana", 10F);
             this.cmbCampoBuscar.FormattingEnabled = true;
             this.cmbCampoBuscar.Items.AddRange(new object[] {
             "Disponibles",
             "Agotados",
             "Todos"});
-            this.cmbCampoBuscar.Location = new System.Drawing.Point(405, 63);
+            this.cmbCampoBuscar.Location = new System.Drawing.Point(166, 63);
             this.cmbCampoBuscar.Name = "cmbCampoBuscar";
-            this.cmbCampoBuscar.Size = new System.Drawing.Size(121, 21);
+            this.cmbCampoBuscar.Size = new System.Drawing.Size(121, 24);
             this.cmbCampoBuscar.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(286, 66);
+            this.label1.Font = new System.Drawing.Font("Verdana", 10F);
+            this.label1.Location = new System.Drawing.Point(31, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 16);
+            this.label1.Size = new System.Drawing.Size(129, 17);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Campo a Buscar";
+            this.label1.Text = "Campo a Buscar:";
             // 
             // FrmVisualizarPlato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(878, 398);
+            this.ClientSize = new System.Drawing.Size(914, 517);
             this.Controls.Add(this.btnBuscarCampo);
             this.Controls.Add(this.dgvVisualizarPlato);
             this.Controls.Add(this.label3);
