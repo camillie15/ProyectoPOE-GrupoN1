@@ -84,6 +84,27 @@ namespace Controlador
             return flag;
         }
 
+        public DateTime ConvertirDateTime(string dato)
+        {
+            DateTime valor = DateTime.MinValue;
+            try
+            {
+                if (string.IsNullOrEmpty(dato))
+                {
+                    Console.WriteLine("ERROR: DATO VACIO.\n");
+                }
+                else
+                {
+                    valor = DateTime.Parse(dato);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("ERROR: DATO INVALIDO.\n");
+            }
+            return valor;
+        }
+
 
 
 
