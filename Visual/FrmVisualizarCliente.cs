@@ -78,5 +78,48 @@ namespace Visual
             dgvCliente.Rows.Clear();
             ctrCliente.PresentarClientes(dgvCliente);
         }
+
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
+        {
+            if (dgvCliente.SelectedRows.Count > 0)
+            {
+                // 1. Seleccionar CLiente desde el DGV
+                DataGridViewRow filaSeleccionada = dgvCliente.SelectedRows[0];
+
+                // 2. Guardar datos en variables
+                int id = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
+                string nombre = filaSeleccionada.Cells[1].Value.ToString();
+                string apellido = filaSeleccionada.Cells[2].Value.ToString();
+                string cedula = filaSeleccionada.Cells[3].Value.ToString();
+                int edad = Convert.ToInt32(filaSeleccionada.Cells[4].Value);
+                string email = filaSeleccionada.Cells[5].Value.ToString();
+                string direccion = filaSeleccionada.Cells[6].Value.ToString();
+                bool estado = true;
+
+                // 3. Encontrar la posicion del cliente en la lista
+                int posicion = ctrCliente.buscarPosicion(nombre, apellido, cedula, edad, email, estado, id, direccion);
+
+                // 4. Logica de eliminacion por posicion 
+                if (posicion >= 0)
+                {
+
+                    ctrCliente.eliminarCliente(posicion);
+                    ActualizarDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Escoja un elemento");
+                }
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para editar.");
+            }
+
+
+        }
     }
 }
