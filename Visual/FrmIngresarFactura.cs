@@ -23,6 +23,12 @@ namespace Visual
             this.txtCodfactura.Text = ctrlFactura.CrearId();
             ctrlFactura.llenarTxt(txtContenido, txtSubtotal, txtCliente);
 
+            string ivaText, totalText;
+            ctrlFactura.Calcular (txtSubtotal.Text, out ivaText, out totalText);
+            txtIva.Text = ivaText;
+            txtTotal.Text = totalText;
+            this.txtSubtotal.TextChanged += new EventHandler(txtSubtotal_TextChanged);
+
         }
         private void btFinalizar_Click(object sender, EventArgs e)
         {
@@ -32,16 +38,15 @@ namespace Visual
             string total = txtTotal.Text;
             string idfactura = txtCodfactura.Text;
             string efectivo = txtEfectivo.Text;
-            string pEstado = cmbEstado.SelectedItem?.ToString();
+            string pEstado = "Activo";
             string pFecha = dtpFecha.Text;
-            string motivoA = txtMotivo.Text;
+            string motivoA = "S/N";
 
             if (string.IsNullOrWhiteSpace(subtotal) ||
                 string.IsNullOrWhiteSpace(iva) ||
                 string.IsNullOrWhiteSpace(total) ||
                 string.IsNullOrWhiteSpace(idfactura) ||
-                string.IsNullOrWhiteSpace(efectivo) ||
-                string.IsNullOrWhiteSpace(motivoA))
+                string.IsNullOrWhiteSpace(efectivo))
             {
                 MessageBox.Show("Todos los campos deben estar llenos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -86,6 +91,14 @@ namespace Visual
             ctrlPedido.EliminarRegistroPedido();
             ctrlPedido.RestartPedido();
 
+        }
+
+        private void txtSubtotal_TextChanged(object sender, EventArgs e)
+        {
+            string ivaText, totalText;
+            ctrlFactura.Calcular(txtSubtotal.Text, out ivaText, out totalText);
+            txtIva.Text = ivaText;
+            txtTotal.Text = totalText;
         }
     }
 }

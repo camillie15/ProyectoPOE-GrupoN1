@@ -15,7 +15,7 @@ namespace Visual
     public partial class FrmIngresarCliente : Form
     {
         ControlEntradaTxt ctrllEntradaTxt = new ControlEntradaTxt();
-        CtrlCliente ctrlCliente = new CtrlCliente();    
+        CtrlCliente ctrlCliente = new CtrlCliente(); 
 
         public FrmIngresarCliente()
         {

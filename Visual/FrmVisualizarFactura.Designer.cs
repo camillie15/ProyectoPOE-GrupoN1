@@ -57,9 +57,10 @@
             this.btBuscar.FlatAppearance.BorderSize = 0;
             this.btBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btBuscar.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBuscar.Location = new System.Drawing.Point(70, 138);
+            this.btBuscar.Location = new System.Drawing.Point(99, 177);
+            this.btBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btBuscar.Name = "btBuscar";
-            this.btBuscar.Size = new System.Drawing.Size(132, 52);
+            this.btBuscar.Size = new System.Drawing.Size(187, 32);
             this.btBuscar.TabIndex = 0;
             this.btBuscar.Text = "Buscar";
             this.btBuscar.UseVisualStyleBackColor = false;
@@ -69,9 +70,10 @@
             // 
             this.btVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.btVolver.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btVolver.Location = new System.Drawing.Point(70, 640);
+            this.btVolver.Location = new System.Drawing.Point(99, 819);
+            this.btVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btVolver.Name = "btVolver";
-            this.btVolver.Size = new System.Drawing.Size(160, 58);
+            this.btVolver.Size = new System.Drawing.Size(226, 74);
             this.btVolver.TabIndex = 1;
             this.btVolver.Text = "Volver";
             this.btVolver.UseVisualStyleBackColor = false;
@@ -81,9 +83,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(631, 9);
+            this.label1.Location = new System.Drawing.Point(598, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 32);
+            this.label1.Size = new System.Drawing.Size(145, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Visualizar Factura";
             // 
@@ -91,9 +94,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(277, 75);
+            this.label2.Location = new System.Drawing.Point(93, 83);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(269, 32);
+            this.label2.Size = new System.Drawing.Size(140, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Filtro de Busqueda";
             // 
@@ -111,12 +115,14 @@
             this.ColEstado,
             this.ColMotivo,
             this.ColFecha});
-            this.dgvFactura.Location = new System.Drawing.Point(70, 218);
+            this.dgvFactura.Location = new System.Drawing.Point(96, 277);
+            this.dgvFactura.Margin = new System.Windows.Forms.Padding(4);
             this.dgvFactura.Name = "dgvFactura";
             this.dgvFactura.RowHeadersWidth = 82;
             this.dgvFactura.RowTemplate.Height = 33;
-            this.dgvFactura.Size = new System.Drawing.Size(1351, 393);
+            this.dgvFactura.Size = new System.Drawing.Size(1269, 503);
             this.dgvFactura.TabIndex = 5;
+            this.dgvFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFactura_CellContentClick);
             // 
             // ColIdfactura
             // 
@@ -178,9 +184,10 @@
             // 
             this.btBuscarTodos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.btBuscarTodos.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btBuscarTodos.Location = new System.Drawing.Point(235, 138);
+            this.btBuscarTodos.Location = new System.Drawing.Point(304, 176);
+            this.btBuscarTodos.Margin = new System.Windows.Forms.Padding(4);
             this.btBuscarTodos.Name = "btBuscarTodos";
-            this.btBuscarTodos.Size = new System.Drawing.Size(160, 51);
+            this.btBuscarTodos.Size = new System.Drawing.Size(226, 33);
             this.btBuscarTodos.TabIndex = 6;
             this.btBuscarTodos.Text = "Todos";
             this.btBuscarTodos.UseVisualStyleBackColor = false;
@@ -188,10 +195,11 @@
             // 
             // textBuscar
             // 
-            this.textBuscar.Location = new System.Drawing.Point(928, 74);
+            this.textBuscar.Location = new System.Drawing.Point(760, 83);
+            this.textBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.textBuscar.Multiline = true;
             this.textBuscar.Name = "textBuscar";
-            this.textBuscar.Size = new System.Drawing.Size(329, 33);
+            this.textBuscar.Size = new System.Drawing.Size(464, 24);
             this.textBuscar.TabIndex = 7;
             // 
             // cmbBusqueda
@@ -201,18 +209,20 @@
             "Cedula",
             "Fecha de Emision",
             "Monto"});
-            this.cmbBusqueda.Location = new System.Drawing.Point(561, 74);
+            this.cmbBusqueda.Location = new System.Drawing.Point(241, 83);
+            this.cmbBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Size = new System.Drawing.Size(277, 33);
+            this.cmbBusqueda.Size = new System.Drawing.Size(391, 24);
             this.cmbBusqueda.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(863, 75);
+            this.label3.Location = new System.Drawing.Point(669, 84);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 32);
+            this.label3.Size = new System.Drawing.Size(26, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "->";
             // 
@@ -222,9 +232,10 @@
             this.btAnular.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btAnular.FlatAppearance.BorderSize = 2;
             this.btAnular.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAnular.Location = new System.Drawing.Point(1261, 137);
+            this.btAnular.Location = new System.Drawing.Point(1142, 176);
+            this.btAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btAnular.Name = "btAnular";
-            this.btAnular.Size = new System.Drawing.Size(160, 52);
+            this.btAnular.Size = new System.Drawing.Size(226, 33);
             this.btAnular.TabIndex = 10;
             this.btAnular.Text = "Anular";
             this.btAnular.UseVisualStyleBackColor = false;
@@ -235,9 +246,10 @@
             this.btReporteG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.btReporteG.FlatAppearance.BorderSize = 0;
             this.btReporteG.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btReporteG.Location = new System.Drawing.Point(1138, 640);
+            this.btReporteG.Location = new System.Drawing.Point(967, 819);
+            this.btReporteG.Margin = new System.Windows.Forms.Padding(4);
             this.btReporteG.Name = "btReporteG";
-            this.btReporteG.Size = new System.Drawing.Size(283, 58);
+            this.btReporteG.Size = new System.Drawing.Size(401, 74);
             this.btReporteG.TabIndex = 11;
             this.btReporteG.Text = "Reporte General";
             this.btReporteG.UseVisualStyleBackColor = false;
@@ -245,10 +257,10 @@
             // 
             // FrmVisualizarFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1487, 745);
+            this.ClientSize = new System.Drawing.Size(1398, 861);
             this.Controls.Add(this.btReporteG);
             this.Controls.Add(this.btAnular);
             this.Controls.Add(this.label3);
@@ -260,6 +272,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btVolver);
             this.Controls.Add(this.btBuscar);
+            this.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmVisualizarFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisualizarFactura";

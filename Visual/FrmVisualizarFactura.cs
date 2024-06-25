@@ -112,5 +112,9 @@ namespace Visual
             }
         }
 
+        private void dgvFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

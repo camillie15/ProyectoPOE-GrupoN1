@@ -101,11 +101,13 @@ namespace Controlador
             listafact.Add(factura);
         }
 
-        public void Calcular(string pSubtotal, TextBox txtIva, TextBox txtTotal)
+        public void Calcular(string subtotalText, out string ivaText, out string totalText)
         {
             double subtotal;
-            if (!double.TryParse(pSubtotal, out subtotal))
+            if (!double.TryParse(subtotalText, out subtotal))
             {
+                ivaText = "";
+                totalText = "";
                 MessageBox.Show("Por favor, ingrese un subtotal válido.");
                 return;
             }
@@ -114,9 +116,8 @@ namespace Controlador
             double TotalIva = subtotal * ValorIva;
             double totalConIva = subtotal + TotalIva;
 
-            txtIva.Text = TotalIva.ToString("");
-            txtTotal.Text = totalConIva.ToString("");
-
+            ivaText = TotalIva.ToString("F2");
+            totalText = totalConIva.ToString("F2");
         }
 
         //public void BuscarFactura(DataGridView dgvFactura, string columna)
