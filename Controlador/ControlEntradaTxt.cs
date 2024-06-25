@@ -39,5 +39,14 @@ namespace Controlador
                 MessageBox.Show($"Solo se permiten {maxLength} digitos");
             }
         }
+
+        public void ConvertirMayuscula(TextBox textBox)
+        {
+            int cursorPosicion = textBox.SelectionStart;
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.SelectionStart = cursorPosicion;
+            return;
+        }
+
     }
 }
