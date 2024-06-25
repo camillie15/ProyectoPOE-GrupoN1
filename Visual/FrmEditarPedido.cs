@@ -1,5 +1,4 @@
-﻿using Controlador;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,31 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Controlador;
 
 namespace Visual
 {
-    public partial class FrmIngresarPedido : Form
+    public partial class FrmEditarPedido : Form
     {
         CtrlPedido ctrlPedido = new CtrlPedido();
-        CtrlCliente ctrlCliente = new CtrlCliente();
-        static int i = 1;
-        public FrmIngresarPedido()
+        public FrmEditarPedido()
         {
             InitializeComponent();
             ctrlPedido.LlenarCmb(cmbPedido, "plato");
             ctrlPedido.LlenarCmb(cmbCliente, "cliente");
-            txtIdPedido.Text = i.ToString();
-        }
-
-        private void txtCantItem_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char caracter = e.KeyChar;
-            if (!char.IsDigit(caracter) && caracter != (char)Keys.Back)
-            {
-                e.Handled = true;
-                return;
-            }
+            ctrlPedido.LlenarForm(txtIdPedido, dgvIngresoPedido, txtCantPedido, txtTotPedido, cmbCliente);
         }
 
         private void btnContinuarPedido_Click(object sender, EventArgs e)
@@ -42,13 +29,12 @@ namespace Visual
             string sCantItems = txtCantPedido.Text;
             string sTotalPed = txtTotPedido.Text;
 
-            bool flag = ctrlPedido.IngresarPedido(sId, cliente, sCantItems, sTotalPed);
+            bool flag = ctrlPedido.EditarPedido(sId, cliente, sCantItems, sTotalPed);
 
             FrmIngresarFactura frmIngresarFactura = new FrmIngresarFactura();
 
             if (flag)
             {
-                i++;
                 frmIngresarFactura.Show();
 
                 txtCantPedido.Clear();
@@ -56,6 +42,7 @@ namespace Visual
                 dgvIngresoPedido.Rows.Clear();
                 this.Close();
             }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -68,8 +55,31 @@ namespace Visual
             string pedidoSleccionado = (string)cmbPedido.SelectedItem;
             string cantidadItem = txtCantItem.Text;
 
-            ctrlPedido.AgregarAlPedido(pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "nuevo");
+            ctrlPedido.AgregarAlPedido(pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "editado");
             txtCantItem.Clear();
+        }
+
+        private void btnEliminarMenu_Click(object sender, EventArgs e)
+        {
+            if (dgvIngresoPedido.SelectedRows.Count > 0)
+            {
+                int rowIndex = dgvIngresoPedido.SelectedRows[0].Index;
+                DialogResult dialogResult = MessageBox.Show("¿Desea eliminar este plato de su pedido?", "Confirmar", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    bool flag = ctrlPedido.EliminarPlato(rowIndex, dgvIngresoPedido, txtCantPedido, txtTotPedido);
+                    if (flag == true)
+                    {
+                        MessageBox.Show("Plato seleccionado eliminado del pedido");
+                        ctrlPedido.ActualizarGridMenuPedido(dgvIngresoPedido);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para eliminar.");
+            }
+
         }
     }
 }

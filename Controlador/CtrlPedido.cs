@@ -11,9 +11,10 @@ namespace Controlador
 {
     public class CtrlPedido
     {
-        private int cantidades = 0;
-        private double totalPed = 0;
+        static int cantidades = 0;
+        static double totalPed = 0;
         static List<Pedido> listaPedidos = new List<Pedido>();
+        static List<string> pedidoPlato = new List<string>();
 
         List<Plato> listaPlatos = new List<Plato>();
         static List<Plato> menuPedido = new List<Plato>();
@@ -24,22 +25,25 @@ namespace Controlador
         {
             CrearClientes();
             CrearPlato();
-            RestartPedido();
         }
 
         public static List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
-        public int Cantidades { get => cantidades; set => cantidades = value; }
-        public double TotalPed { get => totalPed; set => totalPed = value; }
+        public static int Cantidades { get => cantidades; set => cantidades = value; }
+        public static double TotalPed { get => totalPed; set => totalPed = value; }
+        public static List<string> PedidoPlato { get => pedidoPlato; set => pedidoPlato = value; }
+        public static List<Plato> MenuPedido { get => menuPedido; set => menuPedido = value; }
 
-        public void AgregarAlPedido(string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
+        public void AgregarAlPedido(string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, string tipo)
         {
             int cantItemAgregado = ctrlConversiones.toInt(cantidadItem);
+            string ped = string.Empty;
 
             if (pedidoSleccionado != null && cantItemAgregado > 0)
             {
                 Plato platoAgg = listaPlatos.Find(delBuscar => delBuscar.IdPlato == TratarPlato(pedidoSleccionado).IdPlato);
-                menuPedido.Add(platoAgg);
+                MenuPedido.Add(platoAgg);
 
+                int idPed = platoAgg.IdPlato;
                 string descripcionPed = platoAgg.Descripcion;
                 double precioItem = platoAgg.Precio;
                 int cantidadItemPed = ctrlConversiones.toInt(cantidadItem);
@@ -53,10 +57,23 @@ namespace Controlador
                 dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = cantidadItemPed;
                 dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {totalPedidoItem}";
 
-                Cantidades += cantidadItemPed;
+                Cantidades += (cantidadItemPed);
                 TotalPed += (precioItem * cantidadItemPed);
-                txtCantPedido.Text = Cantidades.ToString();
-                txtTotPedido.Text = $"$ {TotalPed.ToString()}";
+
+                if (tipo.ToLower().Equals("nuevo"))
+                {
+                    txtCantPedido.Text = Cantidades.ToString();
+                    txtTotPedido.Text = $"$ {TotalPed.ToString()}";
+
+                }
+                else if (tipo.ToLower().Equals("editado"))
+                {
+                    txtCantPedido.Text = (Cantidades + RetornarUltimoPedido().CantidadProductos).ToString();
+                    txtTotPedido.Text = $"$ {(TotalPed + RetornarUltimoPedido().TotalPedido).ToString()}";
+                }
+
+                ped = $"{idPed}-{descripcionPed}-{precioItem.ToString()}-{cantidadItemPed.ToString()}-{totalPedidoItem.ToString()}";
+                PedidoPlato.Add(ped);
 
             }
             else
@@ -112,6 +129,7 @@ namespace Controlador
         public bool IngresarPedido(string sId, string cliente, string sCantItems, string sTotalPed)
         {
             bool flag = false;
+
             int id = ctrlConversiones.toInt(sId);
             int cantItem = ctrlConversiones.toInt(sCantItems);
             string totP = ctrlConversiones.stringWithoutDolar(sTotalPed);
@@ -120,9 +138,9 @@ namespace Controlador
 
             Cliente clienteObj = TratarCliente(cliente);
 
-            if (menuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
+            if (MenuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
             {
-                List<Plato> platosDelPedido = new List<Plato>(menuPedido);
+                List<Plato> platosDelPedido = new List<Plato>(MenuPedido);
 
                 pedidoN = new Pedido(id, clienteObj, platosDelPedido, cantItem, totalPed);
                 ListaPedidos.Add(pedidoN);
@@ -214,7 +232,8 @@ namespace Controlador
         {
             Cantidades = 0;
             TotalPed = 0;
-            menuPedido.Clear();
+            PedidoPlato.Clear();
+            MenuPedido.Clear();
         }
 
         public void EliminarRegistroCliente(string cedula)
@@ -245,6 +264,122 @@ namespace Controlador
             Plato platoObj = listaPlatos.Find(delBuscar => delBuscar.IdPlato == idP);
 
             return platoObj;
+        }
+
+        public void LlenarForm(TextBox txtIdPedido, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, ComboBox cmbCliente)
+        {
+            Pedido ultimoPedido = RetornarUltimoPedido();
+            txtIdPedido.Text = ultimoPedido.CodPedido.ToString();
+
+            foreach (string plato in PedidoPlato)
+            {
+                Console.WriteLine(plato);
+                string[] dataPlato = plato.Trim().Split('-');
+
+                int i = dgvIngresoPedido.Rows.Add();
+                dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = dataPlato[1];
+                dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[2])}";
+                dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = ctrlConversiones.toInt(dataPlato[3]);
+                dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[4])}";
+            }
+            txtCantPedido.Text = ultimoPedido.CantidadProductos.ToString();
+            txtTotPedido.Text = $"$ {ultimoPedido.TotalPedido.ToString()}";
+        }
+
+        public Pedido RetornarUltimoPedido()
+        {
+            Pedido pedido = null;
+            if (ListaPedidos.Count >= 0)
+            {
+                pedido = ListaPedidos[ListaPedidos.Count - 1];
+            }
+            else
+            {
+                MessageBox.Show("No hay registros realizados en pedidos");
+            }
+            return pedido;
+        }
+
+        public bool EditarPedido(string sId, string cliente, string sCantItems, string sTotalPed)
+        {
+            bool flag = false;
+            int id = ctrlConversiones.toInt(sId);
+            int cantItem = ctrlConversiones.toInt(sCantItems);
+            string totP = ctrlConversiones.stringWithoutDolar(sTotalPed);
+            double totalPed = ctrlConversiones.toDouble(totP);
+
+            Pedido pedidoN = RetornarUltimoPedido();
+            Cliente clienteObj = null;
+            if (MenuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
+            {
+                List<Plato> platosDelPedido = new List<Plato>(MenuPedido);
+                if (cliente != string.Empty)
+                {
+                    clienteObj = RetornarUltimoPedido().Cliente;
+                }
+                else
+                {
+                    clienteObj = TratarCliente(cliente);
+                }
+                pedidoN = new Pedido(id, clienteObj, platosDelPedido, cantItem, totalPed);
+                ListaPedidos[ListaPedidos.IndexOf(RetornarUltimoPedido())] = (pedidoN);
+                flag = true;
+            }
+            else
+            {
+                MessageBox.Show("Error: Datos sin ingresar");
+                flag = false;
+            }
+            return flag;
+        }
+
+        public bool EliminarPlato(int rowIndex, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
+        {
+            bool flag = false;
+            string[] dataPlato = null;
+            int idEliminar = 0;
+
+            for (int i = 0; i < PedidoPlato.Count; i++)
+            {
+                dataPlato = PedidoPlato[i].Split('-');
+                idEliminar = ctrlConversiones.toInt(dataPlato[0]);
+                if (MenuPedido[rowIndex].IdPlato == idEliminar)
+                {
+                    Cantidades = Cantidades - ctrlConversiones.toInt(dataPlato[3]);
+                    TotalPed = TotalPed - ctrlConversiones.toDouble(dataPlato[4]);
+                    txtCantPedido.Text = Cantidades.ToString();
+                    txtTotPedido.Text = $"$ {TotalPed.ToString()}";
+                    MenuPedido.Remove(MenuPedido[rowIndex]);
+                    PedidoPlato.Remove(PedidoPlato[rowIndex]);
+                    dgvIngresoPedido.Rows.RemoveAt(rowIndex);
+                    flag = true;
+                }
+                else
+                {
+                    flag = false;
+                }
+            }
+            return flag;
+        }
+
+        public void ActualizarGridMenuPedido(DataGridView dgvIngresoPedido)
+        {
+            for (int i = 0; i < PedidoPlato.Count; i++)
+            {
+                string[] dataPlato = pedidoPlato[i].Split('-');
+                dgvIngresoPedido.Rows.Add();
+                dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = dataPlato[1];
+                dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[2])}";
+                dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = ctrlConversiones.toInt(dataPlato[3]);
+                dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[4])}";
+            }
+        }
+
+        private void btnVolverPedido_Click(object sender, EventArgs e)
+        {
+            FrmEditarPedido frmEditarPedido = new FrmEditarPedido();
+            frmEditarPedido.Show();
+            this.Close();
         }
     }
 }
