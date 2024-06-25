@@ -66,5 +66,20 @@ namespace Visual
             TextBox textBox = sender as TextBox;
             validacion.ConvertirMayuscula(textBox);
         }
+
+        private void FrmAnularFactura_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

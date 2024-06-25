@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btBuscar = new System.Windows.Forms.Button();
             this.btVolver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvFactura = new System.Windows.Forms.DataGridView();
+            this.btBuscarTodos = new System.Windows.Forms.Button();
+            this.textBuscar = new System.Windows.Forms.TextBox();
+            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btAnular = new System.Windows.Forms.Button();
+            this.btReporteG = new System.Windows.Forms.Button();
             this.ColIdfactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,12 +47,6 @@
             this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColMotivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btBuscarTodos = new System.Windows.Forms.Button();
-            this.textBuscar = new System.Windows.Forms.TextBox();
-            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btAnular = new System.Windows.Forms.Button();
-            this.btReporteG = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +57,7 @@
             this.btBuscar.FlatAppearance.BorderSize = 0;
             this.btBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btBuscar.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.btBuscar.Location = new System.Drawing.Point(81, 132);
+            this.btBuscar.Location = new System.Drawing.Point(106, 132);
             this.btBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btBuscar.Name = "btBuscar";
             this.btBuscar.Size = new System.Drawing.Size(156, 44);
@@ -84,10 +83,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(538, 21);
+            this.label1.Location = new System.Drawing.Point(577, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 20);
+            this.label1.Size = new System.Drawing.Size(145, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Visualizar Factura";
             // 
@@ -95,10 +94,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.label2.Location = new System.Drawing.Point(77, 71);
+            this.label2.Location = new System.Drawing.Point(122, 71);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 20);
+            this.label2.Size = new System.Drawing.Size(140, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Filtro de Busqueda";
             // 
@@ -116,14 +115,6 @@
             this.ColEstado,
             this.ColMotivo,
             this.ColFecha});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10.2F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFactura.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFactura.Location = new System.Drawing.Point(106, 208);
             this.dgvFactura.Margin = new System.Windows.Forms.Padding(4);
             this.dgvFactura.Name = "dgvFactura";
@@ -133,67 +124,11 @@
             this.dgvFactura.TabIndex = 5;
             this.dgvFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFactura_CellContentClick);
             // 
-            // ColIdfactura
-            // 
-            this.ColIdfactura.HeaderText = "Id Factura";
-            this.ColIdfactura.MinimumWidth = 6;
-            this.ColIdfactura.Name = "ColIdfactura";
-            this.ColIdfactura.Width = 70;
-            // 
-            // ColCedula
-            // 
-            this.ColCedula.HeaderText = "Cedula";
-            this.ColCedula.MinimumWidth = 6;
-            this.ColCedula.Name = "ColCedula";
-            this.ColCedula.Width = 70;
-            // 
-            // ColSubtotal
-            // 
-            this.ColSubtotal.HeaderText = "Subtotal";
-            this.ColSubtotal.MinimumWidth = 6;
-            this.ColSubtotal.Name = "ColSubtotal";
-            this.ColSubtotal.Width = 50;
-            // 
-            // ColIva
-            // 
-            this.ColIva.HeaderText = "Iva";
-            this.ColIva.MinimumWidth = 6;
-            this.ColIva.Name = "ColIva";
-            this.ColIva.Width = 50;
-            // 
-            // ColTotal
-            // 
-            this.ColTotal.HeaderText = "Total a pagar";
-            this.ColTotal.MinimumWidth = 6;
-            this.ColTotal.Name = "ColTotal";
-            this.ColTotal.Width = 200;
-            // 
-            // ColEstado
-            // 
-            this.ColEstado.HeaderText = "Estado";
-            this.ColEstado.MinimumWidth = 6;
-            this.ColEstado.Name = "ColEstado";
-            this.ColEstado.Width = 50;
-            // 
-            // ColMotivo
-            // 
-            this.ColMotivo.HeaderText = "Motivo de Anulación";
-            this.ColMotivo.MinimumWidth = 6;
-            this.ColMotivo.Name = "ColMotivo";
-            this.ColMotivo.Width = 200;
-            // 
-            // ColFecha
-            // 
-            this.ColFecha.HeaderText = "Fecha De Emision";
-            this.ColFecha.MinimumWidth = 6;
-            this.ColFecha.Name = "ColFecha";
-            this.ColFecha.Width = 200;
-            // 
             // btBuscarTodos
             // 
             this.btBuscarTodos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.btBuscarTodos.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.btBuscarTodos.Location = new System.Drawing.Point(276, 131);
+            this.btBuscarTodos.Location = new System.Drawing.Point(299, 132);
             this.btBuscarTodos.Margin = new System.Windows.Forms.Padding(4);
             this.btBuscarTodos.Name = "btBuscarTodos";
             this.btBuscarTodos.Size = new System.Drawing.Size(156, 44);
@@ -205,7 +140,7 @@
             // textBuscar
             // 
             this.textBuscar.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.textBuscar.Location = new System.Drawing.Point(746, 71);
+            this.textBuscar.Location = new System.Drawing.Point(868, 71);
             this.textBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.textBuscar.Multiline = true;
             this.textBuscar.Name = "textBuscar";
@@ -220,20 +155,20 @@
             "Cedula",
             "Fecha de Emision",
             "Monto"});
-            this.cmbBusqueda.Location = new System.Drawing.Point(256, 71);
+            this.cmbBusqueda.Location = new System.Drawing.Point(313, 71);
             this.cmbBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Size = new System.Drawing.Size(391, 28);
+            this.cmbBusqueda.Size = new System.Drawing.Size(391, 25);
             this.cmbBusqueda.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.label3.Location = new System.Drawing.Point(677, 72);
+            this.label3.Location = new System.Drawing.Point(766, 74);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 20);
+            this.label3.Size = new System.Drawing.Size(26, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "->";
             // 
@@ -243,7 +178,7 @@
             this.btAnular.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btAnular.FlatAppearance.BorderSize = 2;
             this.btAnular.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.btAnular.Location = new System.Drawing.Point(915, 132);
+            this.btAnular.Location = new System.Drawing.Point(972, 132);
             this.btAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btAnular.Name = "btAnular";
             this.btAnular.Size = new System.Drawing.Size(156, 44);
@@ -266,9 +201,62 @@
             this.btReporteG.UseVisualStyleBackColor = false;
             this.btReporteG.Click += new System.EventHandler(this.btReporteG_Click);
             // 
+            // ColIdfactura
+            // 
+            this.ColIdfactura.HeaderText = "Id Factura";
+            this.ColIdfactura.MinimumWidth = 6;
+            this.ColIdfactura.Name = "ColIdfactura";
+            this.ColIdfactura.Width = 70;
+            // 
+            // ColCedula
+            // 
+            this.ColCedula.HeaderText = "Cedula";
+            this.ColCedula.MinimumWidth = 6;
+            this.ColCedula.Name = "ColCedula";
+            // 
+            // ColSubtotal
+            // 
+            this.ColSubtotal.HeaderText = "Subtotal";
+            this.ColSubtotal.MinimumWidth = 6;
+            this.ColSubtotal.Name = "ColSubtotal";
+            this.ColSubtotal.Width = 70;
+            // 
+            // ColIva
+            // 
+            this.ColIva.HeaderText = "Iva";
+            this.ColIva.MinimumWidth = 6;
+            this.ColIva.Name = "ColIva";
+            this.ColIva.Width = 50;
+            // 
+            // ColTotal
+            // 
+            this.ColTotal.HeaderText = "Total a pagar";
+            this.ColTotal.MinimumWidth = 6;
+            this.ColTotal.Name = "ColTotal";
+            // 
+            // ColEstado
+            // 
+            this.ColEstado.HeaderText = "Estado";
+            this.ColEstado.MinimumWidth = 6;
+            this.ColEstado.Name = "ColEstado";
+            this.ColEstado.Width = 70;
+            // 
+            // ColMotivo
+            // 
+            this.ColMotivo.HeaderText = "Motivo de Anulación";
+            this.ColMotivo.MinimumWidth = 6;
+            this.ColMotivo.Name = "ColMotivo";
+            this.ColMotivo.Width = 200;
+            // 
+            // ColFecha
+            // 
+            this.ColFecha.HeaderText = "Fecha De Emision";
+            this.ColFecha.MinimumWidth = 6;
+            this.ColFecha.Name = "ColFecha";
+            // 
             // FrmVisualizarFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(1232, 661);
