@@ -14,6 +14,7 @@ namespace Visual
     public partial class FrmIngresarFactura : Form
     {
         CtrlFactura ctrlFactura = new CtrlFactura();
+        CtrlPedido ctrlPedido = new CtrlPedido();
         ControlEntradaTxt validacion = new ControlEntradaTxt();
 
         public FrmIngresarFactura()
@@ -48,6 +49,7 @@ namespace Visual
             {
                 ctrlFactura.IngresarFactura(iva, total, idfactura, subtotal, pEstado, motivoA, pFecha);
                 MessageBox.Show("Factura Generada");
+                ctrlPedido.RestartPedido();
                 this.Close();
             }
         }
@@ -66,17 +68,24 @@ namespace Visual
             }
         }
 
-        private void btImprimir_Click(object sender, EventArgs e)
-        {
-            string pSubtotal = txtSubtotal.Text;
-
-            ctrlFactura.Calcular(pSubtotal, txtIva, txtTotal);
-        }
-
         private void txtMotivo_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             validacion.ConvertirMayuscula(textBox);
+        }
+
+        private void btEditarPedido_Click(object sender, EventArgs e)
+        {
+            FrmEditarPedido frmEditarPedido = new FrmEditarPedido();
+            frmEditarPedido.Show();
+            this.Close();
+        }
+
+        private void btnCancelarFactura_Click(object sender, EventArgs e)
+        {
+            ctrlPedido.EliminarRegistroPedido();
+            ctrlPedido.RestartPedido();
+
         }
     }
 }

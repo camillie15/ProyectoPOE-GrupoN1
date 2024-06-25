@@ -236,13 +236,12 @@ namespace Controlador
             MenuPedido.Clear();
         }
 
-        public void EliminarRegistroCliente(string cedula)
+        public void EliminarRegistroPedido()
         {
-            Cliente clienteEliminar = listaClientes.Find(cliente => cliente.Cedula.Equals(cedula));
-            if (clienteEliminar != null)
+            Pedido pedidoELiminar = listaPedidos.Find(pedido => pedido.CodPedido == RetornarUltimoPedido().CodPedido);
+            if (pedidoELiminar != null)
             {
-                listaClientes.Remove(clienteEliminar);
-                CtrlCliente.Clientes = listaClientes;
+                listaPedidos.Remove(pedidoELiminar);
             }
         }
 
@@ -364,6 +363,7 @@ namespace Controlador
 
         public void ActualizarGridMenuPedido(DataGridView dgvIngresoPedido)
         {
+            dgvIngresoPedido.Rows.Clear();
             for (int i = 0; i < PedidoPlato.Count; i++)
             {
                 string[] dataPlato = pedidoPlato[i].Split('-');
@@ -373,13 +373,6 @@ namespace Controlador
                 dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = ctrlConversiones.toInt(dataPlato[3]);
                 dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[4])}";
             }
-        }
-
-        private void btnVolverPedido_Click(object sender, EventArgs e)
-        {
-            FrmEditarPedido frmEditarPedido = new FrmEditarPedido();
-            frmEditarPedido.Show();
-            this.Close();
         }
     }
 }
