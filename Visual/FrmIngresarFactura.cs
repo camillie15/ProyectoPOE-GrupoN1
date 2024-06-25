@@ -100,5 +100,10 @@ namespace Visual
             txtIva.Text = ivaText;
             txtTotal.Text = totalText;
         }
+
+        private void FrmIngresarFactura_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

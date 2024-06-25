@@ -102,5 +102,28 @@ namespace Controlador
                 Clientes[posicion].Direccion = direccion;
             }
         }
+
+        public int buscarPosicion(string nombre, string apellido, string cedula, int edad, string email, bool estado, int id, string direccion)
+        {
+            int flag = 0;
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                if (id != clientes[i].IdCliente)
+                {
+                    continue;
+                }
+                else
+                {
+                    flag = i;
+                    break;
+                }
+            }
+            return flag;
+        }
+
+        public void eliminarCliente(int posicion)
+        {
+            clientes.RemoveAt(posicion);
+        }
     }
 }
