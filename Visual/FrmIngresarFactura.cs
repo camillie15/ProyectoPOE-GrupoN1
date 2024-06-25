@@ -14,20 +14,15 @@ namespace Visual
     public partial class FrmIngresarFactura : Form
     {
         CtrlFactura ctrlFactura = new CtrlFactura();
+        ControlEntradaTxt validacion = new ControlEntradaTxt();
+
         public FrmIngresarFactura()
         {
             InitializeComponent();
             this.txtCodfactura.Text = ctrlFactura.CrearId();
-            //this.txtCliente.Text = ctrlFactura.RetornarClientePedido();
-            ////string clienteInfo = ctrlFactura.RetornarClientePedido();
-            ////this.txtCliente.Text = clienteInfo;
-            ////this.txtSubtotal.Text = CtrlPedido.TotalPed.ToString();
-            ////this.txtContenido.Text = CtrlPedido.PedidoR;
             ctrlFactura.llenarTxt(txtContenido, txtSubtotal, txtCliente);
 
         }
-
-
         private void btFinalizar_Click(object sender, EventArgs e)
         {
 
@@ -36,18 +31,22 @@ namespace Visual
             string total = txtTotal.Text;
             string idfactura = txtCodfactura.Text;
             string efectivo = txtEfectivo.Text;
+            string pEstado = cmbEstado.SelectedItem?.ToString();
+            string pFecha = dtpFecha.Text;
+            string motivoA = txtMotivo.Text;
 
             if (string.IsNullOrWhiteSpace(subtotal) ||
                 string.IsNullOrWhiteSpace(iva) ||
                 string.IsNullOrWhiteSpace(total) ||
                 string.IsNullOrWhiteSpace(idfactura) ||
-                string.IsNullOrWhiteSpace(efectivo))
+                string.IsNullOrWhiteSpace(efectivo) ||
+                string.IsNullOrWhiteSpace(motivoA))
             {
                 MessageBox.Show("Todos los campos deben estar llenos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                ctrlFactura.IngresarFactura(iva, total, idfactura, subtotal);
+                ctrlFactura.IngresarFactura(iva, total, idfactura, subtotal, pEstado, motivoA, pFecha);
                 MessageBox.Show("Factura Generada");
                 this.Close();
             }
@@ -74,9 +73,10 @@ namespace Visual
             ctrlFactura.Calcular(pSubtotal, txtIva, txtTotal);
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        private void txtMotivo_TextChanged(object sender, EventArgs e)
         {
-
+            TextBox textBox = sender as TextBox;
+            validacion.ConvertirMayuscula(textBox);
         }
     }
 }
