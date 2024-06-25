@@ -16,13 +16,12 @@ namespace Visual
     {
         CtrlPedido ctrlPedido = new CtrlPedido();
         CtrlCliente ctrlCliente = new CtrlCliente();
-        static int i = 1;
         public FrmIngresarPedido()
         {
             InitializeComponent();
             ctrlPedido.LlenarCmb(cmbPedido, "plato");
             ctrlPedido.LlenarCmb(cmbCliente, "cliente");
-            txtIdPedido.Text = i.ToString();
+            txtIdPedido.Text = ctrlPedido.idPedido();
         }
 
         private void txtCantItem_KeyPress(object sender, KeyPressEventArgs e)
@@ -48,7 +47,6 @@ namespace Visual
 
             if (flag)
             {
-                i++;
                 frmIngresarFactura.Show();
 
                 txtCantPedido.Clear();

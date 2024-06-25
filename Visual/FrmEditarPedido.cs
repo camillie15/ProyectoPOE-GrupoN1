@@ -48,6 +48,8 @@ namespace Visual
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+            FrmIngresarFactura frmIngresarFactura = new FrmIngresarFactura();
+            frmIngresarFactura.Show();
         }
 
         private void btnAggPedido_Click(object sender, EventArgs e)

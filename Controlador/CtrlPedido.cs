@@ -129,27 +129,33 @@ namespace Controlador
         public bool IngresarPedido(string sId, string cliente, string sCantItems, string sTotalPed)
         {
             bool flag = false;
-
-            int id = ctrlConversiones.toInt(sId);
-            int cantItem = ctrlConversiones.toInt(sCantItems);
-            string totP = ctrlConversiones.stringWithoutDolar(sTotalPed);
-            double totalPed = ctrlConversiones.toDouble(totP);
-            Pedido pedidoN = null;
-
-            Cliente clienteObj = TratarCliente(cliente);
-
-            if (MenuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
+            if (sId != string.Empty && cliente != string.Empty && sCantItems != string.Empty && sTotalPed != string.Empty)
             {
-                List<Plato> platosDelPedido = new List<Plato>(MenuPedido);
+                int id = ctrlConversiones.toInt(sId);
+                int cantItem = ctrlConversiones.toInt(sCantItems);
+                string totP = ctrlConversiones.stringWithoutDolar(sTotalPed);
+                double totalPed = ctrlConversiones.toDouble(totP);
+                Pedido pedidoN = null;
 
-                pedidoN = new Pedido(id, clienteObj, platosDelPedido, cantItem, totalPed);
-                ListaPedidos.Add(pedidoN);
-                flag = true;
+                Cliente clienteObj = TratarCliente(cliente);
+
+                if (MenuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
+                {
+                    List<Plato> platosDelPedido = new List<Plato>(MenuPedido);
+
+                    pedidoN = new Pedido(id, clienteObj, platosDelPedido, cantItem, totalPed);
+                    ListaPedidos.Add(pedidoN);
+                    flag = true;
+                }
+                else
+                {
+                    MessageBox.Show("Error: Datos sin ingresar");
+                    flag = false;
+                }
             }
             else
             {
-                MessageBox.Show("Error: Datos sin ingresar");
-                flag = false;
+                MessageBox.Show("Debe ingresar datos");
             }
             return flag;
 
@@ -236,6 +242,10 @@ namespace Controlador
             MenuPedido.Clear();
         }
 
+        public string idPedido()
+        {
+            return Convert.ToString(listaPedidos.Count + 1);
+        }
         public void EliminarRegistroPedido()
         {
             Pedido pedidoELiminar = listaPedidos.Find(pedido => pedido.CodPedido == RetornarUltimoPedido().CodPedido);
@@ -250,9 +260,9 @@ namespace Controlador
             string[] dataCliente = cliente.Trim().Split(',');
             string cedula = dataCliente[2].Trim();
 
-            Cliente clientoObj = listaClientes.Find(delBuscar => delBuscar.Cedula.Equals(cedula));
+            Cliente clienteObj = listaClientes.Find(delBuscar => delBuscar.Cedula.Equals(cedula));
 
-            return clientoObj;
+            return clienteObj;
         }
 
         public Plato TratarPlato(string menu)
@@ -374,5 +384,6 @@ namespace Controlador
                 dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[4])}";
             }
         }
+
     }
 }

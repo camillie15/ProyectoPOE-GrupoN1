@@ -90,7 +90,7 @@ namespace Visual
         {
             ctrlPedido.EliminarRegistroPedido();
             ctrlPedido.RestartPedido();
-
+            this.Close();
         }
 
         private void txtSubtotal_TextChanged(object sender, EventArgs e)
