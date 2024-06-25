@@ -43,6 +43,7 @@
             this.btnMostrarTodosClientes = new System.Windows.Forms.Button();
             this.txtVolverCliente = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnEditarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             this.label1.Location = new System.Drawing.Point(156, 73);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 17);
+            this.label1.Size = new System.Drawing.Size(103, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "CI Cliente:";
             // 
@@ -62,7 +63,7 @@
             this.txtBuscarCliente.Location = new System.Drawing.Point(266, 70);
             this.txtBuscarCliente.MaxLength = 10;
             this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.Size = new System.Drawing.Size(276, 24);
+            this.txtBuscarCliente.Size = new System.Drawing.Size(276, 28);
             this.txtBuscarCliente.TabIndex = 1;
             this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
             this.txtBuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCliente_KeyPress);
@@ -73,7 +74,7 @@
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(352, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 17);
+            this.label2.Size = new System.Drawing.Size(228, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "VISUALIZAR CLIENTES";
             // 
@@ -206,12 +207,24 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnEditarCliente
+            // 
+            this.btnEditarCliente.Location = new System.Drawing.Point(902, 127);
+            this.btnEditarCliente.Name = "btnEditarCliente";
+            this.btnEditarCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnEditarCliente.Size = new System.Drawing.Size(113, 50);
+            this.btnEditarCliente.TabIndex = 7;
+            this.btnEditarCliente.Text = "Editar";
+            this.btnEditarCliente.UseVisualStyleBackColor = true;
+            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
+            // 
             // FrmVisualizarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(914, 517);
+            this.ClientSize = new System.Drawing.Size(1048, 517);
+            this.Controls.Add(this.btnEditarCliente);
             this.Controls.Add(this.btnMostrarTodosClientes);
             this.Controls.Add(this.txtVolverCliente);
             this.Controls.Add(this.dgvCliente);
@@ -248,5 +261,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionColumn;
         private System.Windows.Forms.Button btnMostrarTodosClientes;
+        private System.Windows.Forms.Button btnEditarCliente;
     }
 }

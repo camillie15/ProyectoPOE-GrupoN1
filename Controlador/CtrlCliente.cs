@@ -89,5 +89,18 @@ namespace Controlador
 
         }
 
+        public void EditarCliente(int idCliente, string nombre, string apellido, string cedula, string sEdad, string direccion, string email)
+        {
+            int posicion = Clientes.FindIndex(x => x.IdCliente == idCliente);
+            if (posicion >= 0)
+            {
+                Clientes[posicion].Nombre = nombre;
+                Clientes[posicion].Apellido = apellido;
+                Clientes[posicion].Email = email;
+                Clientes[posicion].Edad = conv.toInt(sEdad);
+                Clientes[posicion].Cedula = cedula;
+                Clientes[posicion].Direccion = direccion;
+            }
+        }
     }
 }
