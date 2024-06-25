@@ -52,10 +52,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
-            this.txtMotivo = new System.Windows.Forms.TextBox();
-            this.lblMotivo = new System.Windows.Forms.Label();
+            this.btEditarPedido = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label9
@@ -193,14 +190,14 @@
             this.btImprimir.Name = "btImprimir";
             this.btImprimir.Size = new System.Drawing.Size(234, 69);
             this.btImprimir.TabIndex = 34;
-            this.btImprimir.Text = "Calcular";
+            this.btImprimir.Text = "Cancelar";
             this.btImprimir.UseVisualStyleBackColor = true;
             this.btImprimir.Click += new System.EventHandler(this.btImprimir_Click);
             // 
             // btFinalizar
             // 
             this.btFinalizar.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btFinalizar.Location = new System.Drawing.Point(521, 814);
+            this.btFinalizar.Location = new System.Drawing.Point(79, 814);
             this.btFinalizar.Name = "btFinalizar";
             this.btFinalizar.Size = new System.Drawing.Size(234, 69);
             this.btFinalizar.TabIndex = 35;
@@ -296,59 +293,23 @@
             this.dtpFecha.Size = new System.Drawing.Size(313, 31);
             this.dtpFecha.TabIndex = 45;
             // 
-            // label11
+            // btEditarPedido
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(73, 689);
-            this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(105, 32);
-            this.label11.TabIndex = 46;
-            this.label11.Text = "Estado";
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
-            "ACTIVO",
-            "ANULADO"});
-            this.cmbEstado.Location = new System.Drawing.Point(268, 689);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(191, 33);
-            this.cmbEstado.TabIndex = 47;
-            this.cmbEstado.Text = "Activo";
-            // 
-            // txtMotivo
-            // 
-            this.txtMotivo.Location = new System.Drawing.Point(79, 814);
-            this.txtMotivo.Multiline = true;
-            this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(411, 96);
-            this.txtMotivo.TabIndex = 75;
-            this.txtMotivo.TextChanged += new System.EventHandler(this.txtMotivo_TextChanged);
-            // 
-            // lblMotivo
-            // 
-            this.lblMotivo.AutoSize = true;
-            this.lblMotivo.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotivo.Location = new System.Drawing.Point(72, 767);
-            this.lblMotivo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblMotivo.Name = "lblMotivo";
-            this.lblMotivo.Size = new System.Drawing.Size(285, 32);
-            this.lblMotivo.TabIndex = 74;
-            this.lblMotivo.Text = "Motivo de Anulación";
+            this.btEditarPedido.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEditarPedido.Location = new System.Drawing.Point(472, 814);
+            this.btEditarPedido.Name = "btEditarPedido";
+            this.btEditarPedido.Size = new System.Drawing.Size(234, 69);
+            this.btEditarPedido.TabIndex = 46;
+            this.btEditarPedido.Text = "Editar Pedido";
+            this.btEditarPedido.UseVisualStyleBackColor = true;
             // 
             // FrmIngresarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1166, 922);
-            this.Controls.Add(this.txtMotivo);
-            this.Controls.Add(this.lblMotivo);
-            this.Controls.Add(this.cmbEstado);
-            this.Controls.Add(this.label11);
+            this.ClientSize = new System.Drawing.Size(1166, 941);
+            this.Controls.Add(this.btEditarPedido);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
@@ -408,9 +369,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cmbEstado;
-        private System.Windows.Forms.TextBox txtMotivo;
-        private System.Windows.Forms.Label lblMotivo;
+        private System.Windows.Forms.Button btEditarPedido;
     }
 }
