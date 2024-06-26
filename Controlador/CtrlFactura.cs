@@ -116,71 +116,69 @@ namespace Controlador
             double TotalIva = subtotal * ValorIva;
             double totalConIva = subtotal + TotalIva;
 
-            ivaText = TotalIva.ToString("F2");
-            totalText = totalConIva.ToString("F2");
+            ivaText = TotalIva.ToString("");
+            totalText = totalConIva.ToString("");
         }
-
-        //public void BuscarFactura(DataGridView dgvFactura, string columna)
-        //{
-        //    dgvFactura.Rows.Clear();
-        //    int i = 0;
-        //    bool tf = false;
-
-        //    foreach (Factura f in Listafact)
-        //    {
-        //        if (string.IsNullOrEmpty(columna) || f.Pedido.Cliente.Cedula.Contains(columna))
-        //        {
-        //            i = dgvFactura.Rows.Add();
-        //            dgvFactura.Rows[i].Cells["ColIdFactura"].Value = f.IdFactura;
-        //            dgvFactura.Rows[i].Cells["ColCedula"].Value = f.Pedido.Cliente.Cedula;
-        //            dgvFactura.Rows[i].Cells["ColSubtotal"].Value = f.Subtotal;
-        //            dgvFactura.Rows[i].Cells["ColIva"].Value = f.Iva;
-        //            dgvFactura.Rows[i].Cells["ColTotal"].Value = f.Total;
-        //            dgvFactura.Rows[i].Cells["ColEstado"].Value = f.Estado ? "Activo" : "Anulado";
-        //            dgvFactura.Rows[i].Cells["ColMotivo"].Value = f.MotivoA;
-        //            dgvFactura.Rows[i].Cells["ColFecha"].Value = f.Fecha.ToString("d");
-        //            tf = true;
-        //        }
-
-        //    }
-        //    if (!tf)
-        //    {
-        //        MessageBox.Show("ERROR: NO SE ENCONTRARON RESULTADOS CON LOS FILTROS PROPORCIONADOS.", "SIN RESULTADOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
 
         public void BuscarFactura(DataGridView dgvFactura, string filtro, string cmbFiltro)
         {
-            dgvFactura.Rows.Clear();
-            int i = 0;
-            bool tf = false;
+            List<Factura> facturasBuscar = new List<Factura>();
 
-            foreach (Factura f in Listafact)
+            if (!string.IsNullOrEmpty(filtro) || cmbFiltro.ToLower().Equals("todos"))
             {
-                bool flag = false; // verifica si coincide con el filtro del combobox
+                foreach (Factura f in Listafact)
+                {
+                    bool flag = false;
 
-                // busqueda por cedula
-                if (cmbFiltro == "Cedula" && f.Pedido.Cliente.Cedula.Contains(filtro))
-                {
-                    flag = true;
+                    // Busqueda por cedula
+                    if (cmbFiltro.ToLower().Equals("cedula") && f.Pedido.Cliente.Cedula.Contains(filtro))
+                    {
+                        flag = true;
+                    }
+                    // Busqueda por total de factura
+                    else if (cmbFiltro.ToLower().Equals("monto"))
+                    {
+                        string montoBuscar = filtro;
+                        if (f.Total.ToString("").Equals(montoBuscar))
+                        {
+                            flag = true;
+                        }
+                    }
+                    // Buscar todos
+                    else if (cmbFiltro.ToLower().Equals("todos"))
+                    {
+                        flag = true;
+                    }
+
+                    if (flag)
+                    {
+                        facturasBuscar.Add(f);
+                    }
                 }
-                if (flag)
+
+                if (facturasBuscar.Count > 0)
                 {
-                    int rowIndex = dgvFactura.Rows.Add();
-                    dgvFactura.Rows[i].Cells["ColIdFactura"].Value = f.IdFactura;
-                    dgvFactura.Rows[i].Cells["ColCedula"].Value = f.Pedido.Cliente.Cedula;
-                    dgvFactura.Rows[i].Cells["ColSubtotal"].Value = f.Subtotal;
-                    dgvFactura.Rows[i].Cells["ColIva"].Value = f.Iva;
-                    dgvFactura.Rows[i].Cells["ColTotal"].Value = f.Total;
-                    dgvFactura.Rows[i].Cells["ColEstado"].Value = f.Estado ? "Activo" : "Anulado";
-                    dgvFactura.Rows[i].Cells["ColMotivo"].Value = f.MotivoA;
-                    dgvFactura.Rows[i].Cells["ColFecha"].Value = f.Fecha.ToString("d");
-                    tf = true;
+                    for (int i = 0; i < facturasBuscar.Count; i++)
+                    {
+                        int rowIndex = dgvFactura.Rows.Add();
+                        dgvFactura.Rows[rowIndex].Cells["ColIdFactura"].Value = facturasBuscar[i].IdFactura;
+                        dgvFactura.Rows[rowIndex].Cells["ColCedula"].Value = facturasBuscar[i].Pedido.Cliente.Cedula;
+                        dgvFactura.Rows[rowIndex].Cells["ColSubtotal"].Value = facturasBuscar[i].Subtotal;
+                        dgvFactura.Rows[rowIndex].Cells["ColIva"].Value = facturasBuscar[i].Iva;
+                        dgvFactura.Rows[rowIndex].Cells["ColTotal"].Value = facturasBuscar[i].Total;
+                        dgvFactura.Rows[rowIndex].Cells["ColEstado"].Value = facturasBuscar[i].Estado ? "Activo" : "Anulado";
+                        dgvFactura.Rows[rowIndex].Cells["ColMotivo"].Value = facturasBuscar[i].MotivoA;
+                        dgvFactura.Rows[rowIndex].Cells["ColFecha"].Value = facturasBuscar[i].Fecha.ToString("d");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ERROR: NO SE ENCONTRARON RESULTADOS CON LOS FILTROS PROPORCIONADOS.", "SIN RESULTADOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            if (!tf)
+            else
             {
-                MessageBox.Show("ERROR: NO SE ENCONTRARON RESULTADOS CON LOS FILTROS PROPORCIONADOS.", "SIN RESULTADOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos no válidos para realizar la búsqueda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

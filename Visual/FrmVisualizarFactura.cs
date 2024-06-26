@@ -27,7 +27,6 @@ namespace Visual
 
         private void btBuscar_Click(object sender, EventArgs e)
         {
-            dgvFactura.Rows.Clear();
             string filtro = textBuscar.Text.Trim();
             string criterio = cmbBusqueda.SelectedItem?.ToString();
 
@@ -36,13 +35,9 @@ namespace Visual
                 MessageBox.Show("Por favor, selecciona un criterio de búsqueda.", "Criterio de Búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            ctrlFactura.BuscarFactura(dgvFactura, filtro, criterio);
-        }
-
-        private void btBuscarTodos_Click(object sender, EventArgs e)
-        {
             dgvFactura.Rows.Clear();
-            ctrlFactura.LlenaGrid(dgvFactura);
+            ctrlFactura.BuscarFactura(dgvFactura, filtro, criterio);
+            textBuscar.Clear();
         }
 
         private void btAnular_Click(object sender, EventArgs e)
@@ -112,9 +107,5 @@ namespace Visual
             }
         }
 
-        private void dgvFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

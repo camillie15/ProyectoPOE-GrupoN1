@@ -33,12 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvFactura = new System.Windows.Forms.DataGridView();
-            this.btBuscarTodos = new System.Windows.Forms.Button();
-            this.textBuscar = new System.Windows.Forms.TextBox();
-            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btAnular = new System.Windows.Forms.Button();
-            this.btReporteG = new System.Windows.Forms.Button();
             this.ColIdfactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +41,11 @@
             this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColMotivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBuscar = new System.Windows.Forms.TextBox();
+            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btAnular = new System.Windows.Forms.Button();
+            this.btReporteG = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +85,7 @@
             this.label1.Location = new System.Drawing.Point(577, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 17);
+            this.label1.Size = new System.Drawing.Size(285, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Visualizar Factura";
             // 
@@ -97,7 +96,7 @@
             this.label2.Location = new System.Drawing.Point(122, 71);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 17);
+            this.label2.Size = new System.Drawing.Size(281, 34);
             this.label2.TabIndex = 3;
             this.label2.Text = "Filtro de Busqueda";
             // 
@@ -122,20 +121,62 @@
             this.dgvFactura.RowTemplate.Height = 33;
             this.dgvFactura.Size = new System.Drawing.Size(1022, 331);
             this.dgvFactura.TabIndex = 5;
-            this.dgvFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFactura_CellContentClick);
             // 
-            // btBuscarTodos
+            // ColIdfactura
             // 
-            this.btBuscarTodos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.btBuscarTodos.Font = new System.Drawing.Font("Verdana", 10.2F);
-            this.btBuscarTodos.Location = new System.Drawing.Point(299, 132);
-            this.btBuscarTodos.Margin = new System.Windows.Forms.Padding(4);
-            this.btBuscarTodos.Name = "btBuscarTodos";
-            this.btBuscarTodos.Size = new System.Drawing.Size(156, 44);
-            this.btBuscarTodos.TabIndex = 6;
-            this.btBuscarTodos.Text = "Todos";
-            this.btBuscarTodos.UseVisualStyleBackColor = false;
-            this.btBuscarTodos.Click += new System.EventHandler(this.btBuscarTodos_Click);
+            this.ColIdfactura.HeaderText = "Id Factura";
+            this.ColIdfactura.MinimumWidth = 6;
+            this.ColIdfactura.Name = "ColIdfactura";
+            this.ColIdfactura.Width = 70;
+            // 
+            // ColCedula
+            // 
+            this.ColCedula.HeaderText = "Cedula";
+            this.ColCedula.MinimumWidth = 6;
+            this.ColCedula.Name = "ColCedula";
+            this.ColCedula.Width = 200;
+            // 
+            // ColSubtotal
+            // 
+            this.ColSubtotal.HeaderText = "Subtotal";
+            this.ColSubtotal.MinimumWidth = 6;
+            this.ColSubtotal.Name = "ColSubtotal";
+            this.ColSubtotal.Width = 70;
+            // 
+            // ColIva
+            // 
+            this.ColIva.HeaderText = "Iva";
+            this.ColIva.MinimumWidth = 6;
+            this.ColIva.Name = "ColIva";
+            this.ColIva.Width = 50;
+            // 
+            // ColTotal
+            // 
+            this.ColTotal.HeaderText = "Total a pagar";
+            this.ColTotal.MinimumWidth = 6;
+            this.ColTotal.Name = "ColTotal";
+            this.ColTotal.Width = 200;
+            // 
+            // ColEstado
+            // 
+            this.ColEstado.HeaderText = "Estado";
+            this.ColEstado.MinimumWidth = 6;
+            this.ColEstado.Name = "ColEstado";
+            this.ColEstado.Width = 70;
+            // 
+            // ColMotivo
+            // 
+            this.ColMotivo.HeaderText = "Motivo de Anulación";
+            this.ColMotivo.MinimumWidth = 6;
+            this.ColMotivo.Name = "ColMotivo";
+            this.ColMotivo.Width = 200;
+            // 
+            // ColFecha
+            // 
+            this.ColFecha.HeaderText = "Fecha De Emision";
+            this.ColFecha.MinimumWidth = 6;
+            this.ColFecha.Name = "ColFecha";
+            this.ColFecha.Width = 200;
             // 
             // textBuscar
             // 
@@ -153,12 +194,12 @@
             this.cmbBusqueda.FormattingEnabled = true;
             this.cmbBusqueda.Items.AddRange(new object[] {
             "Cedula",
-            "Fecha de Emision",
-            "Monto"});
+            "Monto",
+            "Todos"});
             this.cmbBusqueda.Location = new System.Drawing.Point(313, 71);
             this.cmbBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Size = new System.Drawing.Size(391, 25);
+            this.cmbBusqueda.Size = new System.Drawing.Size(391, 40);
             this.cmbBusqueda.TabIndex = 8;
             // 
             // label3
@@ -168,7 +209,7 @@
             this.label3.Location = new System.Drawing.Point(766, 74);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 17);
+            this.label3.Size = new System.Drawing.Size(51, 34);
             this.label3.TabIndex = 9;
             this.label3.Text = "->";
             // 
@@ -201,62 +242,9 @@
             this.btReporteG.UseVisualStyleBackColor = false;
             this.btReporteG.Click += new System.EventHandler(this.btReporteG_Click);
             // 
-            // ColIdfactura
-            // 
-            this.ColIdfactura.HeaderText = "Id Factura";
-            this.ColIdfactura.MinimumWidth = 6;
-            this.ColIdfactura.Name = "ColIdfactura";
-            this.ColIdfactura.Width = 70;
-            // 
-            // ColCedula
-            // 
-            this.ColCedula.HeaderText = "Cedula";
-            this.ColCedula.MinimumWidth = 6;
-            this.ColCedula.Name = "ColCedula";
-            // 
-            // ColSubtotal
-            // 
-            this.ColSubtotal.HeaderText = "Subtotal";
-            this.ColSubtotal.MinimumWidth = 6;
-            this.ColSubtotal.Name = "ColSubtotal";
-            this.ColSubtotal.Width = 70;
-            // 
-            // ColIva
-            // 
-            this.ColIva.HeaderText = "Iva";
-            this.ColIva.MinimumWidth = 6;
-            this.ColIva.Name = "ColIva";
-            this.ColIva.Width = 50;
-            // 
-            // ColTotal
-            // 
-            this.ColTotal.HeaderText = "Total a pagar";
-            this.ColTotal.MinimumWidth = 6;
-            this.ColTotal.Name = "ColTotal";
-            // 
-            // ColEstado
-            // 
-            this.ColEstado.HeaderText = "Estado";
-            this.ColEstado.MinimumWidth = 6;
-            this.ColEstado.Name = "ColEstado";
-            this.ColEstado.Width = 70;
-            // 
-            // ColMotivo
-            // 
-            this.ColMotivo.HeaderText = "Motivo de Anulación";
-            this.ColMotivo.MinimumWidth = 6;
-            this.ColMotivo.Name = "ColMotivo";
-            this.ColMotivo.Width = 200;
-            // 
-            // ColFecha
-            // 
-            this.ColFecha.HeaderText = "Fecha De Emision";
-            this.ColFecha.MinimumWidth = 6;
-            this.ColFecha.Name = "ColFecha";
-            // 
             // FrmVisualizarFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(1232, 661);
@@ -265,7 +253,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbBusqueda);
             this.Controls.Add(this.textBuscar);
-            this.Controls.Add(this.btBuscarTodos);
             this.Controls.Add(this.dgvFactura);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -289,7 +276,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvFactura;
-        private System.Windows.Forms.Button btBuscarTodos;
         private System.Windows.Forms.TextBox textBuscar;
         private System.Windows.Forms.ComboBox cmbBusqueda;
         private System.Windows.Forms.Label label3;
