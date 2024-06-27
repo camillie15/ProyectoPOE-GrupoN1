@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Modelo;
 using System.Windows.Forms;
 using System.IO;
+using Datos;
 
 namespace Controlador
 {
@@ -14,10 +15,10 @@ namespace Controlador
     {
         CtrlConversiones v = new CtrlConversiones();
         CtrlPedido p = new CtrlPedido();
-
         private static List<Factura> listafact = new List<Factura>();
         // lista pedido
         List<Pedido> listp = CtrlPedido.ListaPedidos;
+        Conexion cbdd = new Conexion();
 
 
         public static List<Factura> Listafact { get => listafact; set => listafact = value; }
@@ -212,6 +213,21 @@ namespace Controlador
                 throw new Exception($"Factura con ID {idFactura} no encontrada");
             }
         }
+
+        public void ConectarBD()
+        {
+            string msj = cbdd.Conectar();
+            if (msj[0] == '1')
+            {
+                MessageBox.Show("Conexion Exitosa!");
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show("Ocurrio un error: " + msj);
+            }
+            cbdd.Desconectar();
+        }
+
 
     }
 }
