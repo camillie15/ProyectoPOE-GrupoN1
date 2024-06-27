@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Datos;
 
 namespace Controlador
 {
@@ -21,6 +22,7 @@ namespace Controlador
         List<Cliente> listaClientes = new List<Cliente>();
 
         CtrlConversiones ctrlConversiones = new CtrlConversiones();
+        Conexion cn = new Conexion();
         public CtrlPedido()
         {
             CrearClientes();
@@ -385,5 +387,18 @@ namespace Controlador
             }
         }
 
+        public void Conectar()
+        {
+            string msj = cn.Conectar();
+            if (msj[0] == '1')
+            {
+                MessageBox.Show("Conexion Exitosa!");
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show("Ocurrio un error: " + msj);
+            }
+            cn.Desconectar();
+        }
     }
 }

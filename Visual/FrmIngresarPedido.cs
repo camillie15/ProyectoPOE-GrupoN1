@@ -69,5 +69,10 @@ namespace Visual
             ctrlPedido.AgregarAlPedido(pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "nuevo");
             txtCantItem.Clear();
         }
+
+        private void btnConexion_Click(object sender, EventArgs e)
+        {
+            ctrlPedido.Conectar();
+        }
     }
 }

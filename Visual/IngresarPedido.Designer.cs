@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdPedido = new System.Windows.Forms.TextBox();
@@ -51,6 +51,7 @@
             this.cantidadItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorTotalPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
+            this.btnConexion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngresoPedido)).BeginInit();
             this.SuspendLayout();
             // 
@@ -227,14 +228,14 @@
             // 
             this.dgvIngresoPedido.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.dgvIngresoPedido.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngresoPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngresoPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvIngresoPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIngresoPedido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descripcionPedido,
@@ -288,12 +289,25 @@
             this.cmbCliente.Size = new System.Drawing.Size(583, 28);
             this.cmbCliente.TabIndex = 20;
             // 
+            // btnConexion
+            // 
+            this.btnConexion.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConexion.Location = new System.Drawing.Point(907, 478);
+            this.btnConexion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConexion.Name = "btnConexion";
+            this.btnConexion.Size = new System.Drawing.Size(156, 44);
+            this.btnConexion.TabIndex = 21;
+            this.btnConexion.Text = "Conexion";
+            this.btnConexion.UseVisualStyleBackColor = true;
+            this.btnConexion.Click += new System.EventHandler(this.btnConexion_Click);
+            // 
             // FrmIngresarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(1100, 550);
+            this.Controls.Add(this.btnConexion);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.dgvIngresoPedido);
             this.Controls.Add(this.btnCancelar);
@@ -348,5 +362,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorUnitarioItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorTotalPedido;
+        private System.Windows.Forms.Button btnConexion;
     }
 }
