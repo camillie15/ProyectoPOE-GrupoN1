@@ -12,17 +12,17 @@ namespace Datos
     {
         private static string cadena = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
 
-        private SqlConnection connection;
+        private SqlConnection cn;
 
-        public SqlConnection Connection { get => connection; set => connection = value; }
+        public SqlConnection Cn { get => cn; set => cn = value; }
 
         public string Conectar()
         {
             try
             {
-                connection = new SqlConnection();
-                connection.ConnectionString = cadena;
-                connection.Open();
+                cn = new SqlConnection();
+                cn.ConnectionString = cadena;
+                cn.Open();
                 return "1";
             }
             catch (Exception ex)
@@ -36,7 +36,7 @@ namespace Datos
         {
             try
             {
-                connection.Close();
+                cn.Close();
                 return "1";
             }
             catch (Exception ex)

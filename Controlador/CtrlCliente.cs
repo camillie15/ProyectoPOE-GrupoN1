@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modelo;
+using Datos;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Windows.Forms;
 
@@ -12,8 +13,11 @@ namespace Controlador
 
     public class CtrlCliente
     {
+
         private static List<Cliente> clientes = new List<Cliente>();
         CtrlConversiones conv = new CtrlConversiones();
+        private Conexion cnBDD = new Conexion();
+        private DatosCliente dCliente = new DatosCliente();
 
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
 
@@ -22,11 +26,13 @@ namespace Controlador
             bool flag = false;
             int edad = conv.toInt(sEdad);
             int idCliente = clientes.Count + 1;
+            Cliente cliente = null;
             if (edad >= 0)
             {
-                Cliente cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, idCliente, sDireccion);
+                cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, idCliente, sDireccion);
                 //MessageBox.Show($"Registrado con exito");
                 clientes.Add(cliente);
+                IngresarCliente(cliente);
                 flag = true;
             }
             else
@@ -34,6 +40,21 @@ namespace Controlador
                 flag = false;
             }
             return flag;
+        }
+
+        private void IngresarCliente(Cliente cliente)
+        {
+            string msg = string.Empty;
+            string msjCnx = cnBDD.Conectar();
+            if (msjCnx[0] == '1')
+            {
+                msg = dCliente.IngresarCliente(cliente, cnBDD.Cn);
+                cnBDD.Desconectar();
+            }
+            else if (msjCnx[0] == '0')
+            {
+                MessageBox.Show("Ocurrio un error: " + msj);
+            }
         }
 
         public string idContador()
