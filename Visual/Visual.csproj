@@ -159,6 +159,9 @@
     <EmbeddedResource Include="FrmEditarPlato.resx">
       <DependentUpon>FrmEditarPlato.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmIngresarCliente.resx">
+      <DependentUpon>FrmIngresarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresarFactura.resx">
       <DependentUpon>FrmIngresarFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,9 +170,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisualizarPlato.resx">
       <DependentUpon>FrmVisualizarPlato.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IngresarCliente.resx">
-      <DependentUpon>FrmIngresarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IngresarPedido.resx">
       <DependentUpon>FrmIngresarPedido.cs</DependentUpon>

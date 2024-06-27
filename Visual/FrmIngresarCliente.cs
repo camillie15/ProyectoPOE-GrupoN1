@@ -86,5 +86,11 @@ namespace Visual
         {
             ctrllEntradaTxt.ingresoSoloNumeros(sender, e);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CtrlCliente cliente = new CtrlCliente();
+            cliente.ComprobarConexion();
+        }
     }
 }

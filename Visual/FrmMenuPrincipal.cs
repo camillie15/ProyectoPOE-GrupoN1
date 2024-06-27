@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,9 +36,5 @@ namespace Visual
             ingresarCliente.ShowDialog();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

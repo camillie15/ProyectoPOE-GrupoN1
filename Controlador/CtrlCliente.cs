@@ -42,7 +42,7 @@ namespace Controlador
             return flag;
         }
 
-        private void IngresarCliente(Cliente cliente)
+        public void IngresarCliente(Cliente cliente)
         {
             string msg = string.Empty;
             string msjCnx = cnBDD.Conectar();
@@ -53,8 +53,23 @@ namespace Controlador
             }
             else if (msjCnx[0] == '0')
             {
-                MessageBox.Show("Ocurrio un error: " + msj);
+                MessageBox.Show("Ocurrio un error: " + msg);
             }
+        }
+
+        public void ComprobarConexion()
+        {
+            string msg = string.Empty;
+            string flag = cnBDD.Conectar();
+            if (flag == "1")
+            {
+                msg = "Conexion exitosa";
+            }
+            else
+            {
+                msg = "No se pudo conectar: " + flag;
+            }
+            MessageBox.Show(msg);
         }
 
         public string idContador()
