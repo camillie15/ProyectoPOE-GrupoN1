@@ -105,5 +105,10 @@ namespace Visual
         {
 
         }
+
+        private void btConexionBD_Click(object sender, EventArgs e)
+        {
+            ctrlFactura.ConectarBD();
+        }
     }
 }
