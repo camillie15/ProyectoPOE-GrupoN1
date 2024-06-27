@@ -87,5 +87,10 @@ namespace Visual
         {
             ctrlPlato.Llenar(dgvVisualizarPlato);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ctrlPlato.ComprobarConexion();
+        }
     }
 }

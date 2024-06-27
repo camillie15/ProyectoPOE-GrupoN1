@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Datos;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Controlador
 {
     public class CtrlPlato
     {
+        Conexion cnBDD = new Conexion();
         static List<Plato> listaPlatos = new List<Plato>();
         CtrlConversiones validacion = new CtrlConversiones();
 
@@ -113,6 +115,20 @@ namespace Controlador
 
             listaPlatos.Remove(listaPlatos[rowIndex]);
 
+        }
+        public void ComprobarConexion()
+        {
+            string msg = string.Empty;
+            string flag = cnBDD.Conectar();
+            if (flag == "1")
+            {
+                msg = "Conexion exitosa";
+            }
+            else
+            {
+                msg = "No se pudo conectar: " + flag;
+            }
+            MessageBox.Show(msg);
         }
     }
 }
