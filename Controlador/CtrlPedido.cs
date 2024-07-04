@@ -15,11 +15,11 @@ namespace Controlador
         static int cantidades = 0;
         static double totalPed = 0;
         static List<Pedido> listaPedidos = new List<Pedido>();
-        static List<string> pedidoPlato = new List<string>();
+        static List<MenuPedido> itemsPedido = new List<MenuPedido>();
+        static List<MenuPedido> itemsPedidoAgg = null;
 
-        List<Plato> listaPlatos = new List<Plato>();
-        static List<Plato> menuPedido = new List<Plato>();
         List<Cliente> listaClientes = new List<Cliente>();
+        List<Plato> listaPlatos = new List<Plato>();
 
         CtrlConversiones ctrlConversiones = new CtrlConversiones();
         Conexion cn = new Conexion();
@@ -32,26 +32,29 @@ namespace Controlador
         public static List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
         public static int Cantidades { get => cantidades; set => cantidades = value; }
         public static double TotalPed { get => totalPed; set => totalPed = value; }
-        public static List<string> PedidoPlato { get => pedidoPlato; set => pedidoPlato = value; }
-        public static List<Plato> MenuPedido { get => menuPedido; set => menuPedido = value; }
+        public static List<MenuPedido> ItemsPedido { get => itemsPedido; set => itemsPedido = value; }
 
-        public void AgregarAlPedido(string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, string tipo)
+        public void AgregarAlPedido(string idPedido, string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, string tipo)
         {
             int cantItemAgregado = ctrlConversiones.toInt(cantidadItem);
-            string ped = string.Empty;
 
             if (pedidoSleccionado != null && cantItemAgregado > 0)
             {
-                Plato platoAgg = listaPlatos.Find(delBuscar => delBuscar.IdPlato == TratarPlato(pedidoSleccionado).IdPlato);
-                MenuPedido.Add(platoAgg);
+                Plato platoSeleccionado = listaPlatos.Find(delBuscar => delBuscar.IdPlato == TratarPlato(pedidoSleccionado).IdPlato);
 
-                int idPed = platoAgg.IdPlato;
-                string descripcionPed = platoAgg.Descripcion;
-                double precioItem = platoAgg.Precio;
+                int idPedidoI = ctrlConversiones.toInt(idPedido);
+                int idPed = platoSeleccionado.IdPlato;
+                string descripcionPed = platoSeleccionado.Descripcion;
+                double precioItem = platoSeleccionado.Precio;
                 int cantidadItemPed = ctrlConversiones.toInt(cantidadItem);
-
                 double totalPedidoItem = precioItem * cantidadItemPed;
 
+                MenuPedido menuSeleccionado = new MenuPedido(idPedidoI, idPed, descripcionPed, cantidadItemPed, precioItem, totalPedidoItem);
+                ItemsPedido.Add(menuSeleccionado);
+                if (tipo.ToLower().Equals("editar"))
+                {
+                    itemsPedidoAgg.Add(menuSeleccionado);
+                }
                 int i = dgvIngresoPedido.Rows.Add();
 
                 dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = descripcionPed;
@@ -59,24 +62,11 @@ namespace Controlador
                 dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = cantidadItemPed;
                 dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {totalPedidoItem}";
 
-                Cantidades += (cantidadItemPed);
-                TotalPed += (precioItem * cantidadItemPed);
+                Cantidades += menuSeleccionado.Cantidad;
+                TotalPed += (menuSeleccionado.Precio * menuSeleccionado.Cantidad);
 
-                if (tipo.ToLower().Equals("nuevo"))
-                {
-                    txtCantPedido.Text = Cantidades.ToString();
-                    txtTotPedido.Text = $"$ {TotalPed.ToString()}";
-
-                }
-                else if (tipo.ToLower().Equals("editado"))
-                {
-                    txtCantPedido.Text = (Cantidades + RetornarUltimoPedido().CantidadProductos).ToString();
-                    txtTotPedido.Text = $"$ {(TotalPed + RetornarUltimoPedido().TotalPedido).ToString()}";
-                }
-
-                ped = $"{idPed}-{descripcionPed}-{precioItem.ToString()}-{cantidadItemPed.ToString()}-{totalPedidoItem.ToString()}";
-                PedidoPlato.Add(ped);
-
+                txtCantPedido.Text = Cantidades.ToString();
+                txtTotPedido.Text = $"$ {TotalPed.ToString()}";
             }
             else
             {
@@ -131,7 +121,8 @@ namespace Controlador
         public bool IngresarPedido(string sId, string cliente, string sCantItems, string sTotalPed)
         {
             bool flag = false;
-            if (sId != string.Empty && cliente != string.Empty && sCantItems != string.Empty && sTotalPed != string.Empty)
+
+            if (sId != null && cliente != null && sCantItems != null && sTotalPed != string.Empty)
             {
                 int id = ctrlConversiones.toInt(sId);
                 int cantItem = ctrlConversiones.toInt(sCantItems);
@@ -141,11 +132,10 @@ namespace Controlador
 
                 Cliente clienteObj = TratarCliente(cliente);
 
-                if (MenuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
+                if (ItemsPedido.Count > 0 && totalPed > 0 && cantItem > 0)
                 {
-                    List<Plato> platosDelPedido = new List<Plato>(MenuPedido);
-
-                    pedidoN = new Pedido(id, clienteObj, platosDelPedido, cantItem, totalPed);
+                    itemsPedidoAgg = new List<MenuPedido>(ItemsPedido);
+                    pedidoN = new Pedido(id, clienteObj, itemsPedidoAgg, cantItem, totalPed);
                     ListaPedidos.Add(pedidoN);
                     flag = true;
                 }
@@ -163,17 +153,20 @@ namespace Controlador
 
         }
 
-        public void AutocompletarGrid(DataGridView dgvPedidos)
+        public void AutocompletarGridPedido(DataGridView dgvPedidos)
         {
             for (int i = 0; i < listaPedidos.Count; i++)
             {
-                dgvPedidos.Rows.Add();
+                if (i < listaPedidos.Count - 1)
+                {
+                    dgvPedidos.Rows.Add();
+                }
                 dgvPedidos.Rows[i].Cells["idPedido"].Value = listaPedidos[i].CodPedido;
                 dgvPedidos.Rows[i].Cells["clientePedido"].Value = listaPedidos[i].Cliente.Cedula;
                 string menuPedidoS = string.Empty;
-                foreach (Plato plato in listaPedidos[i].MenuSeleccionado)
+                foreach (MenuPedido menu in listaPedidos[i].MenuSeleccionado)
                 {
-                    menuPedidoS += $"{plato.Descripcion}, ${plato.Precio}\n";
+                    menuPedidoS += $"{menu.Descripcion}, ${menu.Precio}\n";
                 }
                 dgvPedidos.Rows[i].Cells["menuPedido"].Value = menuPedidoS;
                 dgvPedidos.Rows[i].Cells["cantPedido"].Value = listaPedidos[i].CantidadProductos;
@@ -199,7 +192,6 @@ namespace Controlador
                 }
                 else if (campo.ToLower().Equals("cliente"))
                 {
-
                     pedidosBuscar = ListaPedidos.FindAll(delBuscar => delBuscar.Cliente.Cedula.Contains(datoBuscar));
                 }
                 else if (campo.ToLower().Equals("todos"))
@@ -216,9 +208,9 @@ namespace Controlador
                         dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidosBuscar[i].CodPedido;
                         dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidosBuscar[i].Cliente.Cedula;
                         string menuPedidoS = string.Empty;
-                        foreach (Plato plato in pedidosBuscar[i].MenuSeleccionado)
+                        foreach (MenuPedido menu in pedidosBuscar[i].MenuSeleccionado)
                         {
-                            menuPedidoS += $"{plato.Descripcion}, ${plato.Precio}\n";
+                            menuPedidoS += $"{menu.Descripcion}, ${menu.Precio}\n";
                         }
                         dgvPedidos.Rows[i].Cells["menuPedido"].Value = menuPedidoS;
                         dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedidosBuscar[i].CantidadProductos;
@@ -240,14 +232,14 @@ namespace Controlador
         {
             Cantidades = 0;
             TotalPed = 0;
-            PedidoPlato.Clear();
-            MenuPedido.Clear();
+            ItemsPedido.Clear();
         }
 
         public string idPedido()
         {
             return Convert.ToString(listaPedidos.Count + 1);
         }
+
         public void EliminarRegistroPedido()
         {
             Pedido pedidoELiminar = listaPedidos.Find(pedido => pedido.CodPedido == RetornarUltimoPedido().CodPedido);
@@ -277,22 +269,14 @@ namespace Controlador
             return platoObj;
         }
 
-        public void LlenarForm(TextBox txtIdPedido, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, ComboBox cmbCliente)
+        public void LlenarFrmEditarPedido(TextBox txtIdPedido, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, ComboBox cmbCliente)
         {
             Pedido ultimoPedido = RetornarUltimoPedido();
             txtIdPedido.Text = ultimoPedido.CodPedido.ToString();
 
-            foreach (string plato in PedidoPlato)
-            {
-                Console.WriteLine(plato);
-                string[] dataPlato = plato.Trim().Split('-');
 
-                int i = dgvIngresoPedido.Rows.Add();
-                dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = dataPlato[1];
-                dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[2])}";
-                dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = ctrlConversiones.toInt(dataPlato[3]);
-                dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[4])}";
-            }
+            AutocompletarGridMenuSeleccionado(dgvIngresoPedido);
+
             txtCantPedido.Text = ultimoPedido.CantidadProductos.ToString();
             txtTotPedido.Text = $"$ {ultimoPedido.TotalPedido.ToString()}";
         }
@@ -321,9 +305,8 @@ namespace Controlador
 
             Pedido pedidoN = RetornarUltimoPedido();
             Cliente clienteObj = null;
-            if (MenuPedido.Count > 0 && totalPed > 0 && cantItem > 0)
+            if (itemsPedidoAgg.Count > 0 && totalPed > 0 && cantItem > 0)
             {
-                List<Plato> platosDelPedido = new List<Plato>(MenuPedido);
                 if (cliente != string.Empty)
                 {
                     clienteObj = RetornarUltimoPedido().Cliente;
@@ -332,7 +315,7 @@ namespace Controlador
                 {
                     clienteObj = TratarCliente(cliente);
                 }
-                pedidoN = new Pedido(id, clienteObj, platosDelPedido, cantItem, totalPed);
+                pedidoN = new Pedido(id, clienteObj, itemsPedidoAgg, cantItem, totalPed);
                 ListaPedidos[ListaPedidos.IndexOf(RetornarUltimoPedido())] = (pedidoN);
                 flag = true;
             }
@@ -347,22 +330,19 @@ namespace Controlador
         public bool EliminarPlato(int rowIndex, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
         {
             bool flag = false;
-            string[] dataPlato = null;
             int idEliminar = 0;
 
-            for (int i = 0; i < PedidoPlato.Count; i++)
+            for (int i = 0; i < itemsPedidoAgg.Count; i++)
             {
-                dataPlato = PedidoPlato[i].Split('-');
-                idEliminar = ctrlConversiones.toInt(dataPlato[0]);
-                if (MenuPedido[rowIndex].IdPlato == idEliminar)
+                idEliminar = itemsPedidoAgg[i].IdMenu;
+                if (itemsPedidoAgg[rowIndex].IdMenu == idEliminar)
                 {
-                    Cantidades = Cantidades - ctrlConversiones.toInt(dataPlato[3]);
-                    TotalPed = TotalPed - ctrlConversiones.toDouble(dataPlato[4]);
+                    Cantidades = Cantidades - itemsPedidoAgg[i].Cantidad;
+                    TotalPed = TotalPed - itemsPedidoAgg[i].ValorTotal;
                     txtCantPedido.Text = Cantidades.ToString();
                     txtTotPedido.Text = $"$ {TotalPed.ToString()}";
-                    MenuPedido.Remove(MenuPedido[rowIndex]);
-                    PedidoPlato.Remove(PedidoPlato[rowIndex]);
-                    dgvIngresoPedido.Rows.RemoveAt(rowIndex);
+                    itemsPedidoAgg.Remove(itemsPedidoAgg[i]);
+                    dgvIngresoPedido.Rows.RemoveAt(i);
                     flag = true;
                 }
                 else
@@ -373,17 +353,16 @@ namespace Controlador
             return flag;
         }
 
-        public void ActualizarGridMenuPedido(DataGridView dgvIngresoPedido)
+        public void AutocompletarGridMenuSeleccionado(DataGridView dgvIngresoPedido)
         {
             dgvIngresoPedido.Rows.Clear();
-            for (int i = 0; i < PedidoPlato.Count; i++)
+            for (int i = 0; i < itemsPedidoAgg.Count; i++)
             {
-                string[] dataPlato = pedidoPlato[i].Split('-');
                 dgvIngresoPedido.Rows.Add();
-                dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = dataPlato[1];
-                dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[2])}";
-                dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = ctrlConversiones.toInt(dataPlato[3]);
-                dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {ctrlConversiones.toDouble(dataPlato[4])}";
+                dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = itemsPedidoAgg[i].Descripcion;
+                dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {itemsPedidoAgg[i].Precio}";
+                dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = itemsPedidoAgg[i].Cantidad;
+                dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {itemsPedidoAgg[i].ValorTotal}";
             }
         }
 

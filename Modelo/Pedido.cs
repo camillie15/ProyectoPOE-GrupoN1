@@ -11,17 +11,17 @@ namespace Modelo
     {
         int codPedido = 0;
         Cliente cliente = null;
-        List<Plato> menuSeleccionado = null;
+        List<MenuPedido> menuSeleccionado = null;
         int cantidadProductos = 0;
         double totalPedido = 0;
 
         public int CodPedido { get => codPedido; set => codPedido = value; }
         public Cliente Cliente { get => cliente; set => cliente = value; }
-        public List<Plato> MenuSeleccionado { get => menuSeleccionado; set => menuSeleccionado = value; }
+        public List<MenuPedido> MenuSeleccionado { get => menuSeleccionado; set => menuSeleccionado = value; }
         public int CantidadProductos { get => cantidadProductos; set => cantidadProductos = value; }
         public double TotalPedido { get => totalPedido; set => totalPedido = value; }
 
-        public Pedido(int codPedido, Cliente cliente, List<Plato> menuSeleccionado, int cantidadProductos, double totalPedido)
+        public Pedido(int codPedido, Cliente cliente, List<MenuPedido> menuSeleccionado, int cantidadProductos, double totalPedido)
         {
             CodPedido = codPedido;
             Cliente = cliente;

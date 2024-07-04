@@ -17,7 +17,7 @@ namespace Visual
         public FrmVisualizarPedido()
         {
             InitializeComponent();
-            ctrlPedido.AutocompletarGrid(dgvPedidos);
+            ctrlPedido.AutocompletarGridPedido(dgvPedidos);
         }
 
         private void btnVolverPedido_Click(object sender, EventArgs e)

@@ -42,11 +42,11 @@ namespace Visual
             string sTotalPed = txtTotPedido.Text;
 
             bool flag = ctrlPedido.IngresarPedido(sId, cliente, sCantItems, sTotalPed);
-
-            FrmIngresarFactura frmIngresarFactura = new FrmIngresarFactura();
+            FrmIngresarFactura frmIngresarFactura = null;
 
             if (flag)
             {
+                frmIngresarFactura = new FrmIngresarFactura();
                 frmIngresarFactura.Show();
 
                 txtCantPedido.Clear();
@@ -63,10 +63,11 @@ namespace Visual
 
         private void btnAggPedido_Click(object sender, EventArgs e)
         {
+            string idPedido = txtIdPedido.Text;
             string pedidoSleccionado = (string)cmbPedido.SelectedItem;
             string cantidadItem = txtCantItem.Text;
 
-            ctrlPedido.AgregarAlPedido(pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "nuevo");
+            ctrlPedido.AgregarAlPedido(idPedido, pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "");
             txtCantItem.Clear();
         }
 

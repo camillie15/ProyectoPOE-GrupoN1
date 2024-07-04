@@ -19,7 +19,7 @@ namespace Visual
             InitializeComponent();
             ctrlPedido.LlenarCmb(cmbPedido, "plato");
             ctrlPedido.LlenarCmb(cmbCliente, "cliente");
-            ctrlPedido.LlenarForm(txtIdPedido, dgvIngresoPedido, txtCantPedido, txtTotPedido, cmbCliente);
+            ctrlPedido.LlenarFrmEditarPedido(txtIdPedido, dgvIngresoPedido, txtCantPedido, txtTotPedido, cmbCliente);
         }
 
         private void btnContinuarPedido_Click(object sender, EventArgs e)
@@ -54,10 +54,11 @@ namespace Visual
 
         private void btnAggPedido_Click(object sender, EventArgs e)
         {
-            string pedidoSleccionado = (string)cmbPedido.SelectedItem;
+            string idPedido = txtIdPedido.Text;
+            string pedidoSeleccionado = (string)cmbPedido.SelectedItem;
             string cantidadItem = txtCantItem.Text;
 
-            ctrlPedido.AgregarAlPedido(pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "editado");
+            ctrlPedido.AgregarAlPedido(idPedido, pedidoSeleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "editar");
             txtCantItem.Clear();
         }
 
@@ -73,7 +74,6 @@ namespace Visual
                     if (flag == true)
                     {
                         MessageBox.Show("Plato seleccionado eliminado del pedido");
-                        ctrlPedido.ActualizarGridMenuPedido(dgvIngresoPedido);
                     }
                 }
             }
