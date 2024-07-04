@@ -30,9 +30,10 @@ namespace Controlador
             if (edad >= 0)
             {
                 cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, idCliente, sDireccion);
-                //MessageBox.Show($"Registrado con exito");
+                string mensaje = dCliente.IngresarCliente(cliente);
+                MessageBox.Show($"{mensaje}");
                 clientes.Add(cliente);
-                IngresarCliente(cliente);
+                //dCliente.IngresarCliente(cliente);
                 flag = true;
             }
             else
@@ -41,7 +42,7 @@ namespace Controlador
             }
             return flag;
         }
-
+        /*
         public void IngresarCliente(Cliente cliente)
         {
             string msg = string.Empty;
@@ -56,7 +57,7 @@ namespace Controlador
                 MessageBox.Show("Ocurrio un error: " + msg);
             }
         }
-
+        */
         public void ComprobarConexion()
         {
             string msg = string.Empty;
