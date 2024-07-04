@@ -22,6 +22,9 @@ namespace Controlador
         List<Plato> listaPlatos = new List<Plato>();
 
         CtrlConversiones ctrlConversiones = new CtrlConversiones();
+        DatosPedido datosPedido = new DatosPedido();
+        DatosMenuPedido datosMenuPedido = new DatosMenuPedido();
+
         Conexion cn = new Conexion();
         public CtrlPedido()
         {
@@ -55,6 +58,8 @@ namespace Controlador
                 {
                     itemsPedidoAgg.Add(menuSeleccionado);
                 }
+                string msj = datosMenuPedido.IngresarMenuPedido(menuSeleccionado);
+                MessageBox.Show(msj);
                 int i = dgvIngresoPedido.Rows.Add();
 
                 dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = descripcionPed;
@@ -137,6 +142,8 @@ namespace Controlador
                     itemsPedidoAgg = new List<MenuPedido>(ItemsPedido);
                     pedidoN = new Pedido(id, clienteObj, itemsPedidoAgg, cantItem, totalPed);
                     ListaPedidos.Add(pedidoN);
+                    string msj = datosPedido.IngresarPedido(pedidoN);
+                    MessageBox.Show(msj);
                     flag = true;
                 }
                 else

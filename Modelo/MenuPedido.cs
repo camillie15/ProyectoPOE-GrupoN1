@@ -35,7 +35,7 @@ namespace Modelo
 
         public override string ToString()
         {
-            return $"{IdMenu}, {Descripcion}, {Precio}";
+            return $"{IdMenu}, {IdPedido}, {Descripcion}, {Cantidad}, {Precio}, {ValorTotal}";
         }
     }
 }
