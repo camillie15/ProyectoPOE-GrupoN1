@@ -32,6 +32,39 @@ namespace Datos
             }
         }
 
+        public List<Cliente> ObtenerClientes()
+        {
+            List<Cliente> lista = new List<Cliente>();
+            string comando = "SELECT * FROM Persona";
+            SqlDataReader dr = null;
+            Cliente cliente = null;
+
+            try
+            {
+                cn.Conectar();
+                cmd.Connection = cn.Cn;
+                cmd.CommandText = comando;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    cliente = new Cliente("", "", "", 0, "", true, 0, "");
+                    cliente.Nombre = dr["nombre"].ToString();
+                    cliente.Apellido = dr["apellido"].ToString();
+                    cliente.Cedula = dr["cedula"].ToString();
+                    cliente.Edad = Convert.ToInt32(dr["edad"]);
+                    cliente.Email = dr["email"].ToString();
+                    cliente.Direccion = dr["direccion"].ToString();
+                    lista.Add(cliente);
+                }
+                cn.Desconectar();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return lista;
+        }
+
         private char ComprobarEstado(bool flag)
         {
             char result = ' ';
