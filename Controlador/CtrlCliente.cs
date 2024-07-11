@@ -18,7 +18,6 @@ namespace Controlador
         CtrlConversiones conv = new CtrlConversiones();
         private Conexion cnBDD = new Conexion();
         private DatosCliente dCliente = new DatosCliente();
-        private DatosAutor dAutor = new DatosAutor();
 
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
 

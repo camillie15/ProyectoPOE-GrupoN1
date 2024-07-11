@@ -38,8 +38,6 @@ namespace Visual
 
         private void btnAutores_Click(object sender, EventArgs e)
         {
-            FrmAutor frmAutor = new FrmAutor();
-            frmAutor.ShowDialog();
         }
     }
 }
