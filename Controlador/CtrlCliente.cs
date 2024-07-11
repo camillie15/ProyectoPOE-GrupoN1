@@ -18,6 +18,7 @@ namespace Controlador
         CtrlConversiones conv = new CtrlConversiones();
         private Conexion cnBDD = new Conexion();
         private DatosCliente dCliente = new DatosCliente();
+        private DatosAutor dAutor = new DatosAutor();
 
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
 
@@ -32,7 +33,7 @@ namespace Controlador
                 cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, idCliente, sDireccion);
                 string mensaje = dCliente.IngresarCliente(cliente);
                 MessageBox.Show($"{mensaje}");
-                clientes.Add(cliente);
+                //clientes.Add(cliente);
                 //dCliente.IngresarCliente(cliente);
                 flag = true;
             }
@@ -80,7 +81,7 @@ namespace Controlador
 
         public void PresentarClientes(DataGridView dvg)
         {
-
+            clientes = dCliente.ObtenerClientes();
             for (int i = 0; i < clientes.Count; i++)
             {
                 if (i < clientes.Count - 1)
@@ -162,5 +163,12 @@ namespace Controlador
         {
             clientes.RemoveAt(posicion);
         }
+
+        /*
+        public void RegistrarAutor(string text1, string text2, string text3, string text4)
+        {
+            dAutor.ingresarAutor(text1, text2, text3, text4);
+        }
+        */
     }
 }

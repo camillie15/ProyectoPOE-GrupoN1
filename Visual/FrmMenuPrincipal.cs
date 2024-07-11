@@ -36,5 +36,10 @@ namespace Visual
             ingresarCliente.ShowDialog();
         }
 
+        private void btnAutores_Click(object sender, EventArgs e)
+        {
+            FrmAutor frmAutor = new FrmAutor();
+            frmAutor.ShowDialog();
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.btnOpcionesUsuario = new System.Windows.Forms.Button();
             this.btnMenuPedido = new System.Windows.Forms.Button();
             this.btnRegistrarCliente = new System.Windows.Forms.Button();
+            this.btnAutores = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTituloPrincipal
@@ -82,7 +83,7 @@
             this.btnRegistrarCliente.Image = global::Visual.Properties.Resources.imgCliente;
             this.btnRegistrarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegistrarCliente.Location = new System.Drawing.Point(289, 295);
-            this.btnRegistrarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegistrarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrarCliente.Name = "btnRegistrarCliente";
             this.btnRegistrarCliente.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.btnRegistrarCliente.Size = new System.Drawing.Size(221, 100);
@@ -92,12 +93,23 @@
             this.btnRegistrarCliente.UseVisualStyleBackColor = true;
             this.btnRegistrarCliente.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnAutores
+            // 
+            this.btnAutores.Location = new System.Drawing.Point(612, 368);
+            this.btnAutores.Name = "btnAutores";
+            this.btnAutores.Size = new System.Drawing.Size(133, 45);
+            this.btnAutores.TabIndex = 4;
+            this.btnAutores.Text = "Autores";
+            this.btnAutores.UseVisualStyleBackColor = true;
+            this.btnAutores.Click += new System.EventHandler(this.btnAutores_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(800, 443);
+            this.Controls.Add(this.btnAutores);
             this.Controls.Add(this.btnRegistrarCliente);
             this.Controls.Add(this.btnOpcionesUsuario);
             this.Controls.Add(this.btnMenuPedido);
@@ -119,5 +131,6 @@
         private System.Windows.Forms.Button btnMenuPedido;
         private System.Windows.Forms.Button btnOpcionesUsuario;
         private System.Windows.Forms.Button btnRegistrarCliente;
+        private System.Windows.Forms.Button btnAutores;
     }
 }
