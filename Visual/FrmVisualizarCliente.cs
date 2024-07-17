@@ -83,6 +83,7 @@ namespace Visual
         {
             if (dgvCliente.SelectedRows.Count > 0)
             {
+
                 // 1. Seleccionar CLiente desde el DGV
                 DataGridViewRow filaSeleccionada = dgvCliente.SelectedRows[0];
 
@@ -96,13 +97,14 @@ namespace Visual
                 string direccion = filaSeleccionada.Cells[6].Value.ToString();
                 bool estado = true;
 
+                ctrCliente.eliminarCliente(id);
+
                 // 3. Encontrar la posicion del cliente en la lista
                 int posicion = ctrCliente.buscarPosicion(nombre, apellido, cedula, edad, email, estado, id, direccion);
 
                 // 4. Logica de eliminacion por posicion 
                 if (posicion >= 0)
                 {
-
                     ctrCliente.eliminarCliente(posicion);
                     ActualizarDataGridView();
                 }

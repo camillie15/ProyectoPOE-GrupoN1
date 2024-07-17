@@ -75,7 +75,7 @@ namespace Controlador
 
         public string idContador()
         {
-            return Convert.ToString(clientes.Count + 1);
+            return Convert.ToString(dCliente.UltimoId() + 1);
         }
 
         public void PresentarClientes(DataGridView dvg)
@@ -128,6 +128,8 @@ namespace Controlador
 
         public void EditarCliente(int idCliente, string nombre, string apellido, string cedula, string sEdad, string direccion, string email)
         {
+            Cliente cl = new Cliente(nombre, apellido, cedula, conv.toInt(sEdad), email, true, idCliente, direccion);
+            dCliente.EditarCliente(cl);
             int posicion = Clientes.FindIndex(x => x.IdCliente == idCliente);
             if (posicion >= 0)
             {
@@ -160,7 +162,8 @@ namespace Controlador
 
         public void eliminarCliente(int posicion)
         {
-            clientes.RemoveAt(posicion);
+            dCliente.EliminarCliente(posicion);
+            //clientes.RemoveAt(posicion);
         }
 
         /*

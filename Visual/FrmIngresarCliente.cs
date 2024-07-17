@@ -15,7 +15,7 @@ namespace Visual
     public partial class FrmIngresarCliente : Form
     {
         ControlEntradaTxt ctrllEntradaTxt = new ControlEntradaTxt();
-        CtrlCliente ctrlCliente = new CtrlCliente(); 
+        CtrlCliente ctrlCliente = new CtrlCliente();
 
         public FrmIngresarCliente()
         {
@@ -31,9 +31,9 @@ namespace Visual
             string edad = txtEdadCliente.Text.Trim();
             string email = txtEmailCliente.Text.Trim();
             string direccion = txtDireccionCliente.Text.Trim();
-            if(nombre != "" && apellido != "" && cedula !="" && edad != "" && email != "" && direccion != "")
+            if (nombre != "" && apellido != "" && cedula !="" && edad != "" && email != "" && direccion != "")
             {
-                if(cedula.Length == 10)
+                if (cedula.Length == 10)
                 {
                     bool flag = ctrlCliente.registrarCliente(nombre, apellido, cedula, edad, email, direccion);
                     FrmIngresarPedido ingresarPedido = new FrmIngresarPedido();

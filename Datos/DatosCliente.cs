@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +71,43 @@ namespace Datos
             return lista;
         }
 
+        public void EditarCliente(Cliente cliente)
+        {
+            string comando = $"UPDATE Cliente " +
+                $"SET nombre = '{cliente.Nombre}' , apellido = '{cliente.Apellido}', cedula = '{cliente.Cedula}', edad = {cliente.Edad} , email = '{cliente.Email}', direccion = '{cliente.Direccion}'" +
+                $"WHERE idCliente = {cliente.IdCliente}";
+            try
+            {
+                cn.Conectar();
+                cmd.Connection = cn.Cn;
+                cmd.CommandText = comando;
+                cmd.ExecuteNonQuery();
+                cn.Desconectar();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void EliminarCliente(int id)
+        {
+            string comando = $"UPDATE Cliente " +
+                $"SET estado = '0'" +
+                $"WHERE idCliente = {id}";
+            try
+            {
+                cn.Conectar();
+                cmd.Connection = cn.Cn;
+                cmd.CommandText = comando;
+                cmd.ExecuteNonQuery();
+                cn.Desconectar();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
         public Cliente BuscarCliente(int id)
         {
             Cliente clienteEncontrado = new Cliente("", "", "", 0, "", true, 0, "");
@@ -89,6 +127,12 @@ namespace Datos
                 result = '0';
             }
             return result;
+        }
+
+        public int UltimoId()
+        {
+            List<Cliente> lista = ObtenerClientes();
+            return lista[lista.Count - 1].IdCliente;
         }
     }
 }
