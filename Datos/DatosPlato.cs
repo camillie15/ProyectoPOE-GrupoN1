@@ -54,10 +54,10 @@ namespace Datos
                 {
                     plato = new Plato(0,"","",0,true);
                     plato.IdPlato = Convert.ToInt32(dr["idPlato"]);
-                    plato.Nombre = dr["nombre"].ToString();
-                    plato.Descripcion = dr["descripcion"].ToString();
+                    plato.Nombre = dr["nombre"].ToString().TrimEnd();
+                    plato.Descripcion = dr["descripcion"].ToString().TrimEnd();
                     plato.Precio = Convert.ToDouble(dr["precio"]);
-                    plato.Estado = dr.GetBoolean(dr.GetOrdinal("estado"));
+                    plato.Estado = Convert.ToInt32(dr["estado"]) == 1 ? true : false;
                     lista.Add(plato);
                 }
             }

@@ -63,11 +63,11 @@ namespace Visual
 
         private void btnAggPedido_Click(object sender, EventArgs e)
         {
-            string idPedido = txtIdPedido.Text;
+            string idPedidoS = txtIdPedido.Text;
             string pedidoSleccionado = (string)cmbPedido.SelectedItem;
             string cantidadItem = txtCantItem.Text;
 
-            ctrlPedido.AgregarAlPedido(idPedido, pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "");
+            ctrlPedido.AgregarAlPedido(idPedidoS, pedidoSleccionado, cantidadItem, dgvIngresoPedido, txtCantPedido, txtTotPedido, "");
             txtCantItem.Clear();
         }
 

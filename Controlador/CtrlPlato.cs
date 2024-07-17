@@ -150,7 +150,7 @@ namespace Controlador
                 dgvVisualizarPlato.Rows[i].Cells["clmEstado"].Value = p.Estado ? "Disponibles" : "Agotados";
             }
         }
-        private List<Plato> SeleccionarPlato()
+        public List<Plato> SeleccionarPlato()
         {
             List<Plato> lista = new List<Plato>();
             string msj = cnBDD.Conectar();

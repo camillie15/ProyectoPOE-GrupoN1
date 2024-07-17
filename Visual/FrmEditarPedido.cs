@@ -70,7 +70,7 @@ namespace Visual
                 DialogResult dialogResult = MessageBox.Show("¿Desea eliminar este plato de su pedido?", "Confirmar", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    bool flag = ctrlPedido.EliminarPlato(rowIndex, dgvIngresoPedido, txtCantPedido, txtTotPedido);
+                    bool flag = ctrlPedido.EliminarPlatoPedido(rowIndex, dgvIngresoPedido, txtCantPedido, txtTotPedido);
                     if (flag == true)
                     {
                         MessageBox.Show("Plato seleccionado eliminado del pedido");

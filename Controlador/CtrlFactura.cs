@@ -187,10 +187,10 @@ namespace Controlador
         {
             Pedido ped = RetornarPedido();
             string contenido = string.Empty;
-            for (int i = 0; i < ped.MenuSeleccionado.Count; i++)
-            {
-                contenido += ped.MenuSeleccionado[i] + Environment.NewLine + Environment.NewLine;
-            }
+            //for (int i = 0; i < ped.MenuSeleccionado.Count; i++)
+            //{
+            //    contenido += ped.MenuSeleccionado[i] + Environment.NewLine + Environment.NewLine;
+            //}
 
             txtContenido.Text = contenido;
             txtSubtotal.Text = ped.TotalPedido.ToString();
