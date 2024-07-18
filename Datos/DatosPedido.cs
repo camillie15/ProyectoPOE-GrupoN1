@@ -13,10 +13,11 @@ namespace Datos
         DatosCliente datosCliente = new DatosCliente();
         Conexion cn = new Conexion();
         SqlCommand cmd = null;
+
         public string IngresarPedido(Pedido pedidoN)
         {
             string comando = $"INSERT INTO Pedido(idCliente, cantidadPedido, totalPedido, estadoPedido)" +
-                $"VALUES({pedidoN.Cliente.IdCliente}, {pedidoN.CantidadProductos}, {Mett(pedidoN.TotalPedido)}, '1')";
+                $"VALUES({pedidoN.Cliente.IdCliente}, {pedidoN.CantidadProductos}, {DoubleVSaDB(pedidoN.TotalPedido)}, '1')";
             try
             {
                 cmd = new SqlCommand(comando);
@@ -33,26 +34,16 @@ namespace Datos
             }
         }
 
-        public string Mett(double valor)
-        {
-            string precioS = Convert.ToString(valor);
-            return precioS.Replace(',', '.');
-        }
-
         public List<Pedido> ConsultarPedidos()
         {
-            Console.WriteLine("Inica consulta pedidoooooooooooo");
             List<Pedido> listaPedidosDB = new List<Pedido>();
             SqlDataReader dr = null;
             Pedido pedido = null;
 
             string comando = "SELECT idPedido, idCliente, cantidadPedido, totalPedido, estadoPedido FROM Pedido";
-            Console.WriteLine("despues select pedidoooooooooooo");
 
             try
             {
-                Console.WriteLine("Inica try pedidoooooooooooo");
-
                 cmd = new SqlCommand(comando);
                 cn.Conectar();
                 cmd.Connection = cn.Cn;
@@ -64,15 +55,12 @@ namespace Datos
                     List<PlatoPedido> platosPedidos = new List<PlatoPedido>();
                     pedido = new Pedido(0, cliente, 0, 0, true);
                     pedido.CodPedido = Convert.ToInt32(dr["idPedido"]);
-                    pedido.Cliente = TratarCliente(Convert.ToInt32(dr["idCliente"]));
+                    pedido.Cliente = datosCliente.ObtenerClientes().Find(delBuscar => delBuscar.IdCliente == (Convert.ToInt32(dr["idCliente"])));
                     pedido.CantidadProductos = Convert.ToInt32(dr["cantidadPedido"]);
-                    pedido.TotalPedido = Convert.ToDouble(Mett2(Convert.ToDouble(dr["totalPedido"])));
+                    pedido.TotalPedido = Convert.ToDouble(DoubleDBaVS(Convert.ToDouble(dr["totalPedido"])));
                     pedido.Estado = Convert.ToInt32(dr["estadoPedido"]) == 1 ? true : false;
 
                     listaPedidosDB.Add(pedido);
-                    Console.WriteLine("agg pedidoooooooooooo");
-
-                    Console.WriteLine(pedido.ToString());
                 }
             }
             catch (SqlException ex)
@@ -101,12 +89,10 @@ namespace Datos
                     Cliente cliente = null;
                     pedido = new Pedido(0, cliente, 0, 0, true);
                     pedido.CodPedido = Convert.ToInt32(dr["idPedido"]);
-                    pedido.Cliente = TratarCliente(Convert.ToInt32(dr["idCliente"]));
+                    pedido.Cliente = datosCliente.ObtenerClientes().Find(delBuscar => delBuscar.IdCliente == (Convert.ToInt32(dr["idCliente"])));
                     pedido.CantidadProductos = Convert.ToInt32(dr["cantidadPedido"]);
-                    pedido.TotalPedido = Convert.ToDouble(Mett2(Convert.ToDouble(dr["totalPedido"])));
+                    pedido.TotalPedido = Convert.ToDouble(DoubleDBaVS(Convert.ToDouble(dr["totalPedido"])));
                     pedido.Estado = Convert.ToInt32(dr["estadoPedido"]) == 1 ? true : false;
-
-                    Console.WriteLine($"{idPedidoBuscar}, {pedido.ToString()}");
                 }
             }
             catch (SqlException ex)
@@ -136,9 +122,9 @@ namespace Datos
                     Cliente cliente = null;
                     pedido = new Pedido(0, cliente, 0, 0, true);
                     pedido.CodPedido = Convert.ToInt32(dr["idPedido"]);
-                    pedido.Cliente = TratarCliente(Convert.ToInt32(dr["idCliente"]));
+                    pedido.Cliente = datosCliente.ObtenerClientes().Find(delBuscar => delBuscar.IdCliente == (Convert.ToInt32(dr["idCliente"])));
                     pedido.CantidadProductos = Convert.ToInt32(dr["cantidadPedido"]);
-                    pedido.TotalPedido = Convert.ToDouble(Mett2(Convert.ToDouble(dr["totalPedido"])));
+                    pedido.TotalPedido = Convert.ToDouble(DoubleDBaVS(Convert.ToDouble(dr["totalPedido"])));
                     pedido.Estado = Convert.ToInt32(dr["estadoPedido"]) == 1 ? true : false;
 
                     Console.WriteLine($"{idClienteBuscar}, {pedido.ToString()}");
@@ -152,10 +138,10 @@ namespace Datos
             return listaPedidosDB;
         }
 
-        public string ActualizarPedido(Pedido pedido)
+        public string ActualizarPedido(Pedido pedido, int id)
         {
             string comando = $"UPDATE Pedido SET idCliente = {pedido.Cliente.IdCliente}, cantidadPedido = {pedido.CantidadProductos}," +
-                $"totalPedido = {pedido.TotalPedido}";
+                $"totalPedido = {DoubleVSaDB(pedido.TotalPedido)} WHERE idPedido = {id}";
 
             try
             {
@@ -172,18 +158,45 @@ namespace Datos
             }
         }
 
-        public Cliente TratarCliente(int idCliente)
+        public void EliminarPedido(int codPedido)
         {
-            List<Cliente> listaClientesDB = datosCliente.ObtenerClientes();
-            Cliente clienteObj = listaClientesDB.Find(delBuscar => delBuscar.IdCliente == idCliente);
-            return clienteObj;
+            string comando = $"UPDATE Pedido SET estadoPedido = 0 WHERE idPedido = {codPedido}";
+
+            try
+            {
+                cmd = new SqlCommand(comando);
+                cn.Conectar();
+                cmd.Connection = cn.Cn;
+                cmd.CommandText = comando;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"Error:\n{ex.Message}");
+            }
         }
 
-        public string Mett2(double valor)
+        public string DoubleDBaVS(double valor)
         {
             string precioS = Convert.ToString(valor);
             return precioS.Replace('.', ',');
         }
 
+        public string DoubleVSaDB(double valor)
+        {
+            string precioS = Convert.ToString(valor);
+            return precioS.Replace(',', '.');
+        }
+
+        public int UltimoIdPedidoDB()
+        {
+            List<Pedido> listaPDB = ConsultarPedidos();
+            int id = 0;
+            if (listaPDB.Count > 0)
+            {
+                id = listaPDB[listaPDB.Count - 1].CodPedido;
+            }
+            return id;
+        }
     }
 }

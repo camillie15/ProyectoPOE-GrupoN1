@@ -19,18 +19,19 @@ namespace Controlador
         CtrlConversiones ctrlConversiones = new CtrlConversiones();
         CtrlPlato ctrlPlato = new CtrlPlato();
         DatosPedido datosPedido = new DatosPedido();
-        DatosPlatoPedido datosMenuPedido = new DatosPlatoPedido();
+        DatosPlatoPedido datosPlatoPedido = new DatosPlatoPedido();
         DatosCliente datosCliente = new DatosCliente();
         DatosPlato datosPlato = new DatosPlato();
 
-        static List<Pedido> listaPedidos = new List<Pedido>();
-        static List<PlatoPedido> itemsPedido = new List<PlatoPedido>();
-        static List<PlatoPedido> itemsPedidoAgg = null;
+        //static List<Pedido> listaPedidos = new List<Pedido>();
+        static List<PlatoPedido> platosPedidos = new List<PlatoPedido>();
+        //static List<PlatoPedido> itemsPedidoAgg = null;
 
         static List<Cliente> listaClientesDB = null;
         static List<Plato> listaPlatosDB = null;
 
         static List<Pedido> listaPedidosDB = null;
+        static List<PlatoPedido> listaPlatosPedidosDB = null;
 
         Conexion cn = new Conexion();
         public CtrlPedido()
@@ -39,11 +40,10 @@ namespace Controlador
             listaPlatosDB = ctrlPlato.SeleccionarPlato();
         }
 
-        public static List<Pedido> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
         public static int Cantidades { get => cantidades; set => cantidades = value; }
         public static double TotalPed { get => totalPed; set => totalPed = value; }
-        public static List<PlatoPedido> ItemsPedido { get => itemsPedido; set => itemsPedido = value; }
-        public List<Pedido> ListaPedidosDB { get => listaPedidosDB; set => listaPedidosDB = value; }
+        public static List<PlatoPedido> PlatosPedidos { get => platosPedidos; set => platosPedidos = value; }
+        static public List<Pedido> ListaPedidosDB { get => listaPedidosDB; set => listaPedidosDB = value; }
 
         public void AgregarAlPedido(string idPedidoS, string pedidoSleccionado, string cantidadItem, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, string tipo)
         {
@@ -61,12 +61,13 @@ namespace Controlador
                 double totalPedidoItem = precioItem * cantidadItemPed;
 
                 PlatoPedido menuSeleccionado = new PlatoPedido(idPlatoPedido, idPedido, descripcionPed, cantidadItemPed, precioItem, totalPedidoItem, true);
-                ItemsPedido.Add(menuSeleccionado);
+                PlatosPedidos.Add(menuSeleccionado);
                 if (tipo.ToLower().Equals("editar"))
                 {
-                    itemsPedidoAgg.Add(menuSeleccionado);
+                    //itemsPedidoAgg.Add(menuSeleccionado);
+                    string msjMP = datosPlatoPedido.IngresarPlatoPedido(menuSeleccionado);
+                    MessageBox.Show(msjMP);
                 }
-
                 int i = dgvIngresoPedido.Rows.Add();
                 dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = descripcionPed;
                 dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {precioItem}";
@@ -78,12 +79,16 @@ namespace Controlador
 
                 txtCantPedido.Text = Cantidades.ToString();
                 txtTotPedido.Text = $"$ {TotalPed.ToString()}";
+
+
+                listaPlatosPedidosDB = datosPlatoPedido.ConsultarPlatoPedidosPorId(idPedido);
             }
             else
             {
                 MessageBox.Show("Error: Datos sin ingresar");
             }
         }
+
         public void LlenarCmb(ComboBox cmbData, string tipo)
         {
             if (tipo.ToLower().Equals("cliente"))
@@ -124,23 +129,22 @@ namespace Controlador
 
                 Cliente clienteObj = TratarCliente(cliente);
 
-                if (ItemsPedido.Count > 0 && totalPed > 0 && cantItem > 0)
+                if (PlatosPedidos.Count > 0 && totalPed > 0 && cantItem > 0)
                 {
-                    itemsPedidoAgg = new List<PlatoPedido>(ItemsPedido);
                     pedidoN = new Pedido(id, clienteObj, cantItem, totalPed, true);
-                    ListaPedidos.Add(pedidoN);
+                    //ListaPedidos.Add(pedidoN);
                     string msj = datosPedido.IngresarPedido(pedidoN);
                     listaPedidosDB = datosPedido.ConsultarPedidos();
 
                     if (msj.ToLower().Equals("pedido ingresado en la db de manera exitosa"))
                     {
-                        Console.WriteLine(ListaPedidosDB.Count);
-                        foreach (PlatoPedido menu in itemsPedidoAgg)
+                        foreach (PlatoPedido platoSeleccionado in PlatosPedidos)
                         {
-                            menu.IdPedido = ListaPedidosDB[ListaPedidosDB.Count - 1].CodPedido;
-                            string msjMP = datosMenuPedido.IngresarPlatoPedido(menu);
+                            platoSeleccionado.IdPedido = ListaPedidosDB[ListaPedidosDB.Count - 1].CodPedido;
+                            string msjMP = datosPlatoPedido.IngresarPlatoPedido(platoSeleccionado);
                             MessageBox.Show(msjMP);
                         }
+                        listaPedidosDB = datosPedido.ConsultarPedidos();
                     }
                     MessageBox.Show(msj);
 
@@ -162,31 +166,40 @@ namespace Controlador
 
         public void AutocompletarGridPedido(DataGridView dgvPedidos)
         {
+            ListaPedidosDB = datosPedido.ConsultarPedidos();
+
+            dgvPedidos.Rows.Clear();
+
             if (ListaPedidosDB != null)
             {
-                for (int i = 0; i < ListaPedidosDB.Count; i++)
+                foreach (Pedido pedido in ListaPedidosDB)
                 {
-                    if (i < ListaPedidosDB.Count - 1)
+                    if (pedido.Estado == true)
                     {
-                        dgvPedidos.Rows.Add();
-                    }
-                    dgvPedidos.Rows[i].Cells["idPedido"].Value = ListaPedidosDB[i].CodPedido;
-                    dgvPedidos.Rows[i].Cells["clientePedido"].Value = ListaPedidosDB[i].Cliente.Cedula;
+                        int i = dgvPedidos.Rows.Add();
 
-                    List<PlatoPedido> listaPlatoPedidoByIdDB = datosMenuPedido.ConsultarPlatoPedidosPorId(ListaPedidosDB[i].CodPedido);
-                    string platosPedidosS = string.Empty;
-                    foreach (PlatoPedido platoPedido in listaPlatoPedidoByIdDB)
-                    {
-                        if (platoPedido.Estado == true)
+                        if (i >= 0 && i < dgvPedidos.Rows.Count)
                         {
-                            platosPedidosS += $"{platoPedido.Descripcion}, ${platoPedido.Precio}\n";
+                            dgvPedidos.Rows[i].Cells["idPedido"].Value = pedido.CodPedido;
+                            dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedido.Cliente.Cedula;
+
+                            List<PlatoPedido> listaPlatoPedidoByIdDB = datosPlatoPedido.ConsultarPlatoPedidosPorId(pedido.CodPedido);
+                            string platosPedidosS = string.Empty;
+
+                            foreach (PlatoPedido platoPedido in listaPlatoPedidoByIdDB)
+                            {
+                                if (platoPedido.Estado == true)
+                                {
+                                    platosPedidosS += $"{platoPedido.Descripcion}, ${platoPedido.Precio}\n";
+
+                                }
+                            }
+
+                            dgvPedidos.Rows[i].Cells["menuPedido"].Value = platosPedidosS;
+                            dgvPedidos.Rows[i].Cells["cantPedido"].Value = pedido.CantidadProductos;
+                            dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {pedido.TotalPedido}";
                         }
                     }
-
-                    dgvPedidos.Rows[i].Cells["menuPedido"].Value = platosPedidosS;
-                    dgvPedidos.Rows[i].Cells["cantPedido"].Value = ListaPedidosDB[i].CantidadProductos;
-                    dgvPedidos.Rows[i].Cells["valorPedido"].Value = $"$ {ListaPedidosDB[i].TotalPedido}";
-
                 }
             }
             else
@@ -235,7 +248,7 @@ namespace Controlador
                         dgvPedidos.Rows[i].Cells["idPedido"].Value = pedidosBuscar[i].CodPedido;
                         dgvPedidos.Rows[i].Cells["clientePedido"].Value = pedidosBuscar[i].Cliente.Cedula;
 
-                        List<PlatoPedido> listaPlatoPedidoByIdDB = datosMenuPedido.ConsultarPlatoPedidosPorId(pedidosBuscar[i].CodPedido);
+                        List<PlatoPedido> listaPlatoPedidoByIdDB = datosPlatoPedido.ConsultarPlatoPedidosPorId(pedidosBuscar[i].CodPedido);
                         string platosPedidosS = string.Empty;
                         foreach (PlatoPedido platoPedido in listaPlatoPedidoByIdDB)
                         {
@@ -265,21 +278,17 @@ namespace Controlador
         {
             Cantidades = 0;
             TotalPed = 0;
-            ItemsPedido.Clear();
+            PlatosPedidos.Clear();
         }
 
         public string idPedido()
         {
-            return Convert.ToString(listaPedidos.Count + 1);
+            return Convert.ToString(datosPedido.UltimoIdPedidoDB() + 1);
         }
 
         public void EliminarRegistroPedido()
         {
-            Pedido pedidoELiminar = listaPedidos.Find(pedido => pedido.CodPedido == RetornarUltimoPedido().CodPedido);
-            if (pedidoELiminar != null)
-            {
-                listaPedidos.Remove(pedidoELiminar);
-            }
+            datosPedido.EliminarPedido(datosPedido.UltimoIdPedidoDB());
         }
 
         public Cliente TratarCliente(string cliente)
@@ -304,9 +313,10 @@ namespace Controlador
 
         public void LlenarFrmEditarPedido(TextBox txtIdPedido, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, ComboBox cmbCliente)
         {
-            Pedido ultimoPedido = RetornarUltimoPedido();
+            Pedido ultimoPedido = ListaPedidosDB[ListaPedidosDB.Count - 1];
             txtIdPedido.Text = ultimoPedido.CodPedido.ToString();
 
+            listaPlatosPedidosDB = datosPlatoPedido.ConsultarPlatoPedidosPorId(ultimoPedido.CodPedido);
 
             AutocompletarGridMenuSeleccionado(dgvIngresoPedido);
 
@@ -314,19 +324,19 @@ namespace Controlador
             txtTotPedido.Text = $"$ {ultimoPedido.TotalPedido.ToString()}";
         }
 
-        public Pedido RetornarUltimoPedido()
-        {
-            Pedido pedido = null;
-            if (ListaPedidosDB.Count >= 0)
-            {
-                pedido = ListaPedidosDB[ListaPedidosDB.Count - 1];
-            }
-            else
-            {
-                MessageBox.Show("No hay registros realizados en pedidos");
-            }
-            return pedido;
-        }
+        //public Pedido RetornarUltimoPedido()
+        //{
+        //    Pedido pedido = null;
+        //    if (ListaPedidosDB.Count >= 0)
+        //    {
+        //        pedido = ListaPedidosDB[ListaPedidosDB.Count - 1];
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("No hay registros realizados en pedidos");
+        //    }
+        //    return pedido;
+        //}
 
         public bool EditarPedido(string sId, string cliente, string sCantItems, string sTotalPed)
         {
@@ -336,20 +346,25 @@ namespace Controlador
             string totP = ctrlConversiones.stringWithoutDolar(sTotalPed);
             double totalPed = ctrlConversiones.toDouble(totP);
 
-            Pedido pedidoN = RetornarUltimoPedido();
+            Pedido pedidoN = ListaPedidosDB[ListaPedidosDB.Count - 1];
             Cliente clienteObj = null;
-            if (itemsPedidoAgg.Count > 0 && totalPed > 0 && cantItem > 0)
+
+            if (listaPlatosPedidosDB.Count > 0 && totalPed > 0 && cantItem > 0)
             {
                 if (cliente != string.Empty)
                 {
-                    clienteObj = RetornarUltimoPedido().Cliente;
+                    clienteObj = ListaPedidosDB[ListaPedidosDB.Count - 1].Cliente;
                 }
                 else
                 {
                     clienteObj = TratarCliente(cliente);
                 }
                 pedidoN = new Pedido(id, clienteObj, cantItem, totalPed, true);
-                ListaPedidos[ListaPedidos.IndexOf(RetornarUltimoPedido())] = (pedidoN);
+
+                string msjActualizar = datosPedido.ActualizarPedido(pedidoN, id);
+                MessageBox.Show(msjActualizar);
+
+                ListaPedidosDB = datosPedido.ConsultarPedidos();
 
                 flag = true;
             }
@@ -361,22 +376,30 @@ namespace Controlador
             return flag;
         }
 
-        public bool EliminarPlatoPedido(int rowIndex, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido)
+        public bool EliminarPlatoPedido(int rowIndex, DataGridView dgvIngresoPedido, TextBox txtCantPedido, TextBox txtTotPedido, string sId)
         {
             bool flag = false;
             int idEliminar = 0;
+            int idPedido = ctrlConversiones.toInt(sId);
 
-            for (int i = 0; i < itemsPedidoAgg.Count; i++)
+            listaPlatosPedidosDB = datosPlatoPedido.ConsultarPlatoPedidosPorId(idPedido);
+
+            for (int i = 0; i < listaPlatosPedidosDB.Count; i++)
             {
-                idEliminar = itemsPedidoAgg[i].IdPlato;
-                if (itemsPedidoAgg[rowIndex].IdPlato == idEliminar)
+                idEliminar = listaPlatosPedidosDB[i].IdPlato;
+                if (listaPlatosPedidosDB[rowIndex].IdPlato == idEliminar && listaPlatosPedidosDB[rowIndex].IdPedido == idPedido)
                 {
-                    Cantidades = Cantidades - itemsPedidoAgg[i].Cantidad;
-                    TotalPed = TotalPed - itemsPedidoAgg[i].ValorTotal;
+                    Cantidades = Cantidades - listaPlatosPedidosDB[i].Cantidad;
+                    TotalPed = TotalPed - listaPlatosPedidosDB[i].ValorTotal;
                     txtCantPedido.Text = Cantidades.ToString();
                     txtTotPedido.Text = $"$ {TotalPed.ToString()}";
-                    itemsPedidoAgg.Remove(itemsPedidoAgg[i]);
-                    dgvIngresoPedido.Rows.RemoveAt(i);
+                    //listaPlatosPedidosDB.Remove(listaPlatosPedidosDB[i]);
+                    datosPlatoPedido.EliminarPlatoPedido(idEliminar, idPedido);
+
+                    listaPlatosPedidosDB = datosPlatoPedido.ConsultarPlatoPedidosPorId(idPedido);
+                    AutocompletarGridMenuSeleccionado(dgvIngresoPedido);
+                    //dgvIngresoPedido.Rows.RemoveAt(i);
+
                     flag = true;
                 }
                 else
@@ -390,15 +413,19 @@ namespace Controlador
         public void AutocompletarGridMenuSeleccionado(DataGridView dgvIngresoPedido)
         {
             dgvIngresoPedido.Rows.Clear();
-            for (int i = 0; i < itemsPedidoAgg.Count; i++)
+            for (int i = 0; i < listaPlatosPedidosDB.Count; i++)
             {
-                dgvIngresoPedido.Rows.Add();
-                dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = itemsPedidoAgg[i].Descripcion;
-                dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {itemsPedidoAgg[i].Precio}";
-                dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = itemsPedidoAgg[i].Cantidad;
-                dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {itemsPedidoAgg[i].ValorTotal}";
+                if (listaPlatosPedidosDB[i].Estado == true)
+                {
+                    dgvIngresoPedido.Rows.Add();
+                    dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = listaPlatosPedidosDB[i].Descripcion;
+                    dgvIngresoPedido.Rows[i].Cells["valorUnitarioItem"].Value = $"$ {listaPlatosPedidosDB[i].Precio}";
+                    dgvIngresoPedido.Rows[i].Cells["cantidadItem"].Value = listaPlatosPedidosDB[i].Cantidad;
+                    dgvIngresoPedido.Rows[i].Cells["valorTotalPedido"].Value = $"$ {listaPlatosPedidosDB[i].ValorTotal}";
+                }
             }
         }
+
         public void Conectar()
         {
             string msj = cn.Conectar();

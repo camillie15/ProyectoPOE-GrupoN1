@@ -14,9 +14,9 @@ namespace Datos
         SqlCommand cmd = null;
         public string IngresarPlatoPedido(PlatoPedido platoSeleccionado)
         {
-            string comando = $"INSERT INTO PlatoPedido(idPlato, idPedido, descripcion, cantidad, precio, total)" +
+            string comando = $"INSERT INTO PlatoPedido(idPlato, idPedido, descripcion, cantidad, precio, total, estado)" +
                 $"VALUES({platoSeleccionado.IdPlato}, {platoSeleccionado.IdPedido}, '{platoSeleccionado.Descripcion}'," +
-                $"{platoSeleccionado.Cantidad}, {Mett(platoSeleccionado.Precio)}, {Mett(platoSeleccionado.ValorTotal)})";
+                $"{platoSeleccionado.Cantidad}, {DoubleVSaDB(platoSeleccionado.Precio)}, {DoubleVSaDB(platoSeleccionado.ValorTotal)}, 1)";
 
             try
             {
@@ -33,56 +33,48 @@ namespace Datos
                 return $"Error en el ingreso a la DB \n{ex}";
             }
         }
+        //public List<PlatoPedido> ConsultarPlatoPedidos()
+        //{
+        //    List<PlatoPedido> listaPlatoPedidoDB = new List<PlatoPedido>();
+        //    SqlDataReader dr = null;
+        //    PlatoPedido platoPedido = null;
 
-        public string Mett(double valor)
-        {
-            string precioS = Convert.ToString(valor);
-            return precioS.Replace(',', '.');
-        }
+        //    string comando = "SELECT idPlato, idPedido, descripcion, cantidad, precio, total FROM PlatoPedido";
 
-        public List<PlatoPedido> ConsultarPlatoPedidos()
-        {
-            List<PlatoPedido> listaPlatoPedidoDB = new List<PlatoPedido>();
-            SqlDataReader dr = null;
-            PlatoPedido platoPedido = null;
+        //    try
+        //    {
+        //        cmd = new SqlCommand(comando);
+        //        cn.Conectar();
+        //        cmd.Connection = cn.Cn;
+        //        cmd.CommandText = comando;
+        //        dr = cmd.ExecuteReader();
+        //        while (dr.Read())
+        //        {
+        //            platoPedido = new PlatoPedido(0, 0, " ", 0, 0, 0, true);
+        //            platoPedido.IdPlato = Convert.ToInt32(dr["idPlato"]);
+        //            platoPedido.IdPedido = Convert.ToInt32(dr["idPedido"]);
+        //            platoPedido.Descripcion = dr["descripcion"].ToString();
+        //            platoPedido.Cantidad = Convert.ToInt32(dr["cantidad"]);
+        //            platoPedido.Precio = Convert.ToDouble(DoubleDBaVS(Convert.ToDouble(dr["precio"])));
+        //            platoPedido.ValorTotal = Convert.ToDouble(DoubleDBaVS(Convert.ToDouble(dr["total"])));
 
-            string comando = "SELECT idPlato, idPedido, descripcion, cantidad, precio, total FROM PlatoPedido";
-
-            try
-            {
-                cmd = new SqlCommand(comando);
-                cn.Conectar();
-                cmd.Connection = cn.Cn;
-                cmd.CommandText = comando;
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    platoPedido = new PlatoPedido(0, 0, " ", 0, 0, 0, true);
-                    platoPedido.IdPlato = Convert.ToInt32(dr["idPlato"]);
-                    platoPedido.IdPedido = Convert.ToInt32(dr["idPedido"]);
-                    platoPedido.Descripcion = dr["descripcion"].ToString();
-                    platoPedido.Cantidad = Convert.ToInt32(dr["cantidad"]);
-                    platoPedido.Precio = Convert.ToDouble(Mett2(Convert.ToDouble(dr["precio"])));
-                    platoPedido.ValorTotal = Convert.ToDouble(Mett2(Convert.ToDouble(dr["total"])));
-
-                    Console.WriteLine(platoPedido.ToString());
-                    listaPlatoPedidoDB.Add(platoPedido);
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return listaPlatoPedidoDB;
-        }
-
+        //            Console.WriteLine(platoPedido.ToString());
+        //            listaPlatoPedidoDB.Add(platoPedido);
+        //        }
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //    return listaPlatoPedidoDB;
+        //}
         public List<PlatoPedido> ConsultarPlatoPedidosPorId(int idPedidoDB)
         {
             List<PlatoPedido> listaPlatoPedidoDB = new List<PlatoPedido>();
             SqlDataReader dr = null;
             PlatoPedido platoPedido = null;
 
-            string comando = $"SELECT idPlato, idPedido, descripcion, cantidad, precio, total FROM PlatoPedido WHERE idPedido = {idPedidoDB}";
+            string comando = $"SELECT idPlato, idPedido, descripcion, cantidad, precio, total, estado FROM PlatoPedido WHERE idPedido = {idPedidoDB}";
 
             try
             {
@@ -98,10 +90,10 @@ namespace Datos
                     platoPedido.IdPedido = Convert.ToInt32(dr["idPedido"]);
                     platoPedido.Descripcion = dr["descripcion"].ToString();
                     platoPedido.Cantidad = Convert.ToInt32(dr["cantidad"]);
-                    platoPedido.Precio = Convert.ToDouble(Mett2(Convert.ToDouble(dr["precio"])));
-                    platoPedido.ValorTotal = Convert.ToDouble(Mett2(Convert.ToDouble(dr["total"])));
+                    platoPedido.Precio = Convert.ToDouble(DoubleDBaVS(Convert.ToDouble(dr["precio"])));
+                    platoPedido.ValorTotal = Convert.ToDouble(DoubleDBaVS(Convert.ToDouble(dr["total"])));
+                    platoPedido.Estado = Convert.ToInt32(dr["estado"]) == 1 ? true : false;
 
-                    Console.WriteLine($"{idPedidoDB}, {platoPedido.ToString()}");
                     listaPlatoPedidoDB.Add(platoPedido);
                 }
             }
@@ -111,10 +103,34 @@ namespace Datos
             }
             return listaPlatoPedidoDB;
         }
-        public string Mett2(double valor)
+        public string DoubleDBaVS(double valor)
         {
             string precioS = Convert.ToString(valor);
             return precioS.Replace('.', ',');
+        }
+        public string DoubleVSaDB(double valor)
+        {
+            string precioS = Convert.ToString(valor);
+            return precioS.Replace(',', '.');
+        }
+
+        public string EliminarPlatoPedido(int idEliminar, int idPedido)
+        {
+            string comando = $"UPDATE PlatoPedido SET estado = 0 WHERE idPedido = {idPedido} AND idPlato = {idEliminar}";
+
+            try
+            {
+                cmd = new SqlCommand(comando);
+                cn.Conectar();
+                cmd.Connection = cn.Cn;
+                cmd.CommandText = comando;
+                cmd.ExecuteNonQuery();
+                return $"Pedido Actualizado";
+            }
+            catch (SqlException ex)
+            {
+                return $"Error:\n{ex.Message}";
+            }
         }
     }
 }

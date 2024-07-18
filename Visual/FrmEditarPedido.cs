@@ -64,13 +64,14 @@ namespace Visual
 
         private void btnEliminarMenu_Click(object sender, EventArgs e)
         {
+            string sId = txtIdPedido.Text;
             if (dgvIngresoPedido.SelectedRows.Count > 0)
             {
                 int rowIndex = dgvIngresoPedido.SelectedRows[0].Index;
                 DialogResult dialogResult = MessageBox.Show("¿Desea eliminar este plato de su pedido?", "Confirmar", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    bool flag = ctrlPedido.EliminarPlatoPedido(rowIndex, dgvIngresoPedido, txtCantPedido, txtTotPedido);
+                    bool flag = ctrlPedido.EliminarPlatoPedido(rowIndex, dgvIngresoPedido, txtCantPedido, txtTotPedido, sId);
                     if (flag == true)
                     {
                         MessageBox.Show("Plato seleccionado eliminado del pedido");
