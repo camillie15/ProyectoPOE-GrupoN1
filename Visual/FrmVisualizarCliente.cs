@@ -30,7 +30,7 @@ namespace Visual
 
         private void txtBuscarCliente_TextChanged(object sender, EventArgs e)
         {
-            ctrllEntradaTxt.maximoDigitosNumericos(sender, e,10,txtBuscarCliente);
+            ctrllEntradaTxt.maximoDigitosNumericos(sender, e, 10, txtBuscarCliente);
         }
 
         private void txtVolverCliente_Click(object sender, EventArgs e)
@@ -89,31 +89,30 @@ namespace Visual
 
                 // 2. Guardar datos en variables
                 int id = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
-                string nombre = filaSeleccionada.Cells[1].Value.ToString();
-                string apellido = filaSeleccionada.Cells[2].Value.ToString();
-                string cedula = filaSeleccionada.Cells[3].Value.ToString();
-                int edad = Convert.ToInt32(filaSeleccionada.Cells[4].Value);
-                string email = filaSeleccionada.Cells[5].Value.ToString();
-                string direccion = filaSeleccionada.Cells[6].Value.ToString();
-                bool estado = true;
+                //string nombre = filaSeleccionada.Cells[1].Value.ToString();
+                //string apellido = filaSeleccionada.Cells[2].Value.ToString();
+                //string cedula = filaSeleccionada.Cells[3].Value.ToString();
+                //int edad = Convert.ToInt32(filaSeleccionada.Cells[4].Value);
+                //string email = filaSeleccionada.Cells[5].Value.ToString();
+                //string direccion = filaSeleccionada.Cells[6].Value.ToString();
+                //bool estado = true;
 
                 ctrCliente.eliminarCliente(id);
+                ActualizarDataGridView();
 
                 // 3. Encontrar la posicion del cliente en la lista
-                int posicion = ctrCliente.buscarPosicion(nombre, apellido, cedula, edad, email, estado, id, direccion);
+                //int posicion = ctrCliente.buscarPosicion(nombre, apellido, cedula, edad, email, estado, id, direccion);
 
                 // 4. Logica de eliminacion por posicion 
-                if (posicion >= 0)
-                {
-                    ctrCliente.eliminarCliente(posicion);
-                    ActualizarDataGridView();
-                }
-                else
-                {
-                    MessageBox.Show("Escoja un elemento");
-                }
+                //if (posicion >= 0)
+                //{
+                //    ctrCliente.eliminarCliente(posicion);
 
-
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Escoja un elemento");
+                //}
 
             }
             else

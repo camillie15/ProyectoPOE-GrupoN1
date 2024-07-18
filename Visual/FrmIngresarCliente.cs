@@ -31,7 +31,7 @@ namespace Visual
             string edad = txtEdadCliente.Text.Trim();
             string email = txtEmailCliente.Text.Trim();
             string direccion = txtDireccionCliente.Text.Trim();
-            if (nombre != "" && apellido != "" && cedula !="" && edad != "" && email != "" && direccion != "")
+            if (nombre != "" && apellido != "" && cedula != "" && edad != "" && email != "" && direccion != "")
             {
                 if (cedula.Length == 10)
                 {
@@ -41,13 +41,18 @@ namespace Visual
                     {
                         this.Close();
                     }
+                    else
+                    {
+                        MessageBox.Show("Ya existe un usuario con este numero de cedula");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Debe ingresar 10 digitos en CI!!!");
                 }
 
-            } else
+            }
+            else
             {
                 MessageBox.Show("No puede dejar campos * vacios!!!");
             }
@@ -62,7 +67,7 @@ namespace Visual
         // Control de limite de numeros que puede ingresar, funcion ubicada en clase ControlEntradaTexto
         private void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
-            ctrllEntradaTxt.maximoDigitosNumericos(sender, e , 10 , txtCedulaCliente);
+            ctrllEntradaTxt.maximoDigitosNumericos(sender, e, 10, txtCedulaCliente);
         }
 
 
@@ -85,12 +90,6 @@ namespace Visual
         private void txtEdadCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             ctrllEntradaTxt.ingresoSoloNumeros(sender, e);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CtrlCliente cliente = new CtrlCliente();
-            cliente.ComprobarConexion();
         }
     }
 }
