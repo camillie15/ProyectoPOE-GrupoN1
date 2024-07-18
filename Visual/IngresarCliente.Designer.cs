@@ -48,7 +48,6 @@ namespace Visual
             this.txtEdadCliente = new System.Windows.Forms.TextBox();
             this.txtDireccionCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblIdCliente
@@ -226,23 +225,12 @@ namespace Visual
             this.label3.TabIndex = 16;
             this.label3.Text = "Direccion:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(720, 333);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 41);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Conexion";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FrmIngresarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(952, 413);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDireccionCliente);
             this.Controls.Add(this.txtEdadCliente);
@@ -291,6 +279,5 @@ namespace Visual
         private System.Windows.Forms.TextBox txtEdadCliente;
         private System.Windows.Forms.TextBox txtDireccionCliente;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
     }
 }

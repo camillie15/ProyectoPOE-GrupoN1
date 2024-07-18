@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -132,7 +133,36 @@ namespace Datos
         public int UltimoId()
         {
             List<Cliente> lista = ObtenerClientes();
-            return lista[lista.Count - 1].IdCliente;
+            if (lista.Count != 0)
+            {
+                return lista[lista.Count - 1].IdCliente;
+            }
+            return 1;
+        }
+
+        public List<string> ObtenerCedulas()
+        {
+            List<string> cedulas = new List<string>();
+            SqlDataReader dr = null;
+            string comando = "SELECT cedula FROM Cliente WHERE estado = '1'";
+            try
+            {
+                cn.Conectar();
+                cmd.Connection = cn.Cn;
+                cmd.CommandText = comando;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    cedulas.Add(dr["cedula"].ToString());
+                }
+                cn.Desconectar();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return cedulas;
         }
     }
 }

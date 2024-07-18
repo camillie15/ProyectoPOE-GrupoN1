@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Datos;
 using Modelo;
-using Datos;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Controlador
 {
-
     public class CtrlCliente
     {
 
         private static List<Cliente> clientes = new List<Cliente>();
         CtrlConversiones conv = new CtrlConversiones();
-        private Conexion cnBDD = new Conexion();
+        //private Conexion cnBDD = new Conexion();
         private DatosCliente dCliente = new DatosCliente();
 
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
@@ -25,16 +20,38 @@ namespace Controlador
         {
             bool flag = false;
             int edad = conv.toInt(sEdad);
-            int idCliente = clientes.Count + 1;
+            List<string> list = dCliente.ObtenerCedulas();
+            //int idCliente = clientes.Count + 1;
             Cliente cliente = null;
+            int contador = 0;
             if (edad >= 0)
             {
-                cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, idCliente, sDireccion);
-                string mensaje = dCliente.IngresarCliente(cliente);
-                MessageBox.Show($"{mensaje}");
-                //clientes.Add(cliente);
-                //dCliente.IngresarCliente(cliente);
-                flag = true;
+                for (int i = 0; i < list.Count - 1; i++)
+                {
+                    if (list[i] != sCedula)
+                    {
+                        contador++;
+                    }
+                }
+
+                if (contador == list.Count - 1)
+                {
+                    cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, 0, sDireccion);
+                    string mensaje = dCliente.IngresarCliente(cliente);
+                    MessageBox.Show($"{mensaje}");
+                    //clientes.Add(cliente);
+                    //dCliente.IngresarCliente(cliente);
+                    flag = true;
+                }
+                else if (list.Count == 0)
+                {
+                    cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, 0, sDireccion);
+                    string mensaje = dCliente.IngresarCliente(cliente);
+                    MessageBox.Show($"{mensaje}");
+                    //clientes.Add(cliente);
+                    //dCliente.IngresarCliente(cliente);
+                    flag = true;
+                }
             }
             else
             {
@@ -42,36 +59,21 @@ namespace Controlador
             }
             return flag;
         }
-        /*
-        public void IngresarCliente(Cliente cliente)
-        {
-            string msg = string.Empty;
-            string msjCnx = cnBDD.Conectar();
-            if (msjCnx[0] == '1')
-            {
-                msg = dCliente.IngresarCliente(cliente, cnBDD.Cn);
-                cnBDD.Desconectar();
-            }
-            else if (msjCnx[0] == '0')
-            {
-                MessageBox.Show("Ocurrio un error: " + msg);
-            }
-        }
-        */
-        public void ComprobarConexion()
-        {
-            string msg = string.Empty;
-            string flag = cnBDD.Conectar();
-            if (flag == "1")
-            {
-                msg = "Conexion exitosa";
-            }
-            else
-            {
-                msg = "No se pudo conectar: " + flag;
-            }
-            MessageBox.Show(msg);
-        }
+
+        //public void ComprobarConexion()
+        //{
+        //    string msg = string.Empty;
+        //    string flag = cnBDD.Conectar();
+        //    if (flag == "1")
+        //    {
+        //        msg = "Conexion exitosa";
+        //    }
+        //    else
+        //    {
+        //        msg = "No se pudo conectar: " + flag;
+        //    }
+        //    MessageBox.Show(msg);
+        //}
 
         public string idContador()
         {
@@ -142,35 +144,28 @@ namespace Controlador
             }
         }
 
-        public int buscarPosicion(string nombre, string apellido, string cedula, int edad, string email, bool estado, int id, string direccion)
-        {
-            int flag = 0;
-            for (int i = 0; i < clientes.Count; i++)
-            {
-                if (id != clientes[i].IdCliente)
-                {
-                    continue;
-                }
-                else
-                {
-                    flag = i;
-                    break;
-                }
-            }
-            return flag;
-        }
+        //public int buscarPosicion(string nombre, string apellido, string cedula, int edad, string email, bool estado, int id, string direccion)
+        //{
+        //    int flag = 0;
+        //    for (int i = 0; i < clientes.Count; i++)
+        //    {
+        //        if (id != clientes[i].IdCliente)
+        //        {
+        //            continue;
+        //        }
+        //        else
+        //        {
+        //            flag = i;
+        //            break;
+        //        }
+        //    }
+        //    return flag;
+        //}
 
         public void eliminarCliente(int posicion)
         {
             dCliente.EliminarCliente(posicion);
-            //clientes.RemoveAt(posicion);
         }
 
-        /*
-        public void RegistrarAutor(string text1, string text2, string text3, string text4)
-        {
-            dAutor.ingresarAutor(text1, text2, text3, text4);
-        }
-        */
     }
 }
