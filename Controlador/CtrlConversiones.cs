@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace Controlador
 {
+
     public class CtrlConversiones
     {
         public int toInt(string str)
