@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CtrlPdfPlato.cs" />
     <Compile Include="CtrlPlato.cs" />
     <Compile Include="ControlEntradaTxt.cs" />
     <Compile Include="CtrlCliente.cs" />
