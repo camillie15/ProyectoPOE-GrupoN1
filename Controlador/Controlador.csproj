@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CtrlPdfPedido.cs" />
+    <Compile Include="CtrlPdfPlato.cs" />
     <Compile Include="CtrlPlato.cs" />
     <Compile Include="ControlEntradaTxt.cs" />
     <Compile Include="CtrlCliente.cs" />

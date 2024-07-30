@@ -57,7 +57,7 @@ namespace Datos
                         dr["descripcion"].ToString().TrimEnd(),
                         Convert.ToDouble(dr["precio"]),
                         Convert.ToInt32(dr["estado"]) == 1 ? true : false,
-                        Convert.ToInt32(dr["estadoLogico"]) == 1 ? true : false 
+                        Convert.ToInt32(dr["estadoLogico"]) == 1 ? true : false
                     );
                     lista.Add(plato);
                 }
