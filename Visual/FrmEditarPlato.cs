@@ -16,14 +16,14 @@ namespace Visual
         private CtrlPlato ctrlPlato;
         private int idPlato;
         private FrmVisualizarPlato visualizarPlato;
-        public FrmEditarPlato(CtrlPlato ctrlPlato, int idPlato, string nombre, string descripcion, double precio, bool estado, FrmVisualizarPlato visualizarPlato)
+        public FrmEditarPlato(CtrlPlato ctrlPlato, int idPlato, string nombre, string descripcion, double precio, bool estado, int numPlato, FrmVisualizarPlato visualizarPlato)
         {
             InitializeComponent();
             this.ctrlPlato = ctrlPlato;
             this.idPlato = idPlato;
             this.visualizarPlato = visualizarPlato;
 
-            txtEditarIdPlato.Text = idPlato.ToString();
+            txtEditarIdPlato.Text = numPlato.ToString();
             txtEditarNombrePlato.Text = nombre;
             txtEditarDescripcionPlato.Text = descripcion;
             txtEditarPrecioPlato.Text = precio.ToString();
@@ -39,6 +39,7 @@ namespace Visual
                 double precio = Convert.ToDouble(txtEditarPrecioPlato.Text);
                 bool estado = cmbEditarEstadoPlato.SelectedItem.ToString() == "Disponible";
 
+                ctrlPlato.ActualizarPlato(idPlato, nombre, descripcion, precio, estado, true);
                 ctrlPlato.EditarPlato(idPlato, nombre, descripcion, precio, estado);
 
                 MessageBox.Show("Plato editado correctamente.");

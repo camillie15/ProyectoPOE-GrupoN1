@@ -15,10 +15,12 @@ namespace Visual
 
     {
         private CtrlPlato ctrlPlato;
+        private CtrlPdfPlato ctrlPdfPlato;
         public FrmVisualizarPlato()
         {
             InitializeComponent();
             ctrlPlato = new CtrlPlato();
+            ctrlPdfPlato = new CtrlPdfPlato();
             ctrlPlato.Llenar(dgvVisualizarPlato);
         }
 
@@ -34,44 +36,36 @@ namespace Visual
 
         }
 
-        private void btnEliminarPlato_Click(object sender, EventArgs e)
+        private void btnPlatoBaja_Click(object sender, EventArgs e)
         {
-            if (dgvVisualizarPlato.SelectedRows.Count > 0)
-            {
-                int rowIndex = dgvVisualizarPlato.SelectedRows[0].Index;
-                DialogResult dialogResult = MessageBox.Show("¿Desea eliminar este Plato?", "Confirmar Eliminación", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    ctrlPlato.EliminarPlato(rowIndex);
-                    dgvVisualizarPlato.Rows.RemoveAt(rowIndex);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione una fila para eliminar.");
-            }
 
+            FrmEliminarPlato frmEliminarPlato = new FrmEliminarPlato(ctrlPlato);
+            frmEliminarPlato.Show();
+
+            Console.WriteLine("Formulario FrmEliminarPlato mostrado.");
         }
+
+
 
         private void btnEditarPlato_Click(object sender, EventArgs e)
         {
             if (dgvVisualizarPlato.SelectedRows.Count > 0)
             {
                 DataGridViewRow filaSeleccionada = dgvVisualizarPlato.SelectedRows[0];
+                int numPlato = Convert.ToInt32(filaSeleccionada.Cells["clmNum"].Value);
                 int idPlato = Convert.ToInt32(filaSeleccionada.Cells["clmIdPlato"].Value);
                 string nombre = filaSeleccionada.Cells["clmNombre"].Value.ToString();
                 string descripcion = filaSeleccionada.Cells["clmDescripcion"].Value.ToString();
                 double precio = Convert.ToDouble(filaSeleccionada.Cells["clmPrecio"].Value);
                 bool estado = filaSeleccionada.Cells["clmEstado"].Value.ToString() == "Disponible";
 
-                FrmEditarPlato formEditarPlato = new FrmEditarPlato(ctrlPlato, idPlato, nombre, descripcion, precio, estado, this);
+                FrmEditarPlato formEditarPlato = new FrmEditarPlato(ctrlPlato, idPlato, nombre, descripcion, precio, estado, numPlato, this);
                 formEditarPlato.Show();
             }
             else
             {
                 MessageBox.Show("Por favor, seleccione una fila para editar.");
             }
-
         }
 
         private void btnBuscarCampo_Click(object sender, EventArgs e)
@@ -91,6 +85,29 @@ namespace Visual
         private void button1_Click(object sender, EventArgs e)
         {
             ctrlPlato.ComprobarConexion();
+        }
+
+        private void btnGenerarPdf_Click(object sender, EventArgs e)
+        {
+            ctrlPdfPlato.GenerarPDF(dgvVisualizarPlato);
+            ctrlPdfPlato.AbrirPDF();
+        }
+
+        private void btnEliminarPlato_Click(object sender, EventArgs e)
+        {
+            if (dgvVisualizarPlato.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgvVisualizarPlato.SelectedRows[0];
+                int idPlato = Convert.ToInt32(filaSeleccionada.Cells["clmIdPlato"].Value);
+
+                ctrlPlato.ActualizarEstadoLogicoPlato(idPlato, false);
+
+                ctrlPlato.Llenar(dgvVisualizarPlato);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para eliminar.");
+            }
         }
     }
 }

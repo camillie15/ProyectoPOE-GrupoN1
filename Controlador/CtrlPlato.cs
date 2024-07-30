@@ -2,6 +2,7 @@
 using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,10 @@ namespace Controlador
 {
     public class CtrlPlato
     {
-        DatosPlato dplato =new DatosPlato();
+        DatosPlato dplato = new DatosPlato();
         Conexion cnBDD = new Conexion();
         static List<Plato> listaPlatos = new List<Plato>();
-        CtrlConversiones validacion = new CtrlConversiones();
+        CtrlConversiones validacion = new CtrlConversiones();    
 
         public void IngresarPlato(string nombre, string descripcion, string precioStr, string estadoStr)
         {
@@ -41,11 +42,11 @@ namespace Controlador
             {
                 estado = false;
             }
-            Plato nuevoPlato = new Plato(idPlato, nombre, descripcion, precio, estado);
-            //listaPlatos.Add(nuevoPlato);
+            Plato nuevoPlato = new Plato(idPlato, nombre, descripcion, precio, estado, true);
             IngresarPlatoBD(nuevoPlato);
 
         }
+
 
         public void IngresarPlatoBD(Plato plato)
         {
@@ -67,6 +68,47 @@ namespace Controlador
             cnBDD.Desconectar();
         }
 
+        public void ActualizarPlato(int idPlato, string nombre, string descripcion, double precio, bool estado, bool estadoLogico)
+        {
+            string msj = string.Empty;
+            string msjBD = cnBDD.Conectar();
+            Plato pl = new Plato(idPlato, nombre, descripcion, precio, estado, estadoLogico);
+            if (msjBD[0] == '1')
+            {
+                msj = dplato.ActualizarPlato(pl, cnBDD.Cn);
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            cnBDD.Desconectar();
+        }
+
+
+        public void ActualizarEstadoLogicoPlato(int idPlato, bool estadoLogico)
+        {
+            string msj = string.Empty;
+            string msjBD = cnBDD.Conectar();
+            if (msjBD[0] == '1')
+            {
+                msj = dplato.ActualizarEstadoLogicoPlato(idPlato, estadoLogico, cnBDD.Cn);
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            cnBDD.Desconectar();
+        }
+
+
         public void EditarPlato(int idPlato, string nombre, string descripcion, double precio, bool estado)
         {
             Plato plato = listaPlatos.FirstOrDefault(p => p.IdPlato == idPlato);
@@ -79,43 +121,9 @@ namespace Controlador
             }
             else
             {
-                throw new ArgumentException("Plato no encontrado.");
+                throw new ArgumentException("Plato no encontrado 1.");
             }
         }
-        //public void Llenar(DataGridView dgvVisualizarPlato, bool mostrarTodos = true, string estadoFiltrar = "")
-        //{
-
-        //    int i = 0;
-        //    dgvVisualizarPlato.Rows.Clear();
-        //    List<Plato> listaPlatosSql = SeleccionarPlato();
-        //    IEnumerable<Plato> platosFiltrados;
-        //    if (mostrarTodos)
-        //    {
-        //        platosFiltrados = listaPlatosSql;
-        //    }
-        //    else if (estadoFiltrar.Equals("Disponibles", StringComparison.OrdinalIgnoreCase))
-        //    {
-        //        platosFiltrados = listaPlatosSql.Where(p => p.Estado);
-        //    }
-        //    else if (estadoFiltrar.Equals("Agotados", StringComparison.OrdinalIgnoreCase))
-        //    {
-        //        platosFiltrados = listaPlatosSql.Where(p => !p.Estado);
-        //    }
-        //    else
-        //    {
-        //        throw new ArgumentException("El estado no es válido. Debe ser 'Disponibles', 'Agotados' o 'Todos'.");
-        //    }
-
-        //    foreach (Plato p in platosFiltrados)
-        //    {
-        //        i = dgvVisualizarPlato.Rows.Add();
-        //        dgvVisualizarPlato.Rows[i].Cells["clmIdPlato"].Value = i + 1;
-        //        dgvVisualizarPlato.Rows[i].Cells["clmNombre"].Value = p.Nombre;
-        //        dgvVisualizarPlato.Rows[i].Cells["clmDescripcion"].Value = p.Descripcion;
-        //        dgvVisualizarPlato.Rows[i].Cells["clmPrecio"].Value = p.Precio;
-        //        dgvVisualizarPlato.Rows[i].Cells["clmEstado"].Value = p.Estado ? "Disponibles" : "Agotados";
-        //    }
-        //}
 
         public void Llenar(DataGridView dgvVisualizarPlato, bool mostrarTodos = true, string estadoFiltrar = "")
         {
@@ -123,17 +131,18 @@ namespace Controlador
             dgvVisualizarPlato.Rows.Clear();
             listaPlatos = SeleccionarPlato();
             IEnumerable<Plato> platosFiltrados;
+
             if (mostrarTodos)
             {
-                platosFiltrados = listaPlatos;
+                platosFiltrados = listaPlatos.Where(p => p.EstadoLogico); 
             }
             else if (estadoFiltrar.Equals("Disponibles", StringComparison.OrdinalIgnoreCase))
             {
-                platosFiltrados = listaPlatos.Where(p => p.Estado);
+                platosFiltrados = listaPlatos.Where(p => p.Estado && p.EstadoLogico); 
             }
             else if (estadoFiltrar.Equals("Agotados", StringComparison.OrdinalIgnoreCase))
             {
-                platosFiltrados = listaPlatos.Where(p => !p.Estado);
+                platosFiltrados = listaPlatos.Where(p => !p.Estado && p.EstadoLogico); 
             }
             else
             {
@@ -143,13 +152,15 @@ namespace Controlador
             foreach (Plato p in platosFiltrados)
             {
                 i = dgvVisualizarPlato.Rows.Add();
-                dgvVisualizarPlato.Rows[i].Cells["clmIdPlato"].Value = i + 1;
+                dgvVisualizarPlato.Rows[i].Cells["clmNum"].Value = i + 1;
+                dgvVisualizarPlato.Rows[i].Cells["clmIdPlato"].Value = p.IdPlato;
                 dgvVisualizarPlato.Rows[i].Cells["clmNombre"].Value = p.Nombre;
                 dgvVisualizarPlato.Rows[i].Cells["clmDescripcion"].Value = p.Descripcion;
                 dgvVisualizarPlato.Rows[i].Cells["clmPrecio"].Value = p.Precio;
                 dgvVisualizarPlato.Rows[i].Cells["clmEstado"].Value = p.Estado ? "Disponibles" : "Agotados";
             }
         }
+
         public List<Plato> SeleccionarPlato()
         {
             List<Plato> lista = new List<Plato>();
@@ -183,12 +194,32 @@ namespace Controlador
             }
         }
 
-        public void EliminarPlato(int rowIndex)
+        public void LlenarPlatosEliminados(DataGridView dgvEliminarPlato)
         {
+            string msj = cnBDD.Conectar();
+            int i = 0;
+            dgvEliminarPlato.Rows.Clear();
+            List<Plato> platosEliminados = dplato.ConsultarPlatosEliminados(cnBDD.Cn);
+            cnBDD.Desconectar();
+            if (platosEliminados.Count == 0)
+            {
+                MessageBox.Show("No se encontraron platos eliminados.");
+                return;
+            }
 
-            listaPlatos.Remove(listaPlatos[rowIndex]);
-
+            foreach (Plato p in platosEliminados)
+            {
+                i = dgvEliminarPlato.Rows.Add();
+                dgvEliminarPlato.Rows[i].Cells[0].Value = i + 1;
+                dgvEliminarPlato.Rows[i].Cells[1].Value = p.IdPlato;
+                dgvEliminarPlato.Rows[i].Cells[2].Value = p.Nombre;
+                dgvEliminarPlato.Rows[i].Cells[3].Value = p.Descripcion;
+                dgvEliminarPlato.Rows[i].Cells[4].Value = p.Precio;
+                dgvEliminarPlato.Rows[i].Cells[5].Value = p.Estado ? "Disponibles" : "Agotados";
+                dgvEliminarPlato.Rows[i].Cells[6].Value = p.EstadoLogico ? "Activo" : "Inactivo";
+            }
         }
+
         public void ComprobarConexion()
         {
             string msg = string.Empty;
