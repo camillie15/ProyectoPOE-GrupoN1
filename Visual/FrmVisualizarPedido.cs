@@ -14,6 +14,7 @@ namespace Visual
     public partial class FrmVisualizarPedido : Form
     {
         CtrlPedido ctrlPedido = new CtrlPedido();
+        CtrlPdfPedido ctrlPdfPedido = new CtrlPdfPedido();
         public FrmVisualizarPedido()
         {
             InitializeComponent();
@@ -32,7 +33,14 @@ namespace Visual
 
             dgvPedidos.Rows.Clear();
             ctrlPedido.BuscarPedido(campo, datoBuscar, dgvPedidos);
+        }
+
+        private void btnPdf_Click(object sender, EventArgs e)
+        {
+            string campo = (string)cmbCampoBusqueda.SelectedItem;
+            ctrlPdfPedido.GenerarPdf(dgvPedidos, campo);
             txtBusqueda.Clear();
+
         }
     }
 }

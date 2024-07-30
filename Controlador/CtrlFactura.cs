@@ -17,7 +17,7 @@ namespace Controlador
         CtrlPedido p = new CtrlPedido();
         private static List<Factura> listafact = new List<Factura>();
         // lista pedido
-        List<Pedido> listp = CtrlPedido.ListaPedidos;
+        List<Pedido> listp = CtrlPedido.ListaPedidosDB;
         Conexion cbdd = new Conexion();
 
 
