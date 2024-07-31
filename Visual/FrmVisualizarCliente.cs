@@ -122,5 +122,12 @@ namespace Visual
 
 
         }
+
+        private void btnPdfCliente_Click(object sender, EventArgs e)
+        {
+            CtrlPdfCliente pdf = new CtrlPdfCliente();
+            pdf.GenerarPdf(dgvCliente);
+            pdf.AbrirPdf();
+        }
     }
 }

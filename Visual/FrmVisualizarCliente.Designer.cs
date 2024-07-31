@@ -45,6 +45,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnEditarCliente = new System.Windows.Forms.Button();
             this.btnEliminarCliente = new System.Windows.Forms.Button();
+            this.btnPdfCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,12 +231,24 @@
             this.btnEliminarCliente.UseVisualStyleBackColor = true;
             this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
+            // btnPdfCliente
+            // 
+            this.btnPdfCliente.Location = new System.Drawing.Point(905, 351);
+            this.btnPdfCliente.Name = "btnPdfCliente";
+            this.btnPdfCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnPdfCliente.Size = new System.Drawing.Size(113, 50);
+            this.btnPdfCliente.TabIndex = 9;
+            this.btnPdfCliente.Text = "Generar Informe";
+            this.btnPdfCliente.UseVisualStyleBackColor = true;
+            this.btnPdfCliente.Click += new System.EventHandler(this.btnPdfCliente_Click);
+            // 
             // FrmVisualizarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(1048, 517);
+            this.Controls.Add(this.btnPdfCliente);
             this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.btnEditarCliente);
             this.Controls.Add(this.btnMostrarTodosClientes);
@@ -276,5 +289,6 @@
         private System.Windows.Forms.Button btnMostrarTodosClientes;
         private System.Windows.Forms.Button btnEditarCliente;
         private System.Windows.Forms.Button btnEliminarCliente;
+        private System.Windows.Forms.Button btnPdfCliente;
     }
 }
