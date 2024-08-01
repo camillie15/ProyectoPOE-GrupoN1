@@ -11,7 +11,6 @@ namespace Controlador
 
         private static List<Cliente> clientes = new List<Cliente>();
         CtrlConversiones conv = new CtrlConversiones();
-        //private Conexion cnBDD = new Conexion();
         private DatosCliente dCliente = new DatosCliente();
 
         public static List<Cliente> Clientes { get => clientes; set => clientes = value; }
@@ -21,7 +20,6 @@ namespace Controlador
             bool flag = false;
             int edad = conv.toInt(sEdad);
             List<string> list = dCliente.ObtenerCedulas();
-            //int idCliente = clientes.Count + 1;
             Cliente cliente = null;
             int contador = 0;
             if (edad >= 0)
@@ -39,8 +37,6 @@ namespace Controlador
                     cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, 0, sDireccion);
                     string mensaje = dCliente.IngresarCliente(cliente);
                     MessageBox.Show($"{mensaje}");
-                    //clientes.Add(cliente);
-                    //dCliente.IngresarCliente(cliente);
                     flag = true;
                 }
                 else if (list.Count == 0)
@@ -48,8 +44,6 @@ namespace Controlador
                     cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, 0, sDireccion);
                     string mensaje = dCliente.IngresarCliente(cliente);
                     MessageBox.Show($"{mensaje}");
-                    //clientes.Add(cliente);
-                    //dCliente.IngresarCliente(cliente);
                     flag = true;
                 }
             }
@@ -59,21 +53,6 @@ namespace Controlador
             }
             return flag;
         }
-
-        //public void ComprobarConexion()
-        //{
-        //    string msg = string.Empty;
-        //    string flag = cnBDD.Conectar();
-        //    if (flag == "1")
-        //    {
-        //        msg = "Conexion exitosa";
-        //    }
-        //    else
-        //    {
-        //        msg = "No se pudo conectar: " + flag;
-        //    }
-        //    MessageBox.Show(msg);
-        //}
 
         public string idContador()
         {
@@ -100,30 +79,39 @@ namespace Controlador
 
         }
 
-        public void buscarCliente(DataGridView dvg, string flag, Button btn)
+        public void buscarCliente(DataGridView dvg, string nombre, string apellido, Button btn)
         {
-            if (!(flag.Trim() == string.Empty))
+            if (!(nombre.Trim() == string.Empty && apellido.Trim() == string.Empty))
             {
-                var clt = clientes.Find(x => x.Cedula.Contains(flag));
-                if (clt != null && clt.Cedula == flag.Trim())
+                clientes = dCliente.BuscarCliente(nombre, apellido);
+                int filaIndex = 0;
+                if (clientes.Count > 0)
                 {
-                    dvg.Rows[0].Cells[0].Value = clt.IdCliente;
-                    dvg.Rows[0].Cells[1].Value = clt.Nombre;
-                    dvg.Rows[0].Cells[2].Value = clt.Apellido;
-                    dvg.Rows[0].Cells[3].Value = clt.Cedula;
-                    dvg.Rows[0].Cells[4].Value = clt.Edad;
-                    dvg.Rows[0].Cells[5].Value = clt.Email;
-                    dvg.Rows[0].Cells[6].Value = clt.Direccion;
+                    for (int i = 0; i < clientes.Count; i++)
+                    {
+                        if (i < clientes.Count - 1)
+                        {
+                            dvg.Rows.Add();
+                        }
+                        dvg.Rows[filaIndex].Cells[0].Value = clientes[i].IdCliente;
+                        dvg.Rows[filaIndex].Cells[1].Value = clientes[i].Nombre;
+                        dvg.Rows[filaIndex].Cells[2].Value = clientes[i].Apellido;
+                        dvg.Rows[filaIndex].Cells[3].Value = clientes[i].Cedula;
+                        dvg.Rows[filaIndex].Cells[4].Value = clientes[i].Edad;
+                        dvg.Rows[filaIndex].Cells[5].Value = clientes[i].Email;
+                        dvg.Rows[filaIndex].Cells[6].Value = clientes[i].Direccion;
+                        filaIndex++;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No se encontro el cliente");
+                    MessageBox.Show("No se encontro ningun cliente con la informacion proporcionada");
                 }
                 btn.Enabled = true;
             }
             else
             {
-                MessageBox.Show("Ingrese CI del cliente buscar");
+                MessageBox.Show("Ingrese algun campo a buscar");
             }
 
         }
@@ -144,28 +132,50 @@ namespace Controlador
             }
         }
 
-        //public int buscarPosicion(string nombre, string apellido, string cedula, int edad, string email, bool estado, int id, string direccion)
-        //{
-        //    int flag = 0;
-        //    for (int i = 0; i < clientes.Count; i++)
-        //    {
-        //        if (id != clientes[i].IdCliente)
-        //        {
-        //            continue;
-        //        }
-        //        else
-        //        {
-        //            flag = i;
-        //            break;
-        //        }
-        //    }
-        //    return flag;
-        //}
-
         public void eliminarCliente(int posicion)
         {
             dCliente.EliminarCliente(posicion);
         }
 
+        public void BuscarClienteFiltro(DataGridView dvg, int edad, string dominio)
+        {
+            List<Cliente> filtro = new List<Cliente>();
+
+
+            if (!(edad.ToString().Trim() == string.Empty && dominio.Trim() == string.Empty))
+            {
+                clientes = dCliente.BuscarClienteFiltro(edad, dominio);
+
+                if (clientes.Count > 0)
+                {
+                    dvg.Rows.Clear();
+                    int filaIndex = 0;
+                    for (int i = 0; i < clientes.Count; i++)
+                    {
+                        if (i < clientes.Count - 1)
+                        {
+                            dvg.Rows.Add();
+                        }
+                        dvg.Rows[filaIndex].Cells[0].Value = clientes[i].IdCliente;
+                        dvg.Rows[filaIndex].Cells[1].Value = clientes[i].Nombre;
+                        dvg.Rows[filaIndex].Cells[2].Value = clientes[i].Apellido;
+                        dvg.Rows[filaIndex].Cells[3].Value = clientes[i].Cedula;
+                        dvg.Rows[filaIndex].Cells[4].Value = clientes[i].Edad;
+                        dvg.Rows[filaIndex].Cells[5].Value = clientes[i].Email;
+                        dvg.Rows[filaIndex].Cells[6].Value = clientes[i].Direccion;
+                        filaIndex++;
+                    }
+                }
+                else
+                {
+                    dvg.Rows.Clear();
+                    MessageBox.Show("No se encontro ningun cliente con la informacion proporcionada");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese algun campo a buscar");
+            }
+        }
     }
 }

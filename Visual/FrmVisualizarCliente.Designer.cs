@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBuscarCliente = new System.Windows.Forms.TextBox();
+            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,29 +46,32 @@
             this.btnEditarCliente = new System.Windows.Forms.Button();
             this.btnEliminarCliente = new System.Windows.Forms.Button();
             this.btnPdfCliente = new System.Windows.Forms.Button();
+            this.txtBuscarApellido = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(156, 73);
+            this.label1.Location = new System.Drawing.Point(174, 73);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 20);
+            this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "CI Cliente:";
+            this.label1.Text = "Nombre:";
             // 
-            // txtBuscarCliente
+            // txtBuscarNombre
             // 
-            this.txtBuscarCliente.BackColor = System.Drawing.Color.White;
-            this.txtBuscarCliente.Location = new System.Drawing.Point(266, 70);
-            this.txtBuscarCliente.MaxLength = 10;
-            this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.Size = new System.Drawing.Size(276, 28);
-            this.txtBuscarCliente.TabIndex = 1;
-            this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
-            this.txtBuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCliente_KeyPress);
+            this.txtBuscarNombre.BackColor = System.Drawing.Color.White;
+            this.txtBuscarNombre.Location = new System.Drawing.Point(266, 70);
+            this.txtBuscarNombre.MaxLength = 0;
+            this.txtBuscarNombre.Name = "txtBuscarNombre";
+            this.txtBuscarNombre.Size = new System.Drawing.Size(276, 24);
+            this.txtBuscarNombre.TabIndex = 1;
+            this.txtBuscarNombre.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
+            this.txtBuscarNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCliente_KeyPress);
             // 
             // label2
             // 
@@ -76,7 +79,7 @@
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(352, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 20);
+            this.label2.Size = new System.Drawing.Size(192, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "VISUALIZAR CLIENTES";
             // 
@@ -84,14 +87,14 @@
             // 
             this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
             this.dgvCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 10.2F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10.2F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
@@ -101,7 +104,7 @@
             this.edadColumn,
             this.emailColumn,
             this.direccionColumn});
-            this.dgvCliente.Location = new System.Drawing.Point(36, 127);
+            this.dgvCliente.Location = new System.Drawing.Point(36, 164);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.RowHeadersWidth = 51;
             this.dgvCliente.RowTemplate.Height = 24;
@@ -169,7 +172,7 @@
             this.btnMostrarTodosClientes.Enabled = false;
             this.btnMostrarTodosClientes.Image = global::Visual.Properties.Resources.imgUsuarios2;
             this.btnMostrarTodosClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMostrarTodosClientes.Location = new System.Drawing.Point(682, 58);
+            this.btnMostrarTodosClientes.Location = new System.Drawing.Point(682, 83);
             this.btnMostrarTodosClientes.Name = "btnMostrarTodosClientes";
             this.btnMostrarTodosClientes.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnMostrarTodosClientes.Size = new System.Drawing.Size(113, 50);
@@ -184,7 +187,7 @@
             this.txtVolverCliente.BackColor = System.Drawing.Color.White;
             this.txtVolverCliente.Image = global::Visual.Properties.Resources.imgVolver;
             this.txtVolverCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtVolverCliente.Location = new System.Drawing.Point(416, 440);
+            this.txtVolverCliente.Location = new System.Drawing.Point(416, 477);
             this.txtVolverCliente.Name = "txtVolverCliente";
             this.txtVolverCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.txtVolverCliente.Size = new System.Drawing.Size(113, 50);
@@ -199,7 +202,7 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Image = global::Visual.Properties.Resources.imgBuscar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(563, 58);
+            this.button1.Location = new System.Drawing.Point(563, 83);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.button1.Size = new System.Drawing.Size(113, 50);
@@ -211,7 +214,7 @@
             // 
             // btnEditarCliente
             // 
-            this.btnEditarCliente.Location = new System.Drawing.Point(905, 176);
+            this.btnEditarCliente.Location = new System.Drawing.Point(905, 164);
             this.btnEditarCliente.Name = "btnEditarCliente";
             this.btnEditarCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEditarCliente.Size = new System.Drawing.Size(113, 50);
@@ -222,7 +225,7 @@
             // 
             // btnEliminarCliente
             // 
-            this.btnEliminarCliente.Location = new System.Drawing.Point(905, 262);
+            this.btnEliminarCliente.Location = new System.Drawing.Point(905, 232);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEliminarCliente.Size = new System.Drawing.Size(113, 50);
@@ -233,7 +236,7 @@
             // 
             // btnPdfCliente
             // 
-            this.btnPdfCliente.Location = new System.Drawing.Point(905, 351);
+            this.btnPdfCliente.Location = new System.Drawing.Point(905, 298);
             this.btnPdfCliente.Name = "btnPdfCliente";
             this.btnPdfCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnPdfCliente.Size = new System.Drawing.Size(113, 50);
@@ -242,12 +245,41 @@
             this.btnPdfCliente.UseVisualStyleBackColor = true;
             this.btnPdfCliente.Click += new System.EventHandler(this.btnPdfCliente_Click);
             // 
+            // txtBuscarApellido
+            // 
+            this.txtBuscarApellido.Location = new System.Drawing.Point(266, 115);
+            this.txtBuscarApellido.Name = "txtBuscarApellido";
+            this.txtBuscarApellido.Size = new System.Drawing.Size(276, 24);
+            this.txtBuscarApellido.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(174, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Apellido:";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(905, 405);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 50);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Informe Espacial";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmVisualizarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.ClientSize = new System.Drawing.Size(1048, 517);
+            this.ClientSize = new System.Drawing.Size(1048, 546);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtBuscarApellido);
             this.Controls.Add(this.btnPdfCliente);
             this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.btnEditarCliente);
@@ -256,7 +288,7 @@
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtBuscarCliente);
+            this.Controls.Add(this.txtBuscarNombre);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana", 10.2F);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -274,7 +306,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBuscarCliente;
+        private System.Windows.Forms.TextBox txtBuscarNombre;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvCliente;
@@ -290,5 +322,8 @@
         private System.Windows.Forms.Button btnEditarCliente;
         private System.Windows.Forms.Button btnEliminarCliente;
         private System.Windows.Forms.Button btnPdfCliente;
+        private System.Windows.Forms.TextBox txtBuscarApellido;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
     }
 }

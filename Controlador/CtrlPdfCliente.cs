@@ -51,7 +51,7 @@ namespace Controlador
                 tittle.Alignment = Element.ALIGN_CENTER;
                 document.Add(tittle);
 
-                string fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                string fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                 Paragraph fechaActual = new Paragraph($"Fecha de informe emitido: {fecha}", p);
                 document.Add(Chunk.NEWLINE);
                 document.Add(fechaActual);
