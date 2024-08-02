@@ -39,7 +39,7 @@
             // 
             this.lblTituloPrincipal.AutoSize = true;
             this.lblTituloPrincipal.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.lblTituloPrincipal.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblTituloPrincipal.Location = new System.Drawing.Point(232, 79);
             this.lblTituloPrincipal.Name = "lblTituloPrincipal";
             this.lblTituloPrincipal.Size = new System.Drawing.Size(355, 25);
@@ -48,9 +48,8 @@
             // 
             // btnAutores
             // 
-            this.btnAutores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
-            this.btnAutores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAutores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnAutores.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAutores.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAutores.Location = new System.Drawing.Point(612, 368);
             this.btnAutores.Name = "btnAutores";
             this.btnAutores.Size = new System.Drawing.Size(133, 45);
@@ -61,10 +60,9 @@
             // 
             // btnRegistrarCliente
             // 
-            this.btnRegistrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(152)))), ((int)(((byte)(143)))));
-            this.btnRegistrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnRegistrarCliente.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRegistrarCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarCliente.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnRegistrarCliente.Image = global::Visual.Properties.Resources.imgCliente;
             this.btnRegistrarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegistrarCliente.Location = new System.Drawing.Point(289, 295);
@@ -80,10 +78,9 @@
             // 
             // btnOpcionesUsuario
             // 
-            this.btnOpcionesUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(152)))), ((int)(((byte)(143)))));
-            this.btnOpcionesUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcionesUsuario.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcionesUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnOpcionesUsuario.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnOpcionesUsuario.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcionesUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnOpcionesUsuario.Image = global::Visual.Properties.Resources.imgConfig1;
             this.btnOpcionesUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOpcionesUsuario.Location = new System.Drawing.Point(439, 162);
@@ -99,11 +96,10 @@
             // 
             // btnMenuPedido
             // 
-            this.btnMenuPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(152)))), ((int)(((byte)(143)))));
-            this.btnMenuPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
-            this.btnMenuPedido.Image = global::Visual.Properties.Resources.imgPedidoR;
+            this.btnMenuPedido.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnMenuPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuPedido.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnMenuPedido.Image = global::Visual.Properties.Resources.imgPedido;
             this.btnMenuPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuPedido.Location = new System.Drawing.Point(157, 162);
             this.btnMenuPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -120,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(800, 443);
             this.Controls.Add(this.btnAutores);
             this.Controls.Add(this.btnRegistrarCliente);
