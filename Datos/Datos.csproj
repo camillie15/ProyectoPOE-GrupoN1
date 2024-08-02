@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatosAutor.cs" />
     <Compile Include="DatosPedido.cs" />
     <Compile Include="DatosPlato.cs" />
     <Compile Include="Conexion.cs" />

@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -21,7 +22,12 @@ namespace Controlador
                 document.Open();
 
                 Font columnHead = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL, BaseColor.BLACK);
-                document.Add(new Paragraph($"Consulta de Pedidos Registrados\n\tPedidos filtrados por: {campo}"));
+
+                Paragraph tit = new Paragraph("Reporte de Pedidos");
+                tit.Alignment = Element.ALIGN_CENTER;
+                document.Add(tit);
+
+                document.Add(new Paragraph($"Pedidos por: {campo}"));
                 document.Add(Chunk.NEWLINE);
 
                 PdfPTable tablePedidos = new PdfPTable(dgvPedidos.ColumnCount);
@@ -33,9 +39,9 @@ namespace Controlador
                     cellHeader = new PdfPCell(new Phrase(dgvColumn.HeaderText, columnHead))
                     {
                         Border = PdfPCell.NO_BORDER,
-                        BorderWidthTop = 1,
-                        BorderWidthBottom = 1,
+                        BackgroundColor = new BaseColor(231, 230, 229),
                         HorizontalAlignment = Element.ALIGN_CENTER,
+                        VerticalAlignment = Element.ALIGN_MIDDLE,
                         PaddingBottom = 10,
                         PaddingRight = 10,
                     };
@@ -43,7 +49,8 @@ namespace Controlador
                 }
 
                 PdfPCell cellContent;
-                Font contenido = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL, BaseColor.DARK_GRAY);
+                Font contenido = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL, BaseColor.DARK_GRAY);
+
                 if (dgvPedidos.RowCount > 0)
                 {
                     foreach (DataGridViewRow dgvRow in dgvPedidos.Rows)
@@ -55,10 +62,13 @@ namespace Controlador
                                 cellContent = new PdfPCell(new Phrase(dgvCell.Value.ToString(), contenido))
                                 {
                                     Border = PdfPCell.NO_BORDER,
+                                    BorderColorBottom = new BaseColor(231, 230, 229),
                                     BorderWidthBottom = 1,
-                                    HorizontalAlignment = Element.ALIGN_CENTER,
                                     PaddingBottom = 10,
                                     PaddingRight = 10,
+                                    HorizontalAlignment = Element.ALIGN_CENTER,
+                                    VerticalAlignment = Element.ALIGN_MIDDLE,
+
                                 };
                                 tablePedidos.AddCell(cellContent);
                             }
