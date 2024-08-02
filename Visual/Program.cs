@@ -13,7 +13,7 @@ namespace Visual
         /// </summary>
         [STAThread]
         static void Main()
-        {    
+        {
             //archivo correcto
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

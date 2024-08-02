@@ -103,6 +103,12 @@
     <Compile Include="FrmEditarPlato.Designer.cs">
       <DependentUpon>FrmEditarPlato.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFiltroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFiltroCliente.Designer.cs">
+      <DependentUpon>FrmFiltroCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVisualizarPlato.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEliminarPlato.resx">
       <DependentUpon>FrmEliminarPlato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFiltroCliente.resx">
+      <DependentUpon>FrmFiltroCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresarCliente.resx">
       <DependentUpon>FrmIngresarCliente.cs</DependentUpon>

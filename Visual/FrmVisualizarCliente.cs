@@ -25,12 +25,12 @@ namespace Visual
 
         private void txtBuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ctrllEntradaTxt.ingresoSoloNumeros(sender, e);
+            ctrllEntradaTxt.ingresoSoloLetras(sender, e);
         }
 
         private void txtBuscarCliente_TextChanged(object sender, EventArgs e)
         {
-            ctrllEntradaTxt.maximoDigitosNumericos(sender, e, 10, txtBuscarCliente);
+
         }
 
         private void txtVolverCliente_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace Visual
         private void button1_Click(object sender, EventArgs e)
         {
             dgvCliente.Rows.Clear();
-            ctrCliente.buscarCliente(dgvCliente, txtBuscarCliente.Text, btnMostrarTodosClientes);
+            ctrCliente.buscarCliente(dgvCliente, txtBuscarNombre.Text, txtBuscarApellido.Text, btnMostrarTodosClientes);
         }
 
         private void btnMostrarTodosClientes_Click(object sender, EventArgs e)
@@ -83,44 +83,15 @@ namespace Visual
         {
             if (dgvCliente.SelectedRows.Count > 0)
             {
-
-                // 1. Seleccionar CLiente desde el DGV
                 DataGridViewRow filaSeleccionada = dgvCliente.SelectedRows[0];
-
-                // 2. Guardar datos en variables
                 int id = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
-                //string nombre = filaSeleccionada.Cells[1].Value.ToString();
-                //string apellido = filaSeleccionada.Cells[2].Value.ToString();
-                //string cedula = filaSeleccionada.Cells[3].Value.ToString();
-                //int edad = Convert.ToInt32(filaSeleccionada.Cells[4].Value);
-                //string email = filaSeleccionada.Cells[5].Value.ToString();
-                //string direccion = filaSeleccionada.Cells[6].Value.ToString();
-                //bool estado = true;
-
                 ctrCliente.eliminarCliente(id);
                 ActualizarDataGridView();
-
-                // 3. Encontrar la posicion del cliente en la lista
-                //int posicion = ctrCliente.buscarPosicion(nombre, apellido, cedula, edad, email, estado, id, direccion);
-
-                // 4. Logica de eliminacion por posicion 
-                //if (posicion >= 0)
-                //{
-                //    ctrCliente.eliminarCliente(posicion);
-
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Escoja un elemento");
-                //}
-
             }
             else
             {
                 MessageBox.Show("Por favor, seleccione una fila para editar.");
             }
-
-
         }
 
         private void btnPdfCliente_Click(object sender, EventArgs e)
@@ -128,6 +99,12 @@ namespace Visual
             CtrlPdfCliente pdf = new CtrlPdfCliente();
             pdf.GenerarPdf(dgvCliente);
             pdf.AbrirPdf();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmFiltroCliente frmFiltroCliente = new FrmFiltroCliente();
+            frmFiltroCliente.ShowDialog();
         }
     }
 }

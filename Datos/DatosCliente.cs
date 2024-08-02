@@ -109,11 +109,56 @@ namespace Datos
                 Console.WriteLine(ex.Message);
             }
         }
-        public Cliente BuscarCliente(int id)
+        public List<Cliente> BuscarCliente(string nombre, string apellido)
         {
-            Cliente clienteEncontrado = new Cliente("", "", "", 0, "", true, 0, "");
+            List<Cliente> clientesEncontrados = new List<Cliente>();
+            string comando = string.Empty;
+            SqlDataReader dr = null;
+            Cliente cliente = null;
 
-            return clienteEncontrado;
+            if (nombre.Trim().Length > 0 && apellido.Trim().Length == 0)
+            {
+                comando = $"SELECT * FROM Cliente WHERE nombre LIKE '%{nombre}%'";
+            }
+            else if (nombre.Trim().Length == 0 && apellido.Trim().Length > 0)
+            {
+                comando = $"SELECT * FROM Cliente WHERE apellido LIKE '%{apellido}%'";
+            }
+            else
+            {
+                comando = $"SELECT * FROM Cliente WHERE nombre LIKE '%{nombre}%' AND apellido LIKE '%{apellido}%'";
+            }
+
+            try
+            {
+                cn.Conectar();
+                cmd.Connection = cn.Cn;
+                cmd.CommandText = comando;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    if (Convert.ToInt32(dr["estado"]) == 1)
+                    {
+                        cliente = new Cliente("", "", "", 0, "", true, 0, "");
+                        cliente.Nombre = dr["nombre"].ToString();
+                        cliente.Apellido = dr["apellido"].ToString();
+                        cliente.Cedula = dr["cedula"].ToString();
+                        cliente.Edad = Convert.ToInt32(dr["edad"]);
+                        cliente.Email = dr["email"].ToString();
+                        cliente.Estado = Convert.ToInt32(dr["estado"]) == 1 ? true : false;
+                        cliente.IdCliente = Convert.ToInt32(dr["idCliente"]);
+                        cliente.Direccion = dr["direccion"].ToString();
+                        clientesEncontrados.Add(cliente);
+                    }
+                }
+                cn.Desconectar();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return clientesEncontrados;
         }
 
         private char ComprobarEstado(bool flag)
@@ -163,6 +208,63 @@ namespace Datos
             }
 
             return cedulas;
+        }
+
+        public List<Cliente> BuscarClienteFiltro(int edad, string dominio)
+        {
+            List<Cliente> filtroCliente = new List<Cliente>();
+            string comando = string.Empty;
+            Cliente cliente = null;
+            SqlDataReader dr = null;
+            string sEdad = edad.ToString(); ;
+
+            if (edad == 0)
+            {
+                sEdad = string.Empty;
+            }
+
+            if (sEdad.Trim().Length > 0 && dominio.Trim().Length == 0)
+            {
+                comando = $"SELECT * FROM Cliente WHERE edad = {sEdad}";
+            }
+            else if (sEdad.Trim().Length == 0 && dominio.Trim().Length > 0)
+            {
+                comando = $"SELECT * FROM Cliente WHERE email LIKE '%{dominio}%'";
+            }
+            else if (sEdad.Trim().Length > 0 && dominio.Trim().Length > 0)
+            {
+                comando = $"SELECT * FROM Cliente WHERE edad = {sEdad} AND email LIKE '%{dominio}%'";
+            }
+
+            try
+            {
+                cn.Conectar();
+                cmd.Connection = cn.Cn;
+                cmd.CommandText = comando;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    if (Convert.ToInt32(dr["estado"]) == 1)
+                    {
+                        cliente = new Cliente("", "", "", 0, "", true, 0, "");
+                        cliente.Nombre = dr["nombre"].ToString();
+                        cliente.Apellido = dr["apellido"].ToString();
+                        cliente.Cedula = dr["cedula"].ToString();
+                        cliente.Edad = Convert.ToInt32(dr["edad"]);
+                        cliente.Email = dr["email"].ToString();
+                        cliente.Estado = Convert.ToInt32(dr["estado"]) == 1 ? true : false;
+                        cliente.IdCliente = Convert.ToInt32(dr["idCliente"]);
+                        cliente.Direccion = dr["direccion"].ToString();
+                        filtroCliente.Add(cliente);
+                    }
+                }
+                cn.Desconectar();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return filtroCliente;
         }
     }
 }
