@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.label1.Location = new System.Drawing.Point(174, 73);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -65,6 +66,8 @@
             // txtBuscarNombre
             // 
             this.txtBuscarNombre.BackColor = System.Drawing.Color.White;
+            this.txtBuscarNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtBuscarNombre.Location = new System.Drawing.Point(266, 70);
             this.txtBuscarNombre.MaxLength = 0;
             this.txtBuscarNombre.Name = "txtBuscarNombre";
@@ -77,7 +80,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(352, 25);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.label2.Location = new System.Drawing.Point(368, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(192, 17);
             this.label2.TabIndex = 3;
@@ -85,16 +89,16 @@
             // 
             // dgvCliente
             // 
-            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
+            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(210)))), ((int)(((byte)(185)))));
             this.dgvCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10.2F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 10.2F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
@@ -104,6 +108,7 @@
             this.edadColumn,
             this.emailColumn,
             this.direccionColumn});
+            this.dgvCliente.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvCliente.Location = new System.Drawing.Point(36, 164);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.RowHeadersWidth = 51;
@@ -169,7 +174,13 @@
             // 
             // btnMostrarTodosClientes
             // 
+            this.btnMostrarTodosClientes.BackColor = System.Drawing.Color.FloralWhite;
             this.btnMostrarTodosClientes.Enabled = false;
+            this.btnMostrarTodosClientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnMostrarTodosClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnMostrarTodosClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.btnMostrarTodosClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarTodosClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.btnMostrarTodosClientes.Image = global::Visual.Properties.Resources.imgUsuarios2;
             this.btnMostrarTodosClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMostrarTodosClientes.Location = new System.Drawing.Point(682, 83);
@@ -179,12 +190,16 @@
             this.btnMostrarTodosClientes.TabIndex = 6;
             this.btnMostrarTodosClientes.Text = "Todos";
             this.btnMostrarTodosClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMostrarTodosClientes.UseVisualStyleBackColor = true;
+            this.btnMostrarTodosClientes.UseVisualStyleBackColor = false;
             this.btnMostrarTodosClientes.Click += new System.EventHandler(this.btnMostrarTodosClientes_Click);
             // 
             // txtVolverCliente
             // 
-            this.txtVolverCliente.BackColor = System.Drawing.Color.White;
+            this.txtVolverCliente.BackColor = System.Drawing.Color.LightSalmon;
+            this.txtVolverCliente.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.txtVolverCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.txtVolverCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtVolverCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.txtVolverCliente.Image = global::Visual.Properties.Resources.imgVolver;
             this.txtVolverCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtVolverCliente.Location = new System.Drawing.Point(416, 477);
@@ -199,7 +214,13 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackColor = System.Drawing.Color.FloralWhite;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.button1.Image = global::Visual.Properties.Resources.imgBuscar;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(563, 83);
@@ -214,39 +235,60 @@
             // 
             // btnEditarCliente
             // 
+            this.btnEditarCliente.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnEditarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEditarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnEditarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEditarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.btnEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.btnEditarCliente.Location = new System.Drawing.Point(905, 164);
             this.btnEditarCliente.Name = "btnEditarCliente";
             this.btnEditarCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEditarCliente.Size = new System.Drawing.Size(113, 50);
             this.btnEditarCliente.TabIndex = 7;
             this.btnEditarCliente.Text = "Editar";
-            this.btnEditarCliente.UseVisualStyleBackColor = true;
+            this.btnEditarCliente.UseVisualStyleBackColor = false;
             this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
             // 
             // btnEliminarCliente
             // 
+            this.btnEliminarCliente.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnEliminarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnEliminarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEliminarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.btnEliminarCliente.Location = new System.Drawing.Point(905, 232);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEliminarCliente.Size = new System.Drawing.Size(113, 50);
             this.btnEliminarCliente.TabIndex = 8;
             this.btnEliminarCliente.Text = "Eliminar";
-            this.btnEliminarCliente.UseVisualStyleBackColor = true;
+            this.btnEliminarCliente.UseVisualStyleBackColor = false;
             this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
             // btnPdfCliente
             // 
+            this.btnPdfCliente.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnPdfCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnPdfCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPdfCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.btnPdfCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPdfCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.btnPdfCliente.Location = new System.Drawing.Point(905, 298);
             this.btnPdfCliente.Name = "btnPdfCliente";
             this.btnPdfCliente.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnPdfCliente.Size = new System.Drawing.Size(113, 50);
             this.btnPdfCliente.TabIndex = 9;
             this.btnPdfCliente.Text = "Generar Informe";
-            this.btnPdfCliente.UseVisualStyleBackColor = true;
+            this.btnPdfCliente.UseVisualStyleBackColor = false;
             this.btnPdfCliente.Click += new System.EventHandler(this.btnPdfCliente_Click);
             // 
             // txtBuscarApellido
             // 
+            this.txtBuscarApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.txtBuscarApellido.Location = new System.Drawing.Point(266, 115);
             this.txtBuscarApellido.Name = "txtBuscarApellido";
             this.txtBuscarApellido.Size = new System.Drawing.Size(276, 24);
@@ -255,6 +297,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.label3.Location = new System.Drawing.Point(174, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
@@ -263,19 +306,25 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FloralWhite;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.button2.Location = new System.Drawing.Point(905, 405);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 50);
             this.button2.TabIndex = 12;
             this.button2.Text = "Informe Espacial";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmVisualizarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(1048, 546);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
@@ -291,6 +340,7 @@
             this.Controls.Add(this.txtBuscarNombre);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana", 10.2F);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmVisualizarCliente";

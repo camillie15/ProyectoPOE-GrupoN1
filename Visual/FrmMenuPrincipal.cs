@@ -27,7 +27,7 @@ namespace Visual
         private void btnOpcionesUsuario_Click(object sender, EventArgs e)
         {
             FrmOpcionesAdministracion opcionesAdministraciones = new FrmOpcionesAdministracion();
-            opcionesAdministraciones.Show();
+            opcionesAdministraciones.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)

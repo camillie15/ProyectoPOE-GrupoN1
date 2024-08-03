@@ -42,6 +42,7 @@
             this.txtEditEdad = new System.Windows.Forms.TextBox();
             this.btnEditarConfirmacion = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -106,6 +107,8 @@
             // 
             // txtEditNombre
             // 
+            this.txtEditNombre.BackColor = System.Drawing.Color.White;
+            this.txtEditNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEditNombre.Location = new System.Drawing.Point(32, 90);
             this.txtEditNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditNombre.Name = "txtEditNombre";
@@ -114,6 +117,8 @@
             // 
             // txtEditApellido
             // 
+            this.txtEditApellido.BackColor = System.Drawing.Color.White;
+            this.txtEditApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEditApellido.Location = new System.Drawing.Point(477, 90);
             this.txtEditApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditApellido.Name = "txtEditApellido";
@@ -122,6 +127,8 @@
             // 
             // txtEditEmail
             // 
+            this.txtEditEmail.BackColor = System.Drawing.Color.White;
+            this.txtEditEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEditEmail.Location = new System.Drawing.Point(32, 209);
             this.txtEditEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditEmail.Name = "txtEditEmail";
@@ -130,6 +137,8 @@
             // 
             // txtEditCedula
             // 
+            this.txtEditCedula.BackColor = System.Drawing.Color.White;
+            this.txtEditCedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEditCedula.Location = new System.Drawing.Point(477, 209);
             this.txtEditCedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditCedula.Name = "txtEditCedula";
@@ -138,6 +147,8 @@
             // 
             // txtEditDireccion
             // 
+            this.txtEditDireccion.BackColor = System.Drawing.Color.White;
+            this.txtEditDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEditDireccion.Location = new System.Drawing.Point(32, 282);
             this.txtEditDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditDireccion.Name = "txtEditDireccion";
@@ -146,6 +157,8 @@
             // 
             // txtEditEdad
             // 
+            this.txtEditEdad.BackColor = System.Drawing.Color.White;
+            this.txtEditEdad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEditEdad.Location = new System.Drawing.Point(88, 139);
             this.txtEditEdad.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditEdad.Name = "txtEditEdad";
@@ -155,8 +168,11 @@
             // btnEditarConfirmacion
             // 
             this.btnEditarConfirmacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(100)))));
-            this.btnEditarConfirmacion.Location = new System.Drawing.Point(590, 270);
+            this.btnEditarConfirmacion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnEditarConfirmacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarConfirmacion.Location = new System.Drawing.Point(546, 267);
             this.btnEditarConfirmacion.Name = "btnEditarConfirmacion";
+            this.btnEditarConfirmacion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEditarConfirmacion.Size = new System.Drawing.Size(113, 50);
             this.btnEditarConfirmacion.TabIndex = 12;
             this.btnEditarConfirmacion.Text = "Confirmar";
@@ -173,12 +189,28 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "EDITAR CLIENTE";
             // 
+            // txtCancelar
+            // 
+            this.txtCancelar.BackColor = System.Drawing.Color.LightSalmon;
+            this.txtCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.txtCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.txtCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtCancelar.Location = new System.Drawing.Point(694, 267);
+            this.txtCancelar.Name = "txtCancelar";
+            this.txtCancelar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.txtCancelar.Size = new System.Drawing.Size(113, 50);
+            this.txtCancelar.TabIndex = 14;
+            this.txtCancelar.Text = "Cancelar";
+            this.txtCancelar.UseVisualStyleBackColor = false;
+            // 
             // FrmEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.CancelButton = this.txtCancelar;
             this.ClientSize = new System.Drawing.Size(889, 340);
+            this.Controls.Add(this.txtCancelar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnEditarConfirmacion);
             this.Controls.Add(this.txtEditEdad);
@@ -194,8 +226,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FrmEditarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmEditarCliente";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -218,5 +253,6 @@
         private System.Windows.Forms.TextBox txtEditEdad;
         private System.Windows.Forms.Button btnEditarConfirmacion;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button txtCancelar;
     }
 }

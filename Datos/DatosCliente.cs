@@ -109,6 +109,7 @@ namespace Datos
                 Console.WriteLine(ex.Message);
             }
         }
+
         public List<Cliente> BuscarCliente(string nombre, string apellido)
         {
             List<Cliente> clientesEncontrados = new List<Cliente>();

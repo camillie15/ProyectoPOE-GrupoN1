@@ -97,8 +97,8 @@ namespace Visual
         private void btnPdfCliente_Click(object sender, EventArgs e)
         {
             CtrlPdfCliente pdf = new CtrlPdfCliente();
-            pdf.GenerarPdf(dgvCliente);
-            pdf.AbrirPdf();
+            pdf.GenerarPdf(dgvCliente, "Cliente.pdf");
+            pdf.AbrirPdf("Cliente.pdf");
         }
 
         private void button2_Click(object sender, EventArgs e)

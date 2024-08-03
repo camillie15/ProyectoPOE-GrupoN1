@@ -112,6 +112,7 @@ namespace Controlador
             else
             {
                 MessageBox.Show("Ingrese algun campo a buscar");
+                btn.Enabled = true;
             }
 
         }
@@ -142,7 +143,7 @@ namespace Controlador
             List<Cliente> filtro = new List<Cliente>();
 
 
-            if (!(edad.ToString().Trim() == string.Empty && dominio.Trim() == string.Empty))
+            if (!((edad.ToString().Trim() == string.Empty || edad == 0) && dominio.Trim() == string.Empty))
             {
                 clientes = dCliente.BuscarClienteFiltro(edad, dominio);
 

@@ -12,12 +12,12 @@ namespace Controlador
 {
     public class CtrlPdfCliente
     {
-        public void AbrirPdf()
+        public void AbrirPdf(string archivo)
         {
-            if (File.Exists("Clientes.pdf"))
+            if (File.Exists(archivo))
             {
                 // Abrir el archivo PDF con el visor de PDF predeterminado del sistema
-                System.Diagnostics.Process.Start("Clientes.pdf");
+                System.Diagnostics.Process.Start(archivo);
             }
             else
             {
@@ -25,14 +25,14 @@ namespace Controlador
             }
         }
 
-        public void GenerarPdf(DataGridView dgv)
+        public void GenerarPdf(DataGridView dgv, string archivo)
         {
             FileStream stream = null;
             Document document = null;
 
             try
             {
-                stream = new FileStream("Clientes.pdf", FileMode.Create);
+                stream = new FileStream(archivo, FileMode.Create);
                 document = new Document(PageSize.A4, 7, 7, 7, 7);
 
                 PdfWriter pdf = PdfWriter.GetInstance(document, stream);

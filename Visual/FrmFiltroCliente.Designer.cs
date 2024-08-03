@@ -43,6 +43,7 @@
             this.clCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbConfirmacion = new System.Windows.Forms.CheckBox();
+            this.btnPdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudEdad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 108);
+            this.label2.Location = new System.Drawing.Point(56, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 17);
             this.label2.TabIndex = 1;
@@ -78,7 +79,8 @@
             // 
             // nudEdad
             // 
-            this.nudEdad.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.nudEdad.BackColor = System.Drawing.Color.White;
+            this.nudEdad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nudEdad.ForeColor = System.Drawing.SystemColors.InfoText;
             this.nudEdad.Location = new System.Drawing.Point(212, 61);
             this.nudEdad.Name = "nudEdad";
@@ -88,6 +90,8 @@
             // 
             // txtGmail
             // 
+            this.txtGmail.BackColor = System.Drawing.Color.White;
+            this.txtGmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGmail.Location = new System.Drawing.Point(212, 105);
             this.txtGmail.Name = "txtGmail";
             this.txtGmail.Size = new System.Drawing.Size(293, 24);
@@ -95,21 +99,26 @@
             // 
             // btnBuscarFiltro
             // 
+            this.btnBuscarFiltro.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnBuscarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnBuscarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnBuscarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.btnBuscarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarFiltro.Image = global::Visual.Properties.Resources.imgBuscar;
             this.btnBuscarFiltro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarFiltro.Location = new System.Drawing.Point(571, 66);
+            this.btnBuscarFiltro.Location = new System.Drawing.Point(526, 66);
             this.btnBuscarFiltro.Name = "btnBuscarFiltro";
             this.btnBuscarFiltro.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnBuscarFiltro.Size = new System.Drawing.Size(113, 50);
             this.btnBuscarFiltro.TabIndex = 5;
             this.btnBuscarFiltro.Text = "Buscar";
             this.btnBuscarFiltro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarFiltro.UseVisualStyleBackColor = true;
+            this.btnBuscarFiltro.UseVisualStyleBackColor = false;
             this.btnBuscarFiltro.Click += new System.EventHandler(this.btnBuscarFiltro_Click);
             // 
             // dgvCliente
             // 
-            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
+            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(210)))), ((int)(((byte)(185)))));
             this.dgvCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -120,6 +129,7 @@
             this.clEdad,
             this.clCorreo,
             this.clDireccion});
+            this.dgvCliente.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvCliente.Location = new System.Drawing.Point(22, 153);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.Size = new System.Drawing.Size(743, 272);
@@ -177,12 +187,28 @@
             this.cbConfirmacion.Text = "Activar";
             this.cbConfirmacion.UseVisualStyleBackColor = true;
             // 
+            // btnPdf
+            // 
+            this.btnPdf.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnPdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnPdf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPdf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPdf.Location = new System.Drawing.Point(645, 66);
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.Size = new System.Drawing.Size(113, 50);
+            this.btnPdf.TabIndex = 8;
+            this.btnPdf.Text = "Generar\nPDF";
+            this.btnPdf.UseVisualStyleBackColor = false;
+            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
+            // 
             // FrmFiltroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(797, 452);
+            this.Controls.Add(this.btnPdf);
             this.Controls.Add(this.cbConfirmacion);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.btnBuscarFiltro);
@@ -220,5 +246,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDireccion;
         private System.Windows.Forms.CheckBox cbConfirmacion;
+        private System.Windows.Forms.Button btnPdf;
     }
 }
