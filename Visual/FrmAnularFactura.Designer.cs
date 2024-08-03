@@ -38,7 +38,7 @@
             this.txtAnularCliente = new System.Windows.Forms.TextBox();
             this.txtAnularCodfactura = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtContenido = new System.Windows.Forms.TextBox();
+            this.txtAnularContenido = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             this.cmbAnularEstado.Location = new System.Drawing.Point(152, 322);
             this.cmbAnularEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cmbAnularEstado.Name = "cmbAnularEstado";
-            this.cmbAnularEstado.Size = new System.Drawing.Size(129, 24);
+            this.cmbAnularEstado.Size = new System.Drawing.Size(129, 40);
             this.cmbAnularEstado.TabIndex = 71;
             this.cmbAnularEstado.Text = "ACTIVO";
             // 
@@ -70,7 +70,7 @@
             this.label11.Location = new System.Drawing.Point(41, 321);
             this.label11.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 17);
+            this.label11.Size = new System.Drawing.Size(105, 32);
             this.label11.TabIndex = 70;
             this.label11.Text = "Estado";
             // 
@@ -81,7 +81,7 @@
             this.dtpFechaA.Location = new System.Drawing.Point(431, 67);
             this.dtpFechaA.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaA.Name = "dtpFechaA";
-            this.dtpFechaA.Size = new System.Drawing.Size(126, 24);
+            this.dtpFechaA.Size = new System.Drawing.Size(126, 40);
             this.dtpFechaA.TabIndex = 76;
             // 
             // label8
@@ -91,7 +91,7 @@
             this.label8.Location = new System.Drawing.Point(303, 70);
             this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 17);
+            this.label8.Size = new System.Drawing.Size(249, 32);
             this.label8.TabIndex = 68;
             this.label8.Text = "Fecha de Emision";
             // 
@@ -101,7 +101,7 @@
             this.txtAnularTotal.Location = new System.Drawing.Point(152, 269);
             this.txtAnularTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtAnularTotal.Name = "txtAnularTotal";
-            this.txtAnularTotal.Size = new System.Drawing.Size(133, 24);
+            this.txtAnularTotal.Size = new System.Drawing.Size(133, 40);
             this.txtAnularTotal.TabIndex = 64;
             // 
             // txtAnularIva
@@ -110,7 +110,7 @@
             this.txtAnularIva.Location = new System.Drawing.Point(152, 219);
             this.txtAnularIva.Margin = new System.Windows.Forms.Padding(4);
             this.txtAnularIva.Name = "txtAnularIva";
-            this.txtAnularIva.Size = new System.Drawing.Size(129, 24);
+            this.txtAnularIva.Size = new System.Drawing.Size(129, 40);
             this.txtAnularIva.TabIndex = 63;
             // 
             // txtAnularSubtotal
@@ -119,7 +119,7 @@
             this.txtAnularSubtotal.Location = new System.Drawing.Point(151, 171);
             this.txtAnularSubtotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtAnularSubtotal.Name = "txtAnularSubtotal";
-            this.txtAnularSubtotal.Size = new System.Drawing.Size(131, 24);
+            this.txtAnularSubtotal.Size = new System.Drawing.Size(131, 40);
             this.txtAnularSubtotal.TabIndex = 62;
             // 
             // txtAnularCliente
@@ -129,7 +129,7 @@
             this.txtAnularCliente.Location = new System.Drawing.Point(151, 121);
             this.txtAnularCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtAnularCliente.Name = "txtAnularCliente";
-            this.txtAnularCliente.Size = new System.Drawing.Size(129, 24);
+            this.txtAnularCliente.Size = new System.Drawing.Size(129, 41);
             this.txtAnularCliente.TabIndex = 61;
             // 
             // txtAnularCodfactura
@@ -138,7 +138,7 @@
             this.txtAnularCodfactura.Location = new System.Drawing.Point(151, 74);
             this.txtAnularCodfactura.Margin = new System.Windows.Forms.Padding(4);
             this.txtAnularCodfactura.Name = "txtAnularCodfactura";
-            this.txtAnularCodfactura.Size = new System.Drawing.Size(131, 24);
+            this.txtAnularCodfactura.Size = new System.Drawing.Size(131, 40);
             this.txtAnularCodfactura.TabIndex = 60;
             // 
             // label15
@@ -148,19 +148,19 @@
             this.label15.Location = new System.Drawing.Point(40, 126);
             this.label15.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(66, 17);
+            this.label15.Size = new System.Drawing.Size(139, 34);
             this.label15.TabIndex = 57;
             this.label15.Text = "Cliente: ";
             // 
-            // txtContenido
+            // txtAnularContenido
             // 
-            this.txtContenido.Enabled = false;
-            this.txtContenido.Location = new System.Drawing.Point(306, 134);
-            this.txtContenido.Margin = new System.Windows.Forms.Padding(17, 15, 17, 15);
-            this.txtContenido.Multiline = true;
-            this.txtContenido.Name = "txtContenido";
-            this.txtContenido.Size = new System.Drawing.Size(251, 212);
-            this.txtContenido.TabIndex = 53;
+            this.txtAnularContenido.Enabled = false;
+            this.txtAnularContenido.Location = new System.Drawing.Point(306, 134);
+            this.txtAnularContenido.Margin = new System.Windows.Forms.Padding(17, 15, 17, 15);
+            this.txtAnularContenido.Multiline = true;
+            this.txtAnularContenido.Name = "txtAnularContenido";
+            this.txtAnularContenido.Size = new System.Drawing.Size(251, 212);
+            this.txtAnularContenido.TabIndex = 53;
             // 
             // label10
             // 
@@ -169,7 +169,7 @@
             this.label10.Location = new System.Drawing.Point(40, 274);
             this.label10.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 17);
+            this.label10.Size = new System.Drawing.Size(78, 32);
             this.label10.TabIndex = 52;
             this.label10.Text = "Total";
             // 
@@ -180,7 +180,7 @@
             this.label7.Location = new System.Drawing.Point(41, 224);
             this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(33, 17);
+            this.label7.Size = new System.Drawing.Size(60, 32);
             this.label7.TabIndex = 51;
             this.label7.Text = "IVA";
             // 
@@ -191,7 +191,7 @@
             this.label3.Location = new System.Drawing.Point(40, 176);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.Size = new System.Drawing.Size(127, 32);
             this.label3.TabIndex = 50;
             this.label3.Text = "Subtotal";
             // 
@@ -202,7 +202,7 @@
             this.label9.Location = new System.Drawing.Point(396, 102);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 17);
+            this.label9.Size = new System.Drawing.Size(134, 32);
             this.label9.TabIndex = 49;
             this.label9.Text = "PEDIDO";
             this.label9.Click += new System.EventHandler(this.label9_Click);
@@ -214,7 +214,7 @@
             this.label2.Location = new System.Drawing.Point(41, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 17);
+            this.label2.Size = new System.Drawing.Size(189, 32);
             this.label2.TabIndex = 48;
             this.label2.Text = "Cod Factura:";
             // 
@@ -225,7 +225,7 @@
             this.lblMotivoA.Location = new System.Drawing.Point(41, 367);
             this.lblMotivoA.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblMotivoA.Name = "lblMotivoA";
-            this.lblMotivoA.Size = new System.Drawing.Size(148, 17);
+            this.lblMotivoA.Size = new System.Drawing.Size(285, 32);
             this.lblMotivoA.TabIndex = 72;
             this.lblMotivoA.Text = "Motivo de Anulación";
             // 
@@ -247,7 +247,7 @@
             this.label1.Location = new System.Drawing.Point(230, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 17);
+            this.label1.Size = new System.Drawing.Size(236, 32);
             this.label1.TabIndex = 74;
             this.label1.Text = "Anular Factura";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -266,7 +266,7 @@
             // 
             // FrmAnularFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(583, 489);
@@ -284,7 +284,7 @@
             this.Controls.Add(this.txtAnularCliente);
             this.Controls.Add(this.txtAnularCodfactura);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.txtContenido);
+            this.Controls.Add(this.txtAnularContenido);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
@@ -314,7 +314,7 @@
         private System.Windows.Forms.TextBox txtAnularCliente;
         private System.Windows.Forms.TextBox txtAnularCodfactura;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtContenido;
+        private System.Windows.Forms.TextBox txtAnularContenido;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;

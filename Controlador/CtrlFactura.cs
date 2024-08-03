@@ -7,6 +7,7 @@ using Modelo;
 using System.Windows.Forms;
 using System.IO;
 using Datos;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Controlador
 {
@@ -15,9 +16,16 @@ namespace Controlador
     {
         CtrlConversiones v = new CtrlConversiones();
         CtrlPedido p = new CtrlPedido();
-        private static List<Factura> listafact = new List<Factura>();
+        DatosFactura dFactura = new DatosFactura();
+        DatosPlatoPedido datosPlatoPedido = new DatosPlatoPedido();
+        static List<Factura> listafact = new List<Factura>();
+        static List<PlatoPedido> plat = new List<PlatoPedido>();
         // lista pedido
+        DatosPedido dPedido = new DatosPedido();
+
         List<Pedido> listp = CtrlPedido.ListaPedidosDB;
+        //static List<Pedido> listp = null;
+
         Conexion cbdd = new Conexion();
 
 
@@ -25,48 +33,46 @@ namespace Controlador
 
         public void LlenaGrid(DataGridView dgvFactura, bool todos = true, string estadoF = "")
         {
-
-            int i = 0;
-            dgvFactura.Rows.Clear();
-
+            listp = dPedido.ConsultarPedidos();
             IEnumerable<Factura> facturas;
             if (todos)
             {
                 facturas = listafact;
             }
-            else if (estadoF.Equals("Anualdo", StringComparison.OrdinalIgnoreCase))
-            {
-                facturas = listafact.Where(p => p.Estado == false);
-            }
             else if (estadoF.Equals("Activo", StringComparison.OrdinalIgnoreCase))
             {
-                facturas = listafact.Where(p => !p.Estado == true);
+                facturas = listafact.Where(p => p.Estado == true);
+            }
+            else if (estadoF.Equals("Anulado", StringComparison.OrdinalIgnoreCase))
+            {
+                facturas = listafact.Where(p => !p.Estado == false);
             }
             else
             {
-                throw new ArgumentException("El estado no es válido. Debe ser 'Anulado', 'Activo'.");
+                throw new ArgumentException("El estado no es válido. Debe ser 'ACTIVO', 'ANULADO'.");
             }
 
-            if (listafact.Count > 0)
+            listafact = dFactura.ConsultarFactura();
+            for (int i = 0; i < listafact.Count; i++)
             {
-                foreach (Factura f in Listafact)
+                if (listafact.Count > 0)
                 {
-                    i = dgvFactura.Rows.Add();
-                    dgvFactura.Rows[i].Cells["ColIdFactura"].Value = f.IdFactura;
-                    dgvFactura.Rows[i].Cells["ColCedula"].Value = f.Pedido.Cliente.Cedula;
-                    dgvFactura.Rows[i].Cells["ColSubtotal"].Value = f.Subtotal;
-                    dgvFactura.Rows[i].Cells["ColIva"].Value = f.Iva;
-                    dgvFactura.Rows[i].Cells["ColTotal"].Value = f.Total;
-                    dgvFactura.Rows[i].Cells["ColEstado"].Value = f.Estado ? "Activo" : "Anulado";
-                    dgvFactura.Rows[i].Cells["ColMotivo"].Value = f.MotivoA;
-                    dgvFactura.Rows[i].Cells["ColFecha"].Value = f.Fecha.ToString("d");
+                    foreach (Factura f in Listafact)
+                    {
+                        i = dgvFactura.Rows.Add();
+                        dgvFactura.Rows[i].Cells["ColIdFactura"].Value = f.IdFactura;
+                        dgvFactura.Rows[i].Cells["ColCedula"].Value = f.Pedido.Cliente.Cedula;
+                        dgvFactura.Rows[i].Cells["ColSubtotal"].Value = f.Subtotal;
+                        dgvFactura.Rows[i].Cells["ColIva"].Value = f.Iva;
+                        dgvFactura.Rows[i].Cells["ColTotal"].Value = f.Total;
+                        dgvFactura.Rows[i].Cells["ColEstado"].Value = f.Estado ? "ACTIVO" : "ANULADO";
+                        dgvFactura.Rows[i].Cells["ColMotivo"].Value = f.MotivoA;
+                        dgvFactura.Rows[i].Cells["ColFecha"].Value = f.Fecha.ToString("d");
+                    }
                 }
             }
-            else
-            {
-                MessageBox.Show("NO EXISTEN FACTURAS REGISTRADAS.");
-            }
         }
+
 
         public Pedido RetornarPedido()
         {
@@ -82,9 +88,10 @@ namespace Controlador
             return pedido;
         }
 
+
         public string CrearId()
         {
-            return (listafact.Count + 1).ToString();
+            return Convert.ToString(dFactura.UltimoIdFactura() + 1);
         }
 
         public void IngresarFactura(string pIva, string pTotal, string pIdFactura, string pSubtotal, string pEstado, string pMotivoA, string pFecha)
@@ -93,14 +100,48 @@ namespace Controlador
             double iva = v.toDouble(pIva);
             double total = v.toDouble(pTotal);
             int idFactura = v.toInt(pIdFactura);
-            bool estado = pEstado.Equals("Activo", StringComparison.OrdinalIgnoreCase);
+            bool estado = true;
             DateTime fecha = v.ConvertirDateTime(pFecha);
-
             Pedido pedido = RetornarPedido();
 
             Factura factura = new Factura(iva, total, pedido, idFactura, subtotal, estado, pMotivoA, fecha);
-            listafact.Add(factura);
+            //listafact.Add(factura);
+            IngresoFacturaBD(factura);
         }
+        private void IngresoFacturaBD(Factura factura)
+        {
+            string msj = cbdd.Conectar();
+            string msjBDD = "";
+            if (msj[0] == '1')
+            {
+                msjBDD = dFactura.IngresoFactura(factura);
+                MessageBox.Show(msjBDD);
+                if (msjBDD[0] == '0')
+                {
+                    MessageBox.Show("Error en el registro" + msjBDD);
+                }
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show("Error" + msj);
+            }
+            cbdd.Desconectar();
+        }
+
+        //public void IngresarFactura(string pIva, string pTotal, string pIdFactura, string pSubtotal, string pEstado, string pMotivoA, string pFecha)
+        //{
+        //    double subtotal = v.toDouble(pSubtotal);
+        //    double iva = v.toDouble(pIva);
+        //    double total = v.toDouble(pTotal);
+        //    int idFactura = v.toInt(pIdFactura);
+        //    bool estado = pEstado.Equals("Activo", StringComparison.OrdinalIgnoreCase);
+        //    DateTime fecha = v.ConvertirDateTime(pFecha);
+
+        //    Pedido pedido = RetornarPedido();
+
+        //    Factura factura = new Factura(iva, total, pedido, idFactura, subtotal, estado, pMotivoA, fecha);
+        //    listafact.Add(factura);
+        //}
 
         public void Calcular(string subtotalText, out string ivaText, out string totalText)
         {
@@ -167,7 +208,7 @@ namespace Controlador
                         dgvFactura.Rows[rowIndex].Cells["ColSubtotal"].Value = facturasBuscar[i].Subtotal;
                         dgvFactura.Rows[rowIndex].Cells["ColIva"].Value = facturasBuscar[i].Iva;
                         dgvFactura.Rows[rowIndex].Cells["ColTotal"].Value = facturasBuscar[i].Total;
-                        dgvFactura.Rows[rowIndex].Cells["ColEstado"].Value = facturasBuscar[i].Estado ? "Activo" : "Anulado";
+                        dgvFactura.Rows[rowIndex].Cells["ColEstado"].Value = facturasBuscar[i].Estado ? "ACTIVO" : "ANULADO";
                         dgvFactura.Rows[rowIndex].Cells["ColMotivo"].Value = facturasBuscar[i].MotivoA;
                         dgvFactura.Rows[rowIndex].Cells["ColFecha"].Value = facturasBuscar[i].Fecha.ToString("d");
                     }
@@ -183,36 +224,42 @@ namespace Controlador
             }
         }
 
+
         public void llenarTxt(TextBox txtContenido, TextBox txtSubtotal, TextBox txtCliente)
         {
             Pedido ped = RetornarPedido();
+
+            List<PlatoPedido> listaPlatoPedidoByIdDB = datosPlatoPedido.ConsultarPlatoPedidosPorId(ped.CodPedido);
             string contenido = string.Empty;
-            //for (int i = 0; i < ped.MenuSeleccionado.Count; i++)
-            //{
-            //    contenido += ped.MenuSeleccionado[i] + Environment.NewLine + Environment.NewLine;
-            //}
+
+            foreach (PlatoPedido platoPedido in listaPlatoPedidoByIdDB)
+            {
+                if (platoPedido.Estado == true)
+                {
+                    contenido += $"cantidad : {platoPedido.Cantidad}\n" + Environment.NewLine + $"plato: {platoPedido.Descripcion}\n ";
+
+                }
+            }
+
 
             txtContenido.Text = contenido;
             txtSubtotal.Text = ped.TotalPedido.ToString();
             txtCliente.Text = ped.Cliente.Cedula;
         }
 
-        public void EditarFactura(int idFactura, bool nuevoEstado, string nuevoMotivo)
+
+        public void EditarFactura(int idFactura, bool estado, string motivoA)
         {
-            Factura facturaExistente = listafact.FirstOrDefault(f => f.IdFactura == idFactura);
-
-            if (facturaExistente != null)
+            Factura factura = new Factura (idFactura, estado, motivoA);
+            dFactura.AnularFactura(factura);
+            int posicion = listafact.FindIndex(f => f.IdFactura == idFactura);
+            if (posicion >= 0)
             {
-
-                facturaExistente.Estado = nuevoEstado;
-                facturaExistente.MotivoA = nuevoMotivo;
-
-            }
-            else
-            {
-                throw new Exception($"Factura con ID {idFactura} no encontrada");
+                listafact[posicion].Estado = estado;
+                listafact[posicion].MotivoA = motivoA;
             }
         }
+
 
         public void ConectarBD()
         {
@@ -231,3 +278,4 @@ namespace Controlador
 
     }
 }
+

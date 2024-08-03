@@ -55,7 +55,7 @@
             this.btBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btBuscar.FlatAppearance.BorderSize = 0;
             this.btBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btBuscar.Font = new System.Drawing.Font("Verdana", 10.2F);
+            this.btBuscar.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btBuscar.Location = new System.Drawing.Point(106, 132);
             this.btBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btBuscar.Name = "btBuscar";
@@ -69,7 +69,7 @@
             // 
             this.btVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.btVolver.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btVolver.Location = new System.Drawing.Point(423, 575);
+            this.btVolver.Location = new System.Drawing.Point(106, 578);
             this.btVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btVolver.Name = "btVolver";
             this.btVolver.Size = new System.Drawing.Size(156, 44);
@@ -218,7 +218,7 @@
             this.btAnular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.btAnular.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btAnular.FlatAppearance.BorderSize = 2;
-            this.btAnular.Font = new System.Drawing.Font("Verdana", 10.2F);
+            this.btAnular.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAnular.Location = new System.Drawing.Point(972, 132);
             this.btAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btAnular.Name = "btAnular";
@@ -233,12 +233,12 @@
             this.btReporteG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.btReporteG.FlatAppearance.BorderSize = 0;
             this.btReporteG.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btReporteG.Location = new System.Drawing.Point(600, 575);
+            this.btReporteG.Location = new System.Drawing.Point(898, 578);
             this.btReporteG.Margin = new System.Windows.Forms.Padding(4);
             this.btReporteG.Name = "btReporteG";
             this.btReporteG.Size = new System.Drawing.Size(230, 44);
             this.btReporteG.TabIndex = 11;
-            this.btReporteG.Text = "Reporte General";
+            this.btReporteG.Text = "Reporte PDF";
             this.btReporteG.UseVisualStyleBackColor = false;
             this.btReporteG.Click += new System.EventHandler(this.btReporteG_Click);
             // 

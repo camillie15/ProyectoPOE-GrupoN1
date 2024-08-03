@@ -48,7 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CtrlAutores.cs" />
     <Compile Include="CtrlPdfCliente.cs" />
+    <Compile Include="CtrlPdfFactura.cs" />
     <Compile Include="CtrlPdfPedido.cs" />
     <Compile Include="CtrlPdfPlato.cs" />
     <Compile Include="CtrlPlato.cs" />

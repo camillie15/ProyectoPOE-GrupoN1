@@ -18,6 +18,13 @@ namespace Modelo
         string motivoA = string.Empty;
         DateTime fecha;
 
+        public Factura(int idFactura, bool estado, string motivoA)
+        {
+            IdFactura = idFactura;
+            Estado = estado;
+            MotivoA = motivoA;
+        }
+
         public Factura(double iva, double total, Pedido pedido, int idFactura, double subtotal, bool estado, string motivoA, DateTime fecha)
         {
             Iva = iva;
