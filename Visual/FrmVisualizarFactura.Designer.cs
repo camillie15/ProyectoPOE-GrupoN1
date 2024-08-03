@@ -46,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btAnular = new System.Windows.Forms.Button();
             this.btReporteG = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -243,26 +242,12 @@
             this.btReporteG.UseVisualStyleBackColor = false;
             this.btReporteG.Click += new System.EventHandler(this.btReporteG_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(448, 559);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(309, 83);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Informe Factura Anuladas";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // FrmVisualizarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
             this.ClientSize = new System.Drawing.Size(1232, 661);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btReporteG);
             this.Controls.Add(this.btAnular);
             this.Controls.Add(this.label3);
@@ -304,6 +289,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColMotivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColFecha;
-        private System.Windows.Forms.Button button1;
     }
 }
