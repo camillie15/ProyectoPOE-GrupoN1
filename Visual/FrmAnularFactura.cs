@@ -81,5 +81,10 @@ namespace Visual
         {
 
         }
+
+        private void txtAnularCodfactura_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

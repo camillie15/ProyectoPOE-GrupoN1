@@ -67,6 +67,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(41, 321);
             this.label11.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label11.Name = "label11";
@@ -88,6 +89,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(303, 70);
             this.label8.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label8.Name = "label8";
@@ -140,11 +142,13 @@
             this.txtAnularCodfactura.Name = "txtAnularCodfactura";
             this.txtAnularCodfactura.Size = new System.Drawing.Size(131, 40);
             this.txtAnularCodfactura.TabIndex = 60;
+            this.txtAnularCodfactura.TextChanged += new System.EventHandler(this.txtAnularCodfactura_TextChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 10.2F);
+            this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(40, 126);
             this.label15.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label15.Name = "label15";
@@ -166,6 +170,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(40, 274);
             this.label10.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label10.Name = "label10";
@@ -177,6 +182,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(41, 224);
             this.label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label7.Name = "label7";
@@ -188,6 +194,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(40, 176);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
@@ -199,6 +206,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(396, 102);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
@@ -211,6 +219,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(41, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
@@ -222,6 +231,7 @@
             // 
             this.lblMotivoA.AutoSize = true;
             this.lblMotivoA.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMotivoA.ForeColor = System.Drawing.Color.White;
             this.lblMotivoA.Location = new System.Drawing.Point(41, 367);
             this.lblMotivoA.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblMotivoA.Name = "lblMotivoA";
@@ -244,6 +254,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(230, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
@@ -254,21 +265,25 @@
             // 
             // btRegistroAnulacion
             // 
+            this.btRegistroAnulacion.BackColor = System.Drawing.Color.Red;
+            this.btRegistroAnulacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btRegistroAnulacion.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btRegistroAnulacion.Location = new System.Drawing.Point(351, 410);
+            this.btRegistroAnulacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btRegistroAnulacion.Location = new System.Drawing.Point(373, 414);
             this.btRegistroAnulacion.Margin = new System.Windows.Forms.Padding(4);
             this.btRegistroAnulacion.Name = "btRegistroAnulacion";
-            this.btRegistroAnulacion.Size = new System.Drawing.Size(156, 44);
+            this.btRegistroAnulacion.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btRegistroAnulacion.Size = new System.Drawing.Size(113, 50);
             this.btRegistroAnulacion.TabIndex = 75;
             this.btRegistroAnulacion.Text = "Anular";
-            this.btRegistroAnulacion.UseVisualStyleBackColor = true;
+            this.btRegistroAnulacion.UseVisualStyleBackColor = false;
             this.btRegistroAnulacion.Click += new System.EventHandler(this.btRegistroAnulacion_Click);
             // 
             // FrmAnularFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(583, 489);
             this.Controls.Add(this.btRegistroAnulacion);
             this.Controls.Add(this.label1);
@@ -293,6 +308,7 @@
             this.Font = new System.Drawing.Font("Verdana", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimizeBox = false;
             this.Name = "FrmAnularFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAnularFactura";

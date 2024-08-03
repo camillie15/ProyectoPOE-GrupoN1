@@ -110,15 +110,5 @@ namespace Visual
             txtIva.Text = ivaText;
             txtTotal.Text = totalText;
         }
-
-        private void FrmIngresarFactura_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btConexionBD_Click(object sender, EventArgs e)
-        {
-            ctrlFactura.ConectarBD();
-        }
     }
 }
