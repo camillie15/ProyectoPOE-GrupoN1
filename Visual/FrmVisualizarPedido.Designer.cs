@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.cmbCampoBusqueda = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnVolverPedido = new System.Windows.Forms.Button();
-            this.btnBuscarPedido = new System.Windows.Forms.Button();
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
             this.idPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientePedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,8 @@
             this.cantPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPdf = new System.Windows.Forms.Button();
+            this.btnVolverPedido = new System.Windows.Forms.Button();
+            this.btnBuscarPedido = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label1.Location = new System.Drawing.Point(435, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 20);
@@ -61,6 +63,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label2.Location = new System.Drawing.Point(196, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 20);
@@ -96,59 +99,27 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label3.Location = new System.Drawing.Point(507, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "->";
             // 
-            // btnVolverPedido
-            // 
-            this.btnVolverPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolverPedido.Image = global::Visual.Properties.Resources.imgVolver;
-            this.btnVolverPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolverPedido.Location = new System.Drawing.Point(393, 503);
-            this.btnVolverPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVolverPedido.Name = "btnVolverPedido";
-            this.btnVolverPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnVolverPedido.Size = new System.Drawing.Size(145, 50);
-            this.btnVolverPedido.TabIndex = 7;
-            this.btnVolverPedido.Text = "Volver";
-            this.btnVolverPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVolverPedido.UseVisualStyleBackColor = true;
-            this.btnVolverPedido.Click += new System.EventHandler(this.btnVolverPedido_Click);
-            // 
-            // btnBuscarPedido
-            // 
-            this.btnBuscarPedido.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarPedido.Image = global::Visual.Properties.Resources.imgBuscar;
-            this.btnBuscarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarPedido.Location = new System.Drawing.Point(749, 59);
-            this.btnBuscarPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnBuscarPedido.Name = "btnBuscarPedido";
-            this.btnBuscarPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnBuscarPedido.Size = new System.Drawing.Size(145, 50);
-            this.btnBuscarPedido.TabIndex = 5;
-            this.btnBuscarPedido.Text = "Buscar ";
-            this.btnBuscarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarPedido.UseVisualStyleBackColor = false;
-            this.btnBuscarPedido.Click += new System.EventHandler(this.btnBuscarPedido_Click);
-            // 
             // dgvPedidos
             // 
             this.dgvPedidos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dgvPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
+            this.dgvPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
             this.dgvPedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idPedido,
@@ -156,20 +127,22 @@
             this.menuPedido,
             this.cantPedido,
             this.valorPedido});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPedidos.Location = new System.Drawing.Point(61, 128);
             this.dgvPedidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
             this.dgvPedidos.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPedidos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPedidos.RowTemplate.Height = 24;
             this.dgvPedidos.Size = new System.Drawing.Size(1037, 332);
             this.dgvPedidos.TabIndex = 8;
@@ -216,23 +189,64 @@
             // 
             // btnPdf
             // 
-            this.btnPdf.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPdf.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPdf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnPdf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPdf.Location = new System.Drawing.Point(570, 503);
+            this.btnPdf.Location = new System.Drawing.Point(555, 503);
             this.btnPdf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnPdf.Size = new System.Drawing.Size(145, 50);
+            this.btnPdf.Size = new System.Drawing.Size(175, 50);
             this.btnPdf.TabIndex = 9;
             this.btnPdf.Text = "Generar Pdf";
-            this.btnPdf.UseVisualStyleBackColor = true;
+            this.btnPdf.UseVisualStyleBackColor = false;
             this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
+            // 
+            // btnVolverPedido
+            // 
+            this.btnVolverPedido.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnVolverPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolverPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolverPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnVolverPedido.Image = global::Visual.Properties.Resources.imgVolver;
+            this.btnVolverPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolverPedido.Location = new System.Drawing.Point(393, 503);
+            this.btnVolverPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVolverPedido.Name = "btnVolverPedido";
+            this.btnVolverPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnVolverPedido.Size = new System.Drawing.Size(145, 50);
+            this.btnVolverPedido.TabIndex = 7;
+            this.btnVolverPedido.Text = "Volver";
+            this.btnVolverPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVolverPedido.UseVisualStyleBackColor = false;
+            this.btnVolverPedido.Click += new System.EventHandler(this.btnVolverPedido_Click);
+            // 
+            // btnBuscarPedido
+            // 
+            this.btnBuscarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnBuscarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnBuscarPedido.Image = global::Visual.Properties.Resources.imgBuscar;
+            this.btnBuscarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarPedido.Location = new System.Drawing.Point(749, 59);
+            this.btnBuscarPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscarPedido.Name = "btnBuscarPedido";
+            this.btnBuscarPedido.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBuscarPedido.Size = new System.Drawing.Size(145, 50);
+            this.btnBuscarPedido.TabIndex = 5;
+            this.btnBuscarPedido.Text = "Buscar ";
+            this.btnBuscarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarPedido.UseVisualStyleBackColor = false;
+            this.btnBuscarPedido.Click += new System.EventHandler(this.btnBuscarPedido_Click);
             // 
             // FrmVisualizarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(1179, 574);
             this.Controls.Add(this.btnPdf);
             this.Controls.Add(this.dgvPedidos);

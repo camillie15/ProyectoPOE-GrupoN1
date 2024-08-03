@@ -40,6 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label1.Location = new System.Drawing.Point(235, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(320, 20);
@@ -49,7 +50,10 @@
             // 
             // btnVolverOA
             // 
-            this.btnVolverOA.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolverOA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
+            this.btnVolverOA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVolverOA.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolverOA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnVolverOA.Image = global::Visual.Properties.Resources.imgVolver;
             this.btnVolverOA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVolverOA.Location = new System.Drawing.Point(318, 341);
@@ -59,12 +63,15 @@
             this.btnVolverOA.TabIndex = 5;
             this.btnVolverOA.Text = "Volver";
             this.btnVolverOA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVolverOA.UseVisualStyleBackColor = true;
+            this.btnVolverOA.UseVisualStyleBackColor = false;
             this.btnVolverOA.Click += new System.EventHandler(this.btnVolverOA_Click);
             // 
             // btnPlatoOA
             // 
-            this.btnPlatoOA.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlatoOA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnPlatoOA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlatoOA.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlatoOA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnPlatoOA.Image = global::Visual.Properties.Resources.imgPlato;
             this.btnPlatoOA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPlatoOA.Location = new System.Drawing.Point(424, 215);
@@ -74,12 +81,15 @@
             this.btnPlatoOA.TabIndex = 3;
             this.btnPlatoOA.Text = "Plato";
             this.btnPlatoOA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPlatoOA.UseVisualStyleBackColor = true;
+            this.btnPlatoOA.UseVisualStyleBackColor = false;
             this.btnPlatoOA.Click += new System.EventHandler(this.btnPlatoOA_Click);
             // 
             // btnVisualizarFactura
             // 
-            this.btnVisualizarFactura.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualizarFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnVisualizarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisualizarFactura.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualizarFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnVisualizarFactura.Image = global::Visual.Properties.Resources.imgFactura;
             this.btnVisualizarFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVisualizarFactura.Location = new System.Drawing.Point(174, 215);
@@ -89,12 +99,15 @@
             this.btnVisualizarFactura.TabIndex = 2;
             this.btnVisualizarFactura.Text = "Visualizar\nFactura";
             this.btnVisualizarFactura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVisualizarFactura.UseVisualStyleBackColor = true;
+            this.btnVisualizarFactura.UseVisualStyleBackColor = false;
             this.btnVisualizarFactura.Click += new System.EventHandler(this.btnVisualizarFactura_Click);
             // 
             // btnVisualizarPedido
             // 
-            this.btnVisualizarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualizarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnVisualizarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisualizarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualizarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnVisualizarPedido.Image = global::Visual.Properties.Resources.imgPedidoOAA;
             this.btnVisualizarPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVisualizarPedido.Location = new System.Drawing.Point(424, 90);
@@ -104,12 +117,15 @@
             this.btnVisualizarPedido.TabIndex = 1;
             this.btnVisualizarPedido.Text = "Visualizar\nPedido";
             this.btnVisualizarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVisualizarPedido.UseVisualStyleBackColor = true;
+            this.btnVisualizarPedido.UseVisualStyleBackColor = false;
             this.btnVisualizarPedido.Click += new System.EventHandler(this.btnVisualizarPedido_Click);
             // 
             // btnVisualizarCliente
             // 
-            this.btnVisualizarCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualizarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnVisualizarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisualizarCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualizarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnVisualizarCliente.Image = global::Visual.Properties.Resources.imgCliente;
             this.btnVisualizarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVisualizarCliente.Location = new System.Drawing.Point(174, 90);
@@ -119,14 +135,14 @@
             this.btnVisualizarCliente.TabIndex = 0;
             this.btnVisualizarCliente.Text = "Visualizar\nCliente";
             this.btnVisualizarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVisualizarCliente.UseVisualStyleBackColor = true;
+            this.btnVisualizarCliente.UseVisualStyleBackColor = false;
             this.btnVisualizarCliente.Click += new System.EventHandler(this.btnVisualizarCliente_Click);
             // 
-            // OpcionesAdministracion
+            // FrmOpcionesAdministracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(800, 434);
             this.Controls.Add(this.btnVolverOA);
             this.Controls.Add(this.label1);
@@ -135,7 +151,7 @@
             this.Controls.Add(this.btnVisualizarPedido);
             this.Controls.Add(this.btnVisualizarCliente);
             this.MaximizeBox = false;
-            this.Name = "OpcionesAdministracion";
+            this.Name = "FrmOpcionesAdministracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Opciones Administracion";
             this.ResumeLayout(false);

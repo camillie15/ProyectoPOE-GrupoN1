@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.dgvIngresoPedido = new System.Windows.Forms.DataGridView();
             this.descripcionPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,16 +67,16 @@
             // 
             // dgvIngresoPedido
             // 
-            this.dgvIngresoPedido.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.dgvIngresoPedido.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
             this.dgvIngresoPedido.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIngresoPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIngresoPedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvIngresoPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIngresoPedido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.descripcionPedido,
@@ -122,20 +122,24 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnCancelar.Location = new System.Drawing.Point(548, 478);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(156, 44);
             this.btnCancelar.TabIndex = 36;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label9.Location = new System.Drawing.Point(92, 28);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(174, 20);
@@ -144,26 +148,32 @@
             // 
             // btnAggPedido
             // 
-            this.btnAggPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggPedido.Location = new System.Drawing.Point(787, 164);
+            this.btnAggPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnAggPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAggPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAggPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnAggPedido.Location = new System.Drawing.Point(757, 163);
             this.btnAggPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAggPedido.Name = "btnAggPedido";
-            this.btnAggPedido.Size = new System.Drawing.Size(105, 44);
+            this.btnAggPedido.Size = new System.Drawing.Size(120, 44);
             this.btnAggPedido.TabIndex = 34;
             this.btnAggPedido.Text = "Agregar";
-            this.btnAggPedido.UseVisualStyleBackColor = true;
+            this.btnAggPedido.UseVisualStyleBackColor = false;
             this.btnAggPedido.Click += new System.EventHandler(this.btnAggPedido_Click);
             // 
             // btnContinuarPedido
             // 
-            this.btnContinuarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinuarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnContinuarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinuarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContinuarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnContinuarPedido.Location = new System.Drawing.Point(358, 478);
             this.btnContinuarPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnContinuarPedido.Name = "btnContinuarPedido";
             this.btnContinuarPedido.Size = new System.Drawing.Size(156, 44);
             this.btnContinuarPedido.TabIndex = 33;
             this.btnContinuarPedido.Text = "Continuar";
-            this.btnContinuarPedido.UseVisualStyleBackColor = true;
+            this.btnContinuarPedido.UseVisualStyleBackColor = false;
             this.btnContinuarPedido.Click += new System.EventHandler(this.btnContinuarPedido_Click);
             // 
             // txtTotPedido
@@ -180,6 +190,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label8.Location = new System.Drawing.Point(550, 432);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(169, 20);
@@ -200,6 +211,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label7.Location = new System.Drawing.Point(259, 432);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(157, 20);
@@ -209,7 +221,7 @@
             // txtCantItem
             // 
             this.txtCantItem.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantItem.Location = new System.Drawing.Point(703, 174);
+            this.txtCantItem.Location = new System.Drawing.Point(669, 173);
             this.txtCantItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCantItem.MaxLength = 1;
             this.txtCantItem.Name = "txtCantItem";
@@ -220,7 +232,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(600, 176);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.label5.Location = new System.Drawing.Point(569, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 27;
@@ -230,6 +243,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label4.Location = new System.Drawing.Point(108, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
@@ -245,13 +259,14 @@
             this.cmbPedido.Location = new System.Drawing.Point(185, 173);
             this.cmbPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbPedido.Name = "cmbPedido";
-            this.cmbPedido.Size = new System.Drawing.Size(375, 28);
+            this.cmbPedido.Size = new System.Drawing.Size(365, 28);
             this.cmbPedido.TabIndex = 25;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label3.Location = new System.Drawing.Point(108, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 20);
@@ -272,6 +287,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label1.Location = new System.Drawing.Point(342, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 20);
@@ -282,6 +298,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.label2.Location = new System.Drawing.Point(108, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 20);
@@ -290,21 +307,24 @@
             // 
             // btnEliminarMenu
             // 
-            this.btnEliminarMenu.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarMenu.Location = new System.Drawing.Point(904, 163);
+            this.btnEliminarMenu.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnEliminarMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarMenu.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnEliminarMenu.Location = new System.Drawing.Point(883, 163);
             this.btnEliminarMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarMenu.Name = "btnEliminarMenu";
-            this.btnEliminarMenu.Size = new System.Drawing.Size(105, 44);
+            this.btnEliminarMenu.Size = new System.Drawing.Size(114, 44);
             this.btnEliminarMenu.TabIndex = 39;
             this.btnEliminarMenu.Text = "Eliminar";
-            this.btnEliminarMenu.UseVisualStyleBackColor = true;
+            this.btnEliminarMenu.UseVisualStyleBackColor = false;
             this.btnEliminarMenu.Click += new System.EventHandler(this.btnEliminarMenu_Click);
             // 
             // FrmEditarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(1100, 550);
             this.Controls.Add(this.btnEliminarMenu);
             this.Controls.Add(this.cmbCliente);

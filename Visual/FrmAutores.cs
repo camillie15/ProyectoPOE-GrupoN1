@@ -26,7 +26,7 @@ namespace Visual
 
         private void CreateComponents()
         {
-            this.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.BackColor = Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new Size(800, 600);
             this.Text = "Autores";
@@ -35,10 +35,14 @@ namespace Visual
             lblAutores.Text = "Autores Proyecto POE: ";
             lblAutores.Size = new Size(175, 20);
             lblAutores.Location = new Point(20, 20);
+            lblAutores.ForeColor = Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            lblAutores.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             lblBuscar = new Label();
             lblBuscar.Text = "Modulo a Buscar:";
-            lblBuscar.Location = new Point(40, 50);
+            lblBuscar.Location = new Point(40, 53);
+            lblBuscar.ForeColor = Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            lblBuscar.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             cmbModulos = new ComboBox();
             string[] modulos = new string[] { "Pedido", "Cliente", "Plato", "Factura", "TODOS" };
@@ -47,21 +51,27 @@ namespace Visual
                 cmbModulos.Items.Add(mod);
 
             }
-            cmbModulos.Location = new Point(140, 50);
+            cmbModulos.Location = new Point(140, 53);
             cmbModulos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbModulos.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             btnBuscar = new Button();
             btnBuscar.Text = "Buscar";
+            btnBuscar.Size = new System.Drawing.Size(130, 30);
             btnBuscar.Location = new Point(300, 50);
             btnBuscar.Click += BtnBuscar_Click;
+            btnBuscar.BackColor = Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ForeColor = Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            btnBuscar.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             dgvAutores = new DataGridView();
             dgvAutores.Location = new Point(70, 100);
             dgvAutores.Size = new Size(645, 425);
             dgvAutores.AllowUserToAddRows = false;
-            dgvAutores.BackgroundColor = Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(192)))), ((int)(((byte)(179)))));
             dgvAutores.BorderStyle = BorderStyle.Fixed3D;
             dgvAutores.RowTemplate.Height = 100;
+            dgvAutores.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             DataGridViewTextBoxColumn nombres = new DataGridViewTextBoxColumn();
             nombres.HeaderText = "Nombres";
