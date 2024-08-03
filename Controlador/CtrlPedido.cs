@@ -64,9 +64,8 @@ namespace Controlador
                 PlatosPedidos.Add(menuSeleccionado);
                 if (tipo.ToLower().Equals("editar"))
                 {
-                    //itemsPedidoAgg.Add(menuSeleccionado);
                     string msjMP = datosPlatoPedido.IngresarPlatoPedido(menuSeleccionado);
-                    MessageBox.Show(msjMP);
+                    //MessageBox.Show(msjMP);
                 }
                 int i = dgvIngresoPedido.Rows.Add();
                 dgvIngresoPedido.Rows[i].Cells["descripcionPedido"].Value = descripcionPed;
@@ -142,11 +141,11 @@ namespace Controlador
                         {
                             platoSeleccionado.IdPedido = ListaPedidosDB[ListaPedidosDB.Count - 1].CodPedido;
                             string msjMP = datosPlatoPedido.IngresarPlatoPedido(platoSeleccionado);
-                            MessageBox.Show(msjMP);
+                            //MessageBox.Show(msjMP);
                         }
                         listaPedidosDB = datosPedido.ConsultarPedidos();
                     }
-                    MessageBox.Show(msj);
+                    //MessageBox.Show(msj);
 
                     flag = true;
                 }
