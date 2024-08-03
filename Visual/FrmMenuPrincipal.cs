@@ -16,8 +16,13 @@ namespace Visual
         public FrmMenuPrincipal()
         {
             InitializeComponent();
-        }
+            this.Activated += new EventHandler(this.FrmMenuPrincipal_Activated);
 
+        }
+        private void FrmMenuPrincipal_Activated(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
         private void btnMenuPedido_Click(object sender, EventArgs e)
         {
             FrmIngresarPedido ingresarPedido = new FrmIngresarPedido();
@@ -38,6 +43,9 @@ namespace Visual
 
         private void btnAutores_Click(object sender, EventArgs e)
         {
+            FrmAutores frmAutores = new FrmAutores();
+            frmAutores.ShowDialog();
         }
+
     }
 }
