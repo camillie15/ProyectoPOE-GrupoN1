@@ -15,7 +15,7 @@ namespace Controlador
         DatosPlato dplato = new DatosPlato();
         Conexion cnBDD = new Conexion();
         static List<Plato> listaPlatos = new List<Plato>();
-        CtrlConversiones validacion = new CtrlConversiones();    
+        CtrlConversiones validacion = new CtrlConversiones();
 
         public void IngresarPlato(string nombre, string descripcion, string precioStr, string estadoStr)
         {
@@ -125,6 +125,33 @@ namespace Controlador
             }
         }
 
+        public void LlenarPorNombre(DataGridView dgvVisualizarPlato, string nombreFiltro)
+        {
+            int i = 0;
+            dgvVisualizarPlato.Rows.Clear();
+            listaPlatos = SeleccionarPlato();
+            IEnumerable<Plato> platosFiltrados = listaPlatos
+                .Where(p => p.Nombre.IndexOf(nombreFiltro, StringComparison.OrdinalIgnoreCase) >= 0 && p.EstadoLogico);
+
+            if (!platosFiltrados.Any())
+            {
+                MessageBox.Show("Plato no encontrado.");
+            }
+            else
+            {
+                foreach (Plato p in platosFiltrados)
+                {
+                    i = dgvVisualizarPlato.Rows.Add();
+                    dgvVisualizarPlato.Rows[i].Cells["clmNum"].Value = i + 1;
+                    dgvVisualizarPlato.Rows[i].Cells["clmIdPlato"].Value = p.IdPlato;
+                    dgvVisualizarPlato.Rows[i].Cells["clmNombre"].Value = p.Nombre;
+                    dgvVisualizarPlato.Rows[i].Cells["clmDescripcion"].Value = p.Descripcion;
+                    dgvVisualizarPlato.Rows[i].Cells["clmPrecio"].Value = p.Precio;
+                    dgvVisualizarPlato.Rows[i].Cells["clmEstado"].Value = p.Estado ? "Disponibles" : "Agotados";
+                }
+            }
+        }
+
         public void Llenar(DataGridView dgvVisualizarPlato, bool mostrarTodos = true, string estadoFiltrar = "")
         {
             int i = 0;
@@ -134,15 +161,15 @@ namespace Controlador
 
             if (mostrarTodos)
             {
-                platosFiltrados = listaPlatos.Where(p => p.EstadoLogico); 
+                platosFiltrados = listaPlatos.Where(p => p.EstadoLogico);
             }
             else if (estadoFiltrar.Equals("Disponibles", StringComparison.OrdinalIgnoreCase))
             {
-                platosFiltrados = listaPlatos.Where(p => p.Estado && p.EstadoLogico); 
+                platosFiltrados = listaPlatos.Where(p => p.Estado && p.EstadoLogico);
             }
             else if (estadoFiltrar.Equals("Agotados", StringComparison.OrdinalIgnoreCase))
             {
-                platosFiltrados = listaPlatos.Where(p => !p.Estado && p.EstadoLogico); 
+                platosFiltrados = listaPlatos.Where(p => !p.Estado && p.EstadoLogico);
             }
             else
             {

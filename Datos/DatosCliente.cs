@@ -26,11 +26,11 @@ namespace Datos
                 cmd.CommandText = comando;
                 cmd.ExecuteNonQuery();
                 cn.Desconectar();
-                return "Se pudo registrar";
+                return "Cliente registrado satisfacoriamente";
             }
             catch (SqlException ex)
             {
-                return $"No se pudo registrar {ex}";
+                return $"No se pudo registrar el cliente\n {ex}";
             }
         }
 
