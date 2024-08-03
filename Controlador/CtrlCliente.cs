@@ -36,7 +36,7 @@ namespace Controlador
                 {
                     cliente = new Cliente(sNombre, sApellido, sCedula, edad, sEmail, true, 0, sDireccion);
                     string mensaje = dCliente.IngresarCliente(cliente);
-                    MessageBox.Show($"{mensaje}");
+                    MessageBox.Show($"{mensaje}", "Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     flag = true;
                 }
                 else if (list.Count == 0)
