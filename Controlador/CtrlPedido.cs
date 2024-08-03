@@ -145,7 +145,7 @@ namespace Controlador
                         }
                         listaPedidosDB = datosPedido.ConsultarPedidos();
                     }
-                    //MessageBox.Show(msj);
+                    MessageBox.Show(msj);
 
                     flag = true;
                 }

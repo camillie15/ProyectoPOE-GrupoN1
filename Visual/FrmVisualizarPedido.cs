@@ -42,5 +42,6 @@ namespace Visual
             txtBusqueda.Clear();
 
         }
+
     }
 }

@@ -26,7 +26,7 @@ namespace Datos
                 cmd.CommandText = comando;
                 cmd.ExecuteNonQuery();
                 cn.Desconectar();
-                return "Pedido ingresado en la DB de manera exitosa";
+                return "Pedido ingresado de manera exitosa";
             }
             catch (SqlException ex)
             {

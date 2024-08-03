@@ -71,7 +71,9 @@ namespace Visual
             dgvAutores.AllowUserToAddRows = false;
             dgvAutores.BorderStyle = BorderStyle.Fixed3D;
             dgvAutores.RowTemplate.Height = 100;
-            dgvAutores.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dgvAutores.Font = new Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dgvAutores.BackgroundColor = Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
+            dgvAutores.BorderStyle = BorderStyle.Fixed3D;
 
             DataGridViewTextBoxColumn nombres = new DataGridViewTextBoxColumn();
             nombres.HeaderText = "Nombres";
