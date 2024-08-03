@@ -21,7 +21,7 @@ namespace Visual
         {
             InitializeComponent();
             this.visualizarFactura = visualizarFactura;
-            ctrlFactura.llenarTxt(txtContenido, txtAnularSubtotal, txtAnularCliente);
+            ctrlFactura.llenarTxt(txtAnularContenido, txtAnularSubtotal, txtAnularCliente);
 
             this.txtAnularCodfactura.Text = idFactura.ToString();
             txtAnularIva.Text = iva.ToString();

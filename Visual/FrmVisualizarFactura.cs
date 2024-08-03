@@ -14,6 +14,7 @@ namespace Visual
     public partial class FrmVisualizarFactura : Form
     {
         CtrlFactura ctrlFactura = new CtrlFactura();
+        CtrlPdfFactura ctrlPdfFactura = new CtrlPdfFactura();
         public FrmVisualizarFactura()
         {
             InitializeComponent();
@@ -63,48 +64,15 @@ namespace Visual
 
         public void ActualizarData()
         {
+            dgvFactura.Rows.Clear();
             ctrlFactura.LlenaGrid(dgvFactura);
             dgvFactura.DataSource = null;
-
         }
 
         private void btReporteG_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int mesActual = DateTime.Now.Month;
-                int añoActual = DateTime.Now.Year;
-
-                DateTime formatFecha = new DateTime(añoActual, mesActual, 1);
-                double totalFacturasActivas = 0;
-                string reporte = "REPORTE GENERAL \n\n";
-                string fechaR = $" Facturas de {formatFecha.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"))}\n\n";
-
-                foreach (DataGridViewRow row in dgvFactura.Rows)
-                {
-                    string cliente = row.Cells["ColCedula"].Value.ToString();
-                    DateTime fechaFactura = Convert.ToDateTime(row.Cells["ColFecha"].Value);
-                    string estadoSt = row.Cells["ColEstado"].Value.ToString();
-                    bool estadoFactura = estadoSt == "Activo";
-                    double totalFactura = Convert.ToDouble(row.Cells["ColTotal"].Value);
-
-                    if (fechaFactura.Month == mesActual && fechaFactura.Year == añoActual && estadoSt != "Anulado")
-                    {
-                        reporte += $"ID: {row.Cells["ColIdFactura"].Value}, Cliente: {cliente}, Total: {totalFactura}, Estado: {(estadoFactura ? "Activo" : "Anulado")}\n";
-
-                        if (estadoFactura)
-                        {
-                            totalFacturasActivas += totalFactura;
-                        }
-                    }
-                }
-                reporte += $"\n TOTAL FACTURAS EMITIDAS: {totalFacturasActivas}";
-                MessageBox.Show(fechaR + reporte, "REPORTE GENERAL", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al generar el reporte: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            ctrlPdfFactura.GenerarPDF(dgvFactura);
+            ctrlPdfFactura.AbrirPDF();
         }
 
     }

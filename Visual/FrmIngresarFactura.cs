@@ -63,12 +63,22 @@ namespace Visual
         {
             try
             {
-                txtDevolucion.Text = (decimal.Parse(txtEfectivo.Text) - decimal.Parse(txtTotal.Text)).ToString();
-            }
-            catch { }
+                decimal efectivo = decimal.Parse(txtEfectivo.Text);
+                decimal total = decimal.Parse(txtTotal.Text);
 
-            if (txtEfectivo.Text == "")
+                if (efectivo < total)
+                {
+                    MessageBox.Show("Valor incorrecto. El efectivo no puede ser menor que el total.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDevolucion.Text = "";
+                }
+                else
+                {
+                    txtDevolucion.Text = (efectivo - total).ToString();
+                }
+            }
+            catch (FormatException)
             {
+                MessageBox.Show("Valor incorrecto. Ingrese un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDevolucion.Text = "";
             }
         }
