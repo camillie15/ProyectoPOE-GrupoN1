@@ -134,7 +134,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.LightSalmon;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(548, 478);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
@@ -160,7 +160,7 @@
             this.btnAggPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
             this.btnAggPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAggPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAggPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnAggPedido.ForeColor = System.Drawing.Color.White;
             this.btnAggPedido.Location = new System.Drawing.Point(757, 163);
             this.btnAggPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAggPedido.Name = "btnAggPedido";
@@ -175,7 +175,7 @@
             this.btnContinuarPedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
             this.btnContinuarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinuarPedido.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContinuarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnContinuarPedido.ForeColor = System.Drawing.Color.White;
             this.btnContinuarPedido.Location = new System.Drawing.Point(358, 478);
             this.btnContinuarPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnContinuarPedido.Name = "btnContinuarPedido";
@@ -319,7 +319,7 @@
             this.btnEliminarMenu.BackColor = System.Drawing.Color.Red;
             this.btnEliminarMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarMenu.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
+            this.btnEliminarMenu.ForeColor = System.Drawing.Color.White;
             this.btnEliminarMenu.Location = new System.Drawing.Point(883, 163);
             this.btnEliminarMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarMenu.Name = "btnEliminarMenu";
