@@ -111,7 +111,7 @@ namespace Controlador
             }
             else
             {
-                MessageBox.Show("Ingrese algun campo a buscar");
+                MessageBox.Show("Ingrese algun campo a buscar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btn.Enabled = true;
             }
 

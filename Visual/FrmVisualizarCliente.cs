@@ -83,10 +83,19 @@ namespace Visual
         {
             if (dgvCliente.SelectedRows.Count > 0)
             {
-                DataGridViewRow filaSeleccionada = dgvCliente.SelectedRows[0];
-                int id = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
-                ctrCliente.eliminarCliente(id);
-                ActualizarDataGridView();
+                DialogResult result = MessageBox.Show("¿Está seguro de que desea continuar?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    DataGridViewRow filaSeleccionada = dgvCliente.SelectedRows[0];
+                    int id = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
+                    ctrCliente.eliminarCliente(id);
+                    ActualizarDataGridView();
+                }
+                else
+                {
+
+                }
+
             }
             else
             {

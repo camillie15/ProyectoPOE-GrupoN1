@@ -51,6 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(153, 63);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -61,6 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(56, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 17);
@@ -71,6 +73,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(259, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(289, 17);
@@ -99,11 +102,13 @@
             // 
             // btnBuscarFiltro
             // 
-            this.btnBuscarFiltro.BackColor = System.Drawing.Color.FloralWhite;
-            this.btnBuscarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnBuscarFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnBuscarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnBuscarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBuscarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
             this.btnBuscarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarFiltro.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarFiltro.ForeColor = System.Drawing.Color.White;
             this.btnBuscarFiltro.Image = global::Visual.Properties.Resources.imgBuscar;
             this.btnBuscarFiltro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarFiltro.Location = new System.Drawing.Point(526, 66);
@@ -118,7 +123,7 @@
             // 
             // dgvCliente
             // 
-            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(210)))), ((int)(((byte)(185)))));
+            this.dgvCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
             this.dgvCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -180,6 +185,7 @@
             // cbConfirmacion
             // 
             this.cbConfirmacion.AutoSize = true;
+            this.cbConfirmacion.ForeColor = System.Drawing.Color.White;
             this.cbConfirmacion.Location = new System.Drawing.Point(338, 63);
             this.cbConfirmacion.Name = "cbConfirmacion";
             this.cbConfirmacion.Size = new System.Drawing.Size(75, 21);
@@ -189,11 +195,13 @@
             // 
             // btnPdf
             // 
-            this.btnPdf.BackColor = System.Drawing.Color.FloralWhite;
-            this.btnPdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(115)))), ((int)(((byte)(142)))));
+            this.btnPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(209)))), ((int)(((byte)(120)))));
+            this.btnPdf.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(223)))));
             this.btnPdf.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnPdf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
             this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPdf.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPdf.ForeColor = System.Drawing.Color.White;
             this.btnPdf.Location = new System.Drawing.Point(645, 66);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Size = new System.Drawing.Size(113, 50);
@@ -206,7 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(797, 452);
             this.Controls.Add(this.btnPdf);
             this.Controls.Add(this.cbConfirmacion);
@@ -218,6 +226,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmFiltroCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

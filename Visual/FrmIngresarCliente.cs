@@ -43,18 +43,18 @@ namespace Visual
                     }
                     else
                     {
-                        MessageBox.Show("Ya existe un usuario con este numero de cedula");
+                        MessageBox.Show("Ya existe un usuario con este numero de cedula", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar 10 digitos en CI!!!");
+                    MessageBox.Show("Debe ingresar 10 digitos en CI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
             else
             {
-                MessageBox.Show("No puede dejar campos * vacios!!!");
+                MessageBox.Show("No puede dejar campos vacios", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
