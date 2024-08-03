@@ -77,14 +77,23 @@ namespace Visual
             ctrlPlato.Llenar(dgvVisualizarPlato, mostrarTodos, estadoFiltrar);
         }
 
+        private void btnBuscarNombre_Click(object sender, EventArgs e)
+        {
+            string nombreFiltro = txtCampoNombre.Text.Trim();
+            if (!string.IsNullOrEmpty(nombreFiltro))
+            {
+                CtrlPlato controlador = new CtrlPlato();
+                controlador.LlenarPorNombre(dgvVisualizarPlato, nombreFiltro);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese un nombre para filtrar.");
+            }
+        }
+
         public void ActualizarDataGridView()
         {
             ctrlPlato.Llenar(dgvVisualizarPlato);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ctrlPlato.ComprobarConexion();
         }
 
         private void btnGenerarPdf_Click(object sender, EventArgs e)
