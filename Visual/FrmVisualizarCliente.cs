@@ -105,9 +105,17 @@ namespace Visual
 
         private void btnPdfCliente_Click(object sender, EventArgs e)
         {
-            CtrlPdfCliente pdf = new CtrlPdfCliente();
-            pdf.GenerarPdf(dgvCliente, "Cliente.pdf");
-            pdf.AbrirPdf("Cliente.pdf");
+
+            if (dgvCliente.Rows.Count != 0 && dgvCliente.Rows[0].Cells[0].Value != null)
+            {
+                CtrlPdfCliente ctrlPdfCliente = new CtrlPdfCliente();
+                ctrlPdfCliente.GenerarPdf(dgvCliente, "Cliente.pdf");
+                ctrlPdfCliente.AbrirPdf("Cliente.pdf");
+            }
+            else
+            {
+                MessageBox.Show("No hay niguna fila para generar PDF", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

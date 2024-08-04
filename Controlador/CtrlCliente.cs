@@ -105,7 +105,7 @@ namespace Controlador
                 }
                 else
                 {
-                    MessageBox.Show("No se encontro ningun cliente con la informacion proporcionada");
+                    MessageBox.Show("No se encontro ningun cliente con la informacion proporcionada", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 btn.Enabled = true;
             }
@@ -170,7 +170,7 @@ namespace Controlador
                 else
                 {
                     dvg.Rows.Clear();
-                    MessageBox.Show("No se encontro ningun cliente con la informacion proporcionada");
+                    MessageBox.Show("No se encontro ningun cliente con la informacion proporcionada" , "Caution", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else

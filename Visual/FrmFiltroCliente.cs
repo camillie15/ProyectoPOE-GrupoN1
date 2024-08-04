@@ -17,6 +17,7 @@ namespace Visual
         public FrmFiltroCliente()
         {
             InitializeComponent();
+            dgvCliente.Rows.Clear();
         }
 
         private void btnBuscarFiltro_Click(object sender, EventArgs e)
@@ -36,9 +37,17 @@ namespace Visual
         private void btnPdf_Click(object sender, EventArgs e)
         {
             string namePdf = "Filtro Espacial clientes.pdf";
-            CtrlPdfCliente ctrlPdfCliente = new CtrlPdfCliente();
-            ctrlPdfCliente.GenerarPdf(dgvCliente, namePdf);
-            ctrlPdfCliente.AbrirPdf(namePdf);
+            if (dgvCliente.Rows.Count != 0 && dgvCliente.Rows[0].Cells[0].Value != null)
+            {
+                CtrlPdfCliente ctrlPdfCliente = new CtrlPdfCliente();
+                ctrlPdfCliente.GenerarPdf(dgvCliente, namePdf);
+                ctrlPdfCliente.AbrirPdf(namePdf);
+            }
+            else
+            {
+                MessageBox.Show("No hay niguna fila para generar PDF", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
