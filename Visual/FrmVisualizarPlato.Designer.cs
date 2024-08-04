@@ -32,12 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvVisualizarPlato = new System.Windows.Forms.DataGridView();
-            this.clmIdPlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.btnPlatoBaja = new System.Windows.Forms.Button();
             this.btnEditarPlato = new System.Windows.Forms.Button();
@@ -51,6 +45,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCampoNombre = new System.Windows.Forms.TextBox();
             this.btnBuscarNombre = new System.Windows.Forms.Button();
+            this.clmIdPlato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisualizarPlato)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,43 +95,6 @@
             this.dgvVisualizarPlato.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvVisualizarPlato.Size = new System.Drawing.Size(838, 291);
             this.dgvVisualizarPlato.TabIndex = 22;
-            // 
-            // clmIdPlato
-            // 
-            this.clmIdPlato.HeaderText = "ID Plato";
-            this.clmIdPlato.Name = "clmIdPlato";
-            this.clmIdPlato.ReadOnly = true;
-            this.clmIdPlato.Visible = false;
-            // 
-            // ClmNum
-            // 
-            this.ClmNum.HeaderText = "Num";
-            this.ClmNum.Name = "ClmNum";
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "Nombre";
-            this.clmNombre.Name = "clmNombre";
-            this.clmNombre.ReadOnly = true;
-            // 
-            // clmDescripcion
-            // 
-            this.clmDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmDescripcion.HeaderText = "Descripcion";
-            this.clmDescripcion.Name = "clmDescripcion";
-            this.clmDescripcion.ReadOnly = true;
-            // 
-            // clmPrecio
-            // 
-            this.clmPrecio.HeaderText = "Precio";
-            this.clmPrecio.Name = "clmPrecio";
-            this.clmPrecio.ReadOnly = true;
-            // 
-            // clmEstado
-            // 
-            this.clmEstado.HeaderText = "Condicion";
-            this.clmEstado.Name = "clmEstado";
-            this.clmEstado.ReadOnly = true;
             // 
             // label3
             // 
@@ -312,6 +275,43 @@
             this.btnBuscarNombre.UseVisualStyleBackColor = false;
             this.btnBuscarNombre.Click += new System.EventHandler(this.btnBuscarNombre_Click);
             // 
+            // clmIdPlato
+            // 
+            this.clmIdPlato.HeaderText = "ID Plato";
+            this.clmIdPlato.Name = "clmIdPlato";
+            this.clmIdPlato.ReadOnly = true;
+            this.clmIdPlato.Visible = false;
+            // 
+            // ClmNum
+            // 
+            this.ClmNum.HeaderText = "ID";
+            this.ClmNum.Name = "ClmNum";
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "Nombre";
+            this.clmNombre.Name = "clmNombre";
+            this.clmNombre.ReadOnly = true;
+            // 
+            // clmDescripcion
+            // 
+            this.clmDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmDescripcion.HeaderText = "Descripcion";
+            this.clmDescripcion.Name = "clmDescripcion";
+            this.clmDescripcion.ReadOnly = true;
+            // 
+            // clmPrecio
+            // 
+            this.clmPrecio.HeaderText = "Precio";
+            this.clmPrecio.Name = "clmPrecio";
+            this.clmPrecio.ReadOnly = true;
+            // 
+            // clmEstado
+            // 
+            this.clmEstado.HeaderText = "Condicion";
+            this.clmEstado.Name = "clmEstado";
+            this.clmEstado.ReadOnly = true;
+            // 
             // FrmVisualizarPlato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,15 +354,15 @@
         private System.Windows.Forms.ComboBox cmbCampoBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGenerarPdf;
+        private System.Windows.Forms.Button btnEliminarPlato;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCampoNombre;
+        private System.Windows.Forms.Button btnBuscarNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIdPlato;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEstado;
-        private System.Windows.Forms.Button btnEliminarPlato;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCampoNombre;
-        private System.Windows.Forms.Button btnBuscarNombre;
     }
 }

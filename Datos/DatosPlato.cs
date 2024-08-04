@@ -79,18 +79,18 @@ namespace Datos
             {
                 cmd.Connection = conn;
                 cmd.CommandText = comando;
-               
-                dr = cmd.ExecuteReader();              
+
+                dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                        Plato plato = new Plato(
-                        Convert.ToInt32(dr["idPlato"]),
-                        dr["nombre"].ToString().TrimEnd(),
-                        dr["descripcion"].ToString().TrimEnd(),
-                        Convert.ToDouble(dr["precio"]),
-                        Convert.ToInt32(dr["estado"]) == 1,
-                        Convert.ToInt32(dr["estadoLogico"]) == 1
-                    );
+                    Plato plato = new Plato(
+                    Convert.ToInt32(dr["idPlato"]),
+                    dr["nombre"].ToString().TrimEnd(),
+                    dr["descripcion"].ToString().TrimEnd(),
+                    Convert.ToDouble(dr["precio"]),
+                    Convert.ToInt32(dr["estado"]) == 1,
+                    Convert.ToInt32(dr["estadoLogico"]) == 1
+                );
                     lista.Add(plato);
                 }
             }
@@ -105,9 +105,6 @@ namespace Datos
 
             return lista;
         }
-
-
-
 
         public string ActualizarPlato(Plato plato, SqlConnection conn)
         {

@@ -14,17 +14,27 @@ namespace Visual
     public partial class FrmEliminarPlato : Form
     {
         private CtrlPlato ctrlPlato;
+        private CtrlPdfPlato ctrlPdfPlato;
 
         public FrmEliminarPlato(CtrlPlato ctrlPlato)
         {
             InitializeComponent();
             this.ctrlPlato = ctrlPlato;
+            ctrlPdfPlato = new CtrlPdfPlato();
             ctrlPlato.LlenarPlatosEliminados(dgvEliminarPlato);
         }
 
-        private void FrmEliminarPlato_Load(object sender, EventArgs e)
+        private void btnBuscarNunEli_Click(object sender, EventArgs e)
         {
-
+            if (int.TryParse(txtBuscarNumEli.Text, out int idPlato))
+            {
+                CtrlPlato ctrlPlato = new CtrlPlato();
+                ctrlPlato.LlenarEliminadosPorId(dgvEliminarPlato, idPlato);
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un ID válido.");
+            }
         }
 
         private void btnVolverPlato_Click_1(object sender, EventArgs e)
@@ -32,6 +42,23 @@ namespace Visual
             this.Close();
         }
 
-        
+        private void btnBuscarPrecio_Click(object sender, EventArgs e)
+        {
+            double precio = (double)nunPrecio.Value;
+            CtrlPlato ctrlPlato = new CtrlPlato();
+            ctrlPlato.LlenarEliminadosPorPrecio(dgvEliminarPlato, precio);
+        }
+
+        private void btnTodos_Click(object sender, EventArgs e)
+        {
+            CtrlPlato ctrlPlato = new CtrlPlato();
+            ctrlPlato.LlenarPlatosEliminados(dgvEliminarPlato);
+        }
+
+        private void btnGenerarPdfEli_Click(object sender, EventArgs e)
+        {
+            ctrlPdfPlato.GenerarPDF(dgvEliminarPlato);
+            ctrlPdfPlato.AbrirPDF();
+        }
     }
 }

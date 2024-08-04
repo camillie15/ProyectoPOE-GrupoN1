@@ -77,8 +77,7 @@ namespace Visual
             // txtIdCliente
             // 
             this.txtIdCliente.BackColor = System.Drawing.SystemColors.Window;
-            this.txtIdCliente.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtIdCliente.Enabled = false;
+            this.txtIdCliente.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtIdCliente.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdCliente.Location = new System.Drawing.Point(144, 72);
             this.txtIdCliente.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);

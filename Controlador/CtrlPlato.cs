@@ -152,6 +152,37 @@ namespace Controlador
             }
         }
 
+        public void LlenarEliminadosPorId(DataGridView dgvEliminarPlato, int idPlato)
+        {
+            int i = 0;
+            dgvEliminarPlato.Rows.Clear();
+            string msj = cnBDD.Conectar();
+            List<Plato> platosEliminados = dplato.ConsultarPlatosEliminados(cnBDD.Cn);
+            cnBDD.Desconectar();
+
+            IEnumerable<Plato> platosFiltrados = platosEliminados.Where(p => p.IdPlato == idPlato);
+
+            if (!platosFiltrados.Any())
+            {
+                MessageBox.Show("Plato no encontrado.");
+            }
+            else
+            {
+                foreach (Plato p in platosFiltrados)
+                {
+                    i = dgvEliminarPlato.Rows.Add();
+                    dgvEliminarPlato.Rows[i].Cells[0].Value = i + 1;
+                    dgvEliminarPlato.Rows[i].Cells[1].Value = p.IdPlato;
+                    dgvEliminarPlato.Rows[i].Cells[2].Value = p.Nombre;
+                    dgvEliminarPlato.Rows[i].Cells[3].Value = p.Descripcion;
+                    dgvEliminarPlato.Rows[i].Cells[4].Value = p.Precio;
+                    dgvEliminarPlato.Rows[i].Cells[5].Value = p.Estado ? "Disponibles" : "Agotados";
+                    dgvEliminarPlato.Rows[i].Cells[6].Value = p.EstadoLogico ? "Activo" : "Inactivo";
+                }
+            }
+        }
+
+
         public void Llenar(DataGridView dgvVisualizarPlato, bool mostrarTodos = true, string estadoFiltrar = "")
         {
             int i = 0;
@@ -179,12 +210,42 @@ namespace Controlador
             foreach (Plato p in platosFiltrados)
             {
                 i = dgvVisualizarPlato.Rows.Add();
-                dgvVisualizarPlato.Rows[i].Cells["clmNum"].Value = i + 1;
-                dgvVisualizarPlato.Rows[i].Cells["clmIdPlato"].Value = p.IdPlato;
-                dgvVisualizarPlato.Rows[i].Cells["clmNombre"].Value = p.Nombre;
-                dgvVisualizarPlato.Rows[i].Cells["clmDescripcion"].Value = p.Descripcion;
-                dgvVisualizarPlato.Rows[i].Cells["clmPrecio"].Value = p.Precio;
-                dgvVisualizarPlato.Rows[i].Cells["clmEstado"].Value = p.Estado ? "Disponibles" : "Agotados";
+                dgvVisualizarPlato.Rows[i].Cells[0].Value = i + 1;
+                dgvVisualizarPlato.Rows[i].Cells[1].Value = p.IdPlato;
+                dgvVisualizarPlato.Rows[i].Cells[2].Value = p.Nombre;
+                dgvVisualizarPlato.Rows[i].Cells[3].Value = p.Descripcion;
+                dgvVisualizarPlato.Rows[i].Cells[4].Value = p.Precio;
+                dgvVisualizarPlato.Rows[i].Cells[5].Value = p.Estado ? "Disponibles" : "Agotados";
+            }
+        }
+        
+        public void LlenarEliminadosPorPrecio(DataGridView dgvEliminarPlato, double precio)
+        {
+            int i = 0;
+            dgvEliminarPlato.Rows.Clear();
+            string msj = cnBDD.Conectar();
+            List<Plato> platosEliminados = dplato.ConsultarPlatosEliminados(cnBDD.Cn);
+            cnBDD.Desconectar();
+
+            IEnumerable<Plato> platosFiltrados = platosEliminados.Where(p => p.Precio == precio);
+
+            if (!platosFiltrados.Any())
+            {
+                MessageBox.Show("Plato no encontrado.");
+            }
+            else
+            {
+                foreach (Plato p in platosFiltrados)
+                {
+                    i = dgvEliminarPlato.Rows.Add();
+                    dgvEliminarPlato.Rows[i].Cells[0].Value = i + 1;
+                    dgvEliminarPlato.Rows[i].Cells[1].Value = p.IdPlato;
+                    dgvEliminarPlato.Rows[i].Cells[2].Value = p.Nombre;
+                    dgvEliminarPlato.Rows[i].Cells[3].Value = p.Descripcion;
+                    dgvEliminarPlato.Rows[i].Cells[4].Value = p.Precio;
+                    dgvEliminarPlato.Rows[i].Cells[5].Value = p.Estado ? "Disponibles" : "Agotados";
+                    dgvEliminarPlato.Rows[i].Cells[6].Value = p.EstadoLogico ? "Activo" : "Inactivo";
+                }
             }
         }
 
@@ -213,7 +274,7 @@ namespace Controlador
             else
             {
                 int ultimoId = listaPlatos.Max(p => p.IdPlato);
-                if (ultimoId >= 999)
+                if (ultimoId >= 9999)
                 {
                     throw new InvalidOperationException("El ID del plato ha alcanzado el límite máximo.");
                 }
