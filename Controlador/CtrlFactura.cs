@@ -128,20 +128,6 @@ namespace Controlador
             cbdd.Desconectar();
         }
 
-        //public void IngresarFactura(string pIva, string pTotal, string pIdFactura, string pSubtotal, string pEstado, string pMotivoA, string pFecha)
-        //{
-        //    double subtotal = v.toDouble(pSubtotal);
-        //    double iva = v.toDouble(pIva);
-        //    double total = v.toDouble(pTotal);
-        //    int idFactura = v.toInt(pIdFactura);
-        //    bool estado = pEstado.Equals("Activo", StringComparison.OrdinalIgnoreCase);
-        //    DateTime fecha = v.ConvertirDateTime(pFecha);
-
-        //    Pedido pedido = RetornarPedido();
-
-        //    Factura factura = new Factura(iva, total, pedido, idFactura, subtotal, estado, pMotivoA, fecha);
-        //    listafact.Add(factura);
-        //}
 
         public void Calcular(string subtotalText, out string ivaText, out string totalText)
         {
@@ -228,11 +214,9 @@ namespace Controlador
         public void llenarTxt(TextBox txtContenido, TextBox txtSubtotal, TextBox txtCliente)
         {
             Pedido ped = RetornarPedido();
-
-            List<PlatoPedido> listaPlatoPedidoByIdDB = datosPlatoPedido.ConsultarPlatoPedidosPorId(ped.CodPedido);
+            plat = datosPlatoPedido.ConsultarPlatoPedidosPorId(ped.CodPedido);
             string contenido = string.Empty;
-
-            foreach (PlatoPedido platoPedido in listaPlatoPedidoByIdDB)
+            foreach (PlatoPedido platoPedido in plat)
             {
                 if (platoPedido.Estado == true)
                 {
@@ -240,8 +224,6 @@ namespace Controlador
 
                 }
             }
-
-
             txtContenido.Text = contenido;
             txtSubtotal.Text = ped.TotalPedido.ToString();
             txtCliente.Text = ped.Cliente.Cedula;
@@ -250,7 +232,7 @@ namespace Controlador
 
         public void EditarFactura(int idFactura, bool estado, string motivoA)
         {
-            Factura factura = new Factura (idFactura, estado, motivoA);
+            Factura factura = new Factura(idFactura, estado, motivoA);
             dFactura.AnularFactura(factura);
             int posicion = listafact.FindIndex(f => f.IdFactura == idFactura);
             if (posicion >= 0)
@@ -261,19 +243,6 @@ namespace Controlador
         }
 
 
-        public void ConectarBD()
-        {
-            string msj = cbdd.Conectar();
-            if (msj[0] == '1')
-            {
-                MessageBox.Show("Conexion Exitosa!");
-            }
-            else if (msj[0] == '0')
-            {
-                MessageBox.Show("Ocurrio un error: " + msj);
-            }
-            cbdd.Desconectar();
-        }
 
 
     }

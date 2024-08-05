@@ -90,7 +90,6 @@ namespace Datos
                 cn.Conectar();
                 cmd.Connection = cn.Cn;
                 cmd.CommandText = comando;
-  
                 cmd.Parameters.AddWithValue("@estado", ComprobarEstado(factura.Estado));
                 cmd.Parameters.AddWithValue("@motivoA", factura.MotivoA);
                 cmd.Parameters.AddWithValue("@idFactura", factura.IdFactura);

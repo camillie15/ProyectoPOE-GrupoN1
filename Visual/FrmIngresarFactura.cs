@@ -24,7 +24,7 @@ namespace Visual
             ctrlFactura.llenarTxt(txtContenido, txtSubtotal, txtCliente);
 
             string ivaText, totalText;
-            ctrlFactura.Calcular (txtSubtotal.Text, out ivaText, out totalText);
+            ctrlFactura.Calcular(txtSubtotal.Text, out ivaText, out totalText);
             txtIva.Text = ivaText;
             txtTotal.Text = totalText;
             this.txtSubtotal.TextChanged += new EventHandler(txtSubtotal_TextChanged);

@@ -142,7 +142,6 @@
             this.txtAnularCodfactura.Name = "txtAnularCodfactura";
             this.txtAnularCodfactura.Size = new System.Drawing.Size(131, 40);
             this.txtAnularCodfactura.TabIndex = 60;
-            this.txtAnularCodfactura.TextChanged += new System.EventHandler(this.txtAnularCodfactura_TextChanged);
             // 
             // label15
             // 
@@ -213,7 +212,6 @@
             this.label9.Size = new System.Drawing.Size(134, 32);
             this.label9.TabIndex = 49;
             this.label9.Text = "PEDIDO";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label2
             // 
@@ -261,7 +259,6 @@
             this.label1.Size = new System.Drawing.Size(236, 32);
             this.label1.TabIndex = 74;
             this.label1.Text = "Anular Factura";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btRegistroAnulacion
             // 
@@ -312,7 +309,6 @@
             this.Name = "FrmAnularFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAnularFactura";
-            this.Load += new System.EventHandler(this.FrmAnularFactura_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
